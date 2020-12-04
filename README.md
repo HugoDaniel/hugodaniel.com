@@ -1,0 +1,2 @@
+# hugodaniel.com
+Blog :)
