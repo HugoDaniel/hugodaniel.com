@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Three approaches on drawing on the canvas with React and Redux">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;css&#x2F;base.css">
+		
+			<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;rss.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>React - Redux - Canvas</title>
+			<meta name="twitter:title" content="React - Redux - Canvas">
+			<meta property="og:title" content="React - Redux - Canvas">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="Three approaches on drawing on the canvas with React and Redux">
+			<meta property="og:description" content="Three approaches on drawing on the canvas with React and Redux">
+		
+		
+			<meta property="og:article:published_time" content="2016-06-17">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;react-redux-canvas&#x2F;">
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main"> 
+	<article>
+		<header>
+			<h1> React - Redux - Canvas </h1>
+			<p> Three approaches on drawing on the canvas with React and Redux </p>
+			<nav>
+				<time datetime="2016-06-17">17-Jun-2016</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a target="_blank" href="http://www.twitter.com/mr_hugo" rel="external nofollow">@mr_hugo</a>
+					<a href="/posts">All posts</a>
+				</span>
+			</nav>
+		</header>
+		<p>Painting stuff on a <code>&lt;canvas&gt;</code> is easy, call <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext()</a> to get the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> and then use its functions to express yourself.</p>
+<p>Doing an animation is also easy, call <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">window.requestAnimationFrame()</a> to tell the browser that you want to do an animation, and on it use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> to animate as you see fit (tipically clearing the part of the drawing that changed and painting the new version of it).</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">var canvasElem = document.getElementById(&quot;canvas&quot;);
+var w = window.innerWidth;
+var h = window.innerHeight;
+var rectSize = 256;
+// set the canvas size
+canvasElem.setAttribute(&quot;width&quot;, w);
+canvasElem.setAttribute(&quot;height&quot;, h);
+// get the context
+var ctx = canvasElem.getContext(&quot;2d&quot;);
+// the animation loop
+function animation(t) {
+  window.requestAnimationFrame(animation);
+  var time = t*0.001;
+  var cost = (Math.cos(time) + 1) / 2;
+  var sint = (Math.sin(time) + 1) / 2;
+  var rc = rectSize*cost;
+  var rs = rectSize*sint;
+  var color = `rgb(${Math.round(cost*255)},
+               ${Math.round(sint*255)},
+               255)`;
+  ctx.fillStyle = color;
+  // a simple rectangle
+  ctx.fillRect(rc, rs, rc, rs);
+  };
+window.requestAnimationFrame(animation);
+</span></code></pre><h2 id="then-came-react">Then came React</h2>
+<p><a href="https://facebook.github.io/react/">React</a> lets us use composable components of code and html elements to do our web apps of the future. To keep things running nicely it defines a common lifecycle for each component. The most simple version of it is that it &quot;mounts&quot; the component on the renderer and updates it when input changes.</p>
+<p>The most used React DOM renderer is their official <a href="https://www.npmjs.com/package/react-dom">&quot;react-dom&quot;</a>, it uses minimal stateless virtual DOM elements (called ReactElements) for your components and pushes them to the real DOM when appropriate.</p>
+<p>A common approach of using only <a href="https://facebook.github.io/react/">React</a> to paint on a <code>&lt;canvas&gt;</code> is to render the element and fetch the context when it is mounted. Here is an example of a basic canvas component:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">export default class Canvas extends Component {
+  componentDidMount() {
+    let canvas = findDOMNode(this.refs.canvas),
+        ctx = canvas.getContext(&quot;2d&quot;);
+    this.props.onContext(ctx);
+  }
+  render() {
+    const { width, height } = this.props;
+    const canvasCx = `Canvas ${this.props.className}`;
+    return (
+      &lt;canvas className={canvasCx} ref=&quot;canvas&quot;
+              width={width + &quot;px&quot;} height={height + &quot;px&quot;}
+              style={ { display: &quot;block&quot; } }
+      /&gt;
+    );
+  };
+}
+Canvas.propTypes =
+  { width:     PropTypes.number.isRequired
+  , height:    PropTypes.number.isRequired
+  , onContext: PropTypes.func.isRequired
+  };
+</span></code></pre>
+<p>To increase reusability the context is passed to the parent component where it can be used by its developer sprawling moisture of creative juices.</p>
+<p>Here is an example of a component that draws a simple grid using the Canvas component defined above.</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">import React, { Component, PropTypes } from &quot;react&quot;;
+import { findDOMNode }                 from &quot;react-dom&quot;;
+import Canvas                          from &quot;./Canvas.jsx&quot;;
+
+export default class GridCanvas extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = { ctx: null }
+  };
+  _renderGrid() {
+    const { color, lineWidth, squareSize
+          , offsetX, offsetY
+          , width, height
+          } = this.props;
+    const { ctx } = this.state;
+    // adjust for vertical screens:
+    const limit = Math.max(width, height);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    // draw the horizontal lines
+    for( let y = offsetY % squareSize; y &lt; limit; y += squareSize) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+    }
+    // draw the vertical lines
+    for( var x = offsetX % squareSize; x &lt; limit; x += squareSize) {
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+    }
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = color;
+    ctx.stroke();
+    ctx.closePath();
+  }
+  render() {
+    const { width, height, cursor, color } = this.props;
+    const { ctx } = this.state;
+    if( ctx ) {
+      // canvas render commands go here
+      ctx.clearRect(0, 0, width, height);
+      this._renderGrid();
+    }
+    return (
+      &lt;Canvas className={ `GridCanvas ${this.props.className}` }
+              width={width} height={height}
+              onContext={ ctx =&gt; this.setState( { ctx } ) }
+      /&gt;
+    );
+  };
+}
+GridCanvas.propTypes =
+  { color:      PropTypes.string
+  // ^ color for the stroke of the outline of the grid
+  , lineWidth:  PropTypes.number
+  // ^ the width, in pixels, for the grid line
+  , offsetX:    PropTypes.number
+  , offsetY:    PropTypes.number
+  , cursor:     PropTypes.string
+  // ^ the mouse cursor to use when mouse is over the grid
+  , squareSize: PropTypes.number
+  , width:      PropTypes.number.isRequired
+  , height:     PropTypes.number.isRequired
+  };
+GridCanvas.defaultProps =
+  { cursor: &quot;default&quot;
+  };
+</span></code></pre>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> is kept in the state and then used in render() to clear and draw the shapes. This way the code is run in sync with the <a href="https://facebook.github.io/react/docs/component-specs.html">React DOM flow</a>.</p>
+<p>This works very well if you intend to draw single frame art, however since it is coping with <a href="https://facebook.github.io/react/docs/component-specs.html">React lifecycle flow</a> it might not be the best approach if you intend to have 60fps animations because the <a href="https://facebook.github.io/react/index.html">React</a> logic will be running alongside your context drawing code in those precious 16ms of the frame.</p>
+<p>You can try to optimize your <a href="https://facebook.github.io/react/index.html">React</a> UI with <a href="https://facebook.github.io/react/docs/component-specs.html#updating-shouldcomponentupdate">shouldComponentUpdate</a> and you should. But it is still going to contend when your UI hasn't changed and all you want to do is to update the <code>&lt;canvas&gt;</code> with a master piece of an animation.</p>
+<h2 id="react-but-only-partially">React, but only partially</h2>
+<p>Luckily <a href="https://facebook.github.io/react/index.html">React</a> is not intrusive and <a href="https://www.npmjs.com/package/react-dom">&quot;react-dom&quot;</a> is intended to be used along standard HTML/JS code. This allows developers to only use <a href="https://facebook.github.io/react/index.html">React</a> on certain parts of their website, the aspiring artist can then use it for most of the parts of the app and keep the <code>&lt;canvas&gt;</code> outside of its logic.</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">&lt;!doctype html&gt;
+&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt; &lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;React and Canvas&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt; &lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+  &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">react-root</span><span style="color:#c0c5ce;">&quot;&gt;
+      </span><span style="color:#65737e;">&lt;!-- react goes here --&gt;
+    </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#bf616a;">canvas </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">animation</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">canvas</span><span style="color:#c0c5ce;">/&gt;
+    &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://fb.me/react-15.0.1.js</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://fb.me/react-dom-15.0.1.js</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+      </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">animNode </span><span style="color:#c0c5ce;">= document.</span><span style="color:#bf616a;">getElementById</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">animation</span><span style="color:#c0c5ce;">&quot;);
+      </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">ctx </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">animNode</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">getContext</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">2d</span><span style="color:#c0c5ce;">&quot;);
+      </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">loop</span><span style="color:#c0c5ce;">(t) {
+        window.</span><span style="color:#bf616a;">requestAnimationFrame</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">);
+        </span><span style="color:#65737e;">// draw something on the canvas
+      </span><span style="color:#c0c5ce;">}
+      window.</span><span style="color:#bf616a;">requestAnimationFrame</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">);
+      </span><span style="color:#65737e;">// React renders on the &quot;react-root&quot; node
+      </span><span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(&lt;</span><span style="color:#bf616a;">MyApp </span><span style="color:#c0c5ce;">/&gt;, document.</span><span style="color:#bf616a;">getElementById</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">react-root</span><span style="color:#c0c5ce;">&quot;));
+    &lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+  &lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span></code></pre>
+<p>All is good if you don't intend to make the <code>&lt;canvas&gt;</code> high-speed animation interact with the <a href="https://facebook.github.io/react/index.html">React</a> part of the code.</p>
+<p>If you want to communicate between the <code>&lt;canvas&gt;</code> and <a href="https://facebook.github.io/react/index.html">React</a> then you will have to adopt some interaction strategy (e.g. passing a callback as a prop; using plain JS events; etc...).</p>
+<p>However if you have been through the trenches, your battle proven developer experience is probably telling you that this is an optimization trade-off that will quickly grow into a pessimization.</p>
+<p>State will most likely start to accumulate outside and inside of both parts as communication starts becoming more intricate and managing it will give you with many scars to heal.</p>
+<h2 id="redux-will-make-good-for-all-our-sins">Redux will make good for all our sins</h2>
+<p><a href="http://redux.js.org/">Redux</a> defines a unidirectional flow of data on your application. It uses a single store to hold the application state and allows it to be updated by a pure function that computes the next state based on the actions dispatched by the app. They call the pure function a &quot;reducer&quot; and you can have as many of them in your app as you want.</p>
+<p>This is within the spirit of pure components: something that always produces the same output if fed with the same input. When used with <a href="https://facebook.github.io/react/index.html">React</a> it opens the door to simpler optimized components with predictable state.</p>
+<p>Unfortunately the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> is not pure, its functions rely on a bunch of inner state that can change outside of their scope. This makes it hard to master and to manage (on the other side it has sprawled a counteless number of JS libs to work with it).</p>
+<p>It also makes it difficult to integrate with <a href="http://redux.js.org/">Redux</a> which by design expects pure actions and state. It is useless to keep the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> in the store and update it with a reducer because its drawing functions will change it outside the pure flow of <a href="http://redux.js.org/">Redux</a> actions.</p>
+<p>To make things a bit worse, high-performance canvas applications <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas">are encouraged</a> to follow a set of destructive/impure practices which are hard to follow if using React/Redux.</p>
+<h2 id="introducing-redux-canvas">Introducing <a href="https://github.com/HugoDaniel/redux-canvas">redux-canvas</a></h2>
+<p>What if along with the <a href="http://redux.js.org/">Redux</a> actions that update an app pure state we could issue painting actions to be performed in the impure canvas context ?</p>
+<p>This is what <a href="https://github.com/HugoDaniel/redux-canvas">redux-canvas</a> is meant to do. It allows you to keep your UI running purely with well defined components and their respective lifecycles, while giving you a shortcut to call functions on registered canvas contexts.</p>
+<p>It is a <a href="http://redux.js.org/">Redux</a> middleware that works by keeping a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map()</a> of <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a>'s that persist between redux actions, and then it passes the Map() to the functions you specify when dispatching the action.
+These functions are called within a requestAnimationFrame().</p>
+<p>This way your impure code will be playing together with the pure code without messing with it. You can keep your UI pure while playing with canvas as you see fit (perhaps even trying to keep it pure as well).</p>
+<p>In the next post I will write some usage examples with animations and also create a few helper functions to ease the usage of <a href="https://github.com/HugoDaniel/redux-canvas">redux-canvas</a>.</p>
+<p>Meanwhile checkout my take on <a href="https://hugodaniel.pt/posts/mastering-console-log/">console.log()</a>, a quick look into <a href="https://hugodaniel.pt/posts/in-loving-memory-of-immutable/">ImmutableJS</a> and my performance measurements on <a href="https://hugodaniel.pt/posts/how-useful-is-the-javascript-set/">JavaScript Set</a>.</p>
+
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external nofollow">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external nofollow">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external nofollow">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+
+
+	<!--
+		<footer>
+			<div>
+				<p>Latest project</p>
+				<a href="https://gridgenerator.com" target="_blank">Grid Generator</a>
+			</div>
+			<nav>
+				<a target="_blank" href="https://twitter.com/mr_hugo">
+					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;twitter.svg" alt="Twitter" />
+				</a>
+				<a target="_blank" href="https://github.com/HugoDaniel">
+					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;github.svg" alt="GitHub" />
+				</a>
+				<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/">
+					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;linkedin.svg" alt="LinkedIn" />
+				</a>
+			</nav>
+			<div>
+				<p>Liked what you read ?</p>
+				<a href="mailto:mail@hugodaniel.pt">Say hello :)!</a>
+			</div>
+		</footer>
+	-->
+		<script>
+			console.log({
+  "config": {
+    "base_url": "https://hugodaniel.pt",
+    "theme": null,
+    "title": null,
+    "description": null,
+    "default_language": "en",
+    "languages": [],
+    "translations": {},
+    "highlight_code": true,
+    "highlight_theme": "base16-ocean-dark",
+    "generate_feed": true,
+    "feed_limit": null,
+    "feed_filename": "atom.xml",
+    "hard_link_static": false,
+    "taxonomies": [],
+    "compile_sass": false,
+    "minify_html": false,
+    "build_search_index": true,
+    "ignored_content": [],
+    "extra_syntaxes": [],
+    "link_checker": {
+      "skip_prefixes": [],
+      "skip_anchor_prefixes": []
+    },
+    "slugify": {
+      "paths": "on",
+      "taxonomies": "on",
+      "anchors": "on"
+    },
+    "search": {
+      "include_title": true,
+      "include_content": true,
+      "truncate_content_length": null,
+      "include_description": false
+    },
+    "extra": {}
+  },
+  "current_path": "/posts/react-redux-canvas/",
+  "current_url": "https://hugodaniel.pt/posts/react-redux-canvas/",
+  "lang": "en",
+  "page": {
+    "relative_path": "posts/2016-06-17-react-redux-canvas.md",
+    "content": "<p>Painting stuff on a <code>&lt;canvas&gt;</code> is easy, call <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext\">HTMLCanvasElement.getContext()</a> to get the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a> and then use its functions to express yourself.</p>\n<p>Doing an animation is also easy, call <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame\">window.requestAnimationFrame()</a> to tell the browser that you want to do an animation, and on it use the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a> to animate as you see fit (tipically clearing the part of the drawing that changed and painting the new version of it).</p>\n<pre style=\"background-color:#2b303b;\">\n<code><span style=\"color:#c0c5ce;\">var canvasElem = document.getElementById(&quot;canvas&quot;);\nvar w = window.innerWidth;\nvar h = window.innerHeight;\nvar rectSize = 256;\n// set the canvas size\ncanvasElem.setAttribute(&quot;width&quot;, w);\ncanvasElem.setAttribute(&quot;height&quot;, h);\n// get the context\nvar ctx = canvasElem.getContext(&quot;2d&quot;);\n// the animation loop\nfunction animation(t) {\n  window.requestAnimationFrame(animation);\n  var time = t*0.001;\n  var cost = (Math.cos(time) + 1) / 2;\n  var sint = (Math.sin(time) + 1) / 2;\n  var rc = rectSize*cost;\n  var rs = rectSize*sint;\n  var color = `rgb(${Math.round(cost*255)},\n               ${Math.round(sint*255)},\n               255)`;\n  ctx.fillStyle = color;\n  // a simple rectangle\n  ctx.fillRect(rc, rs, rc, rs);\n  };\nwindow.requestAnimationFrame(animation);\n</span></code></pre><h2 id=\"then-came-react\">Then came React</h2>\n<p><a href=\"https://facebook.github.io/react/\">React</a> lets us use composable components of code and html elements to do our web apps of the future. To keep things running nicely it defines a common lifecycle for each component. The most simple version of it is that it &quot;mounts&quot; the component on the renderer and updates it when input changes.</p>\n<p>The most used React DOM renderer is their official <a href=\"https://www.npmjs.com/package/react-dom\">&quot;react-dom&quot;</a>, it uses minimal stateless virtual DOM elements (called ReactElements) for your components and pushes them to the real DOM when appropriate.</p>\n<p>A common approach of using only <a href=\"https://facebook.github.io/react/\">React</a> to paint on a <code>&lt;canvas&gt;</code> is to render the element and fetch the context when it is mounted. Here is an example of a basic canvas component:</p>\n<pre style=\"background-color:#2b303b;\">\n<code><span style=\"color:#c0c5ce;\">export default class Canvas extends Component {\n  componentDidMount() {\n    let canvas = findDOMNode(this.refs.canvas),\n        ctx = canvas.getContext(&quot;2d&quot;);\n    this.props.onContext(ctx);\n  }\n  render() {\n    const { width, height } = this.props;\n    const canvasCx = `Canvas ${this.props.className}`;\n    return (\n      &lt;canvas className={canvasCx} ref=&quot;canvas&quot;\n              width={width + &quot;px&quot;} height={height + &quot;px&quot;}\n              style={ { display: &quot;block&quot; } }\n      /&gt;\n    );\n  };\n}\nCanvas.propTypes =\n  { width:     PropTypes.number.isRequired\n  , height:    PropTypes.number.isRequired\n  , onContext: PropTypes.func.isRequired\n  };\n</span></code></pre>\n<p>To increase reusability the context is passed to the parent component where it can be used by its developer sprawling moisture of creative juices.</p>\n<p>Here is an example of a component that draws a simple grid using the Canvas component defined above.</p>\n<pre style=\"background-color:#2b303b;\">\n<code><span style=\"color:#c0c5ce;\">import React, { Component, PropTypes } from &quot;react&quot;;\nimport { findDOMNode }                 from &quot;react-dom&quot;;\nimport Canvas                          from &quot;./Canvas.jsx&quot;;\n\nexport default class GridCanvas extends Component {\n  constructor(props, context) {\n    super(props, context);\n    this.state = { ctx: null }\n  };\n  _renderGrid() {\n    const { color, lineWidth, squareSize\n          , offsetX, offsetY\n          , width, height\n          } = this.props;\n    const { ctx } = this.state;\n    // adjust for vertical screens:\n    const limit = Math.max(width, height);\n    ctx.beginPath();\n    ctx.moveTo(0, 0);\n    // draw the horizontal lines\n    for( let y = offsetY % squareSize; y &lt; limit; y += squareSize) {\n      ctx.moveTo(0, y);\n      ctx.lineTo(width, y);\n    }\n    // draw the vertical lines\n    for( var x = offsetX % squareSize; x &lt; limit; x += squareSize) {\n      ctx.moveTo(x, 0);\n      ctx.lineTo(x, height);\n    }\n    ctx.lineWidth = lineWidth;\n    ctx.strokeStyle = color;\n    ctx.stroke();\n    ctx.closePath();\n  }\n  render() {\n    const { width, height, cursor, color } = this.props;\n    const { ctx } = this.state;\n    if( ctx ) {\n      // canvas render commands go here\n      ctx.clearRect(0, 0, width, height);\n      this._renderGrid();\n    }\n    return (\n      &lt;Canvas className={ `GridCanvas ${this.props.className}` }\n              width={width} height={height}\n              onContext={ ctx =&gt; this.setState( { ctx } ) }\n      /&gt;\n    );\n  };\n}\nGridCanvas.propTypes =\n  { color:      PropTypes.string\n  // ^ color for the stroke of the outline of the grid\n  , lineWidth:  PropTypes.number\n  // ^ the width, in pixels, for the grid line\n  , offsetX:    PropTypes.number\n  , offsetY:    PropTypes.number\n  , cursor:     PropTypes.string\n  // ^ the mouse cursor to use when mouse is over the grid\n  , squareSize: PropTypes.number\n  , width:      PropTypes.number.isRequired\n  , height:     PropTypes.number.isRequired\n  };\nGridCanvas.defaultProps =\n  { cursor: &quot;default&quot;\n  };\n</span></code></pre>\n<p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a> is kept in the state and then used in render() to clear and draw the shapes. This way the code is run in sync with the <a href=\"https://facebook.github.io/react/docs/component-specs.html\">React DOM flow</a>.</p>\n<p>This works very well if you intend to draw single frame art, however since it is coping with <a href=\"https://facebook.github.io/react/docs/component-specs.html\">React lifecycle flow</a> it might not be the best approach if you intend to have 60fps animations because the <a href=\"https://facebook.github.io/react/index.html\">React</a> logic will be running alongside your context drawing code in those precious 16ms of the frame.</p>\n<p>You can try to optimize your <a href=\"https://facebook.github.io/react/index.html\">React</a> UI with <a href=\"https://facebook.github.io/react/docs/component-specs.html#updating-shouldcomponentupdate\">shouldComponentUpdate</a> and you should. But it is still going to contend when your UI hasn't changed and all you want to do is to update the <code>&lt;canvas&gt;</code> with a master piece of an animation.</p>\n<h2 id=\"react-but-only-partially\">React, but only partially</h2>\n<p>Luckily <a href=\"https://facebook.github.io/react/index.html\">React</a> is not intrusive and <a href=\"https://www.npmjs.com/package/react-dom\">&quot;react-dom&quot;</a> is intended to be used along standard HTML/JS code. This allows developers to only use <a href=\"https://facebook.github.io/react/index.html\">React</a> on certain parts of their website, the aspiring artist can then use it for most of the parts of the app and keep the <code>&lt;canvas&gt;</code> outside of its logic.</p>\n<pre style=\"background-color:#2b303b;\">\n<code><span style=\"color:#c0c5ce;\">&lt;!doctype html&gt;\n&lt;</span><span style=\"color:#bf616a;\">html</span><span style=\"color:#c0c5ce;\">&gt;\n  &lt;</span><span style=\"color:#bf616a;\">head</span><span style=\"color:#c0c5ce;\">&gt; &lt;</span><span style=\"color:#bf616a;\">title</span><span style=\"color:#c0c5ce;\">&gt;React and Canvas&lt;/</span><span style=\"color:#bf616a;\">title</span><span style=\"color:#c0c5ce;\">&gt; &lt;/</span><span style=\"color:#bf616a;\">head</span><span style=\"color:#c0c5ce;\">&gt;\n  &lt;</span><span style=\"color:#bf616a;\">body</span><span style=\"color:#c0c5ce;\">&gt;\n    &lt;</span><span style=\"color:#bf616a;\">div </span><span style=\"color:#8fa1b3;\">id</span><span style=\"color:#c0c5ce;\">=&quot;</span><span style=\"color:#a3be8c;\">react-root</span><span style=\"color:#c0c5ce;\">&quot;&gt;\n      </span><span style=\"color:#65737e;\">&lt;!-- react goes here --&gt;\n    </span><span style=\"color:#c0c5ce;\">&lt;/</span><span style=\"color:#bf616a;\">div</span><span style=\"color:#c0c5ce;\">&gt;\n    &lt;</span><span style=\"color:#bf616a;\">canvas </span><span style=\"color:#8fa1b3;\">id</span><span style=\"color:#c0c5ce;\">=&quot;</span><span style=\"color:#a3be8c;\">animation</span><span style=\"color:#c0c5ce;\">&quot;&gt;&lt;/</span><span style=\"color:#bf616a;\">canvas</span><span style=\"color:#c0c5ce;\">/&gt;\n    &lt;</span><span style=\"color:#bf616a;\">script </span><span style=\"color:#d08770;\">src</span><span style=\"color:#c0c5ce;\">=&quot;</span><span style=\"color:#a3be8c;\">https://fb.me/react-15.0.1.js</span><span style=\"color:#c0c5ce;\">&quot;&gt;&lt;/</span><span style=\"color:#bf616a;\">script</span><span style=\"color:#c0c5ce;\">&gt;\n    &lt;</span><span style=\"color:#bf616a;\">script </span><span style=\"color:#d08770;\">src</span><span style=\"color:#c0c5ce;\">=&quot;</span><span style=\"color:#a3be8c;\">https://fb.me/react-dom-15.0.1.js</span><span style=\"color:#c0c5ce;\">&quot;&gt;&lt;/</span><span style=\"color:#bf616a;\">script</span><span style=\"color:#c0c5ce;\">&gt;\n    &lt;</span><span style=\"color:#bf616a;\">script</span><span style=\"color:#c0c5ce;\">&gt;\n      </span><span style=\"color:#b48ead;\">var </span><span style=\"color:#bf616a;\">animNode </span><span style=\"color:#c0c5ce;\">= document.</span><span style=\"color:#bf616a;\">getElementById</span><span style=\"color:#c0c5ce;\">(&quot;</span><span style=\"color:#a3be8c;\">animation</span><span style=\"color:#c0c5ce;\">&quot;);\n      </span><span style=\"color:#b48ead;\">var </span><span style=\"color:#bf616a;\">ctx </span><span style=\"color:#c0c5ce;\">= </span><span style=\"color:#bf616a;\">animNode</span><span style=\"color:#c0c5ce;\">.</span><span style=\"color:#bf616a;\">getContext</span><span style=\"color:#c0c5ce;\">(&quot;</span><span style=\"color:#a3be8c;\">2d</span><span style=\"color:#c0c5ce;\">&quot;);\n      </span><span style=\"color:#b48ead;\">function </span><span style=\"color:#8fa1b3;\">loop</span><span style=\"color:#c0c5ce;\">(t) {\n        window.</span><span style=\"color:#bf616a;\">requestAnimationFrame</span><span style=\"color:#c0c5ce;\">(</span><span style=\"color:#bf616a;\">loop</span><span style=\"color:#c0c5ce;\">);\n        </span><span style=\"color:#65737e;\">// draw something on the canvas\n      </span><span style=\"color:#c0c5ce;\">}\n      window.</span><span style=\"color:#bf616a;\">requestAnimationFrame</span><span style=\"color:#c0c5ce;\">(</span><span style=\"color:#bf616a;\">loop</span><span style=\"color:#c0c5ce;\">);\n      </span><span style=\"color:#65737e;\">// React renders on the &quot;react-root&quot; node\n      </span><span style=\"color:#ebcb8b;\">ReactDOM</span><span style=\"color:#c0c5ce;\">.</span><span style=\"color:#bf616a;\">render</span><span style=\"color:#c0c5ce;\">(&lt;</span><span style=\"color:#bf616a;\">MyApp </span><span style=\"color:#c0c5ce;\">/&gt;, document.</span><span style=\"color:#bf616a;\">getElementById</span><span style=\"color:#c0c5ce;\">(&quot;</span><span style=\"color:#a3be8c;\">react-root</span><span style=\"color:#c0c5ce;\">&quot;));\n    &lt;/</span><span style=\"color:#bf616a;\">script</span><span style=\"color:#c0c5ce;\">&gt;\n  &lt;/</span><span style=\"color:#bf616a;\">body</span><span style=\"color:#c0c5ce;\">&gt;\n&lt;/</span><span style=\"color:#bf616a;\">html</span><span style=\"color:#c0c5ce;\">&gt;\n</span></code></pre>\n<p>All is good if you don't intend to make the <code>&lt;canvas&gt;</code> high-speed animation interact with the <a href=\"https://facebook.github.io/react/index.html\">React</a> part of the code.</p>\n<p>If you want to communicate between the <code>&lt;canvas&gt;</code> and <a href=\"https://facebook.github.io/react/index.html\">React</a> then you will have to adopt some interaction strategy (e.g. passing a callback as a prop; using plain JS events; etc...).</p>\n<p>However if you have been through the trenches, your battle proven developer experience is probably telling you that this is an optimization trade-off that will quickly grow into a pessimization.</p>\n<p>State will most likely start to accumulate outside and inside of both parts as communication starts becoming more intricate and managing it will give you with many scars to heal.</p>\n<h2 id=\"redux-will-make-good-for-all-our-sins\">Redux will make good for all our sins</h2>\n<p><a href=\"http://redux.js.org/\">Redux</a> defines a unidirectional flow of data on your application. It uses a single store to hold the application state and allows it to be updated by a pure function that computes the next state based on the actions dispatched by the app. They call the pure function a &quot;reducer&quot; and you can have as many of them in your app as you want.</p>\n<p>This is within the spirit of pure components: something that always produces the same output if fed with the same input. When used with <a href=\"https://facebook.github.io/react/index.html\">React</a> it opens the door to simpler optimized components with predictable state.</p>\n<p>Unfortunately the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a> is not pure, its functions rely on a bunch of inner state that can change outside of their scope. This makes it hard to master and to manage (on the other side it has sprawled a counteless number of JS libs to work with it).</p>\n<p>It also makes it difficult to integrate with <a href=\"http://redux.js.org/\">Redux</a> which by design expects pure actions and state. It is useless to keep the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a> in the store and update it with a reducer because its drawing functions will change it outside the pure flow of <a href=\"http://redux.js.org/\">Redux</a> actions.</p>\n<p>To make things a bit worse, high-performance canvas applications <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas\">are encouraged</a> to follow a set of destructive/impure practices which are hard to follow if using React/Redux.</p>\n<h2 id=\"introducing-redux-canvas\">Introducing <a href=\"https://github.com/HugoDaniel/redux-canvas\">redux-canvas</a></h2>\n<p>What if along with the <a href=\"http://redux.js.org/\">Redux</a> actions that update an app pure state we could issue painting actions to be performed in the impure canvas context ?</p>\n<p>This is what <a href=\"https://github.com/HugoDaniel/redux-canvas\">redux-canvas</a> is meant to do. It allows you to keep your UI running purely with well defined components and their respective lifecycles, while giving you a shortcut to call functions on registered canvas contexts.</p>\n<p>It is a <a href=\"http://redux.js.org/\">Redux</a> middleware that works by keeping a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map\">Map()</a> of <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D\">CanvasRenderingContext</a>'s that persist between redux actions, and then it passes the Map() to the functions you specify when dispatching the action.\nThese functions are called within a requestAnimationFrame().</p>\n<p>This way your impure code will be playing together with the pure code without messing with it. You can keep your UI pure while playing with canvas as you see fit (perhaps even trying to keep it pure as well).</p>\n<p>In the next post I will write some usage examples with animations and also create a few helper functions to ease the usage of <a href=\"https://github.com/HugoDaniel/redux-canvas\">redux-canvas</a>.</p>\n<p>Meanwhile checkout my take on <a href=\"https://hugodaniel.pt/posts/mastering-console-log/\">console.log()</a>, a quick look into <a href=\"https://hugodaniel.pt/posts/in-loving-memory-of-immutable/\">ImmutableJS</a> and my performance measurements on <a href=\"https://hugodaniel.pt/posts/how-useful-is-the-javascript-set/\">JavaScript Set</a>.</p>\n",
+    "permalink": "https://hugodaniel.pt/posts/react-redux-canvas/",
+    "slug": "react-redux-canvas",
+    "ancestors": [
+      "_index.md",
+      "posts/_index.md"
+    ],
+    "title": "React - Redux - Canvas",
+    "description": "Three approaches on drawing on the canvas with React and Redux",
+    "updated": null,
+    "date": "2016-06-17",
+    "year": 2016,
+    "month": 6,
+    "day": 17,
+    "taxonomies": {},
+    "extra": {
+      "place": "Lisboa",
+      "author": "Hugo Daniel"
+    },
+    "path": "/posts/react-redux-canvas/",
+    "components": [
+      "posts",
+      "react-redux-canvas"
+    ],
+    "summary": null,
+    "toc": [
+      {
+        "level": 2,
+        "id": "then-came-react",
+        "permalink": "https://hugodaniel.pt/posts/react-redux-canvas/#then-came-react",
+        "title": "Then came React",
+        "children": []
+      },
+      {
+        "level": 2,
+        "id": "react-but-only-partially",
+        "permalink": "https://hugodaniel.pt/posts/react-redux-canvas/#react-but-only-partially",
+        "title": "React, but only partially",
+        "children": []
+      },
+      {
+        "level": 2,
+        "id": "redux-will-make-good-for-all-our-sins",
+        "permalink": "https://hugodaniel.pt/posts/react-redux-canvas/#redux-will-make-good-for-all-our-sins",
+        "title": "Redux will make good for all our sins",
+        "children": []
+      },
+      {
+        "level": 2,
+        "id": "introducing-redux-canvas",
+        "permalink": "https://hugodaniel.pt/posts/react-redux-canvas/#introducing-redux-canvas",
+        "title": "Introducing redux-canvas",
+        "children": []
+      }
+    ],
+    "word_count": 1551,
+    "reading_time": 8,
+    "assets": [],
+    "draft": false,
+    "lang": "en",
+    "lighter": null,
+    "heavier": null,
+    "earlier": {
+      "relative_path": "posts/2016-06-16-bootstrapping2.md",
+      "content": "<p>Lisbon is in party, this year the anual city holiday is happening in sync with a national holiday.</p>\n<p>This means the common Lisbon worker will get 4 days of paid holiday for free :)</p>\n<p>The Lisbon party actually lasts for 2 whole weeks, where you can dance and sing a blend of new-age cheesy pop music. Most of the fun happens during the night.</p>\n<p>In order to carry 3 extra days of holidays for the next week (this way i would be able to recover from sunday night) i decided to work for 7 days on my 2nd week (through the weekend).</p>\n<p><img src=\"/images/sardinha.jpg\" alt=\"Lisbon party sardine 2016\" title=\"Uma sardinha das que se comem com os olhos\" /></p>\n<h2 id=\"2nd-week\">2nd Week</h2>\n<p>In the beginning of the week i opened a <a href=\"https://github.com/paintpoint/paintpt/issues/2\">ticket</a> to render a simple square grid on the canvas. This was supposed to be a simple task but it took me a bit to complete.</p>\n<p>What would be a good way to render to canvas using react/redux ?</p>\n<p>What would be a good data type for the paint app ?</p>\n<p>How would it interact with the canvas and the react/redux logic ?</p>\n<p>These questions made me start a new sub-project that i named &quot;<a href=\"https://github.com/HugoDaniel/redux-canvas\">redux-canvas</a>&quot;. It is yet another way to draw on the canvas using react/redux.</p>\n<p>By the end of the week (sunday, 12) i did not yet had it finished or published, but stay tuned (subscribe please) because a more thorough blog post about all of this is on the way.</p>\n<p>Don't forget to subscribe and checkout the other &quot;bootstrapping&quot; posts: <a href=\"https://hugodaniel.pt/posts/bootstrapping1/\">Bootstrapping 1</a>, <a href=\"https://hugodaniel.pt/posts/bootstrapping3/\">Boostrapping 3</a> and <a href=\"https://hugodaniel.pt/posts/bootstrapping4/\">Bootstrapping 4</a>.</p>\n",
+      "permalink": "https://hugodaniel.pt/posts/bootstrapping2/",
+      "slug": "bootstrapping2",
+      "ancestors": [
+        "_index.md",
+        "posts/_index.md"
+      ],
+      "title": "Bootstrapping - week 2",
+      "description": "A weekly log of my attempts to bootstrap myself - 2nd week",
+      "updated": null,
+      "date": "2016-06-16",
+      "year": 2016,
+      "month": 6,
+      "day": 16,
+      "taxonomies": {},
+      "extra": {
+        "place": "Lisboa",
+        "author": "Hugo Daniel"
+      },
+      "path": "/posts/bootstrapping2/",
+      "components": [
+        "posts",
+        "bootstrapping2"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 2,
+          "id": "2nd-week",
+          "permalink": "https://hugodaniel.pt/posts/bootstrapping2/#2nd-week",
+          "title": "2nd Week",
+          "children": []
+        }
+      ],
+      "word_count": 299,
+      "reading_time": 2,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lighter": null,
+      "heavier": null,
+      "earlier": null,
+      "later": null,
+      "translations": []
+    },
+    "later": {
+      "relative_path": "posts/2016-06-24-bootstrapping3.md",
+      "content": "<p>This week was a blast! I took 3 days off and only worked thursday and friday.</p>\n<p>This wasn't entirely on purpose, my intention was not to have real &quot;vacations&quot;, but to enjoy the overall Lisbon party mood. Tuesday was also the first game of the portuguese football team in euro 2016.</p>\n<p>Though i am not a football fan, i do like to watch the portuguese team play with the eventuality of seeing some magical moves by Cristiano Ronaldo.</p>\n<p><img src=\"/images/ronaldo.jpg\" alt=\"Cristiano Ronaldo 2012\" /></p>\n<p>I know by experience that everything stops here in portugal when a big football match is going to happen. This is a strong motivator to go out drink some beers with friends in antecipation for the game.</p>\n<p>It is important to note that a win by the home team is one of the best excuses to party hard. Unfortunately we did not win, it was a tie with Iceland, which meant no after party as a huge victory was expected.</p>\n<p>Still it is better to enjoy the day than to stress with &quot;having something to do&quot;. Let the work be done on more appropriate days.</p>\n<h2 id=\"3rd-week\">3rd Week</h2>\n<p>The two remaining work days i wrote the <a href=\"https://hugodaniel.pt/posts/react-redux-canvas/\">introductory post</a> on &quot;<a href=\"https://github.com/HugoDaniel/redux-canvas\">redux-canvas</a> and release it on npm together with a simple usage example.</p>\n<p>This is going to be the basis of the paint application as it allows canvas (which is crippled with side-effects) to be used directly in pure redux actions.</p>\n<p>And it was it. If you enjoy reading this please consider subscribing with your e-mail so we can stay in contact (i will personally send you an e-mail).</p>\n<p>Check out the other &quot;bootstrapping&quot; posts: <a href=\"https://hugodaniel.pt/posts/bootstrapping1/\">Bootstrapping 1</a>, <a href=\"https://hugodaniel.pt/posts/bootstrapping2/\">Bootstrapping 2</a> and <a href=\"https://hugodaniel.pt/posts/bootstrapping4/\">Bootstrapping 4</a>.</p>\n",
+      "permalink": "https://hugodaniel.pt/posts/bootstrapping3/",
+      "slug": "bootstrapping3",
+      "ancestors": [
+        "_index.md",
+        "posts/_index.md"
+      ],
+      "title": "Bootstrapping - week 3",
+      "description": "A weekly log of my attempts to bootstrap myself - 3rd week",
+      "updated": null,
+      "date": "2016-06-24",
+      "year": 2016,
+      "month": 6,
+      "day": 24,
+      "taxonomies": {},
+      "extra": {
+        "place": "Lisboa",
+        "author": "Hugo Daniel"
+      },
+      "path": "/posts/bootstrapping3/",
+      "components": [
+        "posts",
+        "bootstrapping3"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 2,
+          "id": "3rd-week",
+          "permalink": "https://hugodaniel.pt/posts/bootstrapping3/#3rd-week",
+          "title": "3rd Week",
+          "children": []
+        }
+      ],
+      "word_count": 316,
+      "reading_time": 2,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lighter": null,
+      "heavier": null,
+      "earlier": null,
+      "later": null,
+      "translations": []
+    },
+    "translations": []
+  }
+});
+		</script>
+	</body>
+</html>
