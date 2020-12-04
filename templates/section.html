@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+<main class="all-posts" role="main">
+	<h2>{{ section.title }}</h2>
+	<p>Here is a full list of articles that I have written</p>
+	<ol class="posts new">
+		{% for page in section.pages %}
+			{% if page.draft %}
+				<div />
+			{% else %}
+				{% if page.date | date(format="%s") | int >= 1606667348076 %}
+				<li>
+					<a href="{{ page.permalink }}">{{ page.title }}</a>
+					<p> {{ page.description }} </p>
+					<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+				</li>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</ol>
+</main>
+
+<aside>
+	<h2>Some older posts</h3>
+	<ol class="posts old">
+		{% for page in section.pages %}
+			{% if page.draft %}
+				<div />
+			{% else %}
+				{% if page.date | date(format="%s") | int < 1606667348076  %}
+				<li>
+					<a href="{{ page.permalink }}">{{ page.title }}</a>
+					<span>
+					<p> {{ page.description }} </p>
+					<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+					</span>
+				</li>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</ol>
+</aside>
+{% endblock content %}

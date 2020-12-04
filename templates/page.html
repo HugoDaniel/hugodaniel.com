@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block content %}
+<main role="main"> 
+	<article>
+		<header>
+			<h1> {{ page.title }} </h1>
+			<p> {{ page.description }} </p>
+			<nav>
+				<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a target="_blank" href="http://www.twitter.com/mr_hugo" rel="external nofollow">@mr_hugo</a>
+					<a href="/posts">All posts</a>
+				</span>
+			</nav>
+		</header>
+		{{ page.content | safe }}
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external nofollow">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external nofollow">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external nofollow">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+
+{% endblock content %}
