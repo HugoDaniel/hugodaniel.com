@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title></title>
-	<link href="https://hugodaniel.pt/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://hugodaniel.pt"/>
+	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2020-06-07T00:00:00+00:00</updated>
-	<id>https://hugodaniel.pt/atom.xml</id>
+	<id>https://hugodaniel.com/atom.xml</id>
 	<entry xml:lang="en">
 		<title>From Rust to Svelte, what tech stack will I use</title>
 		<published>2020-06-07T00:00:00+00:00</published>
 		<updated>2020-06-07T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/browser-tech-stack-2020/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/browser-tech-stack-2020/</id>
+		<link href="https://hugodaniel.com/posts/browser-tech-stack-2020/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/browser-tech-stack-2020/</id>
 		<content type="html">&lt;p&gt;&lt;strong&gt;TL;DR&lt;&#x2F;strong&gt; Here is a template for your new web app project: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;svelte-template&quot;&gt;Svelte + TypeScript + Parcel + Rust&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The web is a big open platform that keeps evolving with the URL at its core.&lt;&#x2F;p&gt;
 &lt;p&gt;We have a lot of tech and frameworks at our disposal to chose when starting a new web app in 2020.&lt;&#x2F;p&gt;
@@ -63,8 +63,8 @@
 		<title>Keeping track of memory allocations in JS</title>
 		<published>2018-07-06T00:00:00+00:00</published>
 		<updated>2018-07-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/drafts/keeping-track-of-memory-allocations-in-js/" type="text/html"/>
-		<id>https://hugodaniel.pt/drafts/keeping-track-of-memory-allocations-in-js/</id>
+		<link href="https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/" type="text/html"/>
+		<id>https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/</id>
 		<content type="html">&lt;p&gt;Memory is cheap. It is not uncommon for smartphones to carry 2GB or more to play around.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;interact-to-allocate-new-memory&quot;&gt;Interact to allocate new memory&lt;&#x2F;h2&gt;
 &lt;h2 id=&quot;animate-memory-allocations&quot;&gt;Animate memory allocations&lt;&#x2F;h2&gt;
@@ -75,8 +75,8 @@
 		<title>Introducing Grid Generator Version 0</title>
 		<published>2018-07-05T00:00:00+00:00</published>
 		<updated>2018-07-05T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/grid-generator-v0/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/grid-generator-v0/</id>
+		<link href="https://hugodaniel.com/posts/grid-generator-v0/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/grid-generator-v0/</id>
 		<content type="html">&lt;p&gt;The purpose of this post is to introduce my personal project: Grid Generator. This is the first post about it since it went online on the 1st of July 2018.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;what-problem-does-it-solve&quot;&gt;What problem does it solve?&lt;&#x2F;h2&gt;
 &lt;p&gt;I have always struggled with design tools. In particular those that came to see the light of the day during the 90&#x27;s (Adobe I am looking at you).&lt;&#x2F;p&gt;
@@ -147,8 +147,8 @@
 		<title>Eviction and Debt</title>
 		<published>2018-07-04T00:00:00+00:00</published>
 		<updated>2018-07-04T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/eviction-and-debt/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/eviction-and-debt/</id>
+		<link href="https://hugodaniel.com/posts/eviction-and-debt/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/eviction-and-debt/</id>
 		<content type="html">&lt;p&gt;The last 6 months?&lt;&#x2F;p&gt;
 &lt;p&gt;Rents rising, IRS, grants and the version 0 of my personal project&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;a-lisbon-story-part-i-eviction&quot;&gt;A Lisbon Story (part I - eviction)&lt;&#x2F;h2&gt;
@@ -188,8 +188,8 @@
 		<title>WebSummit opening night. Sharing the stage with Paddy Cosgrave</title>
 		<published>2017-11-06T00:00:00+00:00</published>
 		<updated>2017-11-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/websummit-opening-night/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/websummit-opening-night/</id>
+		<link href="https://hugodaniel.com/posts/websummit-opening-night/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/websummit-opening-night/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;abertura02.jpg&quot; alt=&quot;Paddy Cosgrave taking a selfie on the Center Stage during the opening night&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;WebSummit first day came with a mix of up and downs sprinkled with the duality of having the desire to scream with euphoria versus admiting that the event is nothing special to avoid stressing about it.&lt;&#x2F;p&gt;
 &lt;p&gt;This week I was contacted by their team to go up on the main stage with some of the startups that were present in last week event with the President Marcelo Rebelo de Sousa. That gave me cold sweats even though I knew it was nothing special. The idea was just to go on stage when they called for us and be there representing our startup scene.&lt;&#x2F;p&gt;
@@ -205,8 +205,8 @@
 		<title>Grid Generator First Stand</title>
 		<published>2017-11-03T00:00:00+00:00</published>
 		<updated>2017-11-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/gridgenerator-first-stand/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/gridgenerator-first-stand/</id>
+		<link href="https://hugodaniel.com/posts/gridgenerator-first-stand/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/gridgenerator-first-stand/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;beato1.jpg&quot; alt=&quot;Beato Creative Hub&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;About a month ago I was planning my WebSummit approach when I realized that I had never been to such an event. Much less have a stand of my project there.&lt;&#x2F;p&gt;
 &lt;p&gt;That was when I started searching for opportunities to be at events. To train and prepare for the WebSummit.&lt;&#x2F;p&gt;
@@ -235,7 +235,7 @@ Since I was there to take the most of it, I grabed a few flyers and actively wen
 &lt;h2 id=&quot;wave-3-some-important-people&quot;&gt;Wave 3: Some important people&lt;&#x2F;h2&gt;
 &lt;p&gt;After the talks ended in the other pavillion a hoard of scouts in suits approached our stands and told the people next to me, in an important tone, that they would have to speak with the secretary of state for the industry.
 It happenened. She talked to them, took some photos, and promptly decided to ignore most of us in the other stands, talking only to a select few. The other politicians didn&#x27;t bother to show up.&lt;&#x2F;p&gt;
-&lt;p&gt;Startups were apparently the boring part in this startup event. &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;meeting-the-president&#x2F;&quot;&gt;Marcelo Rebelo de Sousa, yesterday,&lt;&#x2F;a&gt; was kind enough to give voice to anyone who wanted to speak.&lt;&#x2F;p&gt;
+&lt;p&gt;Startups were apparently the boring part in this startup event. &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;meeting-the-president&#x2F;&quot;&gt;Marcelo Rebelo de Sousa, yesterday,&lt;&#x2F;a&gt; was kind enough to give voice to anyone who wanted to speak.&lt;&#x2F;p&gt;
 &lt;p&gt;After this I went out. Grabbed a slice of the aniversary cake that they were eating outside (even the cake was outside the stands area), and had another beer while meditating on what had happened. After this I left to dance &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=9DYElqcREXc&quot;&gt;Kizomba&lt;&#x2F;a&gt; in another part of the city.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;I decided to participate in this event in order to train for our WebSummit stand. Overall it was a fun experience albeit the first of its kind I had. I am not sure I would want to repeat it again if given the chance.&lt;&#x2F;p&gt;
@@ -250,15 +250,15 @@ It happenened. She talked to them, took some photos, and promptly decided to ign
 &lt;li&gt;Keep a log of e-mails and reach them a few days later (ask people for their e-mails and not the other way around: don&#x27;t give your e-mail expecting to be contacted: you won&#x27;t be).&lt;&#x2F;li&gt;
 &lt;li&gt;Eye-candy is important, the stands with the better visual looks got most of the attention.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;Hope this helps and see you at the WebSummit next week &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;in Lisbon&lt;&#x2F;a&gt;, also take a look at some cool &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;places to eat in the touristic area of Lisbon&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
+&lt;p&gt;Hope this helps and see you at the WebSummit next week &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;in Lisbon&lt;&#x2F;a&gt;, also take a look at some cool &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;places to eat in the touristic area of Lisbon&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Meeting the President</title>
 		<published>2017-11-02T00:00:00+00:00</published>
 		<updated>2017-11-02T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/meeting-the-president/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/meeting-the-president/</id>
+		<link href="https://hugodaniel.com/posts/meeting-the-president/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/meeting-the-president/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;inside_coches2.jpg&quot; alt=&quot;He talked to us in the old coach museum&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;A few days ago I got an e-mail from the presidency inviting me to go to an event with the president of Portugal, Marcelo Rebelo de Sousa. This came within the WebSummit context, he wanted to be personally with some of the portuguese startups that are going to attend the WebSummit next week.&lt;&#x2F;p&gt;
 &lt;p&gt;This event would take place in the old National Coach Museum in the near future: today.&lt;&#x2F;p&gt;
@@ -278,15 +278,15 @@ It happenened. She talked to them, took some photos, and promptly decided to ign
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;marcelo2.png&quot; alt=&quot;Me, the guy with no suit near the camers, with a blue circle. Marcelo, the president, at front with a red circle&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Overall it was a fun event I even met an ex-teacher from my university that is now trying to work out an idea to increase bike usage in Lisbon.&lt;&#x2F;p&gt;
 &lt;p&gt;I hope another opportunity like this happens soon, maybe then I can also take a selfie with the Prez. :D&lt;&#x2F;p&gt;
-&lt;p&gt;Meanwhile checkout how &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;first-funding-as-a-bootstrapper-in-portugal&#x2F;&quot;&gt;I got to participate&lt;&#x2F;a&gt; in the StartUp Portugal events. If you are here for the WebSummit don&#x27;t be fooled and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;read my recommendations for places to eat&lt;&#x2F;a&gt; in the touristic area.&lt;&#x2F;p&gt;
+&lt;p&gt;Meanwhile checkout how &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;first-funding-as-a-bootstrapper-in-portugal&#x2F;&quot;&gt;I got to participate&lt;&#x2F;a&gt; in the StartUp Portugal events. If you are here for the WebSummit don&#x27;t be fooled and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;read my recommendations for places to eat&lt;&#x2F;a&gt; in the touristic area.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Where do local hackers eat in Lisbon</title>
 		<published>2017-11-01T00:00:00+00:00</published>
 		<updated>2017-11-01T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/where-do-local-hackers-eat-in-lisbon/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/where-do-local-hackers-eat-in-lisbon/</id>
+		<link href="https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;kid.jpg&quot; alt=&quot;Picture of a kid in the dark looking for a friend to pass the ball while playing football&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;I don&#x27;t know where hackers (as in infosec wizards) eat in Lisbon. We do have a strong background of using things beyond their intended purpose (we call it &amp;quot;desenrascanço&amp;quot; and it is a basic trait of being born in the culture that has sprung here for centuries).&lt;&#x2F;p&gt;
 &lt;p&gt;As is this post is intended for tourists looking for a typical experience.&lt;&#x2F;p&gt;
@@ -364,15 +364,15 @@ We have mostly french influences and also things from all over the world but to 
 &lt;p&gt;Our pastery shifts radically in some seasons, we have a whole range of cakes and snacks that are only done in christmas and some in easter.&lt;&#x2F;p&gt;
 &lt;p&gt;You can find some brazillian pastery, which are heavy in condensed milk (sugar + milk cooked under pressure) and some variations of these with our traditional egg yolk. Just try whatever pops your eye :)&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
-&lt;p&gt;Explore Lisbon, it has many secrets and hidden gems. Our ways might seem a bit strange, clumsy and hard to get into at first, but peeking through the sweet spots can reveal a humble, seasoned and balanced culture (with earned scars of fighting hard against slavery, discrimination, inequality and dictatorship&#x2F;power surges). If you are here next week for the WebSummit lets hang out and have a drink :) &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;about&#x2F;&quot;&gt;Here is my contact at the bottom&lt;&#x2F;a&gt;. Take a look at why I think &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon is an inspiration&lt;&#x2F;a&gt; for my project.&lt;&#x2F;p&gt;
+&lt;p&gt;Explore Lisbon, it has many secrets and hidden gems. Our ways might seem a bit strange, clumsy and hard to get into at first, but peeking through the sweet spots can reveal a humble, seasoned and balanced culture (with earned scars of fighting hard against slavery, discrimination, inequality and dictatorship&#x2F;power surges). If you are here next week for the WebSummit lets hang out and have a drink :) &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;about&#x2F;&quot;&gt;Here is my contact at the bottom&lt;&#x2F;a&gt;. Take a look at why I think &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon is an inspiration&lt;&#x2F;a&gt; for my project.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>My first funding as a bootstrapper in Portugal</title>
 		<published>2017-10-31T00:00:00+00:00</published>
 		<updated>2017-10-31T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/first-funding-as-a-bootstrapper-in-portugal/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/first-funding-as-a-bootstrapper-in-portugal/</id>
+		<link href="https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;startupvoucher.jpg&quot; alt=&quot;StartUp Voucher ad, it reads: &amp;quot;What if your idea could turn into a company ?&amp;quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;In April 2016 I quit from the startup I was working to finally do a personal project. Back then the questions everyone asked me were mostly about money &lt;em&gt;&amp;quot;How are you going to live ?&amp;quot;&lt;&#x2F;em&gt;.
 Even though rent prices in Lisbon have been skyrocketing due to tourism increase and the coming of WebSummit I always had a frugal economical lifestyle. I don&#x27;t have loans, I don&#x27;t have &amp;quot;luxuries&amp;quot; and I can keep my monthly spendings to what some people view as an heroically low value.
@@ -386,15 +386,15 @@ That made me start looking around for investment, preferably some that did not i
 &lt;p&gt;When Lisbon was boiling with WebSummit 2016 I was working full-time to apply to this fund. It took me a few weeks and in December I finally finished the application and sent it. After a some months I got the news that my project was one of the 245 chosen to be on the StartUp Voucher. Since around May 2017 that I have been getting 690EUR each month and working in full force on this project.&lt;&#x2F;p&gt;
 &lt;p&gt;During this time I have been using their support to fine-tune the project in many ways and prepare myself for the first steps on the market. WebSummit is also being promoted by the StartUp Voucher who encourages all tech startups to try to attend.&lt;&#x2F;p&gt;
 &lt;p&gt;Right now I have a working demo that have been using with some friends and potential users and I am planning to start looking for partnerships in early 2018.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;In this link&lt;&#x2F;a&gt; I explain why I decided to go to the WebSummit this year.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;In this link&lt;&#x2F;a&gt; I explain why I decided to go to the WebSummit this year.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>How useful is the JavaScript Set</title>
 		<published>2017-10-25T00:00:00+00:00</published>
 		<updated>2017-10-25T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/how-useful-is-the-javascript-set/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/how-useful-is-the-javascript-set/</id>
+		<link href="https://hugodaniel.com/posts/how-useful-is-the-javascript-set/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/how-useful-is-the-javascript-set/</id>
 		<content type="html">&lt;p&gt;In most languages Set&#x27;s have a clear strong use case: fast union, intersection and difference operations; unfortunately in JavaScript these operations are not readily defined so as an exercise I am going to raise some questions and try to answer them in this post.&lt;&#x2F;p&gt;
 &lt;p&gt;All code is run on Firefox Developer Edition 57.0b11 (64-bit) in macOS.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;initialization&quot;&gt;Initialization&lt;&#x2F;h2&gt;
@@ -528,7 +528,7 @@ console.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;log&lt;&#
 &lt;p&gt;&lt;em&gt;&amp;quot;Set objects must be implemented using either hash tables or other mechanisms that, on average, provide access times that are sublinear on the number of elements in the collection.&amp;quot;&lt;&#x2F;em&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.ecma-international.org&#x2F;ecma-262&#x2F;6.0&#x2F;#sec-set-objects&quot;&gt;[*]&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;It does not even bother heating your CPU as my browser probably implements this to be O(shiznit(n)) for a large enough n (I will not go into detail here so I will leave the measurement as an exercise for you as it is always important&#x2F;necessary to measure Big-O behaviours).&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;insertion-speed&quot;&gt;Insertion speed&lt;&#x2F;h2&gt;
-&lt;p&gt;Right now Sets seem really cool, how about we check how fast is the add() method in comparison to an array push(), like we did in the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;Immutable.List vs Array article&lt;&#x2F;a&gt; ?&lt;&#x2F;p&gt;
+&lt;p&gt;Right now Sets seem really cool, how about we check how fast is the add() method in comparison to an array push(), like we did in the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;Immutable.List vs Array article&lt;&#x2F;a&gt; ?&lt;&#x2F;p&gt;
 &lt;p&gt;The code is simple, two loops, one for Array.push() and another for Set.add().&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;();
@@ -639,15 +639,15 @@ Converting the Set to an Array is not going to help here because &lt;a href=&quo
 &lt;li&gt;Union, Difference, Intersection are easy to implement with Set&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Set&#x27;s are a big part of my project &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;Grid Generator&lt;&#x2F;a&gt;. Keeping these small concepts close to the heart can help you leverage Sets to achieve very good performance even in mobile devices.&lt;&#x2F;p&gt;
-&lt;p&gt;I hope this post was valuable in any way to you. If you are interested &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;here is my take on console.log()&lt;&#x2F;a&gt; and also a &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;look into Immutable&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope this post was valuable in any way to you. If you are interested &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;here is my take on console.log()&lt;&#x2F;a&gt; and also a &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;look into Immutable&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Lisbon as an inspiration for my project</title>
 		<published>2017-10-25T00:00:00+00:00</published>
 		<updated>2017-10-25T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/lisbon-as-an-inspiration-for-my-project/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/lisbon-as-an-inspiration-for-my-project/</id>
+		<link href="https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;Lisbon_gridgenerator1.jpg&quot; alt=&quot;Diptych of Lisbon graffitti in portuguese tiles together with the downtown Lisbon ground&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Recently I was somewhat &amp;quot;forced&amp;quot; to think about the story behind the idea I am working on. If you go to these startup and entrepreneurship events you will see that most projects have some kind of a story behind them.
 Either they start up in a garage (Apple), or they decided to improve their hobbyist girl discrimination app (facebook), or they just somehow were blessed by some mystical event that got their idea and team together to disrupt the universe.&lt;&#x2F;p&gt;
@@ -672,15 +672,15 @@ Which inevitably led me to fail a lot of years in university. I have pictures to
 &lt;p&gt;In a few days Lisbon will be full of people from different culture(s) who are coming in for the WebSummit. If you are visiting don&#x27;t forget to look at the floors and walls.
 They are a source of inspiration.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;Lisbon_gridgenerator4.jpg&quot; alt=&quot;Diptych of a messed up sidewalk diagonal grid and the door detail of a church in &amp;quot;Martim Moniz&amp;quot; where the frontage is entirely rendered on the ground sidewalk&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;If you liked this post &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;check out my project&lt;&#x2F;a&gt; and the reason why &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;I am going to the WebSummit&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If you liked this post &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;check out my project&lt;&#x2F;a&gt; and the reason why &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;I am going to the WebSummit&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Why I decided to go to the WebSummit?</title>
 		<published>2017-10-24T00:00:00+00:00</published>
 		<updated>2017-10-24T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/why-i-decided-to-go-to-the-websummit/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/why-i-decided-to-go-to-the-websummit/</id>
+		<link href="https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;websummit1_tagusriver.jpg&quot; alt=&quot;Tagus river by sunset in Lisbon, with a background bridge that shares some similarities with the Golden Gate in San Francisco&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Personally I find it impossible to answer this question. I feel that it was not me who actually took the decision to go to the WebSummit. Even though I did.&lt;&#x2F;p&gt;
 &lt;p&gt;It all hapened through a sequence of chained events that led me to have to decide to buy a discounted alpha ticket to go there.&lt;&#x2F;p&gt;
@@ -695,15 +695,15 @@ I then changed my mind into going to the WebSummit because he convinced me that 
 &lt;p&gt;That was three months ago, meanwhile I have already considered and reconsidered my previous decision, and my current status is still a bit doubtful about the WebSummit as a worthwhile experience for a bootstrapper. I am certainly not going to look for an investment (like most people apparently go) and the real benefits that I think I will obtain are not easily tangible (personal development and enrichment, maybe some hope of having inspirational talks with different minded people).&lt;&#x2F;p&gt;
 &lt;p&gt;Maybe in WebSummit I will meet people that can open my mind to other different kinds of funding. Maybe in the future I will do a kickstarter campaign or some other kind of funding project.
 Right now I know that at least I get the chance to be in the same place as Al Gore and other great thinkers...&lt;&#x2F;p&gt;
-&lt;p&gt;If you liked this post check out &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon as an inspiration for my project&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If you liked this post check out &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon as an inspiration for my project&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>In loving memory of Immutable.js</title>
 		<published>2017-10-03T00:00:00+00:00</published>
 		<updated>2017-10-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/in-loving-memory-of-immutable/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/in-loving-memory-of-immutable/</id>
+		<link href="https://hugodaniel.com/posts/in-loving-memory-of-immutable/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/in-loving-memory-of-immutable/</id>
 		<content type="html">&lt;p&gt;Any JavaScript spaghetti worth its salt won&#x27;t keep track of its objects references or their updates.
 These are things that happen between the mind of a chef and the ether of a planned portion with lots of defensive copying.
 &lt;a href=&quot;https:&#x2F;&#x2F;facebook.github.io&#x2F;immutable-js&#x2F;&quot;&gt;Immutable.js&lt;&#x2F;a&gt; aims to reduce these portion sizes to match the ones in fancy restaurants while avoiding ingredients like:&lt;&#x2F;p&gt;
@@ -885,8 +885,8 @@ testLst.first().x;
 		<title>vi is not vim</title>
 		<published>2017-08-12T00:00:00+00:00</published>
 		<updated>2017-08-12T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/vi-is-not-vim/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/vi-is-not-vim/</id>
+		<link href="https://hugodaniel.com/posts/vi-is-not-vim/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/vi-is-not-vim/</id>
 		<content type="html">&lt;p&gt;When dinossaurs ruled the earth there was a young kid that had just installed Red Hat Linux 5 on his computer.&lt;br&#x2F;&gt;
 Fascinated with the &amp;quot;OS for the elite&amp;quot; he was about to experience a devouring frustration.
 The kind that gives rise to dark divinities that come to haunt you in your sleep for years to come:&lt;&#x2F;p&gt;
@@ -961,7 +961,7 @@ To do that use the &lt;em&gt;t&lt;&#x2F;em&gt; or &lt;em&gt;f&lt;&#x2F;em&gt; co
 &lt;p&gt;To switch between panes ctrl-w will immediately move your cursor to the next window pane. Instead of pressing twice like vim you only need to press it once. This is hard to get used to at first but it is also hard to live without once used to it.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;nvi_tmux_macos.png&quot; alt=&quot;My nvi with tmux on macos&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;no-macros&quot;&gt;No macros&lt;&#x2F;h2&gt;
-&lt;p&gt;One feature that I consistently used in vim was macros (vim &lt;em&gt;q&lt;&#x2F;em&gt; command). It was easy to create bundles of commands and run them to do your repeated text tasks or grunt work. Very useful when replicating huge data files or setting up a &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;big JSON test file&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One feature that I consistently used in vim was macros (vim &lt;em&gt;q&lt;&#x2F;em&gt; command). It was easy to create bundles of commands and run them to do your repeated text tasks or grunt work. Very useful when replicating huge data files or setting up a &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;big JSON test file&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;In vi you can also use the power of macros through buffers.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Buff it up&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Buffers are easy to use, you can prefix your common text manipulation commands (dd, yy, etc...) to a named buffer. To do that start the command with &amp;quot;&amp;lt;buffer name&amp;gt; where &amp;lt;buffer name&amp;gt; is any letter from a-z.&lt;&#x2F;p&gt;
@@ -1011,8 +1011,8 @@ G
 		<title>Mastering console.log()</title>
 		<published>2017-08-11T00:00:00+00:00</published>
 		<updated>2017-08-11T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/mastering-console-log/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/mastering-console-log/</id>
+		<link href="https://hugodaniel.com/posts/mastering-console-log/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/mastering-console-log/</id>
 		<content type="html">&lt;p&gt;Using &lt;code&gt;console.log()&lt;&#x2F;code&gt; to debug JavaScript, a dynamic weakly-typed interpreted language, feels like drinking beers on a lazy summer sunday afternoon.&lt;&#x2F;p&gt;
 &lt;p&gt;It is easy and you do it without thinking too much on how you could probably be more productive doing something else.&lt;&#x2F;p&gt;
 &lt;p&gt;Truth is that in all the other days of the week you don&#x27;t avoid spraying your code with the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Statements&#x2F;debugger&quot;&gt;&lt;code&gt;debugger&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; keyword and let the developer tools stop and show you the execution context at that exact location.&lt;&#x2F;p&gt;
@@ -1091,7 +1091,7 @@ function logMessage(msg) {
 
 logMessage(someMsg);
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;measuring-console-log&quot;&gt;Measuring console.log()&lt;&#x2F;h2&gt;
-&lt;p&gt;Another thing to keep in mind when using &lt;code&gt;console.log&lt;&#x2F;code&gt; is that it is not free. It does come with a performance hit, how much exactly ? Lets measure it like we did for &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;how-fast-is-nothing&#x2F;&quot;&gt;requestAnimationFrame()&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;p&gt;Another thing to keep in mind when using &lt;code&gt;console.log&lt;&#x2F;code&gt; is that it is not free. It does come with a performance hit, how much exactly ? Lets measure it like we did for &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;how-fast-is-nothing&#x2F;&quot;&gt;requestAnimationFrame()&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
 &lt;p&gt;For this test I am going to print just 32 simple console.log messages. I know that this is not a lot, it actually is nothing when compared to using console.log on mousemove events or any other fast firing event, but it should be enough to test.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;performance.mark(&amp;quot;Before&amp;quot;);
@@ -1175,8 +1175,8 @@ printBuffer(); &#x2F;&#x2F; &amp;lt;- start it
 		<title>Bootstrapping rain</title>
 		<published>2017-08-08T00:00:00+00:00</published>
 		<updated>2017-08-08T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/bootstrapping-rain/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/bootstrapping-rain/</id>
+		<link href="https://hugodaniel.com/posts/bootstrapping-rain/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/bootstrapping-rain/</id>
 		<content type="html">&lt;p&gt;It has passed a year and a couple of months since I started bootstrapping &amp;quot;a painting web app&amp;quot;. A lot has happened since that time, here is a quick TL;DR:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;I am still living off my savings (with a bit of help explained bellow)&lt;&#x2F;li&gt;
@@ -1215,8 +1215,8 @@ Another cold winter morning in Lisbon enhanced by the summer optimized windows a
 		<title>Palettes 0xF Fun</title>
 		<published>2017-03-01T00:00:00+00:00</published>
 		<updated>2017-03-01T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/16-palettes-of-fun/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/16-palettes-of-fun/</id>
+		<link href="https://hugodaniel.com/posts/16-palettes-of-fun/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/16-palettes-of-fun/</id>
 		<content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
@@ -1269,8 +1269,8 @@ He turned it on, typed some words on the keys and started a game. The first comp
 		<title>A new name to surf 2017</title>
 		<published>2017-01-18T00:00:00+00:00</published>
 		<updated>2017-01-18T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/surfing-2017/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/surfing-2017/</id>
+		<link href="https://hugodaniel.com/posts/surfing-2017/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/surfing-2017/</id>
 		<content type="html">&lt;p&gt;2016 was a year of change. I stopped working full-time as a programmer and decided to dedicate some of that time to personal projects. I made plans.
 During the course of the year most of those plans got changed, a lot. My intention was to build &amp;quot;paint.pt&amp;quot;, a online painting tool, while supporting myself with some savings and with the money i could make by training people in programming skills.&lt;&#x2F;p&gt;
 &lt;p&gt;I took teacher training and got a teacher certificate with the highest possible grade as i was full time on it.
@@ -1319,8 +1319,8 @@ The result of it was the realisation that ~10EUR&#x2F;hour isn&#x27;t enough for
 		<title>How fast is nothing at all ?</title>
 		<published>2016-09-23T00:00:00+00:00</published>
 		<updated>2016-09-23T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/how-fast-is-nothing/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/how-fast-is-nothing/</id>
+		<link href="https://hugodaniel.com/posts/how-fast-is-nothing/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/how-fast-is-nothing/</id>
 		<content type="html">&lt;p&gt;One of the fastest functions that can be run inside &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;window&#x2F;requestAnimationFrame&quot;&gt;requestAnimationFrame&lt;&#x2F;a&gt; goes something like this:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;
@@ -1424,15 +1424,15 @@ window.setTimeout(function() {
 &lt;p&gt;Fortunately this is not hurting the performance that much and each frame gets rendered bellow their time by the browser. I was starting to have some chills with the idea of having to frame limit the render loop to ensure a constant frame rate.&lt;&#x2F;p&gt;
 &lt;p&gt;Thankfully this Intel HD3000 is still good for Nothing at all :)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;intel.png&quot; alt=&quot;Screenshot of the chrome:&#x2F;&#x2F;gpu page list of problems. Currently chrome does not support WebGL in Intel HD3000 cards on OSX.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Thanks &lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;rqleve&quot;&gt;Raquel Foster&lt;&#x2F;a&gt; for reading this blog and motivating me to write this follow-up on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;react-redux-canvas&#x2F;&quot;&gt;React-Redux-Canvas&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Thanks &lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;rqleve&quot;&gt;Raquel Foster&lt;&#x2F;a&gt; for reading this blog and motivating me to write this follow-up on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;react-redux-canvas&#x2F;&quot;&gt;React-Redux-Canvas&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Bootstrapping - getting some boots to strap</title>
 		<published>2016-08-11T00:00:00+00:00</published>
 		<updated>2016-08-11T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/bootstrapping4/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/bootstrapping4/</id>
+		<link href="https://hugodaniel.com/posts/bootstrapping4/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/bootstrapping4/</id>
 		<content type="html">&lt;p&gt;A lot has happened since the last post on this series. Against all odds the portuguese football team won the Euro2016, their first international cup! Summer also hit us hard shortly after that, heavy migrations towards the south (algarve) and the &amp;quot;fire season&amp;quot; started, consuming the green portions of this rectangular land.&lt;&#x2F;p&gt;
 &lt;p&gt;Amidst all of these events it became clear to me that i needed a backup plan in order to extend my window of development time for the paint.pt project.&lt;&#x2F;p&gt;
 &lt;p&gt;So during the month of July i took a one month course in how to teach and give formation and got a &amp;quot;certification of pedagogical competences&amp;quot; (aka teaching certification). This was a great time, i learned a lot, practiced a lot and read a lot about teaching and group interactions.&lt;&#x2F;p&gt;
@@ -1442,15 +1442,15 @@ window.setTimeout(function() {
 &lt;p&gt;Not me, i&#x27;m not a big fan of crowded beaches and hope to take the time to restart coding on paint.pt (that almost stopped during july).&lt;&#x2F;p&gt;
 &lt;p&gt;For this month of August my plan is to finish the menu system and start painting :D. I already finished the &lt;a href=&quot;http:&#x2F;&#x2F;www.paint.pt&quot;&gt;logo and loading animation&lt;&#x2F;a&gt;. So stay tuned.&lt;&#x2F;p&gt;
 &lt;p&gt;If you enjoy reading this please consider subscribing with your e-mail so we can stay in contact.&lt;&#x2F;p&gt;
-&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Bootstrapping - week 3</title>
 		<published>2016-06-24T00:00:00+00:00</published>
 		<updated>2016-06-24T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/bootstrapping3/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/bootstrapping3/</id>
+		<link href="https://hugodaniel.com/posts/bootstrapping3/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/bootstrapping3/</id>
 		<content type="html">&lt;p&gt;This week was a blast! I took 3 days off and only worked thursday and friday.&lt;&#x2F;p&gt;
 &lt;p&gt;This wasn&#x27;t entirely on purpose, my intention was not to have real &amp;quot;vacations&amp;quot;, but to enjoy the overall Lisbon party mood. Tuesday was also the first game of the portuguese football team in euro 2016.&lt;&#x2F;p&gt;
 &lt;p&gt;Though i am not a football fan, i do like to watch the portuguese team play with the eventuality of seeing some magical moves by Cristiano Ronaldo.&lt;&#x2F;p&gt;
@@ -1459,18 +1459,18 @@ window.setTimeout(function() {
 &lt;p&gt;It is important to note that a win by the home team is one of the best excuses to party hard. Unfortunately we did not win, it was a tie with Iceland, which meant no after party as a huge victory was expected.&lt;&#x2F;p&gt;
 &lt;p&gt;Still it is better to enjoy the day than to stress with &amp;quot;having something to do&amp;quot;. Let the work be done on more appropriate days.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;3rd-week&quot;&gt;3rd Week&lt;&#x2F;h2&gt;
-&lt;p&gt;The two remaining work days i wrote the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;react-redux-canvas&#x2F;&quot;&gt;introductory post&lt;&#x2F;a&gt; on &amp;quot;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;redux-canvas&quot;&gt;redux-canvas&lt;&#x2F;a&gt; and release it on npm together with a simple usage example.&lt;&#x2F;p&gt;
+&lt;p&gt;The two remaining work days i wrote the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;react-redux-canvas&#x2F;&quot;&gt;introductory post&lt;&#x2F;a&gt; on &amp;quot;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;redux-canvas&quot;&gt;redux-canvas&lt;&#x2F;a&gt; and release it on npm together with a simple usage example.&lt;&#x2F;p&gt;
 &lt;p&gt;This is going to be the basis of the paint application as it allows canvas (which is crippled with side-effects) to be used directly in pure redux actions.&lt;&#x2F;p&gt;
 &lt;p&gt;And it was it. If you enjoy reading this please consider subscribing with your e-mail so we can stay in contact (i will personally send you an e-mail).&lt;&#x2F;p&gt;
-&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>React - Redux - Canvas</title>
 		<published>2016-06-17T00:00:00+00:00</published>
 		<updated>2016-06-17T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/react-redux-canvas/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/react-redux-canvas/</id>
+		<link href="https://hugodaniel.com/posts/react-redux-canvas/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/react-redux-canvas/</id>
 		<content type="html">&lt;p&gt;Painting stuff on a &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;&#x2F;code&gt; is easy, call &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;HTMLCanvasElement&#x2F;getContext&quot;&gt;HTMLCanvasElement.getContext()&lt;&#x2F;a&gt; to get the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CanvasRenderingContext2D&quot;&gt;CanvasRenderingContext&lt;&#x2F;a&gt; and then use its functions to express yourself.&lt;&#x2F;p&gt;
 &lt;p&gt;Doing an animation is also easy, call &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;window&#x2F;requestAnimationFrame&quot;&gt;window.requestAnimationFrame()&lt;&#x2F;a&gt; to tell the browser that you want to do an animation, and on it use the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CanvasRenderingContext2D&quot;&gt;CanvasRenderingContext&lt;&#x2F;a&gt; to animate as you see fit (tipically clearing the part of the drawing that changed and painting the new version of it).&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
@@ -1644,15 +1644,15 @@ GridCanvas.defaultProps =
 These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;This way your impure code will be playing together with the pure code without messing with it. You can keep your UI pure while playing with canvas as you see fit (perhaps even trying to keep it pure as well).&lt;&#x2F;p&gt;
 &lt;p&gt;In the next post I will write some usage examples with animations and also create a few helper functions to ease the usage of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;redux-canvas&quot;&gt;redux-canvas&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;Meanwhile checkout my take on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;console.log()&lt;&#x2F;a&gt;, a quick look into &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;ImmutableJS&lt;&#x2F;a&gt; and my performance measurements on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;how-useful-is-the-javascript-set&#x2F;&quot;&gt;JavaScript Set&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Meanwhile checkout my take on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;console.log()&lt;&#x2F;a&gt;, a quick look into &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;ImmutableJS&lt;&#x2F;a&gt; and my performance measurements on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;how-useful-is-the-javascript-set&#x2F;&quot;&gt;JavaScript Set&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Bootstrapping - week 2</title>
 		<published>2016-06-16T00:00:00+00:00</published>
 		<updated>2016-06-16T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/bootstrapping2/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/bootstrapping2/</id>
+		<link href="https://hugodaniel.com/posts/bootstrapping2/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/bootstrapping2/</id>
 		<content type="html">&lt;p&gt;Lisbon is in party, this year the anual city holiday is happening in sync with a national holiday.&lt;&#x2F;p&gt;
 &lt;p&gt;This means the common Lisbon worker will get 4 days of paid holiday for free :)&lt;&#x2F;p&gt;
 &lt;p&gt;The Lisbon party actually lasts for 2 whole weeks, where you can dance and sing a blend of new-age cheesy pop music. Most of the fun happens during the night.&lt;&#x2F;p&gt;
@@ -1665,15 +1665,15 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;How would it interact with the canvas and the react&#x2F;redux logic ?&lt;&#x2F;p&gt;
 &lt;p&gt;These questions made me start a new sub-project that i named &amp;quot;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;redux-canvas&quot;&gt;redux-canvas&lt;&#x2F;a&gt;&amp;quot;. It is yet another way to draw on the canvas using react&#x2F;redux.&lt;&#x2F;p&gt;
 &lt;p&gt;By the end of the week (sunday, 12) i did not yet had it finished or published, but stay tuned (subscribe please) because a more thorough blog post about all of this is on the way.&lt;&#x2F;p&gt;
-&lt;p&gt;Don&#x27;t forget to subscribe and checkout the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Boostrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Don&#x27;t forget to subscribe and checkout the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Boostrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Bootstrapping - week 1</title>
 		<published>2016-06-06T00:00:00+00:00</published>
 		<updated>2016-06-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/bootstrapping1/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/bootstrapping1/</id>
+		<link href="https://hugodaniel.com/posts/bootstrapping1/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/bootstrapping1/</id>
 		<content type="html">&lt;p&gt;Two months have passed since i quit my job with the plan of taking some time to develop a few ideas that have outgrown me enough to earn the respect of a full-time dedication.&lt;&#x2F;p&gt;
 &lt;p&gt;This &amp;quot;Bootstrapping&amp;quot; post is the first in a series of posts about a quest to a sustainable monthly income.&lt;&#x2F;p&gt;
 &lt;p&gt;To start i am going to do a painting web application. A simple web app to paint points in a canvas. I call it &amp;quot;paint.pt&amp;quot;.&lt;&#x2F;p&gt;
@@ -1683,15 +1683,15 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;By the time of this writing i am living in the year 2016. That means the rest of the week was spent configuring a react&#x2F;redux&#x2F;immutable&#x2F;webpack&#x2F;mocha&#x2F;selenium&#x2F;babel&#x2F;flow&#x2F;eslint boilerplate repository for it.&lt;&#x2F;p&gt;
 &lt;p&gt;By the end of the week i realized that the sun was shining outside and so i went for a walk in Lisbon to read a few chapters of the git book.&lt;&#x2F;p&gt;
 &lt;p&gt;That was it.&lt;&#x2F;p&gt;
-&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>about me</title>
 		<published>2016-04-09T00:00:00+00:00</published>
 		<updated>2016-04-09T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.pt/posts/about/" type="text/html"/>
-		<id>https://hugodaniel.pt/posts/about/</id>
+		<link href="https://hugodaniel.com/posts/about/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/about/</id>
 		<content type="html">&lt;p&gt;Hi, I am Hugo, from the ancient end of the world.&lt;&#x2F;p&gt;
 &lt;p&gt;Nowdays it is still the end of the world but everybody just calls it Portugal.&lt;&#x2F;p&gt;
 &lt;p&gt;I was born in Alenquer, a village near Lisbon.&lt;&#x2F;p&gt;

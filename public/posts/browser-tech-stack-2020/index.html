@@ -6,9 +6,9 @@
 		
 			<meta name="description" content="It is 2020 and we have a great set of cool tech to play with on the web">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
 		
-			<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;rss.xml">
+			<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;rss.xml">
 		
 		
 		
@@ -28,7 +28,7 @@
 		
 			<meta property="og:article:published_time" content="2020-06-07">
 		
-		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;posts&#x2F;browser-tech-stack-2020&#x2F;">
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;browser-tech-stack-2020&#x2F;">
 		
 		<!-- Matomo -->
 		<script type="text/javascript">
@@ -130,13 +130,13 @@
 			</div>
 			<nav>
 				<a target="_blank" href="https://twitter.com/mr_hugo">
-					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;twitter.svg" alt="Twitter" />
+					<img src="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;twitter.svg" alt="Twitter" />
 				</a>
 				<a target="_blank" href="https://github.com/HugoDaniel">
-					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;github.svg" alt="GitHub" />
+					<img src="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;github.svg" alt="GitHub" />
 				</a>
 				<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/">
-					<img src="https:&#x2F;&#x2F;hugodaniel.pt&#x2F;images&#x2F;linkedin.svg" alt="LinkedIn" />
+					<img src="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;linkedin.svg" alt="LinkedIn" />
 				</a>
 			</nav>
 			<div>
@@ -148,7 +148,7 @@
 		<script>
 			console.log({
   "config": {
-    "base_url": "https://hugodaniel.pt",
+    "base_url": "https://hugodaniel.com",
     "theme": null,
     "title": null,
     "description": null,
@@ -185,12 +185,12 @@
     "extra": {}
   },
   "current_path": "/posts/browser-tech-stack-2020/",
-  "current_url": "https://hugodaniel.pt/posts/browser-tech-stack-2020/",
+  "current_url": "https://hugodaniel.com/posts/browser-tech-stack-2020/",
   "lang": "en",
   "page": {
     "relative_path": "posts/2020-06-07-browser-tech-stack-2020.md",
     "content": "<p><strong>TL;DR</strong> Here is a template for your new web app project: <a href=\"https://github.com/HugoDaniel/svelte-template\">Svelte + TypeScript + Parcel + Rust</a></p>\n<p>The web is a big open platform that keeps evolving with the URL at its core.</p>\n<p>We have a lot of tech and frameworks at our disposal to chose when starting a new web app in 2020.</p>\n<p>There certainly is a lot of mud to crawl into, from an all-in vanilla JS approach up until an all-out React with a 100+ dependencies approach.</p>\n<p>Among these there are a few cool things that strike my attention:</p>\n<h2 id=\"svelte\"><a href=\"https://svelte.dev\">Svelte</a></h2>\n<p>Their component approach and state handling is fresh.</p>\n<p>They lean towards using standards like CSS Variables and JS imports in an HTML first compiled approach.</p>\n<p>The Svelte compiler outputs very lean JS code. Which comes in stark contrast with the current frontend bundle trends.</p>\n<p>Perhaps in the future browsers will provide us higher-level components that can pack together HTML+JS+CSS in a way that is at least as elegant as Svelte does.</p>\n<h2 id=\"parcel\"><a href=\"https://parceljs.org\">Parcel</a></h2>\n<p>Most bundlers configuration is typically write-once and write-only. It is a pain to maintain and properly configure a bundle.</p>\n<p>Parcel does it right by providing sane defaults that don't need configuration upfront. (A bit like the <a href=\"https://fishshell.com/docs/current/design.html\">fish shell</a> )</p>\n<p><strong>Why is a bundler needed if Svelte already has a compiler ?</strong></p>\n<p>A bundler like Parcel provides the extra goodies of allowing us to import strange files directly in our <code>.svelte</code> components.</p>\n<p>Stuff like TypeScript and even Rust become a breeze to work with.</p>\n<p>Perhaps in the future bundlers won't be needed. Perhaps even text files won't be needed to code. Unfortunately we need them in our current state of things.</p>\n<h2 id=\"typescript\"><a href=\"https://www.typescriptlang.org\">TypeScript</a></h2>\n<p>This language has been evolving fast. For now types are the way to go and TypeScript does a great job at typifying JavaScript and preventing those nasty null errors where you least expect(ed) them.</p>\n<p>Perhaps in the future startups will again push towards dynamic languages as a way to bring faster products to market and the &quot;Move fast, break things&quot; will make sense again. But for now static is the way to go.</p>\n<h2 id=\"rust\"><a href=\"https://www.rust-lang.org\">Rust</a></h2>\n<p>Rust has a lot of good things. It appeals the front-end crowd as much as the backend people and the language is leveraging those windows of opportunity much better than any other language or community.</p>\n<p>Wasm bindgen is a bliss of fresh air, it even works very well with TypeScript.</p>\n<h2 id=\"webassembly\"><a href=\"https://webassembly.org\">WebAssembly</a></h2>\n<p>This is a total game changer for the next years. As a compile target it will allow near native performance and open the door for a lot of programming languages to be used on the web.</p>\n<p>A new era of web apps is coming thanks to Web Assembly. It is hard to forsee what exactly will this be.</p>\n<p>There are nevertheless a few cool extensions already being worked on for it:</p>\n<ul>\n<li><a href=\"https://github.com/WebAssembly/WASI\">WASI</a></li>\n<li><a href=\"https://github.com/WebAssembly/simd\">128-bit SIMD</a></li>\n<li><a href=\"https://github.com/WebAssembly/threads\">Threads</a></li>\n<li><a href=\"https://github.com/WebAssembly/reference-types\">Ref. Types</a></li>\n<li><a href=\"https://github.com/WebAssembly/multi-value\">Multiple value returns and block parameters</a></li>\n<li><a href=\"https://github.com/webassembly/bulk-memory-operations\">Bulk Memory Operations</a></li>\n<li><a href=\"https://github.com/WebAssembly/nontrapping-float-to-int-conversions\">Non-trapping float-to-int convertions</a></li>\n<li><a href=\"https://github.com/WebAssembly/sign-extension-ops\">Sign-extension ops</a></li>\n<li><a href=\"https://github.com/WebAssembly/exception-handling\">Exception handling</a></li>\n<li><a href=\"https://github.com/WebAssembly/extended-name-section\">Extended name section</a></li>\n<li><a href=\"https://github.com/WebAssembly/multi-memory\">Multi-memory</a></li>\n<li><a href=\"https://github.com/WebAssembly/gc\">Garbage Collection</a></li>\n</ul>\n<p>Web development is going to be a very different beast in a few moments in time. Lets enjoy the ride.</p>\n<h2 id=\"conclusion\">Conclusion</h2>\n<p>I have fetched some ideas from a few repos and forked them into a ready to use template you can start your projects with.</p>\n<p><a href=\"https://github.com/HugoDaniel/svelte-template\">Check it out.</a></p>\n",
-    "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/",
+    "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/",
     "slug": "browser-tech-stack-2020",
     "ancestors": [
       "_index.md",
@@ -218,42 +218,42 @@
       {
         "level": 2,
         "id": "svelte",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#svelte",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#svelte",
         "title": "Svelte",
         "children": []
       },
       {
         "level": 2,
         "id": "parcel",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#parcel",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#parcel",
         "title": "Parcel",
         "children": []
       },
       {
         "level": 2,
         "id": "typescript",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#typescript",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#typescript",
         "title": "TypeScript",
         "children": []
       },
       {
         "level": 2,
         "id": "rust",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#rust",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#rust",
         "title": "Rust",
         "children": []
       },
       {
         "level": 2,
         "id": "webassembly",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#webassembly",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#webassembly",
         "title": "WebAssembly",
         "children": []
       },
       {
         "level": 2,
         "id": "conclusion",
-        "permalink": "https://hugodaniel.pt/posts/browser-tech-stack-2020/#conclusion",
+        "permalink": "https://hugodaniel.com/posts/browser-tech-stack-2020/#conclusion",
         "title": "Conclusion",
         "children": []
       }
@@ -268,7 +268,7 @@
     "earlier": {
       "relative_path": "posts/2018-07-05-grid-generator-v0.md",
       "content": "<p>The purpose of this post is to introduce my personal project: Grid Generator. This is the first post about it since it went online on the 1st of July 2018.</p>\n<h2 id=\"what-problem-does-it-solve\">What problem does it solve?</h2>\n<p>I have always struggled with design tools. In particular those that came to see the light of the day during the 90's (Adobe I am looking at you).</p>\n<p>These design tools are clearly targeted at &quot;pros&quot; and &quot;specialists&quot; (like most of the computer &quot;stuff&quot; from/during the 90's). You are not expected to be able to work with them if you are not a specialist or if you did not take at least a course on these tools.</p>\n<p>Being trained in software development made me look at the works produced by designers with wonder and amazement. I want to be able to at least produce geometric clean shapes that fit well together.</p>\n<p>Unfortunately making even simple shapes in the current design software offer is a daunting task for me.</p>\n<p>That was my motivation behind Grid Generator: Create simple shapes, easily pick colors, and paint them in a grid, making patterns or more complex shapes.</p>\n<p>I also wanted to bring time into play. Time is an important factor to consider and to work with in Grid Generator.</p>\n<h2 id=\"what-to-expect\">What to expect?</h2>\n<p>A square grid. In this version, and in the upcoming near versions, Grid Generator only supports a base square grid.</p>\n<p>Think of it as pixel art with configurable pixels. Where your moves are being recorded.</p>\n<p><img src=\"/images/grid1.png\" alt=\"Simple house with squares, triangles, and a rounded square\" /></p>\n<p><img src=\"/images/grid2.png\" alt=\"The same with the grid hidden\" /></p>\n<h3 id=\"shape-editor\">Shape editor</h3>\n<p>In a square grid the base shape is the square. If you click on the '+' button bellow left, it opens the &quot;Shape Editor&quot;. Here you are presented with a grid made of lines and circles. This is where you customize your square. The intersections are automatically calculated to help you create your shapes. You as an artist/designer only need to connect the dots and build your shape.</p>\n<p><img src=\"/images/shape_editor.png\" alt=\"Just connect the dots\" /></p>\n<p>You can pile many shapes on top of each other and change their colors.</p>\n<p><img src=\"/images/shape_editor_pile.png\" alt=\"Several sub-shapes on the same shape\" /></p>\n<p>Time is an important aspect, you can go back to any previous state of your shapes and re-edit them from there.</p>\n<p><img src=\"/images/shape_editor_travel.png\" alt=\"Several sub-shapes on the same shape\" /></p>\n<p>After your shape is created you can start painting with it.</p>\n<p><img src=\"/images/shape_editor_paint.png\" alt=\"Paint your new shape on the main grid\" /></p>\n<p>Or create other color variations of it on the '+' button to the right.</p>\n<p><img src=\"/images/shape_editor_colors.png\" alt=\"Create several color variations for your shape\" /></p>\n<h3 id=\"tile-patterns\">Tile Patterns</h3>\n<p>I have asked in reddit about software to create tile patterns. A few answers came up but none quite filled my taste. I used this as a motivation to implement automatic tile patterns in Grid Generator.</p>\n<p>In the menu just click on the &quot;pattern&quot; icon, and then on the &quot;grid&quot;. A blue frame shows up where you can paint inside and everything gets repeated outside.</p>\n<p><img src=\"/images/grid_pattern.png\" alt=\"The pattern frame\" /></p>\n<p>You can drag the corners of the blue frame to adjust your pattern to your drawing and create different patterns with white spaces.</p>\n<p><img src=\"/images/grid_pattern_tri.png\" alt=\"A triangular pattern\" /></p>\n<h3 id=\"replay-your-art\">Replay your art</h3>\n<p>After having created something cool you can publish it to share with your friends. Publishing an artwork makes it publicly available in its own page.</p>\n<p>In there you will see a big &quot;play&quot; button that will replay your creative process until the final state is reached.</p>\n<p><a href=\"https://gridgenerator.com/p/13\">Check it out.</a></p>\n<h3 id=\"remix-it\">Remix it</h3>\n<p>You can pick any state of the art being replayed and remix your own version from there on. You can easily create your variations by clicking on the remix button (&quot;Change It&quot; on the bottom).</p>\n<p><img src=\"/images/remix_grid.png\" alt=\"Remix other works and create variations\" /></p>\n<h3 id=\"export\">Export</h3>\n<p>Exporting is currently the only paid feature of Grid Generator. My logic to make this a paid feature was that you can support the further development of this app if you are producing anything of value with it.</p>\n<p>In the future I am planning to make this a free feature by adding other sources of revenue like instant product creations with your art (bags, t-shirts, etc...) and even selling packs of specially crafted grids.</p>\n<p>After paying you can export your work as SVG. SVG is a vector format that is very prone to rounding errors and aliasing, so I also implemented exporting your works as high-res PNG's that solve these issues.</p>\n<p>Another possibility you have is to export your creative process as GIF or MP4, saving you the hard work of screen recording and editing.</p>\n<h2 id=\"upcoming-features\">Upcoming features</h2>\n<p>The next version (v1) will mostly see UI/UX improvements (imo those are critically needed) and some small features with these, like:</p>\n<ul>\n<li>Possibility to clear your shapes in the shape editor</li>\n<li>Rough onboarding</li>\n<li>Slightly better menus and pages</li>\n<li>Facebook login</li>\n</ul>\n<p>After these I am planning some major stuff like:</p>\n<ul>\n<li>Stroke support in shapes</li>\n<li>Background images in shapes</li>\n<li>Layers</li>\n<li>Color picker enhancements</li>\n<li>Triangular grids and shapes</li>\n<li>Custom base grid editor (create any kind of base grid)</li>\n</ul>\n<p>Try it and if you feel inspired tell me which features you would like to see most.</p>\n<p><a href=\"https://gridgenerator.com\">https://gridgenerator.com</a></p>\n<h2 id=\"conclusion\">Conclusion</h2>\n<p>In its current state Grid Generator is very raw. I did a lot of compromises to get here but the idea is very close to its initial inception in my head from a couple of years ago. Along the way I had the help and feedback of amazing people. I have some upcoming posts planned on them. They helped a lot of this feel way less lonely and in some points I think they believed more in it than me :)</p>\n<p>Alas <a href=\"https://github.com/HugoDaniel/gridgenerator\">everything is open source</a> and I am going to start using GitHub bells and whistles in its further development.</p>\n",
-      "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/",
+      "permalink": "https://hugodaniel.com/posts/grid-generator-v0/",
       "slug": "grid-generator-v0",
       "ancestors": [
         "_index.md",
@@ -297,48 +297,48 @@
         {
           "level": 2,
           "id": "what-problem-does-it-solve",
-          "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#what-problem-does-it-solve",
+          "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#what-problem-does-it-solve",
           "title": "What problem does it solve?",
           "children": []
         },
         {
           "level": 2,
           "id": "what-to-expect",
-          "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#what-to-expect",
+          "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#what-to-expect",
           "title": "What to expect?",
           "children": [
             {
               "level": 3,
               "id": "shape-editor",
-              "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#shape-editor",
+              "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#shape-editor",
               "title": "Shape editor",
               "children": []
             },
             {
               "level": 3,
               "id": "tile-patterns",
-              "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#tile-patterns",
+              "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#tile-patterns",
               "title": "Tile Patterns",
               "children": []
             },
             {
               "level": 3,
               "id": "replay-your-art",
-              "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#replay-your-art",
+              "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#replay-your-art",
               "title": "Replay your art",
               "children": []
             },
             {
               "level": 3,
               "id": "remix-it",
-              "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#remix-it",
+              "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#remix-it",
               "title": "Remix it",
               "children": []
             },
             {
               "level": 3,
               "id": "export",
-              "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#export",
+              "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#export",
               "title": "Export",
               "children": []
             }
@@ -347,14 +347,14 @@
         {
           "level": 2,
           "id": "upcoming-features",
-          "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#upcoming-features",
+          "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#upcoming-features",
           "title": "Upcoming features",
           "children": []
         },
         {
           "level": 2,
           "id": "conclusion",
-          "permalink": "https://hugodaniel.pt/posts/grid-generator-v0/#conclusion",
+          "permalink": "https://hugodaniel.com/posts/grid-generator-v0/#conclusion",
           "title": "Conclusion",
           "children": []
         }

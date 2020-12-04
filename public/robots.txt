@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://hugodaniel.pt/sitemap.xml
+Sitemap: https://hugodaniel.com/sitemap.xml
