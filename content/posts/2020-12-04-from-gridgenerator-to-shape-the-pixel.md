@@ -2,7 +2,7 @@
 title = "From Grid Generator to Shape The Pixel"
 description = "The time has come to restart my previous bootstrapped drawing app into something different. In this new round it will resurface with a new name and very different development guidelines that disregard the common market/costumer analysis approach."
 date = 2020-12-04
-extra = { place = "Lisboa", author = "Hugo Daniel", social_img = "/images/cliddy.png", scripts = ["test.js"], modules = ["modules/cliddy.mjs", "cliddy-mascot.js"] }
+extra = { place = "Lisboa", author = "Hugo Daniel", social_img = "/images/cliddy.png", modules = ["modules/cliddy.mjs", "cliddy-mascot.js"] }
 +++
 
 
@@ -20,7 +20,7 @@ The main idea will be the same: a geometric drawing tool. The objective and appr
 - Focus on a creative approach to a common problem
 - Do it for the love of the craft
   
-To top it the development is going to done around a *mascot character*. This character will ultimately fulfill the role of an assistant (like Clippy but with personality). The app development and story are going to happen through it.
+To top it the development is going to be done around a *mascot character*. This character will ultimately fulfill the role of an assistant (like Clippy but with personality). The app development and story are going to happen through it.
  
 ### Meet Cliddy
 
