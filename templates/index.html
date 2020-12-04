@@ -42,6 +42,18 @@
 			<meta property="og:image" content="{{ get_url(path=page.extra.social_img, trailing_slash=false) }}" >
 			<meta name="twitter:image" content="{{ get_url(path=page.extra.social_img, trailing_slash=false) }}" >
 		{% endif %}
+		{% if page.extra.modules %}
+			{% for module in page.extra.modules %}
+				<script type="module" src="/scripts/{{module}}">
+				</script>
+			{% endfor %}
+		{% endif %}
+		{% if page.extra.scripts %}
+			{% for script in page.extra.scripts %}
+				<script src="/scripts/{{script}}">
+				</script>
+			{% endfor %}
+		{% endif %}
 		<!-- Matomo -->
 		<script type="text/javascript">
 			var _paq = window._paq = window._paq || [];
@@ -139,9 +151,9 @@
 				<a href="mailto:mail@hugodaniel.pt">Say hello :)!</a>
 			</div>
 		</footer>
-	-->
 		<script>
 			console.log({{ __tera_context }});
 		</script>
+	-->
 	</body>
 </html>

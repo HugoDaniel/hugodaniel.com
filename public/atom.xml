@@ -4,8 +4,34 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2020-06-07T00:00:00+00:00</updated>
+	<updated>2020-12-04T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>From Grid Generator to Shape The Pixel</title>
+		<published>2020-12-04T00:00:00+00:00</published>
+		<updated>2020-12-04T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/</id>
+		<content type="html">&lt;p&gt;More than two years ago I was releasing my bootstrapped drawing application into the world, the &amp;quot;Grid Generator&amp;quot; web app. It was the labor of love and the search for a creative project where I could eventually dedicate a big part of my future life. However, a trip to the Web Summit in 2017 and countless books of lean&#x2F;market-first approaches were not enough to save it from its fate. It was not a product or service that the market wanted. This did not surprised me, but yet it still consumed a lot of my energy and was a point stronger than my personal project vision for the most part. &lt;&#x2F;p&gt;
+&lt;p&gt;Circumstances have taken me to a path where I can work on the drawing app again. Now I am going to give it a twist and turn it into something different. Just for fun.&lt;&#x2F;p&gt;
+&lt;p&gt;The main idea will be the same: a geometric drawing tool. The objective and approach however will be very different. This time the driver points for the app development are going to be:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Making something just for fun&lt;&#x2F;li&gt;
+&lt;li&gt;No client, no customer, no target audience&lt;&#x2F;li&gt;
+&lt;li&gt;Assume nobody will use it, make it just for the pleasure of making it&lt;&#x2F;li&gt;
+&lt;li&gt;No pricing or market analysis - the purpose is to be fun&lt;&#x2F;li&gt;
+&lt;li&gt;Has to be cool&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on a creative approach to a common problem&lt;&#x2F;li&gt;
+&lt;li&gt;Do it for the love of the craft&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To top it the development is going to done around a &lt;em&gt;mascot character&lt;&#x2F;em&gt;. This character will ultimately fulfill the role of an assistant (like Clippy but with personality). The app development and story are going to happen through it.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;meet-cliddy&quot;&gt;Meet Cliddy&lt;&#x2F;h3&gt;
+&lt;div style=&quot;width: 100%; display: flex; justify-content: center;&quot;&gt;
+&lt;cliddy-mascot face=&quot;:)&quot; touched-face=&quot;:D&quot;&gt;&lt;&#x2F;cliddy-mascot&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;It is time to Shape The Pixel.&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>From Rust to Svelte, what tech stack will I use</title>
 		<published>2020-06-07T00:00:00+00:00</published>
