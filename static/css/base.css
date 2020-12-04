@@ -57,7 +57,7 @@ ol {
 }
 
 section {
-	font-family: var(--avenir);
+	font-family: var(--sans-serif);
 	margin: auto;
 	max-width: 60rem;
 }
