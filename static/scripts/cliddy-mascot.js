@@ -17,6 +17,6 @@ addEventListener("DOMContentLoaded", () => {
 	});
 	addEventListener("touchend", () => {
 		var cliddy = document.getElementsByTagName("cliddy-mascot")[0];
-		setTimeout(() => cliddy.face(":)"), 200);
+		setTimeout(() => cliddy.face(":)"), 50);
 	});
 });
