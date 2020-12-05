@@ -95,13 +95,13 @@ article li {
 footer {
 	text-align: center;
 	padding: 0rem 3rem;
+	width: calc(100vw - 6rem);
 }
 footer nav li {
 	line-height: 1.5;
 	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	white-space: pre-wrap;
+	margin-top: 0.5rem;
 }
 footer nav h4 {
 	white-space: break-spaces;
