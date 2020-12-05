@@ -24,7 +24,7 @@ To top it the development is going to be done around a *mascot character*. This 
  
 ### Meet Cliddy
 
-*Cliddy is a simple Web Component made with:*
+*Cliddy is a simple [Web Component](/scripts/modules/cliddy.mjs) made with:*
 ```html
 <cliddy-mascot face=":)" touched-face=":D">
 ```

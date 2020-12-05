@@ -1,41 +1,86 @@
+// CliddyEye is a small helper wrapper around the <svg> element
+// it is intended to allow quick access to the eye iris <svg> element through
+// the "irisElement" attribute, as well as to provide simple pre-calculated
+// arithmetic on the eye circle information through the "circle" attribute.
+// The "circle" attribute is just a simple object with the eye circle
+// math properties:
+// { r: radius, cx: x-coord for the center, cy: y-coord for the center }
+// Which is useful to calculate the angle to look at
 class CliddyEye {
-	element;
-	circle;
-	irisElement;
+	element; // the <svg> element
+	circle; // a simple object that contains the radius and the center of
+	// the eye: { r, cx, cy }
+	irisElement; // the inner eye black circle <svg> element
+	// When creating a CliddyEye we can set the page position where it
+	// should be translated to, these x and y arguments will be used by
+	// setting the svg element with a CSS transform/translate and a
+	// position: absolute
 	constructor(x = 0, y = 0) {
-		var eyeX = 24;
-		var eyeY = 24;
+		// The eye svg has a viewBox of twice the eye radius, all measures
+		// of the eye are done in relation to its radius, which is defined here
 		var eyeRadius = 24;
+		// The eye x and y center happen at the distance of "eyeRadius" from
+		// each axis origin
+		var eyeX = eyeRadius;
+		var eyeY = eyeRadius;
+		// A helper string to avoid repeating the SVG namespace at each
+		// call of the createElementNS
 		var svgNS = "http://www.w3.org/2000/svg";
+		// The eye main <svg> element
 		var eye = document.createElementNS(svgNS, "svg");
+		// Sets the svg coordinate system to range from 0->eyeRadius*2 in
+		// each axis
 		eye.setAttributeNS(
 			null,
 			"viewBox",
 			`0 0 ${eyeRadius * 2} ${eyeRadius * 2}`
 		);
+		// The display dimension matches the svg coordinate system defined
+		// above in the viewBox; there is no scaling or distortion happening
+		// at the svg attribute level (these operations are then done on the
+		// CSS transform/translate at the end of the constructor function)
 		eye.setAttributeNS(null, "width", `${eyeRadius * 2}px`);
 		eye.setAttributeNS(null, "height", `${eyeRadius * 2}px`);
 
-		// The white part of the eye is a simple circle with white fill
+		// The white part of the eye is a simple SVG <circle> with white fill
 		var eyeWhite = document.createElementNS(svgNS, "circle");
+		eyeWhite.setAttributeNS(null, "fill", "#FFFFFF");
+		// The circle can be referenced and manipulated with CSS on the
+		// .eyeWhite class
 		eyeWhite.setAttributeNS(null, "class", "eyeWhite");
+		// The circle is centered at the eye center x and y values
 		eyeWhite.setAttributeNS(null, "cx", eyeX);
 		eyeWhite.setAttributeNS(null, "cy", eyeY);
 		eyeWhite.setAttributeNS(null, "r", eyeRadius);
-		eyeWhite.setAttributeNS(null, "fill", "#FFFFFF");
 		// The black part of the eye is just a bigger black circle
 		var eyeBlack = document.createElementNS(svgNS, "circle");
-		eyeBlack.setAttributeNS(null, "class", "eyeBlack");
-		eyeBlack.setAttributeNS(null, "cy", eyeY);
+		// It has an extra 33% radius in comparison to the white part
 		eyeBlack.setAttributeNS(null, "r", `${eyeRadius + eyeRadius / 3}`);
+		// it is then displaced to be offset from the eye center, this allows
+		// the white part to be slightly visible, while the big black circle
+		// shows on the most part of it
+		eyeBlack.setAttributeNS(null, "cy", eyeY);
 		eyeBlack.setAttributeNS(null, "cx", `${eyeX + (eyeX + eyeRadius / 6)}`);
-		// Set the mask to be the "#eyeMask" defined after
+		// Like the white part, the black iris can be manipulated with CSS by
+		// referencing the .eyeBlack class name
+		eyeBlack.setAttributeNS(null, "class", "eyeBlack");
+		// The full black circle is never shown because it is set to be
+		// constrained by a mask; The mask is then later defined to be the
+		// white circle of the eye, making sure the black iris circle is only
+		// visible on the inside of the eye. (it is the intersection of the
+		// eye with the big black circle)
+		// Here set the mask is set to be the "#eyeMask" defined right after
 		eyeBlack.setAttributeNS(null, "clip-path", "url(#eyeMask)");
-		// Create a Mask to hide the black circle, and only show it inside
-		// the eye
+
+		// Create a mask to hide the black circle, and only show it inside
+		// the eye; the mask is going to be defined inside an svg <defs>
+		// element, and it is done using the <clipPath> svg approach
+		// one other possibility would be to use an svg <mask> but the
+		// <clipPath> is closer to the equivalent CSS operation, this is the
+		// only reason why it is being prefered here
 		var defs = document.createElementNS(svgNS, "defs");
 		var mask = document.createElementNS(svgNS, "clipPath");
-		mask.setAttributeNS(null, "id", "eyeMask");
+		mask.setAttributeNS(null, "id", "eyeMask"); // #eyeMask, used above ^
 		// Hide everything outside of the white circle of the eye
 		mask.appendChild(eyeWhite.cloneNode(true));
 		defs.appendChild(mask);
@@ -45,7 +90,7 @@ class CliddyEye {
 		eye.appendChild(eyeBlack);
 		// Position the eye
 		eye.style = `position: absolute; transform: translate(${x}px, ${y}px)`;
-		// Set the eye element and bounding circle
+		// Set the eye element, the iris element and the bounding circle obj
 		this.element = eye;
 		this.irisElement = eyeBlack;
 		this.circle = {
@@ -54,37 +99,57 @@ class CliddyEye {
 			cy: eyeY + y,
 		};
 	}
+	// This function manipulates the svg circle center attributes (cx, cy)
+	// to place the big black iris (a <circle> on "irisElement") centered
+	// in proportion to the arc of the white eye circle. The new position is
+	// set to be on the line that is drawn from the center of the eye to the
+	// provided (x,y) position on the args.
+	// Also provided as args are the (diffX, diffY), these are the offset
+	// of the eye placement in relation to the coordinate system of the
+	// x,y args
 	lookAt(x, y, diffX, diffY) {
+		// Construct a line that goes from the center of the eye to the
+		// passed x,y position; then get its angle and adjust the iris center
+		// to be along the line (transforming it with the line angle)
 		var cx = diffX + this.circle.cx;
 		var cy = diffY + this.circle.cy;
 		var r = this.circle.r;
 		var angle = Math.atan2(y - cy, x - cx);
+		// Get the new center point for the angle
 		var ptX = cx + r * Math.cos(angle);
 		var ptY = cy + r * Math.sin(angle);
+		// Move it to the radius of the eye
 		var eyePtX = ptX - cx + r;
 		var eyePtY = ptY - cy + r;
+		// Finally set it on the iris
 		this.irisElement.setAttributeNS(null, "cx", eyePtX);
 		this.irisElement.setAttributeNS(null, "cy", eyePtY);
 	}
 }
 class Cliddy extends HTMLElement {
-	// The Bounding Client Rect
-	_clientRect;
-	_leftEye;
-	_rightEye;
-	_closedEyes;
-	_mouthPoker;
-	_mouthSmile;
-	_mouthBigSmile;
-	_tongue;
-	_selectedFace;
-	_touchedFace;
+	_clientRect; // The Bounding Client Rect for Cliddy
+	_leftEye; // The left eye element (a CliddyEye object)
+	_rightEye; // The right eye element (a CliddyEye object)
+	_closedEyes; // The <svg> to show when the eyes are closed (when blinking)
+	// All the available "mouth" drawing elements (these are <svg> elements):
+	_mouthPoker; // Poker face mouth :|
+	_mouthSmile; // Simple smile mouth :)
+	_mouthBigSmile; // Big smile :D
+	_tongue; // Tongue is displayed on top of a simple smile when the face to
+	// draw is :P
+	_selectedFace; // The face to show when no interaction is happening,
+	// possible values are: ":|", ":)", ":D", ":P"
+	_touchedFace; // The face to display when mouse is over or a touch event
+	// occurs inside Cliddy
 	// The location where Cliddy is looking at in (viewport coordinates)
-	_lookAt = [0, 0];
+	_lookAt = [0, 0]; // The x,y position where Cliddy is looking at, in page
+	// coordinates
+
 	// Setting the lookAt property on this class will perform a series of
 	// input sanitization checks and call the "attributeChangedCallback"
-	// with the previous and new value before changing the "lookAt" attribute
+	// with the previous and new value before changing the "_lookAt" attribute
 	set lookAt(location) {
+		// location must be an array with exactly 2 values (x,y)
 		if (
 			!location &&
 			typeof location !== "object" &&
@@ -93,10 +158,12 @@ class Cliddy extends HTMLElement {
 			throw new Error(`Trying to set an invalid Cliddy.lookAt array
 			 value: ${location}`);
 		}
+		// both x and y values on the location must be positive
 		if (location[0] < 0 || location[1] < 0) {
 			throw new Error(`Trying to set Cliddy.lookAt with negative numbers
 			${location}`);
 		}
+		// location x and y values must be numbers
 		if (
 			typeof location[0] !== "number" ||
 			typeof location[1] !== "number"
@@ -104,10 +171,17 @@ class Cliddy extends HTMLElement {
 			throw new Error(`Cliddy.lookAt only accepts positive numbers:
 			${location}`);
 		}
+		// Call the component update function before setting the attribute
 		this.attributeChangedCallback("lookAt", this._lookAt, location);
+		// Set the attribute
 		this._lookAt = location;
 	}
-
+	// This function returns the <svg> element for the simple smile mouth :)
+	// This mouth is an SVG <path> drawn by an external tool (figma)
+	// A slightly different approach is being done on this particular
+	// constructor, instead of setting the innerHTML with an svg string, this
+	// code takes the approach of building each attribute through the DOM
+	// `setAttributeNS` function. This is for no particular reason ¯\_(ツ)_/¯
 	_constructMouthSmile() {
 		// The main SVG element wraps the mouth
 		var mouth = document.createElementNS(
@@ -139,6 +213,10 @@ class Cliddy extends HTMLElement {
 
 		return mouth;
 	}
+
+	// This function returns the <svg> element for the big smile face mouth :D
+	// This mouth is defined by an SVG <path> for the "D" and a masked circle
+	// for the tongue inside of it. This was drawn by an external tool (figma)
 	_constructMouthBigSmile() {
 		// The main SVG element wraps the mouth
 		var mouth = document.createElementNS(
@@ -164,6 +242,8 @@ class Cliddy extends HTMLElement {
 		return mouth;
 	}
 
+	// This function returns the <svg> element for the poker face mouth :|
+	// This mouth is just an SVG <line> drawn by an external tool (figma)
 	_constructMouthPoker() {
 		// The main SVG element wraps the mouth
 		var mouth = document.createElementNS(
@@ -190,6 +270,8 @@ class Cliddy extends HTMLElement {
 		return mouth;
 	}
 
+	// This function returns the <svg> element for the drawing of a tongue.
+	// This is an SVG <path> that was drawn by an external tool (figma).
 	_constructTongue() {
 		// The main SVG element wraps the tongue
 		var tongue = document.createElementNS(
@@ -208,6 +290,12 @@ class Cliddy extends HTMLElement {
 			stroke-linecap="round" stroke-linejoin="round"/>`;
 		return tongue;
 	}
+
+	// This function returns the <svg> element for the Cliddy rounded square
+	// This square (yellow by default) is what it is called the Cliddy "body"
+	// It has a background color and a curvy shadow with another color.
+	// The curvy shadow is being cut by a SVG mask, making sure it does not
+	// leave the bounds of the "body" rounded square.
 	_constructBody(bodyColor = "#FFC805", shadowColor = "#EBB803") {
 		var svgNS = "http://www.w3.org/2000/svg";
 		// The main SVG element wraps the mouth
@@ -257,6 +345,9 @@ class Cliddy extends HTMLElement {
 		return body;
 	}
 
+	// This function returns the <svg> element for the closed eyes drawing.
+	// Closed eyes are defined by two curved <path>'s and a bunch of <line>'s
+	// for the eyelashes. This is drawn by an external tool (figma)
 	_constructClosedEyes() {
 		var svgNS = "http://www.w3.org/2000/svg";
 		// Both closed eyes will be drawn under the same svg element
@@ -281,34 +372,59 @@ class Cliddy extends HTMLElement {
 		return closedEyes;
 	}
 
+	// The Cliddy() constructor function is a normal Web Component pattern:
+	// - reads the tag attributes
+	//    * data-body-color
+	//    * data-shadow-color
+	//    * face
+	//    * touched-face
+	// - builds the svg elements for each part of the Cliddy face
+	// - sets the initial style and state of it all
+	//    * initializes the blinking random intervals
+	// - appends the elements to the shadowRoot
 	constructor() {
 		super();
 		// Create a shadow root
 		this.attachShadow({ mode: "open" });
+		// Read the attributes and set default values:
 		var bodyColor = this.getAttribute("data-body-color") || "#FFC805";
 		var shadowColor = this.getAttribute("data-shadow-color") || "#EBB803";
 		this._selectedFace = this.getAttribute("face") || ":)";
 		this._touchedFace = this.getAttribute("touched-face") || ":D";
+		// Create the wrapper <div> element for all the <svg> face parts
 		var cliddy = document.createElement("div");
+		// Cliddy can be manipulated through the CSS class name .cliddy
 		cliddy.setAttribute("class", "cliddy");
+		// Build the face parts, add them all at once on the wrapper <div>
+		// These parts will then be hidden and shown according to the Cliddy
+		// state. This happens only after their construction and appending
+		// Build starts with the body (the rounded box)
 		cliddy.appendChild(this._constructBody(bodyColor, shadowColor));
+		// Build the eyes and place them in relation to the body
 		this._leftEye = new CliddyEye(71, 86);
 		this._rightEye = new CliddyEye(141, 86);
 		cliddy.appendChild(this._leftEye.element);
 		cliddy.appendChild(this._rightEye.element);
+		// Build the closed eyes element
 		this._closedEyes = this._constructClosedEyes();
 		cliddy.appendChild(this._closedEyes);
+		// Build the available mouths
 		this._mouthSmile = this._constructMouthSmile();
 		this._mouthBigSmile = this._constructMouthBigSmile();
 		this._mouthPoker = this._constructMouthPoker();
+		// Build the tongue, which is part of the ":P" mouth (smile + tongue)
 		this._tongue = this._constructTongue();
 		this._tongue.style = `position: absolute;
 			opacity: 0;
 			transform: translate(130px, 165px) rotate(-11deg) scale(1.2);`;
+		// Order is relevant when appending each mouth. SVG draws from
+		// bottom to top => it is important that the tongue shows up behind
+		// the smile mouth.
 		cliddy.appendChild(this._tongue);
 		cliddy.appendChild(this._mouthSmile);
 		cliddy.appendChild(this._mouthBigSmile);
 		cliddy.appendChild(this._mouthPoker);
+		// Set the initial shadow CSS style on this Web Component
 		var style = document.createElement("style");
 		style.textContent = `.cliddy {
 			width: 256px;
@@ -317,12 +433,16 @@ class Cliddy extends HTMLElement {
 			// box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 			transform: rotateY(0deg);
 		}`;
-		this.openEyes();
-		this.blink();
-		this.face(this._selectedFace);
-		// Attach the created elements to the shadow DOM
+		// Initialize the state
+		this.openEyes(); // hides the closed eyes and displays the open eyes
+		this.blink(); // Initializes the blinking timeouts
+		this.face(this._selectedFace); // hides all mouths and shows only the
+		// selected one.
+		// Finally attach the created elements to the shadow DOM
 		this.shadowRoot.append(style, cliddy);
 	}
+	// Sets the Cliddy face. Hides all mouths and displays the one being
+	// passed as argument.
 	face(type) {
 		// Hide all mouths
 		this._mouthPoker.style.opacity = 0;
@@ -331,6 +451,7 @@ class Cliddy extends HTMLElement {
 		this._tongue.style.opacity = 0;
 		// Show only the desired mouth
 		switch (type) {
+			// Mouths are set with their equivalent emojii
 			case ":D":
 				this._mouthBigSmile.style.opacity = 1;
 				break;
@@ -344,20 +465,37 @@ class Cliddy extends HTMLElement {
 				this._mouthSmile.style.opacity = 1;
 		}
 	}
+	// Hides both eyes and shows the "closedEyes" <svg> element instead
 	closeEyes() {
+		// Hiding and showing is being done through opacity.
+		// This is intentional since some browsers show some artifacts when
+		// the visibility of <svg> elements is being manipulated. Using
+		// opacity avoids these artifacts and makes everything show up
+		// smoothly.
 		this._leftEye.element.style.opacity = 0;
 		this._rightEye.element.style.opacity = 0;
 		this._closedEyes.style.opacity = 1;
 	}
+	// Shows both eyes and hides the "closedEyes" <svg> element.
 	openEyes() {
+		// Check if each eye is properly defined before manipulate its
+		// opacity. This is to avoid potential quirks and artifacts in the
+		// eventuality of a bogus state or misformed Web Component.
+		// Show the leftEye if it is defined
 		if (
 			this._leftEye &&
 			this._leftEye.element &&
 			this._leftEye.element.style
 		) {
+			// As in the "closedEyes()" function. The visibility is being
+			// done through the "opacity" attribute. This makes sure that
+			// the elements show up smoothly and that artifacts are avoided.
+			// Some artifacts were visible when the eye visibility was being
+			// done through the CSS "visibility" attribute.
 			this._leftEye.element.style.opacity = 1;
 			this._leftEye.irisElement.style.opacity = 1;
 		}
+		// Show the rightEye if it is defined
 		if (
 			this._rightEye &&
 			this._rightEye.element &&
@@ -366,34 +504,52 @@ class Cliddy extends HTMLElement {
 			this._rightEye.element.style.opacity = 1;
 			this._rightEye.irisElement.style.opacity = 1;
 		}
+		// Hide the closed eyes element
 		this._closedEyes.style.opacity = 0;
 	}
+	// Sets the random timeouts for the blinking pattern
 	blink() {
+		// Blinking happens as fast as 1.5secs and as slow as 6secs.
 		var blinkTime = Math.max(1500, Math.random() * 6000);
+		// Blinking is just the operation of setting a timeout to close the
+		// eyes, and on that timeout set another timeout to open them.
 		setTimeout(() => {
-			this.closeEyes();
+			this.closeEyes(); // Time has come to close the eyes
 			setTimeout(() => this.openEyes(), 300);
-			this.blink();
+			// ^ Don't forget to open them
+			this.blink(); // Repeat at another random interval
 		}, blinkTime);
 	}
+	// This function is part of the Web Components lifecycle. It gets called
+	// whenever the component is added to the page.
+	// It is being used to calculate the bounding rectangle once at its
+	// initialization. This information is useful to properly set the "lookAt"
+	// line.
 	connectedCallback() {
-		console.log("Custom square element added to page.");
 		if (!this._clientRect) {
 			this._clientRect = this.getBoundingClientRect();
 		}
 	}
+	// This function is part of the Web Components lifecycle. It gets called
+	// when an attribute is changed on the tag. This component also calls it
+	// when the class attribute "lookAt" is set through JavaScript.
 	attributeChangedCallback(name, oldValue, newValue) {
-		var [x, y] = newValue;
+		var [x, y] = newValue; // The new position to look at;
+		// Set each eye individually, the clientRect position is sent as the
+		// offset for the page x,y being received.
 		this._leftEye.lookAt(x, y, this._clientRect.x, this._clientRect.y);
 		this._rightEye.lookAt(x, y, this._clientRect.x, this._clientRect.y);
+		// Check if the position is inside the Cliddy body
 		var isInside =
 			x > this._clientRect.x &&
 			x < this._clientRect.x + this._clientRect.width &&
 			y > this._clientRect.y &&
 			y < this._clientRect.y + this._clientRect.height;
 		if (isInside) {
+			// Show the "touched-face" when the position is inside the body
 			this.face(this._touchedFace);
 		} else {
+			// Show the normal "face" otherwise
 			this.face(this._selectedFace);
 		}
 	}

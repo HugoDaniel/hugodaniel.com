@@ -234,7 +234,9 @@ main article header nav {
 }
 
 main article header nav span {
-	text-align:right;
+	text-align: right;
+}
+main article header nav span {
 }
 main article header nav a {
 	font-size: 0.9rem;
@@ -261,8 +263,14 @@ main article img {
 
 main article pre {
 	padding: 2rem 1rem;
+	max-width: 100%;
+	width: calc(100vw - 6rem);
+	overflow: auto;
 }
 
+main article pre code {
+	overflow: auto;
+}
 main hr {
 	margin-bottom: 0;
 	padding-bottom: 0;
@@ -281,11 +289,13 @@ main footer nav {
 }
 
 main footer nav a {
-	padding: 1.5rem 1rem;
+	padding: 1.5rem 0.25rem;
 }
 
 
-/* Non Mobile CSS */
+/************************************/
+/*          Non Mobile CSS          */
+/************************************/
 @media screen and (min-width: 40em) {
 
 .intro article {
@@ -307,6 +317,10 @@ main article {
 
 main article header nav a {
 	padding: 0.5rem;
+}
+
+main footer nav a {
+	padding: 1.5rem 1rem;
 }
 
 footer {
