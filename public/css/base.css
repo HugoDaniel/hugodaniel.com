@@ -323,12 +323,9 @@ main footer nav a {
 }
 .intro footer {
 	display: grid;
-	grid-template-columns: 25rem 25rem;
+	grid-template-columns: minmax(20rem, 50%) 50%;
 	grid-gap: 4rem;
-}
-
-.intro footer nav {
-	width: 25rem;
+	max-width: 100%;
 }
 
 main article {
