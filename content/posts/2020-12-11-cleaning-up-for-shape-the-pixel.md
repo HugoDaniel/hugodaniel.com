@@ -1,6 +1,6 @@
 +++
 title = "Cleaning up for Shape The Pixel"
-description = "Taking a look back into the work that was done for Grid Generator and rethink how much of it will actually go into 'Shape The Pixel'. Most technical parts remain the same but there are also a lot of things that will be removed because of the new product shift."
+description = "Taking a look back into the work done for Grid Generator and rethinking how much of it will go into 'Shape The Pixel'. With this new product shift, the core technical parts are going to remain the same while a lot of things are going away."
 date = 2020-12-11
 extra = { place = "Lisboa", author = "Hugo Daniel", social_img = "/images/NerdyCliddy.png",modules = ["modules/cliddy.js", "cliddy-mascot.js"] }
 +++
