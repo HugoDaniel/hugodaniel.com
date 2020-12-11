@@ -4,8 +4,52 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2020-12-04T00:00:00+00:00</updated>
+	<updated>2020-12-11T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Cleaning up for Shape The Pixel</title>
+		<published>2020-12-11T00:00:00+00:00</published>
+		<updated>2020-12-11T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/</id>
+		<content type="html">&lt;p&gt;Moving from Grid Generator into the first version of &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt; is going to involve effort of cleaning and prunning the parts that are slightly outside of its intended focus of drawing shapes.&lt;&#x2F;p&gt;
+&lt;p&gt;This implies product changes that will propagate into technical decisions.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-is-going-away&quot;&gt;What is going away?&lt;&#x2F;h2&gt;
+&lt;p&gt;Things that were done in Grid Generator and that are going to be removed in &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Login&#x2F;Register (Login with e-mail and social networks)&lt;&#x2F;li&gt;
+&lt;li&gt;Payments (Payment logic and Braintree integration)&lt;&#x2F;li&gt;
+&lt;li&gt;Business Logic (&amp;quot;when to allow a costumer to do what?&amp;quot; - in &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt; there are no costumers, the app always does everything)&lt;&#x2F;li&gt;
+&lt;li&gt;Billing (Invoices and Chargebee integration)&lt;&#x2F;li&gt;
+&lt;li&gt;Most UI components (all JSX is going away and it is going to be done with plain HTML and Web Components)&lt;&#x2F;li&gt;
+&lt;li&gt;Developer dependencies (the Grid Generator frontend code only had two dependencies, both are going away: inferno and xxhashjs - others might come in)&lt;&#x2F;li&gt;
+&lt;li&gt;Split repositories (db code, auth server code, video generator and frontend code)&lt;&#x2F;li&gt;
+&lt;li&gt;Most WebWorkers are going to be removed for the sake of simplicity&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;what-is-going-to-be-new&quot;&gt;What is going to be new?&lt;&#x2F;h2&gt;
+&lt;p&gt;Things that are going to be new in &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cliddy (an assistant)&lt;&#x2F;li&gt;
+&lt;li&gt;UI (redone and centered on Cliddy)&lt;&#x2F;li&gt;
+&lt;li&gt;Shape&#x2F;Grid drawing mode (new UI with a new logic that sits closely to the creative process)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;the-more-things-change&quot;&gt;The more things change...&lt;&#x2F;h2&gt;
+&lt;p&gt;Most things will remain the same, that means these will still work or will only carry small changes:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Infinite grid&lt;&#x2F;li&gt;
+&lt;li&gt;Shape - the customizable &amp;quot;pixels&amp;quot; editor&lt;&#x2F;li&gt;
+&lt;li&gt;Replay your work&lt;&#x2F;li&gt;
+&lt;li&gt;MP4 export&lt;&#x2F;li&gt;
+&lt;li&gt;Share your work with a link&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;one-more-thing&quot;&gt;One more thing&lt;&#x2F;h2&gt;
+&lt;p&gt;Also, expect a couple of surprises on top of these to be announced here on this blog. Alongside with a couple of posts detailing some of these points a bit more.&lt;&#x2F;p&gt;
+&lt;div style=&quot;width: 100%; display: flex; justify-content: center;&quot;&gt;
+&lt;cliddy-mascot face=&quot;8)&quot; touched-face=&quot;8D&quot;&gt;&lt;&#x2F;cliddy-mascot&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;This is part of a new approach into a drawing tool that is going to be called &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt;. Read more about its initial creation ideas &lt;a href=&quot;&#x2F;posts&#x2F;from-gridgenerator-to-shape-the-pixel&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;. Send me an e-mail if you liked what you read or have any questions&#x2F;suggestions 🤓&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>From Grid Generator to Shape The Pixel</title>
 		<published>2020-12-04T00:00:00+00:00</published>

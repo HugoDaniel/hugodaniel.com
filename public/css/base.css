@@ -157,9 +157,18 @@ footer nav h4 {
 	margin-top: 2rem;
 }
 
+.posts {
+	padding: 0 4rem;
+}
+
 .posts li {
 	text-align: center;
 	padding-bottom: 2.5rem;
+}
+.posts li p {
+	max-width: 25rem;
+	margin: auto;
+	padding: 1rem 0;
 }
 
 .posts li a {
@@ -301,7 +310,7 @@ main footer nav a {
 
 .intro article {
 	grid-template-columns: 1fr 1fr;
-	grid-gap: 8%;
+	grid-gap: 4rem;
 }
 
 .intro article figure {
@@ -312,6 +321,16 @@ main footer nav a {
 .intro article h1 {
 	text-align: left;
 }
+.intro footer {
+	display: grid;
+	grid-template-columns: 25rem 25rem;
+	grid-gap: 4rem;
+}
+
+.intro footer nav {
+	width: 25rem;
+}
+
 main article {
 	padding: 1rem 4rem;
 }

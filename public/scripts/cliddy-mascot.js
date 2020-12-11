@@ -1,4 +1,4 @@
-import { Cliddy } from "./modules/cliddy.mjs";
+import { Cliddy } from "./modules/cliddy.js";
 
 customElements.define("cliddy-mascot", Cliddy);
 

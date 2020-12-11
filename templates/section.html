@@ -8,11 +8,13 @@
 			{% if page.draft %}
 				<div />
 			{% else %}
-				{% if page.date | date(format="%s") | int >= 1606667348076 %}
+				{% if page.date | date(format="%s") | int > 1591488000 %}
 				<li>
 					<a href="{{ page.permalink }}">{{ page.title }}</a>
-					<p> {{ page.description }} </p>
-					<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+					<span>
+						<p> {{ page.description }} </p>
+						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+					</span>
 				</li>
 				{% endif %}
 			{% endif %}
@@ -27,12 +29,12 @@
 			{% if page.draft %}
 				<div />
 			{% else %}
-				{% if page.date | date(format="%s") | int < 1606667348076  %}
+				{% if page.date | date(format="%s") | int <= 1591488000 %}
 				<li>
 					<a href="{{ page.permalink }}">{{ page.title }}</a>
 					<span>
-					<p> {{ page.description }} </p>
-					<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+						<p> {{ page.description }} </p>
+						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
 					</span>
 				</li>
 				{% endif %}
