@@ -308,6 +308,11 @@ main .center-images img {
 	display: flex;
 }
 
+main .with-lists ol {
+	list-style-type:upper-roman;
+	padding-left: 2rem;
+}
+
 
 /************************************/
 /*          Non Mobile CSS          */

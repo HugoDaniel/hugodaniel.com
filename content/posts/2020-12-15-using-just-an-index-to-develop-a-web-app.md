@@ -2,7 +2,7 @@
 title = "The Zen of index.html"
 description = "Web development has become a very complex field with many branches and tools to master. In this article, I suggest doing the inverse and use just a simple `index.html` file to manage all of the web app development scripts and assets. This might seem radical but does it make life more complex than using all those front-end tools we have become accustomed to?"
 date = 2020-12-15
-extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/html5-muscle.png",modules = [], class="center-images" }
+extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/html5-muscle.png",modules = [], class="center-images with-lists" }
 +++
 
 
