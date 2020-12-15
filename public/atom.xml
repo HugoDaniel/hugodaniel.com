@@ -7,7 +7,7 @@
 	<updated>2020-12-15T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
 	<entry xml:lang="en">
-		<title>Using just an index.html file for web app development</title>
+		<title>The Zen of index.html</title>
 		<published>2020-12-15T00:00:00+00:00</published>
 		<updated>2020-12-15T00:00:00+00:00</updated>
 		<link href="https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/" type="text/html"/>
