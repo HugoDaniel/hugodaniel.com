@@ -49,7 +49,7 @@ These two will be the subject of my next post. For now, I am going to lay the gr
 
 ## A common structure for most apps
 
-The common structure I plan to follow for is something like this:
+The common structure I plan to follow is something like this:
 
 ```html
 <head>
