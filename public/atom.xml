@@ -4,8 +4,144 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2020-12-11T00:00:00+00:00</updated>
+	<updated>2020-12-15T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Using just an index.html file for web app development</title>
+		<published>2020-12-15T00:00:00+00:00</published>
+		<updated>2020-12-15T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/</id>
+		<content type="html">&lt;p&gt;Using an &lt;code&gt;index.html&lt;&#x2F;code&gt; as the single management file for the app.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;html5-hammer.png&quot; alt=&quot;HTML5 badge with a hammer, ready to do some damage&quot; title=&quot;That is one big hammer!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&amp;quot;It might work for small things, but I wouldn&#x27;t use it for something big.&amp;quot;&lt;&#x2F;em&gt;
+Said someone about something.&lt;&#x2F;p&gt;
+&lt;p&gt;These are some of the things that an &lt;code&gt;index.html&lt;&#x2F;code&gt; typically does:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sets the title for the current page&lt;&#x2F;li&gt;
+&lt;li&gt;Defines the content and assets&lt;&#x2F;li&gt;
+&lt;li&gt;Defines content to be used as a template&lt;&#x2F;li&gt;
+&lt;li&gt;Loads styles&lt;&#x2F;li&gt;
+&lt;li&gt;Runs scripts and resolves modules dependencies&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Which are already quite good, but there are many more goodies to be found among the things that a simple &lt;code&gt;index.html&lt;&#x2F;code&gt; allows to do such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set a &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;Manifest&quot;&gt;manifest file&lt;&#x2F;a&gt; for offline usage of the page items&lt;&#x2F;li&gt;
+&lt;li&gt;Using the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&quot;&gt;Web API&lt;&#x2F;a&gt;&#x27;s on the scripts (navigation, web components, 3d, audio, network access, etc...)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTML&#x2F;Preloading_content&quot;&gt;Preload&lt;&#x2F;a&gt; content and assets&lt;&#x2F;li&gt;
+&lt;li&gt;Content &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Web_syndication&quot;&gt;syndication&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Social networks &lt;a href=&quot;https:&#x2F;&#x2F;ogp.me&quot;&gt;meta information&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In fact, everything that any modern complex Web App does can be fit into a single &lt;code&gt;index.html&lt;&#x2F;code&gt; file.&lt;&#x2F;p&gt;
+&lt;p&gt;It is mostly a matter of managing the complexity and growth of files, assets, components, etc...&lt;&#x2F;p&gt;
+&lt;p&gt;We have developed a wide range of very complex tools to help us with that. Front-end development has become so complex that it is hard for any single person to master it.&lt;&#x2F;p&gt;
+&lt;p&gt;How much harder would life be if a single &lt;code&gt;index.html&lt;&#x2F;code&gt; was used to drive all of the development instead of all those Create-React-App&#x2F;Babel&#x2F;WebPack&#x2F;npm&#x2F;yarn&#x2F;d&#x2F;sass&#x2F;styled-components&#x2F;optimizers? &lt;&#x2F;p&gt;
+&lt;p&gt;I don&#x27;t know how to answer this but will try to shed some light on a simpler, more &amp;quot;naked&amp;quot; approach for web app development.&lt;&#x2F;p&gt;
+&lt;p&gt;To start &lt;strong&gt;there are at least two problems&lt;&#x2F;strong&gt; with using a single &lt;code&gt;index.html&lt;&#x2F;code&gt; as the only management file for the app:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;No TypeScript support (or any other transpiler language, only JS, GLSL, and WebASM supported)&lt;&#x2F;li&gt;
+&lt;li&gt;No way to easily manage 3rd party dependencies dependencies (dependencies)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;These two will be the subject of my next post. For now, I am going to lay the ground for a simple &lt;code&gt;index.html&lt;&#x2F;code&gt;-only approach.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-common-structure-for-most-apps&quot;&gt;A common structure for most apps&lt;&#x2F;h2&gt;
+&lt;p&gt;The common structure I plan to follow for is something like this:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- Page meta --&amp;gt;
+&amp;lt;!-- &amp;lt;link&amp;gt;&amp;#39;s go here after the meta stuff --&amp;gt;
+&amp;lt;!-- &amp;lt;script type=&amp;quot;module&amp;quot;&amp;gt;&amp;#39;s go here --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- Feature flags as class strings in body --&amp;gt;
+  &amp;lt;!-- Modals go here --&amp;gt;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- The content being shown goes here --&amp;gt;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- &amp;lt;template&amp;gt;&amp;#39;s go here --&amp;gt;
+  &amp;lt;!-- &amp;lt;script&amp;gt;&amp;#39;s go here at the end --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This structure makes some compromises but overall is enough for most complex apps. It is not that different from a normal HTML page 🧐.&lt;&#x2F;p&gt;
+&lt;p&gt;JavaScript modules are being loaded at the &lt;code&gt;&amp;lt;head&amp;gt;&lt;&#x2F;code&gt;, which is ok because module scripts are deferred by default and do not block the parsing of the rest of the document. They could go anywhere, I prefer to keep the &lt;code&gt;&amp;lt;body&amp;gt;&lt;&#x2F;code&gt; for the main logic and more immediate scripts.&lt;&#x2F;p&gt;
+&lt;p&gt;With this in mind, here are 3 common things to a web app that can be done in such a simple structure without much effort:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Global loading state (full-screen loading)&lt;&#x2F;li&gt;
+&lt;li&gt;Routing (what to show according to the URL being rendered)&lt;&#x2F;li&gt;
+&lt;li&gt;Place common HTML parts&#x2F;assets without repeating them (templating&#x2F;components)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;global-loading-page&quot;&gt;Global Loading page&lt;&#x2F;h2&gt;
+&lt;p&gt;A loading page that fills the whole screen is something that most web apps have, some even distract us with cool animations while loading.&lt;&#x2F;p&gt;
+&lt;p&gt;In the above structure, the loading page goes into the modal area. Right before the &lt;code&gt;&amp;lt;main&amp;gt;&lt;&#x2F;code&gt; content. This allows heavy content like &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;&#x2F;code&gt;, &lt;code&gt;&amp;lt;img&amp;gt;&lt;&#x2F;code&gt; to be placed as &lt;code&gt;&amp;lt;main&amp;gt;&lt;&#x2F;code&gt; children and fully load (shaders, image data, etc) behind it, before clearing the loading state and showing them to our friends.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;...
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;loading&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&amp;gt;Loading&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+  ...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The whole visible space gets covered with that loading &lt;code&gt;&amp;lt;div&amp;gt;&lt;&#x2F;code&gt; which is then removed when all the things that the app needs for a good first run are ready.&lt;&#x2F;p&gt;
+&lt;p&gt;Having the loading upfront on the &lt;code&gt;index.html&lt;&#x2F;code&gt; without needing any JS to first show it also helps our karma score in the bots&amp;amp;spiders purgatory that purge the web we all love into useful cinder blocks.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;routing&quot;&gt;Routing&lt;&#x2F;h2&gt;
+&lt;p&gt;No lib is going to be used for routing. Routing s going to consist of simple manipulations of the browser history with &lt;code&gt;popstate&lt;&#x2F;code&gt; and &lt;code&gt;pushstate&lt;&#x2F;code&gt;. The basic approach is:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Read the current route from the window location&lt;&#x2F;li&gt;
+&lt;li&gt;Clone its corresponding &lt;code&gt;&amp;lt;template&amp;gt;&lt;&#x2F;code&gt; into the &lt;code&gt;&amp;lt;main&amp;gt;&lt;&#x2F;code&gt; tag&lt;&#x2F;li&gt;
+&lt;li&gt;Inside it adjust the relevant &lt;code&gt;&amp;lt;a&amp;gt;&lt;&#x2F;code&gt;&#x27;s and other link navigation tags to perform a &lt;code&gt;pushState&lt;&#x2F;code&gt; instead of their default behavior
+&lt;ul&gt;
+&lt;li&gt;Filters can be applied to only consider &lt;code&gt;&amp;lt;a&amp;gt;&lt;&#x2F;code&gt;&#x27;s that have relative paths, or that do not have the &lt;code&gt;rel=nofollow&lt;&#x2F;code&gt; attribute&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;onpopstate&lt;&#x2F;code&gt; clone the correspnoding &lt;code&gt;&amp;lt;template&amp;gt;&lt;&#x2F;code&gt; into the &lt;code&gt;&amp;lt;main&amp;gt;&lt;&#x2F;code&gt; tag&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;This is intended only for web apps as an effort to reduce the amount of JS and leverage the features already at hand. For anything similar to regular pages the browser behavior is more than good enough, no need for JS there.&lt;&#x2F;p&gt;
+&lt;p&gt;This approach should work well if the web app uses less than 20 or 15 possible routing patterns. Most web apps likely average at some number under 10. This simple approach should be more than enough. There is no need in my foreseeable use cases to use anything more complex like the DOM or any big library to manage routes.&lt;&#x2F;p&gt;
+&lt;p&gt;I will evolve this into a very simple routing&#x2F;templating library to be announced soon(ish). For reference, here is some code that I did for a template engine in one of the many Grid iterations: &lt;a href=&quot;&#x2F;scripts&#x2F;meander.js&quot;&gt;old routing code&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I appreciate the browser&#x27;s approach of associating page state with history, however, for a web app I find it simpler and more manageable to keep these two things separate:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Routing seen as pure functions of navigation only transformations&lt;&#x2F;li&gt;
+&lt;li&gt;App state in its own separate tarpit.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;html-templating&quot;&gt;HTML Templating&lt;&#x2F;h2&gt;
+&lt;p&gt;Stamping and repeating a common HTML structure in a couple of places is a frequent routine that most web apps do. Be it for menu entries, list items, or even whole parts like sidebars or modal and toast elements. Finding a common HTML structure and repeat it when needed with small adjustments is a stapled practice.&lt;&#x2F;p&gt;
+&lt;p&gt;HTML templating has many technicalities and possibilities. Most JS frameworks commonly solve it in their own way with different degrees of justifiable complexity.&lt;&#x2F;p&gt;
+&lt;p&gt;Web browsers already provide a very flexible and complex way to do templating through the Web Components suite of technologies. For most of my cases plain HTML will be prefered and written directly at that &lt;code&gt;index.html&lt;&#x2F;code&gt;. For the other cases where DRY speaks louder a simple static &amp;quot;copy&#x2F;paste&amp;quot; tag will suffice, a small prototype of this could be something like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;customElements&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;define&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;template-content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;HTMLElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;constructor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;() {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;super&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;();
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;attachShadow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;({ mode: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;})
+        .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;appendChild&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(
+          document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;getElementById&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;getAttribute&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;from-id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;)
+          ).content.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cloneNode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;))
+  }
+}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This small code defines a new WebComponent tag &lt;code&gt;&amp;lt;template-content&amp;gt;&lt;&#x2F;code&gt;, this tag reads an element id from its &lt;code&gt;from-id&lt;&#x2F;code&gt; attribute, then gets the corresponding element on the DOM for that id, clones it, and replaces itself with it.&lt;&#x2F;p&gt;
+&lt;p&gt;This is useful because it provides a quick way to stamp HTML&#x2F;SVG content on the document. Helpful to replicate SVG elements, lists, and node sub-trees on the client-side.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nav&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+	&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onclick&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;undo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;)&amp;quot;&amp;gt;
+		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template-content &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;from-id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-button-content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;
+		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template-content &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;from-id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-undo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;
+	&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+	&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onclick&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;draw&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;#39;)&amp;quot;&amp;gt;
+		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template-content &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;from-id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-button-content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;
+		&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template-content &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;from-id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-draw&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;
+	&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nav&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-button-content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- Some complex content here --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tools-draw&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- Some other complex content here --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Keeping a single &lt;code&gt;index.html&lt;&#x2F;code&gt; might be just enough for a simpler naked approach to app development. If there is no need for big dependencies, versioning tracking files, transpilers, and all that, this could very well be good enough. It works directly on top of what browsers already provide and hints at a simpler, leaner, style of development.&lt;&#x2F;p&gt;
+&lt;p&gt;It does not have TypeScript support and it also does not automatically resolve dependencies and bundles them.&lt;&#x2F;p&gt;
+&lt;p&gt;These are two open problems with this approach that I plan to show a possible solution that is on par in simplicity with this one. That will be the subject of my next technical post (likely to come out next week). Stay tuned.&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>Cleaning up for Shape The Pixel</title>
 		<published>2020-12-11T00:00:00+00:00</published>

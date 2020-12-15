@@ -302,6 +302,12 @@ main footer nav a {
 	padding: 1.5rem 0.25rem;
 }
 
+main .center-images img {
+	text-align: center;
+	margin: auto;
+	display: flex;
+}
+
 
 /************************************/
 /*          Non Mobile CSS          */
