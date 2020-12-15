@@ -81,7 +81,7 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;The whole visible space gets covered with that loading &lt;code&gt;&amp;lt;div&amp;gt;&lt;&#x2F;code&gt; which is then removed when all the things that the app needs for a good first run are ready.&lt;&#x2F;p&gt;
 &lt;p&gt;Having the loading upfront on the &lt;code&gt;index.html&lt;&#x2F;code&gt; without needing any JS to first show it also helps our karma score in the bots&amp;amp;spiders purgatory that purge the web we all love into useful cinder blocks.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;routing&quot;&gt;Routing&lt;&#x2F;h2&gt;
-&lt;p&gt;No lib is going to be used for routing. Routing s going to consist of simple manipulations of the browser history with &lt;code&gt;popstate&lt;&#x2F;code&gt; and &lt;code&gt;pushstate&lt;&#x2F;code&gt;. The basic approach is:&lt;&#x2F;p&gt;
+&lt;p&gt;No lib is going to be used for routing. Routing is going to consist of simple manipulations of the browser history with &lt;code&gt;popstate&lt;&#x2F;code&gt; and &lt;code&gt;pushstate&lt;&#x2F;code&gt;. The basic approach is:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;Read the current route from the window location&lt;&#x2F;li&gt;
 &lt;li&gt;Clone its corresponding &lt;code&gt;&amp;lt;template&amp;gt;&lt;&#x2F;code&gt; into the &lt;code&gt;&amp;lt;main&amp;gt;&lt;&#x2F;code&gt; tag&lt;&#x2F;li&gt;

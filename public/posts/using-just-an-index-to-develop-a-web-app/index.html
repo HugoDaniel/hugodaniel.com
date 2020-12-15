@@ -139,7 +139,7 @@ Said someone about something.</p>
 <p>The whole visible space gets covered with that loading <code>&lt;div&gt;</code> which is then removed when all the things that the app needs for a good first run are ready.</p>
 <p>Having the loading upfront on the <code>index.html</code> without needing any JS to first show it also helps our karma score in the bots&amp;spiders purgatory that purge the web we all love into useful cinder blocks.</p>
 <h2 id="routing">Routing</h2>
-<p>No lib is going to be used for routing. Routing s going to consist of simple manipulations of the browser history with <code>popstate</code> and <code>pushstate</code>. The basic approach is:</p>
+<p>No lib is going to be used for routing. Routing is going to consist of simple manipulations of the browser history with <code>popstate</code> and <code>pushstate</code>. The basic approach is:</p>
 <ol>
 <li>Read the current route from the window location</li>
 <li>Clone its corresponding <code>&lt;template&gt;</code> into the <code>&lt;main&gt;</code> tag</li>

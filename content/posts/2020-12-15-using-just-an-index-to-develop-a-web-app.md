@@ -97,7 +97,7 @@ Having the loading upfront on the `index.html` without needing any JS to first s
 
 ## Routing
 
-No lib is going to be used for routing. Routing s going to consist of simple manipulations of the browser history with `popstate` and `pushstate`. The basic approach is:
+No lib is going to be used for routing. Routing is going to consist of simple manipulations of the browser history with `popstate` and `pushstate`. The basic approach is:
 
 1. Read the current route from the window location
 1. Clone its corresponding `<template>` into the `<main>` tag
