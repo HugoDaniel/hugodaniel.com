@@ -341,6 +341,10 @@ main .with-lists ol {
 	overflow: hidden;
 }
 
+main {
+	overflow-x: hidden;
+}
+
 main article {
 	padding: 1rem 4rem;
 }
