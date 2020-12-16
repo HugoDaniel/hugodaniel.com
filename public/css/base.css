@@ -342,7 +342,7 @@ main .with-lists ol {
 }
 
 main {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 main article {
