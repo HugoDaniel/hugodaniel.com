@@ -4,8 +4,46 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2020-12-15T00:00:00+00:00</updated>
+	<updated>2020-12-21T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Meet Evil Cliddy</title>
+		<published>2020-12-21T00:00:00+00:00</published>
+		<updated>2020-12-21T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/meet-evil-cliddy/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/meet-evil-cliddy/</id>
+		<content type="html">&lt;p&gt;Creating Cliddy has been a significant driver of my motivations and ideas. This simple character that will serve as the base for my next drawing app has been a source of fun in recent days.&lt;&#x2F;p&gt;
+&lt;p&gt;It is a throwback to the days where virtual assistants were displayed with an avatar without &amp;quot;skills&amp;quot; or &amp;quot;actions&amp;quot; or whatever Siri now has. An agent to be used as a narrative controller of a story that I am not sure where will lead me.&lt;&#x2F;p&gt;
+&lt;p&gt;The more I work on it, the more the idea of making &amp;quot;products&amp;quot; on top of real characters grows in me, up to the point where I am starting to believe that Cliddy can not only be the main central point of the whole UI, but also the focus and target of the entire project.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clippy.png&quot; alt=&quot;Microsoft Clippy Assistant&quot; title=&quot;The pain.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Like Clippy, the old Microsoft Office assistant, my Cliddy is initially intended to be helpful, communicative, and an enhancer of what can be done with the tool being presented to the user. A natural bridge from the product owner&#x27;s mind into the product user interactions and intentions. Except &lt;a href=&quot;&#x2F;posts&#x2F;from-gridgenerator-to-shape-the-pixel&#x2F;&quot;&gt;&amp;quot;Shape the Pixel&amp;quot;&lt;&#x2F;a&gt; is not a product. It is meant to be just a cool project, a daydream of sorts with all its degrees of madness.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-large-spectrum&quot;&gt;A large spectrum&lt;&#x2F;h2&gt;
+&lt;p&gt;All app assistants are typically well-intended. Some are even sugar-coated to the extreme (&lt;em&gt;Hey Siri, how&#x27;s it go	ing?&lt;&#x2F;em&gt;). Some are not that sugar-coated and prefer a more dehydrated, linter type list of suggestions that show up in some modal or sidebar to help or guide you. Regardless of the style of virtual-assistant, the well-intended part is a common assumption.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;what-if.png&quot; alt=&quot;A speech bubble with the text &amp;quot;What if?&amp;quot;&quot; title=&quot;What if?&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;But what if it isn&#x27;t? What if, in my case, Cliddy is instead an arrogant, pretentious prick? A real gem of an asshole? (like me, aha) What if Cliddy could be a nagging evil character that is just there to purposefully annoy and alienate you? Would you still use a product or a tool with such an agent? How would it &amp;quot;assist&amp;quot; if it is actively fighting against the user?&lt;&#x2F;p&gt;
+&lt;p&gt;Maybe when centering the UI of a tool around a character&#x2F;assistant, it can be possible to detach it from its attitude. What if the benefits of having an assistant are not so much about it being helpful but more about having an intermediary human-like presence in the UI? (an anthropomorphized UI element - even if it happens to be symbolically evil). Will the active presence of some agent on the UI by itself outweigh its direct helpfulness? Will it make the app more engaging and fun to use?&lt;&#x2F;p&gt;
+&lt;p&gt;I don&#x27;t know the answers to these questions. I also don&#x27;t propose answering them formally, but I will explore them and create stuff that might serve as propositions to these hypotheses. Or not Ahah :D &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;meet-cliddy-evil-brother&quot;&gt;Meet Cliddy Evil Brother&lt;&#x2F;h2&gt;
+&lt;p&gt;The eyes are slightly cut, and it can now speak (maybe in the future it will tell &amp;quot;Yo Momma&amp;quot; jokes 😂)&lt;&#x2F;p&gt;
+&lt;div style=&quot;width: 100%; height: 350px; display: flex; justify-content: start;&quot;&gt;
+    &lt;cliddy-mascot
+      face=&quot;&gt;:)&quot;
+      touched-face=&quot;&gt;:(&quot;
+      data-body-color=&quot;#E31919&quot;
+      data-shadow-color=&quot;#EDC741&quot;
+    &gt;
+      &lt;p slot=&quot;right&quot; style=&quot;font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 4rem; height: 128px; padding: 0; margin:0; margin-bottom: -19px;&quot;&gt;
+        💩
+      &lt;&#x2F;p&gt;
+    &lt;&#x2F;cliddy-mascot&gt;
+&lt;&#x2F;div&gt;
+&lt;h3 id=&quot;related-articles&quot;&gt;Related articles&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;from-gridgenerator-to-shape-the-pixel&#x2F;&quot;&gt;From Grid Generator to Shape The Pixel&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;posts&#x2F;cleaning-up-for-shape-the-pixel&#x2F;&quot;&gt;Cleaning up for Shape The Pixel&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>The Zen of index.html</title>
 		<published>2020-12-15T00:00:00+00:00</published>
