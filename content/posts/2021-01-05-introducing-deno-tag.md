@@ -17,7 +17,9 @@ Deno is a new thing. A new thing that gets it right and manages to improve even 
 Technicalities apart, the heart of Deno resides in the URL. It is how modules get referenced, and your work gets exposed to the world—giving you the flexibility to distribute it as you please (in your super-private VPN org, maybe?).
 
 Having the URL as the core is a driving force for a few base design decisions.
-Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules (this means that `import Rabbit from "magic"` no longer works: where is "magic" located? is it a `.js` ? a `.ts`? a folder with a default `index.js` export? Some 3rd party "package" in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?
+Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules. 
+
+This means that `import Rabbit from "magic"` no longer works: where is "magic" located? is it a `.js` ? a `.ts`? a folder with a default `index.js` export? Some 3rd party "package" in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?
 
 Deno also carefully shares a set of API's with the browser, allowing lazy devs like me to compound the knowledge of [standard JavaScript browser API's](https://deno.land/manual/runtime/web_platform_apis), bringing it to places outside the browser.
 
