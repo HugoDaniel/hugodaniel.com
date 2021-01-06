@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="After trying out Deno I got passionate about it. This post introduces my first Deno module, a simple preprocessor for HTML files that runs Deno where the new `&lt;deno&gt;` tag is specified. How useful can a simple file preprocessor be? What can it help build?">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>Introducing the &lt;deno&gt; tag</title>
+			<meta name="twitter:title" content="Introducing the &lt;deno&gt; tag">
+			<meta property="og:title" content="Introducing the &lt;deno&gt; tag">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="After trying out Deno I got passionate about it. This post introduces my first Deno module, a simple preprocessor for HTML files that runs Deno where the new `&lt;deno&gt;` tag is specified. How useful can a simple file preprocessor be? What can it help build?">
+			<meta property="og:description" content="After trying out Deno I got passionate about it. This post introduces my first Deno module, a simple preprocessor for HTML files that runs Deno where the new `&lt;deno&gt;` tag is specified. How useful can a simple file preprocessor be? What can it help build?">
+		
+		
+			<meta property="og:article:published_time" content="2021-01-06">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;introducing-deno-tag&#x2F;">
+		
+			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;deno_tag_logo.png" >
+			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;deno_tag_logo.png" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> Introducing the &lt;deno&gt; tag </h1>
+			<p> After trying out Deno I got passionate about it. This post introduces my first Deno module, a simple preprocessor for HTML files that runs Deno where the new `&lt;deno&gt;` tag is specified. How useful can a simple file preprocessor be? What can it help build? </p>
+			<nav>
+				<time datetime="2021-01-06"> 6-Jan-2021</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+				</span>
+			</nav>
+		</header>
+		<p>Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the &quot;new Node.js&quot;. After trying it out, I feel that Deno is much more than that. </p>
+<p>Deno is a new thing. A new thing that gets it right and manages to improve even the few parts that were already top-notch in Node.js/JS.</p>
+<p><img src="/images/deno_deal_with_it.png" alt="Deno with the pixel sunglasses from the &quot;Deal With It&quot; meme" title="Deal with it" /></p>
+<h2 id="how-cool-is-deno">How cool is Deno?</h2>
+<p>Technicalities apart, the heart of Deno resides in the URL. It is how modules get referenced, and your work gets exposed to the world—giving you the flexibility to distribute it as you please (in your super-private VPN org, maybe?).</p>
+<p>Having the URL as the core is a driving force for a few base design decisions.
+Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules (this means that <code>import Rabbit from &quot;magic&quot;</code> no longer works: where is &quot;magic&quot; located? is it a <code>.js</code> ? a <code>.ts</code>? a folder with a default <code>index.js</code> export? Some 3rd party &quot;package&quot; in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?</p>
+<p>Deno also carefully shares a set of API's with the browser, allowing lazy devs like me to compound the knowledge of <a href="https://deno.land/manual/runtime/web_platform_apis">standard JavaScript browser API's</a>, bringing it to places outside the browser.</p>
+<p>The <a href="https://deno.land/manual@v1.6.3/runtime/permission_apis#permission-descriptors">security model</a> granularity resembles the <a href="https://man.openbsd.org/man2/pledge.2">OpenBSD pledge</a> approach. It forces the module execution into a restricted-service operating mode set by each permission specific flag and allowances. If your module tries to do something that was not whitelisted, it will throw an exception.</p>
+<p>The Deno <a href="https://deno.land/manual/contributing/style_guide">style guide for contributors</a> is a great read and can serve as a base for the code style guide in companies that lack it. The included linter rules (<code>deno lint</code>) already do a great job at enforcing a part of these guidelines.</p>
+<p>If you are now starting a new project or trying to refresh some old codebase, then Deno might give you that fresh edge that your project needs.</p>
+<h2 id="deno-as-a-preprocessor-of-html">Deno as a preprocessor of HTML</h2>
+<p>One of the things that attracted me initially to Deno was that it includes with its single binary <code>deno</code> the ability to bundle dependencies and run tests. No more Webpack. No more Jest. Think of it as TypeScript with batteries included - btw, why doesn't <code>tsc</code> resolve imports and outputs bundles? Because it's a &quot;compiler&quot; and not a &quot;linker&quot;... yeah, whatever.</p>
+<p>With Deno, I get in its single binary, a simple API, and a set of tools to use from the Command Line Interface.</p>
+<p>Now, what if it would be possible to run Deno from within an HTML file?</p>
+<p>Yes, like PHP but with Deno munching TypeScript. </p>
+<p><img src="/images/deno_spectrum.png" alt="Deno logo next to the PHP logo with a rainbow heart in between" title="Its a spectrum..." /></p>
+<h2 id="nevermind-the-php-here-s-the-deno-tag">Nevermind the <code>&lt;?php&gt;</code> here's the <code>&lt;deno&gt;</code> tag</h2>
+<p>The <a href="https://github.com/HugoDaniel/deno_tag/">deno_tag</a> is my first Deno module. I have been using it in the simple drawing web app I am building (Shape The Pixel).</p>
+<p>The idea is that you can include a <code>&lt;deno&gt;</code> tag in your project's HTML files and then preprocess them into regular HTML files.</p>
+<p><em>What does this new tag do?</em></p>
+<p>It runs the <code>deno</code> command on the specified file and replaces the <code>&lt;deno&gt;</code> tag with its output.</p>
+<p>Here is an example, suppose you have this file called <code>advanced_logic.ts</code> with this content:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">PHP is the best computer language ever invented!</span><span style="color:#c0c5ce;">&quot;);
+</span></code></pre>
+<p>Just an example. The <code>&lt;deno&gt;</code> tag would transform something like this:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">deno </span><span style="color:#d08770;">run</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">advanced_logic.ts</span><span style="color:#c0c5ce;">&quot; /&gt;&lt;/</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span></code></pre>
+<p>Into this:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;PHP is the best computer language ever invented!&lt;/</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span></code></pre>
+<p>It runs something similar to <code>deno run advanced_logic.ts</code> and pipes the execution's output directly into the location of the <code>&lt;deno&gt;</code> tags. </p>
+<p>The tag can handle other attributes besides <code>run</code>. It can also bundle your modules with <code>&lt;deno bundle=&quot;my_app.ts&quot; /&gt;</code>. Perfect for including within <code>&lt;script&gt;</code> tags and having the HTML file include a bundle of your code and its imports.</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#bf616a;">deno bundle</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">my_app.ts</span><span style="color:#c0c5ce;">&quot; /&gt;
+&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+</span></code></pre>
+<p>Just call the <code>deno_tag</code> CLI on your build scripts or release playbooks to have the HTML files ready to go.</p>
+<h3 id="the-possibilities-are-endless">The possibilities are endless</h3>
+<p>Preprocess your static assets?
+Bundle the SVG's into a single string?
+Call mom?
+Ping the coffee machine?</p>
+<p>The <code>&lt;deno&gt;</code> tag is here for the rescue!</p>
+<p><em>Why not use PHP?</em></p>
+<p>I love PHP and use it whenever appropriate. It is my favorite backend language for the web. The <a href="https://www.php.net/manual/en/function.include.php">PHP &quot;include&quot;</a> logic is great and resembles this somehow (<code>&lt;?PHP include &quot;something.php&quot;; ?&gt;</code>). However, I tend to like to work closer to front-end development, and keeping these HTML/Web parts in TypeScript is the wave to surf these days 🏄‍♂️.</p>
+<p><em>Why not use /bin/sh?</em></p>
+<p>I don't know why 🤷‍♂️.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The <a href="https://github.com/HugoDaniel/deno_tag/"><code>README.md</code></a> file in the deno_tag repository includes a couple more examples and a more detailed description of its parts. <a href="https://github.com/HugoDaniel/deno_tag/">Check it out</a>.</p>
+<p>This is also available as a <em>deno.land/x</em> third-party module <a href="https://deno.land/x/deno_tag">here</a>.</p>
+<p><img src="/images/deno_tag_logo.png" alt="Deno logo between two angle brackets" title="deno_tag ftw!" /></p>
+
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external nofollow">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external nofollow">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external nofollow">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+
+
+	</body>
+</html>

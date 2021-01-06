@@ -10,7 +10,7 @@
 		{% endif %}
 		<link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) }}">
 		{% block rss %}
-			<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
 		{% endblock %}
 		{% block extra_head %}
 		{% endblock extra_head %}

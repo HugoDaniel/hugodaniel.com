@@ -4,8 +4,87 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2020-12-21T00:00:00+00:00</updated>
+	<updated>2021-01-06T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Introducing the &lt;deno&gt; tag</title>
+		<published>2021-01-06T00:00:00+00:00</published>
+		<updated>2021-01-06T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/introducing-deno-tag/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/introducing-deno-tag/</id>
+		<content type="html">&lt;p&gt;Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the &amp;quot;new Node.js&amp;quot;. After trying it out, I feel that Deno is much more than that. &lt;&#x2F;p&gt;
+&lt;p&gt;Deno is a new thing. A new thing that gets it right and manages to improve even the few parts that were already top-notch in Node.js&#x2F;JS.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;deno_deal_with_it.png&quot; alt=&quot;Deno with the pixel sunglasses from the &amp;quot;Deal With It&amp;quot; meme&quot; title=&quot;Deal with it&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-cool-is-deno&quot;&gt;How cool is Deno?&lt;&#x2F;h2&gt;
+&lt;p&gt;Technicalities apart, the heart of Deno resides in the URL. It is how modules get referenced, and your work gets exposed to the world—giving you the flexibility to distribute it as you please (in your super-private VPN org, maybe?).&lt;&#x2F;p&gt;
+&lt;p&gt;Having the URL as the core is a driving force for a few base design decisions.
+Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules (this means that &lt;code&gt;import Rabbit from &amp;quot;magic&amp;quot;&lt;&#x2F;code&gt; no longer works: where is &amp;quot;magic&amp;quot; located? is it a &lt;code&gt;.js&lt;&#x2F;code&gt; ? a &lt;code&gt;.ts&lt;&#x2F;code&gt;? a folder with a default &lt;code&gt;index.js&lt;&#x2F;code&gt; export? Some 3rd party &amp;quot;package&amp;quot; in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?&lt;&#x2F;p&gt;
+&lt;p&gt;Deno also carefully shares a set of API&#x27;s with the browser, allowing lazy devs like me to compound the knowledge of &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;manual&#x2F;runtime&#x2F;web_platform_apis&quot;&gt;standard JavaScript browser API&#x27;s&lt;&#x2F;a&gt;, bringing it to places outside the browser.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;manual@v1.6.3&#x2F;runtime&#x2F;permission_apis#permission-descriptors&quot;&gt;security model&lt;&#x2F;a&gt; granularity resembles the &lt;a href=&quot;https:&#x2F;&#x2F;man.openbsd.org&#x2F;man2&#x2F;pledge.2&quot;&gt;OpenBSD pledge&lt;&#x2F;a&gt; approach. It forces the module execution into a restricted-service operating mode set by each permission specific flag and allowances. If your module tries to do something that was not whitelisted, it will throw an exception.&lt;&#x2F;p&gt;
+&lt;p&gt;The Deno &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;manual&#x2F;contributing&#x2F;style_guide&quot;&gt;style guide for contributors&lt;&#x2F;a&gt; is a great read and can serve as a base for the code style guide in companies that lack it. The included linter rules (&lt;code&gt;deno lint&lt;&#x2F;code&gt;) already do a great job at enforcing a part of these guidelines.&lt;&#x2F;p&gt;
+&lt;p&gt;If you are now starting a new project or trying to refresh some old codebase, then Deno might give you that fresh edge that your project needs.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;deno-as-a-preprocessor-of-html&quot;&gt;Deno as a preprocessor of HTML&lt;&#x2F;h2&gt;
+&lt;p&gt;One of the things that attracted me initially to Deno was that it includes with its single binary &lt;code&gt;deno&lt;&#x2F;code&gt; the ability to bundle dependencies and run tests. No more Webpack. No more Jest. Think of it as TypeScript with batteries included - btw, why doesn&#x27;t &lt;code&gt;tsc&lt;&#x2F;code&gt; resolve imports and outputs bundles? Because it&#x27;s a &amp;quot;compiler&amp;quot; and not a &amp;quot;linker&amp;quot;... yeah, whatever.&lt;&#x2F;p&gt;
+&lt;p&gt;With Deno, I get in its single binary, a simple API, and a set of tools to use from the Command Line Interface.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, what if it would be possible to run Deno from within an HTML file?&lt;&#x2F;p&gt;
+&lt;p&gt;Yes, like PHP but with Deno munching TypeScript. &lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;deno_spectrum.png&quot; alt=&quot;Deno logo next to the PHP logo with a rainbow heart in between&quot; title=&quot;Its a spectrum...&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nevermind-the-php-here-s-the-deno-tag&quot;&gt;Nevermind the &lt;code&gt;&amp;lt;?php&amp;gt;&lt;&#x2F;code&gt; here&#x27;s the &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tag&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;deno_tag&#x2F;&quot;&gt;deno_tag&lt;&#x2F;a&gt; is my first Deno module. I have been using it in the simple drawing web app I am building (Shape The Pixel).&lt;&#x2F;p&gt;
+&lt;p&gt;The idea is that you can include a &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tag in your project&#x27;s HTML files and then preprocess them into regular HTML files.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;What does this new tag do?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It runs the &lt;code&gt;deno&lt;&#x2F;code&gt; command on the specified file and replaces the &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tag with its output.&lt;&#x2F;p&gt;
+&lt;p&gt;Here is an example, suppose you have this file called &lt;code&gt;advanced_logic.ts&lt;&#x2F;code&gt; with this content:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;console&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;log&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;PHP is the best computer language ever invented!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Just an example. The &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tag would transform something like this:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;deno &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;advanced_logic.ts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Into this:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;PHP is the best computer language ever invented!&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It runs something similar to &lt;code&gt;deno run advanced_logic.ts&lt;&#x2F;code&gt; and pipes the execution&#x27;s output directly into the location of the &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tags. &lt;&#x2F;p&gt;
+&lt;p&gt;The tag can handle other attributes besides &lt;code&gt;run&lt;&#x2F;code&gt;. It can also bundle your modules with &lt;code&gt;&amp;lt;deno bundle=&amp;quot;my_app.ts&amp;quot; &#x2F;&amp;gt;&lt;&#x2F;code&gt;. Perfect for including within &lt;code&gt;&amp;lt;script&amp;gt;&lt;&#x2F;code&gt; tags and having the HTML file include a bundle of your code and its imports.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;deno bundle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;my_app.ts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot; &#x2F;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Just call the &lt;code&gt;deno_tag&lt;&#x2F;code&gt; CLI on your build scripts or release playbooks to have the HTML files ready to go.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-possibilities-are-endless&quot;&gt;The possibilities are endless&lt;&#x2F;h3&gt;
+&lt;p&gt;Preprocess your static assets?
+Bundle the SVG&#x27;s into a single string?
+Call mom?
+Ping the coffee machine?&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;&amp;lt;deno&amp;gt;&lt;&#x2F;code&gt; tag is here for the rescue!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Why not use PHP?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I love PHP and use it whenever appropriate. It is my favorite backend language for the web. The &lt;a href=&quot;https:&#x2F;&#x2F;www.php.net&#x2F;manual&#x2F;en&#x2F;function.include.php&quot;&gt;PHP &amp;quot;include&amp;quot;&lt;&#x2F;a&gt; logic is great and resembles this somehow (&lt;code&gt;&amp;lt;?PHP include &amp;quot;something.php&amp;quot;; ?&amp;gt;&lt;&#x2F;code&gt;). However, I tend to like to work closer to front-end development, and keeping these HTML&#x2F;Web parts in TypeScript is the wave to surf these days 🏄‍♂️.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Why not use &#x2F;bin&#x2F;sh?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I don&#x27;t know why 🤷‍♂️.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;deno_tag&#x2F;&quot;&gt;&lt;code&gt;README.md&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; file in the deno_tag repository includes a couple more examples and a more detailed description of its parts. &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;deno_tag&#x2F;&quot;&gt;Check it out&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This is also available as a &lt;em&gt;deno.land&#x2F;x&lt;&#x2F;em&gt; third-party module &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;deno_tag&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;deno_tag_logo.png&quot; alt=&quot;Deno logo between two angle brackets&quot; title=&quot;deno_tag ftw!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>Meet Evil Cliddy</title>
 		<published>2020-12-21T00:00:00+00:00</published>
