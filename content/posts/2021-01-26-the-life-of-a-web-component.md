@@ -95,8 +95,6 @@ update() {
 
 Or whatever suits you better. Web Components have a somewhat low-level API that molds quickly to our kinkiest desires. Work closer to how you like to decompose problems or go wild and be creative. Avoid classes altogether and use a pure-functional approach. Keep using Object-Oriented Programming and spawn a vast forest of hierarchical extensions. Use Cobol? Use Swift? All good, everything is possible here.
 
-Use the provided Web Components life-cycle methods, or avoid them at all and use JavaScript or your favorite language with a platform WebView or DOM runtime.
-
 ```javascript
 addEventListener("load",
   () => document.querySelectorAll("my-tag")
