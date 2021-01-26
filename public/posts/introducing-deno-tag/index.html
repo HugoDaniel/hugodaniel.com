@@ -95,11 +95,11 @@ Naming things as closely as possible to what they are is a very nice improvement
 <p>It runs the <code>deno</code> command on the specified file and replaces the <code>&lt;deno&gt;</code> tag with its output.</p>
 <p>Here is an example, suppose you have this file called <code>advanced_logic.ts</code> with this content:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">PHP is the best computer language ever invented!</span><span style="color:#c0c5ce;">&quot;);
+<code class="language-typescript" data-lang="typescript"><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">PHP is the best computer language ever invented!</span><span style="color:#c0c5ce;">&quot;);
 </span></code></pre>
 <p>Just an example. The <code>&lt;deno&gt;</code> tag would transform something like this:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">deno </span><span style="color:#d08770;">run</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">advanced_logic.ts</span><span style="color:#c0c5ce;">&quot; /&gt;&lt;/</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;
@@ -108,7 +108,7 @@ Naming things as closely as possible to what they are is a very nice improvement
 </span></code></pre>
 <p>Into this:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;PHP is the best computer language ever invented!&lt;/</span><span style="color:#bf616a;">p</span><span style="color:#c0c5ce;">&gt;
@@ -118,7 +118,7 @@ Naming things as closely as possible to what they are is a very nice improvement
 <p>It runs something similar to <code>deno run advanced_logic.ts</code> and pipes the execution's output directly into the location of the <code>&lt;deno&gt;</code> tags. </p>
 <p>The tag can handle other attributes besides <code>run</code>. It can also bundle your modules with <code>&lt;deno bundle=&quot;my_app.ts&quot; /&gt;</code>. Perfect for including within <code>&lt;script&gt;</code> tags and having the HTML file include a bundle of your code and its imports.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 &lt;</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;

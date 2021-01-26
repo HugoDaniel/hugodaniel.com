@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="This post is a quick write-up on some of my learnings in experimenting with Web Components. It focuses mostly on a small subset of their life-cycle methods.">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>The life of a Web Component</title>
+			<meta name="twitter:title" content="The life of a Web Component">
+			<meta property="og:title" content="The life of a Web Component">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="This post is a quick write-up on some of my learnings in experimenting with Web Components. It focuses mostly on a small subset of their life-cycle methods.">
+			<meta property="og:description" content="This post is a quick write-up on some of my learnings in experimenting with Web Components. It focuses mostly on a small subset of their life-cycle methods.">
+		
+		
+			<meta property="og:article:published_time" content="2021-01-26">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;">
+		
+			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_components.png" >
+			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_components.png" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> The life of a Web Component </h1>
+			<p> This post is a quick write-up on some of my learnings in experimenting with Web Components. It focuses mostly on a small subset of their life-cycle methods. </p>
+			<nav>
+				<time datetime="2021-01-26">26-Jan-2021</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+				</span>
+			</nav>
+		</header>
+		<p>I've been playing around with Web Components lately. They are quite an exciting thing with a vast range of use cases and possibilities. Web Components provide a very flexible API to explore non-standard approaches and Frankenstein contraptions. I know I will :)</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">MDN has an excellent intro to Web Components</a>. It explains the three main parts of Web Components in some detail (custom tags, shadow root, and template slots). I recommend you start with MDN if you are looking to take your first steps into this tech.</p>
+<p><img src="/images/html5_components.png" alt="Three HTML5 badges in a row. The first one has the normal orientation. The second one is upside down. The third one has a random orientation." title="They said it would be easy" /></p>
+<p>Here is a quick explanation if, like me, you are coming from a text-book framework (react, vue, svelte, etc…) and have not done anything too serious with them:</p>
+<ul>
+<li>
+<p>Web Components are JavaScript classes, and they work through Object-Oriented Programming by extending the known HTML tags (or more commonly the HTMLElement)</p>
+</li>
+<li>
+<p>You can define new HTML tags with Web Components by associating your component object class with a tag name. This happens by using the global <code>customElements.define(“blink-tag-never-dies”, class MakeItBlink extends HTMLElement {})</code> (creates the <code>&lt;blink-tag-never-dies&gt;</code>)</p>
+</li>
+<li>
+<p>You can spray the HTML code with tags before they are defined. The browser is smart and can delay their display or progressively enhance them (if they extend a known element, like a button or something).</p>
+</li>
+<li>
+<p>Web Components have their DOM root (called the &quot;shadow dom&quot;) that provides encapsulation for style and hierarchy.</p>
+</li>
+<li>
+<p>Web Components can have multiple templates and multiple parts inside each template using the <code>&lt;slot&gt;</code> tag.</p>
+</li>
+<li>
+<p>A class can only have a single tag associated with it.</p>
+</li>
+</ul>
+<p>Their life-cycle methods are nuanced and happen at different stages than the common text-book frameworks typically present us with their components.</p>
+<h2 id="just-being-alive">Just being alive</h2>
+<p>Here is a small subset of the life-cycle of a Web Component:</p>
+<ul>
+<li>
+<p>Component creation in memory.</p>
+<p>The Web Component's life starts here, where the <code>constructor()</code> of the class gets called. It happens once per instance/tag occurrence, and gets called instantly when a <code>document.createElement(&quot;&quot;)</code> is done.</p>
+</li>
+<li>
+<p>An existing DOM element receives the component as a child.</p>
+<p>Runs the Web Component <code>connectedCallback()</code> class method, which can occur multiple times during a Web Component life. Special attention is needed here because the <code>connectedCallback()</code> is triggered whenever <code>appendChild(myComponentInstance)</code> is called (even if it does not move the web component from its existing parent).</p>
+</li>
+<li>
+<p>If the Web Component uses <code>&lt;slot&gt;</code> elements, they fire a <code>slotchange</code> event when they receive children or their hierarchy changes (which happens at least once after the <code>connectedCallback()</code>)</p>
+<p>However, only hierarchy changes inside the slot trigger this event. Something more advanced is needed if you need a notification for changes on the textContent of a child.</p>
+</li>
+</ul>
+<p>After playing for a while with Web Components, here are some personal considerations about these three points.</p>
+<h2 id="a-super-constructor-does-nothing-at-all">A super constructor does nothing at all.</h2>
+<p>The Web Components spec is clear about <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance">what a <code>constructor()</code> can do</a>. The limitations are many and entirely optional. It is a guideline when they say, <cite>&quot;The element must not gain any attributes or children, as this violates the expectations of consumers who use the createElement or createElementNS methods.&quot;.</cite> It is entirely up to us to abide or not.</p>
+<p>Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: &quot;do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? What if food were Web Components?&quot;.</p>
+<p>Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Things also get simpler down the hierarchy and easier to maintain at the end of the day. The simple Web Component creation template would be something like:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ImAWebComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#65737e;">// no constructor()
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>That's it, no constructor.</p>
+<p>All these notifications keep distracting me.
+Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is better to avoid using the <code>connectedCallback()</code> method when possible.</p>
+<p>This method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around already initialized? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent's home?</p>
+<p>For most autonomous Web Components it is preferable to design them with no DOM attachment flow in mind. That means that the simple Web Component template remains the same:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ImAWebComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#65737e;">// no constructor()
+// no connectedCallback()
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>Then use the life flow that you are more comfortable with, say something like:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ImAWebComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#65737e;">// no constructor()
+// no connectedCallback()
+
+</span><span style="color:#8fa1b3;">initialize</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+</span><span style="color:#65737e;">// some initialization logic here
+</span><span style="color:#eff1f5;">}
+
+</span><span style="color:#8fa1b3;">update</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+</span><span style="color:#65737e;">// refresh stuff and keep things revised
+</span><span style="color:#eff1f5;">}
+</span><span style="color:#c0c5ce;">...
+</span></code></pre>
+<p>Or whatever suits you better. Web Components have a somewhat low-level API that molds quickly to our kinkiest desires. Work closer to how you like to decompose problems or go wild and be creative. Avoid classes altogether and use a pure-functional approach. Keep using Object-Oriented Programming and spawn a vast forest of hierarchical extensions. Use Cobol? Use Swift? All good, everything is possible here.</p>
+<p>Use the provided Web Components life-cycle methods, or avoid them at all and use JavaScript or your favorite language with a platform WebView or DOM runtime.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fa1b3;">addEventListener</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">load</span><span style="color:#c0c5ce;">&quot;,
+  () </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">document.</span><span style="color:#96b5b4;">querySelectorAll</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">my-tag</span><span style="color:#c0c5ce;">&quot;)
+                .</span><span style="color:#96b5b4;">forEach</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">tag </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">tag</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">initialize</span><span style="color:#c0c5ce;">()))
+</span></code></pre><h2 id="web-components-can-use-other-web-components">Web Components can use other Web Components.</h2>
+<p>As expected, a Web Component can use another Web Component. However, the browser is not always smart enough to delay its creation until the <code>customElements</code> global registry defines the tag for the Web Component that it depends.</p>
+<p>A common approach is to use the <code>customElements.whenDefined(&quot;my-tag&quot;)</code>, which returns a Promise when the tag is defined. Put a bunch of these in a <code>Promise.all</code> array if the Web Component uses other Web Component tags inside it.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
+  </span><span style="color:#bf616a;">whenLoaded </span><span style="color:#c0c5ce;">= </span><span style="color:#ebcb8b;">Promise</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">all</span><span style="color:#eff1f5;">(
+    [
+      </span><span style="color:#bf616a;">customElements</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">whenDefined</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">dom-loop</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">),
+      </span><span style="color:#bf616a;">customElements</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">whenDefined</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">redux-for-blink-tags</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#eff1f5;">),
+    ],
+  );
+
+  </span><span style="color:#8fa1b3;">initialize</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+    </span><span style="color:#65737e;">// Runs after the `whenLoaded` promise resolves
+  </span><span style="color:#eff1f5;">}
+  </span><span style="color:#8fa1b3;">connectedCallback</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">whenLoaded</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">then</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">initalize</span><span style="color:#eff1f5;">);
+  }
+}
+</span></code></pre><h2 id="conclusion">Conclusion</h2>
+<p>I am enjoying playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don't need extra JS to exist. I will write about my further investigations with Web Components in the following days.</p>
+
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external nofollow">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external nofollow">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external nofollow">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+
+
+	</body>
+</html>

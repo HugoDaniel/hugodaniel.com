@@ -104,7 +104,7 @@ Said someone about something.</p>
 <h2 id="a-common-structure-for-most-apps">A common structure for most apps</h2>
 <p>The common structure I plan to follow is something like this:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
 </span><span style="color:#65737e;">&lt;!-- Page meta --&gt;
 &lt;!-- &lt;link&gt;&#39;s go here after the meta stuff --&gt;
 &lt;!-- &lt;script type=&quot;module&quot;&gt;&#39;s go here --&gt;
@@ -130,7 +130,7 @@ Said someone about something.</p>
 <p>A loading page that fills the whole screen is something that most web apps have, some even distract us with cool animations while loading.</p>
 <p>In the above structure, the loading page goes into the modal area. Right before the <code>&lt;main&gt;</code> content. This allows heavy content like <code>&lt;canvas&gt;</code>, <code>&lt;img&gt;</code> to be placed as <code>&lt;main&gt;</code> children and fully load (shaders, image data, etc) behind it, before clearing the loading state and showing them to our friends.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">...
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">...
 &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
   &lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">loading</span><span style="color:#c0c5ce;">&quot;&gt;Loading&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
   &lt;</span><span style="color:#bf616a;">main</span><span style="color:#c0c5ce;">&gt;
@@ -163,21 +163,21 @@ Said someone about something.</p>
 <p>HTML templating has many technicalities and possibilities. Most JS frameworks commonly solve it in their own way with different degrees of justifiable complexity.</p>
 <p>Web browsers already provide a very flexible and complex way to do templating through the Web Components suite of technologies. For most of my cases plain HTML will be prefered and written directly at that <code>index.html</code>. For the other cases where DRY speaks louder a simple static &quot;copy/paste&quot; tag will suffice, a small prototype of this could be something like:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">template-content</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">HTMLElement </span><span style="color:#eff1f5;">{
-  </span><span style="color:#8fa1b3;">constructor</span><span style="color:#eff1f5;">() {
+<code class="language-js" data-lang="js"><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">template-content</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
+  </span><span style="color:#b48ead;">constructor</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
     </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">();
-    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">attachShadow</span><span style="color:#eff1f5;">({ mode: </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">open</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#eff1f5;">})
-        .</span><span style="color:#bf616a;">appendChild</span><span style="color:#eff1f5;">(
-          document.</span><span style="color:#bf616a;">getElementById</span><span style="color:#eff1f5;">(
-            </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">getAttribute</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">from-id</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">)
-          ).content.</span><span style="color:#bf616a;">cloneNode</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">true</span><span style="color:#eff1f5;">))
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">attachShadow</span><span style="color:#eff1f5;">({ mode: </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">open</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#eff1f5;">})
+        .</span><span style="color:#96b5b4;">appendChild</span><span style="color:#eff1f5;">(
+          document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#eff1f5;">(
+            </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">getAttribute</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">from-id</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">)
+          ).content.</span><span style="color:#96b5b4;">cloneNode</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">true</span><span style="color:#eff1f5;">))
   }
 }</span><span style="color:#c0c5ce;">);
 </span></code></pre>
 <p>This small code defines a new WebComponent tag <code>&lt;template-content&gt;</code>, this tag reads an element id from its <code>from-id</code> attribute, then gets the corresponding element on the DOM for that id, clones it, and replaces itself with it.</p>
 <p>This is useful because it provides a quick way to stamp HTML/SVG content on the document. Helpful to replicate SVG elements, lists, and node sub-trees on the client-side.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">nav</span><span style="color:#c0c5ce;">&gt;
+<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">nav</span><span style="color:#c0c5ce;">&gt;
 	&lt;</span><span style="color:#bf616a;">button </span><span style="color:#d08770;">onclick</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#bf616a;">tool</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">undo</span><span style="color:#c0c5ce;">&#39;)&quot;&gt;
 		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-button-content</span><span style="color:#c0c5ce;">&quot; /&gt;
 		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-undo</span><span style="color:#c0c5ce;">&quot; /&gt;
