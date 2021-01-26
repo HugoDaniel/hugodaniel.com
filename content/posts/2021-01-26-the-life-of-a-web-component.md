@@ -62,7 +62,8 @@ class ImAWebComponent extends HTMLElement {
 
 That's it, no constructor.
 
-All these notifications keep distracting me.
+## All these notifications keep distracting me.
+
 Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is better to avoid using the `connectedCallback()` method when possible.
 
 This method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around already initialized? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent's home?

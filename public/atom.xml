@@ -64,8 +64,8 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;That&#x27;s it, no constructor.&lt;&#x2F;p&gt;
-&lt;p&gt;All these notifications keep distracting me.
-Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is better to avoid using the &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt; method when possible.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;all-these-notifications-keep-distracting-me&quot;&gt;All these notifications keep distracting me.&lt;&#x2F;h2&gt;
+&lt;p&gt;Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is better to avoid using the &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt; method when possible.&lt;&#x2F;p&gt;
 &lt;p&gt;This method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around already initialized? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent&#x27;s home?&lt;&#x2F;p&gt;
 &lt;p&gt;For most autonomous Web Components it is preferable to design them with no DOM attachment flow in mind. That means that the simple Web Component template remains the same:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
