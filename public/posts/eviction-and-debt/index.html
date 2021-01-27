@@ -63,8 +63,8 @@
 				<time datetime="2018-07-04"> 4-Jul-2018</time>
 				<span>
 					<a id="back" href="/">About me</a>
-					<a href="/atom.xml">Feed</a>
 					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
 				</span>
 			</nav>
 		</header>
@@ -102,18 +102,72 @@
 <p>I am also going to invest into propaganda now and try to walk the thin line of project promotion and SPAM.</p>
 <p><img src="/images/PATTERN.png" alt="A Pattern made with Grid Generator" /></p>
 
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
 	</article>
 	<hr>
 	<footer>
 		<nav>
-			<a target="_blank" href="https://github.com/HugoDaniel" rel="external nofollow">GitHub</a>
-			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external nofollow">Twitter</a>
-			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external nofollow">LinkedIN</a>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
 			<a href="mailto:hello@hugodaniel.com">e-mail</a>
 		</nav>
 	</footer>
 </main>
-
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
 
 	</body>
 </html>

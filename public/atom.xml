@@ -4,8 +4,18 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2021-01-26T00:00:00+00:00</updated>
+	<updated>2021-01-27T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Thank you!</title>
+		<published>2021-01-27T00:00:00+00:00</published>
+		<updated>2021-01-27T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/thank-you/" type="text/html"/>
+		<id>https://hugodaniel.com/thank-you/</id>
+		<content type="html">&lt;p&gt;:)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;&#x2F;&quot;&gt;Go Home&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>The life of a Web Component - Initialization</title>
 		<published>2021-01-26T00:00:00+00:00</published>
