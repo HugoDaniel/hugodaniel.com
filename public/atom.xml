@@ -7,7 +7,7 @@
 	<updated>2021-01-26T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
 	<entry xml:lang="en">
-		<title>The life of a Web Component</title>
+		<title>The life of a Web Component - Initialization</title>
 		<published>2021-01-26T00:00:00+00:00</published>
 		<updated>2021-01-26T00:00:00+00:00</updated>
 		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component/" type="text/html"/>
@@ -42,7 +42,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Component creation in memory.&lt;&#x2F;p&gt;
-&lt;p&gt;The Web Component&#x27;s life starts here, where the &lt;code&gt;constructor()&lt;&#x2F;code&gt; of the class gets called. It happens once per instance&#x2F;tag occurrence, and gets called instantly when a &lt;code&gt;document.createElement(&amp;quot;&amp;quot;)&lt;&#x2F;code&gt; is done.&lt;&#x2F;p&gt;
+&lt;p&gt;The Web Component&#x27;s life starts here, where the &lt;code&gt;constructor()&lt;&#x2F;code&gt; of the class gets called. It happens once per instance&#x2F;tag occurrence and gets called instantly when a &lt;code&gt;document.createElement(&amp;quot;&amp;quot;)&lt;&#x2F;code&gt; is done for the custom tag defined for it.&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
 &lt;p&gt;An existing DOM element receives the component as a child.&lt;&#x2F;p&gt;
@@ -53,7 +53,7 @@
 &lt;p&gt;However, only hierarchy changes inside the slot trigger this event. Something more advanced is needed if you need a notification for changes on the textContent of a child.&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;After playing for a while with Web Components, here are some personal considerations about these three points.&lt;&#x2F;p&gt;
+&lt;p&gt;After playing for a while with Web Components, here are some personal considerations about their initialization methods.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;a-super-constructor-does-nothing-at-all&quot;&gt;A super constructor does nothing at all.&lt;&#x2F;h2&gt;
 &lt;p&gt;The Web Components spec is clear about &lt;a href=&quot;https:&#x2F;&#x2F;html.spec.whatwg.org&#x2F;multipage&#x2F;custom-elements.html#custom-element-conformance&quot;&gt;what a &lt;code&gt;constructor()&lt;&#x2F;code&gt; can do&lt;&#x2F;a&gt;. The limitations are many and entirely optional. It is a guideline when they say, &lt;cite&gt;&amp;quot;The element must not gain any attributes or children, as this violates the expectations of consumers who use the createElement or createElementNS methods.&amp;quot;.&lt;&#x2F;cite&gt; It is entirely up to us to abide or not.&lt;&#x2F;p&gt;
 &lt;p&gt;Since I&#x27;m not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: &amp;quot;do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? What if food were Web Components?&amp;quot;.&lt;&#x2F;p&gt;
@@ -63,18 +63,18 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; no constructor()
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;That&#x27;s it, no constructor.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the HTMLElement standard constructor.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;all-these-notifications-keep-distracting-me&quot;&gt;All these notifications keep distracting me.&lt;&#x2F;h2&gt;
-&lt;p&gt;Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is better to avoid using the &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt; method when possible.&lt;&#x2F;p&gt;
-&lt;p&gt;This method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around already initialized? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent&#x27;s home?&lt;&#x2F;p&gt;
-&lt;p&gt;For most autonomous Web Components it is preferable to design them with no DOM attachment flow in mind. That means that the simple Web Component template remains the same:&lt;&#x2F;p&gt;
+&lt;p&gt;Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is preferable to avoid using the &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt; method when possible.&lt;&#x2F;p&gt;
+&lt;p&gt;Why? Because this particular method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around after being already initialized? Can the component code handle being &amp;quot;initialized&amp;quot; multiple times on top of each other? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent&#x27;s home?&lt;&#x2F;p&gt;
+&lt;p&gt;For most autonomous Web Components I find it better to design them with no DOM attachment flow in mind. That means that the simple Web Component template remains the same:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;ImAWebComponent &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;HTMLElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; no constructor()
 &#x2F;&#x2F; no connectedCallback()
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Then use the life flow that you are more comfortable with, say something like:&lt;&#x2F;p&gt;
+&lt;p&gt;Then use a life flow that I am more comfortable with, say something like:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;ImAWebComponent &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;HTMLElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; no constructor()
@@ -89,12 +89,15 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;}
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;...
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Or whatever suits you better. Web Components have a somewhat low-level API that molds quickly to our kinkiest desires. Work closer to how you like to decompose problems or go wild and be creative. Avoid classes altogether and use a pure-functional approach. Keep using Object-Oriented Programming and spawn a vast forest of hierarchical extensions. Use Cobol? Use Swift? All good, everything is possible here.&lt;&#x2F;p&gt;
+&lt;p&gt;The idea here is to use whatever suits you better as the life-cycle-flow of your components. Web Components have a somewhat low-level API that molds quickly to the kinkiest desires. You can make them work closer to how you like to decompose problems or instead go wild and be creative. &lt;&#x2F;p&gt;
+&lt;p&gt;You can avoid classes altogether and use a pure-functional approach that ultimately nails down to the Web Component class like some IO trash-can. Or keep using Object-Oriented Programming and spawn a vast forest of hierarchical extensions. Or use another language, why stick to JavaScript if Web Components are just HTML that can be executed by your favorite language WebView in a declarative way? All good, everything is possible here.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;addEventListener&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;load&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;,
   () &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;querySelectorAll&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;my-tag&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;)
                 .&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;forEach&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tag &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tag&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;initialize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;()))
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;web-components-can-use-other-web-components&quot;&gt;Web Components can use other Web Components.&lt;&#x2F;h2&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Calling the &lt;code&gt;initialize()&lt;&#x2F;code&gt; or &lt;code&gt;update()&lt;&#x2F;code&gt; functions can then happen at any moment, controllable by the app. In a &lt;code&gt;render()&lt;&#x2F;code&gt; function? Once at the &amp;quot;load&amp;quot; event? How to use it will largely depend on what kind of component this is and its context.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;web-components-can-use-other-web-components&quot;&gt;Web Components can use other Web Components.&lt;&#x2F;h2&gt;
 &lt;p&gt;As expected, a Web Component can use another Web Component. However, the browser is not always smart enough to delay its creation until the &lt;code&gt;customElements&lt;&#x2F;code&gt; global registry defines the tag for the Web Component that it depends.&lt;&#x2F;p&gt;
 &lt;p&gt;A common approach is to use the &lt;code&gt;customElements.whenDefined(&amp;quot;my-tag&amp;quot;)&lt;&#x2F;code&gt;, which returns a Promise when the tag is defined. Put a bunch of these in a &lt;code&gt;Promise.all&lt;&#x2F;code&gt; array if the Web Component uses other Web Component tags inside it.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
@@ -107,13 +110,14 @@
   );
 
   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;initialize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;whenLoaded&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;then&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; Runs after the `whenLoaded` promise resolves
-  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;}
-  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;connectedCallback&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;whenLoaded&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;then&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;initalize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;);
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;});
   }
 }
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The above pattern guarantees that the &amp;quot;dom-loop&amp;quot; and &amp;quot;redux-for-blink-tags&amp;quot; are availabe inside the initialization promise.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;I am enjoying playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don&#x27;t need extra JS to exist. I will write about my further investigations with Web Components in the following days.&lt;&#x2F;p&gt;
 </content>
 	</entry>
