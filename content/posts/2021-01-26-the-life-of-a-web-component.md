@@ -50,9 +50,11 @@ After playing for a while with Web Components, here are some personal considerat
 
 The Web Components spec is clear about [what a `constructor()` can do](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance). The limitations are many and entirely optional. It is a guideline when they say, <cite>"The element must not gain any attributes or children, as this violates the expectations of consumers who use the createElement or createElementNS methods.".</cite> It is entirely up to us to abide or not.
 
-Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: "do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? What if food were Web Components?".
+Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: "do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? If food were Web Components would it need to be constructed?".
 
-Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Things also get simpler down the hierarchy and easier to maintain at the end of the day. The simple Web Component creation template would be something like:
+Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Moving some logic to the component or code above usually makes things easier to remove while keeping it more uncomplicated down the hierarchy.
+
+In this regard, the basic Web Component creation template would be something like:
 
 ```javascript
 class ImAWebComponent extends HTMLElement {
@@ -60,7 +62,7 @@ class ImAWebComponent extends HTMLElement {
 }
 ```
 
-That's it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the HTMLElement standard constructor.
+That's it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the `HTMLElement` standard constructor.
 
 ## All these notifications keep distracting me.
 

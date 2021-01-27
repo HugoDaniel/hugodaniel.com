@@ -115,14 +115,15 @@
 <p>After playing for a while with Web Components, here are some personal considerations about their initialization methods.</p>
 <h2 id="a-super-constructor-does-nothing-at-all">A super constructor does nothing at all.</h2>
 <p>The Web Components spec is clear about <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance">what a <code>constructor()</code> can do</a>. The limitations are many and entirely optional. It is a guideline when they say, <cite>&quot;The element must not gain any attributes or children, as this violates the expectations of consumers who use the createElement or createElementNS methods.&quot;.</cite> It is entirely up to us to abide or not.</p>
-<p>Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: &quot;do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? What if food were Web Components?&quot;.</p>
-<p>Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Things also get simpler down the hierarchy and easier to maintain at the end of the day. The simple Web Component creation template would be something like:</p>
+<p>Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: &quot;do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? If food were Web Components would it need to be constructed?&quot;.</p>
+<p>Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Moving some logic to the component or code above usually makes things easier to remove while keeping it more uncomplicated down the hierarchy.</p>
+<p>In this regard, the basic Web Component creation template would be something like:</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ImAWebComponent </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
 </span><span style="color:#65737e;">// no constructor()
 </span><span style="color:#eff1f5;">}
 </span></code></pre>
-<p>That's it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the HTMLElement standard constructor.</p>
+<p>That's it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the <code>HTMLElement</code> standard constructor.</p>
 <h2 id="all-these-notifications-keep-distracting-me">All these notifications keep distracting me.</h2>
 <p>Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is preferable to avoid using the <code>connectedCallback()</code> method when possible.</p>
 <p>Why? Because this particular method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around after being already initialized? Can the component code handle being &quot;initialized&quot; multiple times on top of each other? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent's home?</p>
