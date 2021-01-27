@@ -129,7 +129,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;The above pattern guarantees that the &amp;quot;dom-loop&amp;quot; and &amp;quot;redux-for-blink-tags&amp;quot; are availabe inside the initialization promise.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
-&lt;p&gt;I am enjoying playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don&#x27;t need extra JS to exist. I will write about my further investigations with Web Components in the following days.&lt;&#x2F;p&gt;
+&lt;p&gt;I am having fun playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don&#x27;t need extra JS to exist. I will write about my further investigations with Web Components in the following days.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">

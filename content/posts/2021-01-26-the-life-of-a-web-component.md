@@ -134,5 +134,5 @@ The above pattern guarantees that the "dom-loop" and "redux-for-blink-tags" are 
 
 ## Conclusion
 
-I am enjoying playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don't need extra JS to exist. I will write about my further investigations with Web Components in the following days.
+I am having fun playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don't need extra JS to exist. I will write about my further investigations with Web Components in the following days.
 
