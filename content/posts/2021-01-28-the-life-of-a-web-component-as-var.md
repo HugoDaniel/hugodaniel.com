@@ -6,16 +6,13 @@ extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/HTML5
 +++
 
 
-JavaScript(JS) allows object classes to be anonymous. No need to bind your class to an identifier. Just write `class { ... },` and it is good to go. 
+JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of `class MyClass { ... }` write `class { ... },` and it will be created without a name. 
 
-Prefix a regular <abbr title="JavaScript">JS</abbr> object `{ ... }` with `class` and have an anonymous class defined. 
-
-
+Likewise prefix a regular <abbr title="JavaScript">JS</abbr> object `{ ... }` with `class` and have an anonymous class defined.
 
 ![Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation.](/images/HTML5_badge_tag.png "Let those tags roll!")
 
-
-Nothing special here, they are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> `extends` syntax to easily carry other objects and acumulate them.
+Nothing special here, classes are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> `extends` syntax to easily carry other objects and acumulate them.
 
 ```javascript
 class SomeContext {
@@ -31,7 +28,7 @@ let withExtraContext = new (class extends SomeContext {
 withExtraContext.displayName()
 ```
 
-It is possible to pick our favorite class and create other unique classes from it that are, in fact, just copies with nothing else added to them. Unique copies of class declarations. Here is an example:
+It is possible to pick our favorite class and create other unique classes from it that are, in fact, just declaration copies that add nothing at all. Unique copies of class declarations. Here is an example:
 
 ```javascript
 class VeryComplicatedClass {
@@ -58,7 +55,7 @@ But what do Web Components have to do with all of this?
 
 ## It is awesome
 
-The global `customElements` registry only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.
+The global `customElements` registry (global var browsers have, where new tag names get defined) only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.
 
 It makes sense. Why associate two tag names to the same class anyway? I don't know, but I still want to be able to do that nevertheless :)
 
@@ -278,6 +275,6 @@ I presented a small example of Web Components to create dynamic tag names. I thi
 
 This post is the Part 2 of a series I am writting called <cite>"The Life of a Web Component"</cite>.
 
-Here it if you want to read it: [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
+Here it is if you want to read it: [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
 
 

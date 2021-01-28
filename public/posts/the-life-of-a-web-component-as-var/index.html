@@ -71,10 +71,10 @@
 				</span>
 			</nav>
 		</header>
-		<p>JavaScript(JS) allows object classes to be anonymous. No need to bind your class to an identifier. Just write <code>class { ... },</code> and it is good to go. </p>
-<p>Prefix a regular <abbr title="JavaScript">JS</abbr> object <code>{ ... }</code> with <code>class</code> and have an anonymous class defined. </p>
+		<p>JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of <code>class MyClass { ... }</code> write <code>class { ... },</code> and it will be created without a name. </p>
+<p>Likewise prefix a regular <abbr title="JavaScript">JS</abbr> object <code>{ ... }</code> with <code>class</code> and have an anonymous class defined.</p>
 <p><img src="/images/HTML5_badge_tag.png" alt="Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation." title="Let those tags roll!" /></p>
-<p>Nothing special here, they are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> <code>extends</code> syntax to easily carry other objects and acumulate them.</p>
+<p>Nothing special here, classes are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> <code>extends</code> syntax to easily carry other objects and acumulate them.</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeContext </span><span style="color:#eff1f5;">{
 	</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">What do Web Components have to do with this?</span><span style="color:#c0c5ce;">&quot;
@@ -88,7 +88,7 @@
 
 </span><span style="color:#bf616a;">withExtraContext</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">displayName</span><span style="color:#c0c5ce;">()
 </span></code></pre>
-<p>It is possible to pick our favorite class and create other unique classes from it that are, in fact, just copies with nothing else added to them. Unique copies of class declarations. Here is an example:</p>
+<p>It is possible to pick our favorite class and create other unique classes from it that are, in fact, just declaration copies that add nothing at all. Unique copies of class declarations. Here is an example:</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">VeryComplicatedClass </span><span style="color:#eff1f5;">{
   </span><span style="color:#bf616a;">foo </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">bar</span><span style="color:#c0c5ce;">&quot;
@@ -111,7 +111,7 @@
 </span></code></pre>
 <p>But what do Web Components have to do with all of this?</p>
 <h2 id="it-is-awesome">It is awesome</h2>
-<p>The global <code>customElements</code> registry only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.</p>
+<p>The global <code>customElements</code> registry (global var browsers have, where new tag names get defined) only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.</p>
 <p>It makes sense. Why associate two tag names to the same class anyway? I don't know, but I still want to be able to do that nevertheless :)</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Awesomeness </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{}
@@ -275,7 +275,7 @@
 <p>I presented a small example of Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent has some cool opportunities. I don't know what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.</p>
 <hr>
 <p>This post is the Part 2 of a series I am writting called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
-<p>Here it if you want to read it: <a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</p>
+<p>Here it is if you want to read it: <a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</p>
 
     <hr>
     <p>Did you enjoy what you read? Was it inspiring or compelling in any way?

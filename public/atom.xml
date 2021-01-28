@@ -12,10 +12,10 @@
 		<updated>2021-01-28T00:00:00+00:00</updated>
 		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/" type="text/html"/>
 		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/</id>
-		<content type="html">&lt;p&gt;JavaScript(JS) allows object classes to be anonymous. No need to bind your class to an identifier. Just write &lt;code&gt;class { ... },&lt;&#x2F;code&gt; and it is good to go. &lt;&#x2F;p&gt;
-&lt;p&gt;Prefix a regular &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; object &lt;code&gt;{ ... }&lt;&#x2F;code&gt; with &lt;code&gt;class&lt;&#x2F;code&gt; and have an anonymous class defined. &lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of &lt;code&gt;class MyClass { ... }&lt;&#x2F;code&gt; write &lt;code&gt;class { ... },&lt;&#x2F;code&gt; and it will be created without a name. &lt;&#x2F;p&gt;
+&lt;p&gt;Likewise prefix a regular &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; object &lt;code&gt;{ ... }&lt;&#x2F;code&gt; with &lt;code&gt;class&lt;&#x2F;code&gt; and have an anonymous class defined.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;HTML5_badge_tag.png&quot; alt=&quot;Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation.&quot; title=&quot;Let those tags roll!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Nothing special here, they are in fact normal &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; objects. The big extra is that anonymous classes, just like normal classes, can use the &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; &lt;code&gt;extends&lt;&#x2F;code&gt; syntax to easily carry other objects and acumulate them.&lt;&#x2F;p&gt;
+&lt;p&gt;Nothing special here, classes are in fact normal &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; objects. The big extra is that anonymous classes, just like normal classes, can use the &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; &lt;code&gt;extends&lt;&#x2F;code&gt; syntax to easily carry other objects and acumulate them.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;SomeContext &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
 	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;What do Web Components have to do with this?&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
@@ -29,7 +29,7 @@
 
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;withExtraContext&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;displayName&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;()
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;It is possible to pick our favorite class and create other unique classes from it that are, in fact, just copies with nothing else added to them. Unique copies of class declarations. Here is an example:&lt;&#x2F;p&gt;
+&lt;p&gt;It is possible to pick our favorite class and create other unique classes from it that are, in fact, just declaration copies that add nothing at all. Unique copies of class declarations. Here is an example:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;VeryComplicatedClass &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{
   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;foo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;bar&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;
@@ -52,7 +52,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;But what do Web Components have to do with all of this?&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;it-is-awesome&quot;&gt;It is awesome&lt;&#x2F;h2&gt;
-&lt;p&gt;The global &lt;code&gt;customElements&lt;&#x2F;code&gt; registry only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.&lt;&#x2F;p&gt;
+&lt;p&gt;The global &lt;code&gt;customElements&lt;&#x2F;code&gt; registry (global var browsers have, where new tag names get defined) only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.&lt;&#x2F;p&gt;
 &lt;p&gt;It makes sense. Why associate two tag names to the same class anyway? I don&#x27;t know, but I still want to be able to do that nevertheless :)&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Awesomeness &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;HTMLElement &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{}
@@ -216,7 +216,7 @@
 &lt;p&gt;I presented a small example of Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent has some cool opportunities. I don&#x27;t know what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.&lt;&#x2F;p&gt;
 &lt;hr&gt;
 &lt;p&gt;This post is the Part 2 of a series I am writting called &lt;cite&gt;&amp;quot;The Life of a Web Component&amp;quot;&lt;&#x2F;cite&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;Here it if you want to read it: &lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Here it is if you want to read it: &lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
