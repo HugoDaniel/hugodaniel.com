@@ -20,7 +20,7 @@ class SomeContext {
 }
 
 let withExtraContext = new (class extends SomeContext {
-	displayName() {
+    displayName() {
         alert(this.name);
     }
 })
