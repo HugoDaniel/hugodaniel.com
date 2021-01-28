@@ -90,9 +90,9 @@ customElements.define("lets-all-be-awesome", class extends Awesomeness {});
 // ^ ok, you get the idea
 ```
 
-I am using multiple tag names for the same class. :)
+The code above uses multiple tag names for the same class. :)
 
-The above allows the tags `<awesome-tag>`, `<i-can-be-awesome-too>`, `<me-too>` and `<lets-all-be-awesome>` to be used in <abbr title="HyperText Markup Language">HTML</abbr> and all of them will share the same functionality (because they all have `Awesomeness`).
+It also allows the tags `<awesome-tag>`, `<i-can-be-awesome-too>`, `<me-too>` and `<lets-all-be-awesome>` to be used in <abbr title="HyperText Markup Language">HTML</abbr> and all of them will share the same functionality (because they all have `Awesomeness`).
 
 _But since they all have the same functionality, why couldn't I use a single tag name?_
 
