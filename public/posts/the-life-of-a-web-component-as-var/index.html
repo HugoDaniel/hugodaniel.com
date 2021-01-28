@@ -142,13 +142,14 @@
 <p>I am using multiple tag names for the same class. :)</p>
 <p>The above allows the tags <code>&lt;awesome-tag&gt;</code>, <code>&lt;i-can-be-awesome-too&gt;</code>, <code>&lt;me-too&gt;</code> and <code>&lt;lets-all-be-awesome&gt;</code> to be used in <abbr title="HyperText Markup Language">HTML</abbr> and all of them will share the same functionality (because they all have <code>Awesomeness</code>).</p>
 <p><em>But since they all have the same functionality, why couldn't I use a single tag name?</em></p>
+<p>That is an excellent question. Having multiple tag names for the same class is the first step I found in dynamic HTML tags that can have any name and be defined only after.</p>
 <h2 id="my-head-is-too-big-for-hats-and-too-small-to-understand">My head is too big for hats and too small to understand</h2>
 <p>This section is the part where I am going to create dynamic tag names with anonymous classes.</p>
 <p><img src="/images/html5_hat.png" alt="The HTML5 badge with a handrawn hat on the top of it." title="My mother said it was cool" /></p>
 <p>Since I can't explain this well, let me try to do it with an example: a style container.</p>
 <h3 id="style-container">Style container</h3>
 <p>Nowadays, there is a big wave of these CSS-In-JS-In-HTML-In-React-In-Vue-In-IOS-In-CSS-In-... approaches. People get upset with each other because of those styled-components vs. styled-system vs. styled-tailwind-my-head-is-bigger-than-yours arguments.</p>
-<p>I don't like any of them, plain <abbr title="Cascading Style Sheets">CSS</abbr> is still king in my small street, but that doesn't mean that I can't try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die.</p>
+<p>I don't like any of them, plain <abbr title="Cascading Style Sheets">CSS</abbr> is still king in my small street, but that doesn't mean that I can't try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die at.</p>
 <h3 id="stylecontainer">StyleContainer</h3>
 <p>This new <abbr title="Cascading Style Sheets">CSS</abbr> framework is going to be made by just two classes. A container class and a class for the children.</p>
 <p>The purpose of the children's class will be to hold a bunch of CSS inline style parts. It starts by reading its <code>textContent</code> and place it as a style part of itself.</p>
@@ -193,7 +194,7 @@
 <p><em>But I mean, what? Why? WTF?</em></p>
 <p>Yeah, I don't know, but it gets better.</p>
 <h3 id="style-container-1"><code>&lt;style-container&gt;</code></h3>
-<p>The above allows some sort of <abbr title="HyperText Markup Language">HTML</abbr> variable bucket.</p>
+<p>The above code allows HTML to be written with some sort of <abbr title="HyperText Markup Language">HTML</abbr> variable buckets.</p>
 <pre style="background-color:#2b303b;">
 <code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 	&lt;</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;Spank me&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;

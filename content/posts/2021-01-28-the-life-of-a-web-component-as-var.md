@@ -99,6 +99,8 @@ The above allows the tags `<awesome-tag>`, `<i-can-be-awesome-too>`, `<me-too>` 
 
 _But since they all have the same functionality, why couldn't I use a single tag name?_
 
+That is an excellent question. Having multiple tag names for the same class is the first step I found in dynamic HTML tags that can have any name and be defined only after.
+
 ## My head is too big for hats and too small to understand
 
 This section is the part where I am going to create dynamic tag names with anonymous classes.
@@ -112,7 +114,7 @@ Since I can't explain this well, let me try to do it with an example: a style co
 
 Nowadays, there is a big wave of these CSS-In-JS-In-HTML-In-React-In-Vue-In-IOS-In-CSS-In-... approaches. People get upset with each other because of those styled-components vs. styled-system vs. styled-tailwind-my-head-is-bigger-than-yours arguments.
 
-I don't like any of them, plain <abbr title="Cascading Style Sheets">CSS</abbr> is still king in my small street, but that doesn't mean that I can't try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die.
+I don't like any of them, plain <abbr title="Cascading Style Sheets">CSS</abbr> is still king in my small street, but that doesn't mean that I can't try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die at.
 
 ### StyleContainer
 
@@ -171,7 +173,7 @@ Yeah, I don't know, but it gets better.
 
 ### `<style-container>`
 
-The above allows some sort of <abbr title="HyperText Markup Language">HTML</abbr> variable bucket.
+The above code allows HTML to be written with some sort of <abbr title="HyperText Markup Language">HTML</abbr> variable buckets.
 
 ```html
 <body>

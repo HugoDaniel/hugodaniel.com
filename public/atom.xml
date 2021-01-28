@@ -83,13 +83,14 @@
 &lt;p&gt;I am using multiple tag names for the same class. :)&lt;&#x2F;p&gt;
 &lt;p&gt;The above allows the tags &lt;code&gt;&amp;lt;awesome-tag&amp;gt;&lt;&#x2F;code&gt;, &lt;code&gt;&amp;lt;i-can-be-awesome-too&amp;gt;&lt;&#x2F;code&gt;, &lt;code&gt;&amp;lt;me-too&amp;gt;&lt;&#x2F;code&gt; and &lt;code&gt;&amp;lt;lets-all-be-awesome&amp;gt;&lt;&#x2F;code&gt; to be used in &lt;abbr title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;&#x2F;abbr&gt; and all of them will share the same functionality (because they all have &lt;code&gt;Awesomeness&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;But since they all have the same functionality, why couldn&#x27;t I use a single tag name?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;That is an excellent question. Having multiple tag names for the same class is the first step I found in dynamic HTML tags that can have any name and be defined only after.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;my-head-is-too-big-for-hats-and-too-small-to-understand&quot;&gt;My head is too big for hats and too small to understand&lt;&#x2F;h2&gt;
 &lt;p&gt;This section is the part where I am going to create dynamic tag names with anonymous classes.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;html5_hat.png&quot; alt=&quot;The HTML5 badge with a handrawn hat on the top of it.&quot; title=&quot;My mother said it was cool&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Since I can&#x27;t explain this well, let me try to do it with an example: a style container.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;style-container&quot;&gt;Style container&lt;&#x2F;h3&gt;
 &lt;p&gt;Nowadays, there is a big wave of these CSS-In-JS-In-HTML-In-React-In-Vue-In-IOS-In-CSS-In-... approaches. People get upset with each other because of those styled-components vs. styled-system vs. styled-tailwind-my-head-is-bigger-than-yours arguments.&lt;&#x2F;p&gt;
-&lt;p&gt;I don&#x27;t like any of them, plain &lt;abbr title=&quot;Cascading Style Sheets&quot;&gt;CSS&lt;&#x2F;abbr&gt; is still king in my small street, but that doesn&#x27;t mean that I can&#x27;t try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die.&lt;&#x2F;p&gt;
+&lt;p&gt;I don&#x27;t like any of them, plain &lt;abbr title=&quot;Cascading Style Sheets&quot;&gt;CSS&lt;&#x2F;abbr&gt; is still king in my small street, but that doesn&#x27;t mean that I can&#x27;t try to add yet another styling approach to the mix. After all, this is such a pleasant hill to die at.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;stylecontainer&quot;&gt;StyleContainer&lt;&#x2F;h3&gt;
 &lt;p&gt;This new &lt;abbr title=&quot;Cascading Style Sheets&quot;&gt;CSS&lt;&#x2F;abbr&gt; framework is going to be made by just two classes. A container class and a class for the children.&lt;&#x2F;p&gt;
 &lt;p&gt;The purpose of the children&#x27;s class will be to hold a bunch of CSS inline style parts. It starts by reading its &lt;code&gt;textContent&lt;&#x2F;code&gt; and place it as a style part of itself.&lt;&#x2F;p&gt;
@@ -134,7 +135,7 @@
 &lt;p&gt;&lt;em&gt;But I mean, what? Why? WTF?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Yeah, I don&#x27;t know, but it gets better.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;style-container-1&quot;&gt;&lt;code&gt;&amp;lt;style-container&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;p&gt;The above allows some sort of &lt;abbr title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;&#x2F;abbr&gt; variable bucket.&lt;&#x2F;p&gt;
+&lt;p&gt;The above code allows HTML to be written with some sort of &lt;abbr title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;&#x2F;abbr&gt; variable buckets.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 	&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;Spank me&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;button&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
