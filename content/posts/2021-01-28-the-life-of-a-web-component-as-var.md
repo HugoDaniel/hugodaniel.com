@@ -200,7 +200,7 @@ The above code allows HTML to be written with some sort of <abbr title="HyperTex
 
 When the `StyleContainer` gets `define`d at the `customElements` registry (with the `"style-container"` tag name), the above code run its logic. It looks for the children and creates tags `<super-border>`, `<fancy-background>` and `<a-cool-font>`.
 
-These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names (you choose whatever name you want).
+These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.
 
 ### "References" said the referee
 

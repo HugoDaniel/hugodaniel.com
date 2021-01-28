@@ -218,7 +218,7 @@
 &lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 </span></code></pre>
 <p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>&quot;style-container&quot;</code> tag name), the above code run its logic. It looks for the children and creates tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
-<p>These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names (you choose whatever name you want).</p>
+<p>These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.</p>
 <h3 id="references-said-the-referee">&quot;References&quot; said the referee</h3>
 <p>The HTML code can then reference these dynamic tags.</p>
 <p>They can be used to compose more complex styles. With a composer Web Component, lets say... the <code>&lt;import-style&gt;</code> Web Component (not yet defined):</p>
