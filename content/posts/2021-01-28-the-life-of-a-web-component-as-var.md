@@ -246,7 +246,7 @@ Or use the dynamic tags as plain references outside of the `<style-container>`:
 ...
 ```
 
-Where the `StyleContainer` would do something like: 
+1. Where the `StyleContainer` would do something like: 
 
 ```javascript
 document.querySelectorAll("[styled-by~='magic-button']")

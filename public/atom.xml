@@ -63,7 +63,7 @@ signs and the kinds of things they intend, express or signify
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nevermind-the-backend-this-is-where-the-dragons-are&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 
-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- there is nothing to see here because this tag as a Shadow root --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- there is nothing to see here because this tag has a Shadow root --&amp;gt;
 
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nevermind-the-backend-this-is-where-the-dragons-are&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
@@ -412,7 +412,9 @@ signs and the kinds of things they intend, express or signify
 
 ...
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Where the &lt;code&gt;StyleContainer&lt;&#x2F;code&gt; would do something like: &lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Where the &lt;code&gt;StyleContainer&lt;&#x2F;code&gt; would do something like: &lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;querySelectorAll&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;[styled-by~=&amp;#39;magic-button&amp;#39;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;quot;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;

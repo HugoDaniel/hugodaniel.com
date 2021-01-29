@@ -55,7 +55,7 @@ I want to use Shadow DOM like a rug that I can sweep tags under it. A particular
 ```html
 <nevermind-the-backend-this-is-where-the-dragons-are>
 
-<!-- there is nothing to see here because this tag as a Shadow root -->
+<!-- there is nothing to see here because this tag has a Shadow root -->
 
 </nevermind-the-backend-this-is-where-the-dragons-are>
 ```
