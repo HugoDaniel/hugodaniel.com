@@ -132,7 +132,7 @@ class StyleChild extends HTMLElement {
 }
 ```
 
-For the `StyleContainer`, I want it to read its children tag names and create a new Web Component for each tag.
+For the `StyleContainer`, I want it to read whatever children tag names it might have and create a new Web Component for each of those new tags.
 
 ```javascript
 class StyleContainer extends HTMLElement {
