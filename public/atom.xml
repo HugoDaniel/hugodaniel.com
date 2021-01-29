@@ -426,8 +426,12 @@ signs and the kinds of things they intend, express or signify
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;I presented a small example of using Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent and automatically create it can have some cool opportunities. I don&#x27;t know the extent of what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.&lt;&#x2F;p&gt;
 &lt;hr&gt;
-&lt;p&gt;This post is the Part 2 of a series I am writting called &lt;cite&gt;&amp;quot;The Life of a Web Component&amp;quot;&lt;&#x2F;cite&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;Here it is if you want to read it: &lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This post is Part 2 of a series I am writting called &lt;cite&gt;&amp;quot;The Life of a Web Component&amp;quot;&lt;&#x2F;cite&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The other parts are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-shadow-state&#x2F;&quot;&gt;Part 3 - Reversing the Shadow DOM&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
@@ -554,6 +558,13 @@ signs and the kinds of things they intend, express or signify
 &lt;p&gt;The above pattern guarantees that the &amp;quot;dom-loop&amp;quot; and &amp;quot;redux-for-blink-tags&amp;quot; are availabe inside the initialization promise.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;I am having fun playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don&#x27;t need extra JS to exist. I will write about my further investigations with Web Components in the following days.&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;This post is Part 1 of a series I am writting called &lt;cite&gt;&amp;quot;The Life of a Web Component&amp;quot;&lt;&#x2F;cite&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The other parts are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-as-var&#x2F;&quot;&gt;Part 2 - As a variable bucket&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-shadow-state&#x2F;&quot;&gt;Part 3 - Reversing the Shadow DOM&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">

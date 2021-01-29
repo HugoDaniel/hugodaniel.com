@@ -136,3 +136,10 @@ The above pattern guarantees that the "dom-loop" and "redux-for-blink-tags" are 
 
 I am having fun playing with Web Components and believe that they provide a fertile ground for experimentation. This post is just a quick intro to a subset of their life-cycle methods and the provided functionality included in browsers that don't need extra JS to exist. I will write about my further investigations with Web Components in the following days.
 
+<hr>
+
+This post is Part 1 of a series I am writting called <cite>"The Life of a Web Component"</cite>.
+
+The other parts are:
+- [Part 2 - As a variable bucket](/posts/the-life-of-a-web-component-as-var/).
+- [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-shadow-state/).

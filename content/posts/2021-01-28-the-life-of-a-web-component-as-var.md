@@ -273,8 +273,8 @@ I presented a small example of using Web Components to create dynamic tag names.
 
 <hr>
 
-This post is the Part 2 of a series I am writting called <cite>"The Life of a Web Component"</cite>.
+This post is Part 2 of a series I am writting called <cite>"The Life of a Web Component"</cite>.
 
-Here it is if you want to read it: [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
-
-
+The other parts are:
+- [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
+- [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-shadow-state/).
