@@ -123,7 +123,7 @@ class extends HTMLElement {
 
 ```
 
-The `<simple-web-component>` class now has a `root` attribute [set with its shadow root](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow). The `initialize()` function is placing a simple `<p>In the shadow!</p>` inside it.
+The `<simple-web-component>` class now has a `root` attribute [set with its shadow root](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow). Then a simple `<p>In the shadow!</p>` is placed inside it by the `initialize()` function.
 
 This simple shadow root will affect the display of the component.
 

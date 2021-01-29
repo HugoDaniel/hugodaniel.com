@@ -178,7 +178,7 @@ signs and the kinds of things they intend, express or signify
 }</span><span style="color:#c0c5ce;">);
 
 </span></code></pre>
-<p>The <code>&lt;simple-web-component&gt;</code> class now has a <code>root</code> attribute <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow">set with its shadow root</a>. The <code>initialize()</code> function is placing a simple <code>&lt;p&gt;In the shadow!&lt;/p&gt;</code> inside it.</p>
+<p>The <code>&lt;simple-web-component&gt;</code> class now has a <code>root</code> attribute <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow">set with its shadow root</a>. Then a simple <code>&lt;p&gt;In the shadow!&lt;/p&gt;</code> is placed inside it by the <code>initialize()</code> function.</p>
 <p>This simple shadow root will affect the display of the component.</p>
 <p>The previous <code>&lt;p&gt;Hello world! I am not inside the shadow root.&lt;/p&gt;</code> will no longer be shown since it will be replaced by the shadow root contents.</p>
 <p><img src="/images/with-shadow-dom.png" alt="A portion of a browser window, showing the following text in black letters &quot;In the shadow!&quot; in a white background." title="Shaded" /></p>
