@@ -241,7 +241,7 @@ No "In the shadow!" text is visible.
 
 ## Conclusion
 
-It is possible to sweep all kinds of useless thrash under the Shadow DOM.
+It is possible to sweep all kinds of useless trash under the Shadow DOM.
 
 However, it might require reversing the Shadow DOM's visibility (which is rendered by default).
 

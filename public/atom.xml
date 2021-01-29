@@ -204,7 +204,7 @@ signs and the kinds of things they intend, express or signify
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;reversed-shadow-dom.png&quot; alt=&quot;A portion of a browser window, showing one line of text with the phrase &amp;quot;Hello world! I am not inside the shadow root.&amp;quot;. This text line has black letters on a white background.&quot; title=&quot;Only the child paragraph is visible&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;No &amp;quot;In the shadow!&amp;quot; text is visible.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
-&lt;p&gt;It is possible to sweep all kinds of useless thrash under the Shadow DOM.&lt;&#x2F;p&gt;
+&lt;p&gt;It is possible to sweep all kinds of useless trash under the Shadow DOM.&lt;&#x2F;p&gt;
 &lt;p&gt;However, it might require reversing the Shadow DOM&#x27;s visibility (which is rendered by default).&lt;&#x2F;p&gt;
 &lt;p&gt;To achieve it, a full copy of the custom element original children is made into the Shadow DOM (through the default &lt;code&gt;&amp;lt;slot&amp;gt;&lt;&#x2F;code&gt; tag). The next step is to hide everything inside the Shadow DOM that does not belong to the original children.&lt;&#x2F;p&gt;
 &lt;p&gt;With these two moves, the element&#x27;s original children become visible while leaving all the other shadow DOM contents invisible.&lt;&#x2F;p&gt;
