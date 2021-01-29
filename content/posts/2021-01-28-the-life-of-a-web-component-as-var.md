@@ -55,7 +55,7 @@ But what do Web Components have to do with all of this?
 
 ## It is awesome
 
-The global `customElements` registry (global var browsers have, where new tag names get defined) only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.
+The global `customElements` registry (the global var that browsers have, where new tag names get defined) only allows one class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name (nor delete it, but that's for another post, hehehe).
 
 It makes sense. Why associate two tag names to the same class anyway? I don't know, but I still want to be able to do that nevertheless :)
 
@@ -195,7 +195,7 @@ The above code allows HTML to be written with some sort of <abbr title="HyperTex
 </body>
 ```
 
-When the `StyleContainer` gets `define`d at the `customElements` registry (with the `"style-container"` tag name), the above code run its logic. It looks for the children and creates tags `<super-border>`, `<fancy-background>` and `<a-cool-font>`.
+When the `StyleContainer` gets `define`d at the `customElements` registry (with the `"style-container"` tag name), the above code run its logic. It looks for the children and creates the tags `<super-border>`, `<fancy-background>` and `<a-cool-font>`.
 
 These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.
 
@@ -269,7 +269,7 @@ I don't know the answer to this. I like the approach of giving logic a declarati
 
 ## Conclusion
 
-I presented a small example of Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent has some cool opportunities. I don't know what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.
+I presented a small example of using Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent and automatically create it can have some cool opportunities. I don't know the extent of what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.
 
 <hr>
 

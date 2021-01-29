@@ -111,7 +111,7 @@
 </span></code></pre>
 <p>But what do Web Components have to do with all of this?</p>
 <h2 id="it-is-awesome">It is awesome</h2>
-<p>The global <code>customElements</code> registry (global var browsers have, where new tag names get defined) only allows a class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name.</p>
+<p>The global <code>customElements</code> registry (the global var that browsers have, where new tag names get defined) only allows one class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name (nor delete it, but that's for another post, hehehe).</p>
 <p>It makes sense. Why associate two tag names to the same class anyway? I don't know, but I still want to be able to do that nevertheless :)</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Awesomeness </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{}
@@ -217,7 +217,7 @@
 	&lt;/</span><span style="color:#bf616a;">style-container</span><span style="color:#c0c5ce;">&gt;
 &lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 </span></code></pre>
-<p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>&quot;style-container&quot;</code> tag name), the above code run its logic. It looks for the children and creates tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
+<p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>&quot;style-container&quot;</code> tag name), the above code run its logic. It looks for the children and creates the tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
 <p>These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.</p>
 <h3 id="references-said-the-referee">&quot;References&quot; said the referee</h3>
 <p>The HTML code can then reference these dynamic tags.</p>
@@ -272,7 +272,7 @@
 <p><em>Why all of this, then?</em></p>
 <p>I don't know the answer to this. I like the approach of giving logic a declarative front. HTML is good at that. It is declarative and also dynamic through Web Components. How much logic should go into it, or what kind of logic is something that might be cool to find out. I do think <abbr title="Cascading Style Sheets">CSS</abbr> styles definitely should not :D (we already have the <code>class</code> attribute and CSS vars).</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>I presented a small example of Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent has some cool opportunities. I don't know what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.</p>
+<p>I presented a small example of using Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent and automatically create it can have some cool opportunities. I don't know the extent of what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.</p>
 <hr>
 <p>This post is the Part 2 of a series I am writting called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
 <p>Here it is if you want to read it: <a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</p>
