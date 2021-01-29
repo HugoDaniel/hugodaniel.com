@@ -10,8 +10,8 @@
 		<title>The life of a Web Component - Reversing the Shadow DOM visibility</title>
 		<published>2021-01-29T00:00:00+00:00</published>
 		<updated>2021-01-29T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-shadow-state/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-shadow-state/</id>
+		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/</id>
 		<content type="html">&lt;p&gt;The other day I was thinking about what do HTML tags give us out of the box and made this list:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Hierarchy&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
