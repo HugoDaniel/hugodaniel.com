@@ -142,4 +142,4 @@ This post is Part 1 of a series I am writting called <cite>"The Life of a Web Co
 
 The other parts are:
 - [Part 2 - As a variable bucket](/posts/the-life-of-a-web-component-as-var/).
-- [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-shadow-state/).
+- [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-reverse-shadow-dom/).
