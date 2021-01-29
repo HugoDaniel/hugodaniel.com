@@ -156,7 +156,7 @@ Luckily the Web Components spec provides just the feature for this, through the 
 
 ### I'm such a `<slot>` 
 
-This tag is used mainly in HTML `<template>`'s. It is the way that `<template>`'s have to tell which parts can be set by outsiders. Typically `<slot>`'s have a name attribute to be used after as the reference to where the content will go. (You can see an [example of it here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes), but it is not necessary, I won't be using it.)
+This tag is used mainly in HTML `<template>`'s. It is the way that `<template>`'s have to tell which parts can be set by outsiders. Typically `<slot>`'s have a name attribute to be used as the reference to where the content will go. (You can see an [example of it here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes), but it is not necessary, I won't be using it.)
 
 The cool thing is that if there is no `name` specified on the `<slot>`, then it becomes the default `<slot>` where all unspecified content will go in.
 

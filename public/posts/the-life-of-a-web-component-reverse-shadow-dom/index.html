@@ -194,7 +194,7 @@ signs and the kinds of things they intend, express or signify
 <p>This will allow HTML to be rendered as expected while maintaining the Shadow DOM's encapsulation features.</p>
 <p>Luckily the Web Components spec provides just the feature for this, through the <code>&lt;slot&gt;</code> tag.</p>
 <h3 id="i-m-such-a-slot">I'm such a <code>&lt;slot&gt;</code></h3>
-<p>This tag is used mainly in HTML <code>&lt;template&gt;</code>'s. It is the way that <code>&lt;template&gt;</code>'s have to tell which parts can be set by outsiders. Typically <code>&lt;slot&gt;</code>'s have a name attribute to be used after as the reference to where the content will go. (You can see an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes">example of it here</a>, but it is not necessary, I won't be using it.)</p>
+<p>This tag is used mainly in HTML <code>&lt;template&gt;</code>'s. It is the way that <code>&lt;template&gt;</code>'s have to tell which parts can be set by outsiders. Typically <code>&lt;slot&gt;</code>'s have a name attribute to be used as the reference to where the content will go. (You can see an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes">example of it here</a>, but it is not necessary, I won't be using it.)</p>
 <p>The cool thing is that if there is no <code>name</code> specified on the <code>&lt;slot&gt;</code>, then it becomes the default <code>&lt;slot&gt;</code> where all unspecified content will go in.</p>
 <p>This is perfect. It means that if a <code>&lt;slot&gt;</code> is placed inside the shadow root (without a <code>name=&quot;...&quot;</code> attribute), then all of the custom element children will automatically be copied into it.</p>
 <pre style="background-color:#2b303b;">
