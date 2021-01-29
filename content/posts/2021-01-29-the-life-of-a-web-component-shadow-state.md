@@ -1,5 +1,5 @@
 +++
-title = "The life of a Web Component - Reversing the shadow dom visibility"
+title = "The life of a Web Component - Reversing the Shadow DOM visibility"
 description = "Shadow DOM displays its contents by default while hidding the original tag children. Can this be reversed? What kind of possibilities does it offer us if it does?"
 date = 2021-01-29
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/html5_mask.png", class="center-images with-lists" }

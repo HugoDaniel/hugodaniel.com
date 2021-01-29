@@ -7,7 +7,7 @@
 	<updated>2021-01-29T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
 	<entry xml:lang="en">
-		<title>The life of a Web Component - Reversing the shadow dom visibility</title>
+		<title>The life of a Web Component - Reversing the Shadow DOM visibility</title>
 		<published>2021-01-29T00:00:00+00:00</published>
 		<updated>2021-01-29T00:00:00+00:00</updated>
 		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-shadow-state/" type="text/html"/>
