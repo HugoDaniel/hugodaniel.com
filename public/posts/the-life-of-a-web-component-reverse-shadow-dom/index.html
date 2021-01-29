@@ -180,7 +180,7 @@ signs and the kinds of things they intend, express or signify
 </span></code></pre>
 <p>The <code>&lt;simple-web-component&gt;</code> class now has a <code>root</code> attribute <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow">set with its shadow root</a>. Then a simple <code>&lt;p&gt;In the shadow!&lt;/p&gt;</code> is placed inside it by the <code>initialize()</code> function.</p>
 <p>This simple shadow root will affect the display of the component.</p>
-<p>The previous <code>&lt;p&gt;Hello world! I am not inside the shadow root.&lt;/p&gt;</code> will no longer be shown since it will be replaced by the shadow root contents.</p>
+<p>The previous <code>&lt;p&gt;Hello world! I am not inside the shadow root.&lt;/p&gt;</code> will no longer be shown since it is outside the shadow root, and now only the shadow root contents are being displayed.</p>
 <p><img src="/images/with-shadow-dom.png" alt="A portion of a browser window, showing the following text in black letters &quot;In the shadow!&quot; in a white background." title="Shaded" /></p>
 <p>However, the inspector tools shows how the tag is really juggling the shadow dom:</p>
 <p><img src="/images/shadow-dom-inspector.png" alt="The hierarchy of tags as seen by the inspector tools. Under the &quot;simple-web-component&quot; tag, there is a &quot;#shadow-root&quot; tag with a single &quot;p&quot; tag with the text &quot;In the shadow!&quot;. Also, under the &quot;simple-web-component&quot; another &quot;p&quot; tag can be seen with the content &quot;Hello world! I am not inside the shadow root.&quot;" title="This shadow is not for everyone" /></p>

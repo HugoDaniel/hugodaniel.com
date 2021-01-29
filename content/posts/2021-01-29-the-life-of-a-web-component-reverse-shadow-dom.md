@@ -127,7 +127,7 @@ The `<simple-web-component>` class now has a `root` attribute [set with its shad
 
 This simple shadow root will affect the display of the component.
 
-The previous `<p>Hello world! I am not inside the shadow root.</p>` will no longer be shown since it will be replaced by the shadow root contents.
+The previous `<p>Hello world! I am not inside the shadow root.</p>` will no longer be shown since it is outside the shadow root, and now only the shadow root contents are being displayed.
 
 ![A portion of a browser window, showing the following text in black letters "In the shadow!" in a white background.](/images/with-shadow-dom.png "Shaded")
 
