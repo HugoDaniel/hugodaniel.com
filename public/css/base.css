@@ -1,5 +1,9 @@
 :root {
 	--main-text-color: black;
+	--dark-link-color: rgb(113, 183, 225);
+	--dark-text-color: rgb(200,200,200);
+	--dark-title-color: rgb(215, 215, 215);
+	--dark-background-color: rgb(74,74,77);
 	--sans-serif: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 	--avenir: avenir next,avenir,sans-serif;
 	--baskerville: baskerville,serif;
@@ -384,6 +388,30 @@ footer {
 footer nav:first-of-type {
 	grid-row: 1;
 	grid-column: 2;
+}
+}
+@media (prefers-color-scheme: dark) {
+
+body {
+	color: var(--dark-text-color);
+  background-color: var(--dark-background-color);
+}
+a {
+  color: var(--dark-link-color);
+}
+main article ul,
+main article {
+	color: var(--dark-text-color);
+}
+main article header time,
+main article header p,
+main article h1,
+main article h2,
+main article h3,
+main article h4,
+main article h5,
+h1,h2,h3,h4,h5 {
+	color: var(--dark-title-color);
 }
 }
 
