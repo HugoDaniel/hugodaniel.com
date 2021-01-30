@@ -278,3 +278,4 @@ This post is Part 2 of a series I am writting called <cite>"The Life of a Web Co
 The other parts are:
 - [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
 - [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-reverse-shadow-dom/).
+- [Part 4 - Declarative State](/posts/the-life-of-a-web-component-state-in-shadow/).

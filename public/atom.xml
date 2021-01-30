@@ -408,6 +408,7 @@ signs and the kinds of things they intend, express or signify
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-as-var&#x2F;&quot;&gt;Part 2 - As a variable bucket&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-state-in-shadow&#x2F;&quot;&gt;Part 4 - Declarative State&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
 	</entry>
@@ -627,6 +628,7 @@ signs and the kinds of things they intend, express or signify
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;Part 1 - Initialization&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-reverse-shadow-dom&#x2F;&quot;&gt;Part 3 - Reversing the Shadow DOM&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-state-in-shadow&#x2F;&quot;&gt;Part 4 - Declarative State&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
 	</entry>
@@ -760,6 +762,7 @@ signs and the kinds of things they intend, express or signify
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-as-var&#x2F;&quot;&gt;Part 2 - As a variable bucket&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-reverse-shadow-dom&#x2F;&quot;&gt;Part 3 - Reversing the Shadow DOM&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-state-in-shadow&#x2F;&quot;&gt;Part 4 - Declarative State&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
 	</entry>
