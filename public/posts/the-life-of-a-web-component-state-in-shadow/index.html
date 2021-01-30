@@ -72,7 +72,7 @@
 			</nav>
 		</header>
 		<p>What if custom tags could be used for the application state?</p>
-<p>Thinking about a simple todo app that gets rendered like this:</p>
+<p>For instance, consider a simple todo app that gets rendered like this:</p>
 <pre style="background-color:#2b303b;">
 <code class="language-HTML" data-lang="HTML"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
 
@@ -89,8 +89,8 @@
 
 &lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
 </span></code></pre>
-<p>Just a simple todos list, declared and visible in the browser and in code, a typical day in HTML.</p>
-<p>Each of those <code>&lt;li&gt;</code> items in the todo app can have some state associated. Here is a configuration that might fit it:</p>
+<p>Just a simple list of todos, declared and visible both in the browser and in code, a typical day in HTML.</p>
+<p>Then each of those <code>&lt;li&gt;</code> items in the todo app could have some state associated. Here is a configuration that might fit it:</p>
 <ul>
 <li>Creation date</li>
 <li>Tags/Category</li>
@@ -101,8 +101,8 @@
 <li>Item content (&quot;Replace a tire&quot; etc.)</li>
 <li>Item order (what is the sequence of items)</li>
 </ul>
-<p>It would be cool if they could be referenced by some id as well. In HTML, this &quot;id&quot; is just their node element. It is unique from the moment it exists in the DOM. </p>
-<p>In JS the <code>item</code> state could be represented by a normal object:</p>
+<p>It would be cool if they could be referenced by some id as well. In HTML, this &quot;id&quot; is just their node element. It is unique from the moment it exists in the DOM (but there is also the &quot;id&quot; attribute only in case a human readable id is needed). </p>
+<p>One possible state representation for the Todo Item could be done in JS using a normal object:</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">createItemState</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">creationDate</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">categories</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">cost</span><span style="color:#c0c5ce;">) {
     </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(
@@ -127,7 +127,7 @@
 </span><span style="color:#65737e;">// some other app state here...
 </span><span style="color:#c0c5ce;">};
 </span></code></pre>
-<p>There are infinite other ways to map this state in JS.</p>
+<p>There are infinite other ways to map this state in JS. This is just to lay out the mapping to HTML.</p>
 <p><img src="/images/js_logo_with_html.jpg" alt="The yellow JavaScript logo, with HTML5 badges masking the letters J and S" title="On the internet nobody knows you're an HTML!" /></p>
 <p>Bringing the above examples from JavaScript into HTML can be done by using a custom element for each state &quot;unit&quot;. Something like this:</p>
 <pre style="background-color:#2b303b;">
@@ -179,7 +179,7 @@
     </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
 &lt;/</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
 </span></code></pre>
-<p>The <code>&lt;todo-items&gt;</code> inner state is populated by running through the sequence of items on the <code>&lt;actions-list&gt;</code> element. This is just bringing into declarative HTML a popular state handling mechanism.</p>
+<p>The <code>&lt;todo-items&gt;</code> inner state is populated by running through the sequence of items on the <code>&lt;actions-list&gt;</code> element. This is just bringing into declarative HTML a popular state handling mechanism - a sequence of state transformations.</p>
 <p><em>That is ugly looks like XML, I don't want that in my code</em></p>
 <p>Indeed, that is why reversing the Shadow DOM visibility is handy. It makes for the perfect trash bin to dump this state. Letting the app be just plain pure HTML.</p>
 <pre style="background-color:#2b303b;">

@@ -13,7 +13,7 @@
 		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/" type="text/html"/>
 		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/</id>
 		<content type="html">&lt;p&gt;What if custom tags could be used for the application state?&lt;&#x2F;p&gt;
-&lt;p&gt;Thinking about a simple todo app that gets rendered like this:&lt;&#x2F;p&gt;
+&lt;p&gt;For instance, consider a simple todo app that gets rendered like this:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-HTML&quot; data-lang=&quot;HTML&quot;&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 
@@ -30,8 +30,8 @@
 
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Just a simple todos list, declared and visible in the browser and in code, a typical day in HTML.&lt;&#x2F;p&gt;
-&lt;p&gt;Each of those &lt;code&gt;&amp;lt;li&amp;gt;&lt;&#x2F;code&gt; items in the todo app can have some state associated. Here is a configuration that might fit it:&lt;&#x2F;p&gt;
+&lt;p&gt;Just a simple list of todos, declared and visible both in the browser and in code, a typical day in HTML.&lt;&#x2F;p&gt;
+&lt;p&gt;Then each of those &lt;code&gt;&amp;lt;li&amp;gt;&lt;&#x2F;code&gt; items in the todo app could have some state associated. Here is a configuration that might fit it:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Creation date&lt;&#x2F;li&gt;
 &lt;li&gt;Tags&#x2F;Category&lt;&#x2F;li&gt;
@@ -42,8 +42,8 @@
 &lt;li&gt;Item content (&amp;quot;Replace a tire&amp;quot; etc.)&lt;&#x2F;li&gt;
 &lt;li&gt;Item order (what is the sequence of items)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;It would be cool if they could be referenced by some id as well. In HTML, this &amp;quot;id&amp;quot; is just their node element. It is unique from the moment it exists in the DOM. &lt;&#x2F;p&gt;
-&lt;p&gt;In JS the &lt;code&gt;item&lt;&#x2F;code&gt; state could be represented by a normal object:&lt;&#x2F;p&gt;
+&lt;p&gt;It would be cool if they could be referenced by some id as well. In HTML, this &amp;quot;id&amp;quot; is just their node element. It is unique from the moment it exists in the DOM (but there is also the &amp;quot;id&amp;quot; attribute only in case a human readable id is needed). &lt;&#x2F;p&gt;
+&lt;p&gt;One possible state representation for the Todo Item could be done in JS using a normal object:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
 &lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;createItemState&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;creationDate&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;categories&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cost&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;) {
     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;(
@@ -68,7 +68,7 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; some other app state here...
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;};
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;There are infinite other ways to map this state in JS.&lt;&#x2F;p&gt;
+&lt;p&gt;There are infinite other ways to map this state in JS. This is just to lay out the mapping to HTML.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;js_logo_with_html.jpg&quot; alt=&quot;The yellow JavaScript logo, with HTML5 badges masking the letters J and S&quot; title=&quot;On the internet nobody knows you&#x27;re an HTML!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Bringing the above examples from JavaScript into HTML can be done by using a custom element for each state &amp;quot;unit&amp;quot;. Something like this:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
@@ -120,7 +120,7 @@
     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;todo-items&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;todo-app-state&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c0c5ce;&quot;&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;The &lt;code&gt;&amp;lt;todo-items&amp;gt;&lt;&#x2F;code&gt; inner state is populated by running through the sequence of items on the &lt;code&gt;&amp;lt;actions-list&amp;gt;&lt;&#x2F;code&gt; element. This is just bringing into declarative HTML a popular state handling mechanism.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;&amp;lt;todo-items&amp;gt;&lt;&#x2F;code&gt; inner state is populated by running through the sequence of items on the &lt;code&gt;&amp;lt;actions-list&amp;gt;&lt;&#x2F;code&gt; element. This is just bringing into declarative HTML a popular state handling mechanism - a sequence of state transformations.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;That is ugly looks like XML, I don&#x27;t want that in my code&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Indeed, that is why reversing the Shadow DOM visibility is handy. It makes for the perfect trash bin to dump this state. Letting the app be just plain pure HTML.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;&quot;&gt;

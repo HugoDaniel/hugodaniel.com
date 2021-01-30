@@ -7,7 +7,7 @@ extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/js_lo
 
 What if custom tags could be used for the application state?
 
-Thinking about a simple todo app that gets rendered like this:
+For instance, consider a simple todo app that gets rendered like this:
 
 ```HTML
 <html><body>
@@ -26,9 +26,9 @@ Thinking about a simple todo app that gets rendered like this:
 </body></html>
 ```
 
-Just a simple todos list, declared and visible in the browser and in code, a typical day in HTML.
+Just a simple list of todos, declared and visible both in the browser and in code, a typical day in HTML.
 
-Each of those `<li>` items in the todo app can have some state associated. Here is a configuration that might fit it:
+Then each of those `<li>` items in the todo app could have some state associated. Here is a configuration that might fit it:
 
 - Creation date
 - Tags/Category
@@ -39,9 +39,9 @@ This is on top of what HTML already elegantly declares:
 - Item content ("Replace a tire" etc.)
 - Item order (what is the sequence of items)
 
-It would be cool if they could be referenced by some id as well. In HTML, this "id" is just their node element. It is unique from the moment it exists in the DOM. 
+It would be cool if they could be referenced by some id as well. In HTML, this "id" is just their node element. It is unique from the moment it exists in the DOM (but there is also the "id" attribute only in case a human readable id is needed). 
 
-In JS the `item` state could be represented by a normal object:
+One possible state representation for the Todo Item could be done in JS using a normal object:
 
 ```javascript
 function createItemState(creationDate, categories, cost) {
@@ -70,7 +70,7 @@ const todoAppState = {
 };
 ```
 
-There are infinite other ways to map this state in JS.
+There are infinite other ways to map this state in JS. This is just to lay out the mapping to HTML.
 
 
 ![The yellow JavaScript logo, with HTML5 badges masking the letters J and S](/images/js_logo_with_html.jpg "On the internet nobody knows you're an HTML!")
@@ -132,7 +132,7 @@ Since HTML provides sequence, a list of state modifying actions can then be defi
 </todo-app-state>
 ```
 
-The `<todo-items>` inner state is populated by running through the sequence of items on the `<actions-list>` element. This is just bringing into declarative HTML a popular state handling mechanism.
+The `<todo-items>` inner state is populated by running through the sequence of items on the `<actions-list>` element. This is just bringing into declarative HTML a popular state handling mechanism - a sequence of state transformations.
 
 _That is ugly looks like XML, I don't want that in my code_
 
