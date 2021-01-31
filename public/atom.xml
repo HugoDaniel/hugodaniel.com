@@ -28,7 +28,7 @@ Grateful for your attention,&lt;br&gt;
 Hugo&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;Running the tests in the browser is essential when testing Web Components. A Web Component can be a low-level piece of logic tightly bound to a particular DOM configuration. Some parts of the Web Component might be hard to test, particularly the Shadow DOM modifications (it&#x27;s a DOM root designed intentionally to provide encapsulation).&lt;&#x2F;p&gt;
-&lt;p&gt;Most things happen asynchronously with Web Components. Either through&#x2F;after a particular event or because it is a composed Web Component that only shows its intended behavior after a series of &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt;&#x27;s,&lt;code&gt;#shadow-root&lt;&#x2F;code&gt; manipulations, or other strange browser manipulation being done. Anything goes. You gotta love browserland.&lt;&#x2F;p&gt;
+&lt;p&gt;Most things happen asynchronously with Web Components. Either through&#x2F;after a particular event or because it is a composed Web Component that only shows its intended behavior after a series of &lt;code&gt;connectedCallback()&lt;&#x2F;code&gt;&#x27;s,&lt;code&gt;#shadow-root&lt;&#x2F;code&gt; manipulations, or other strange browser behaviours happening. Anything goes. You gotta love browserland.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;eierschalensollbruchstellenverursacher&quot;&gt;Eierschalensollbruchstellenverursacher&lt;&#x2F;h2&gt;
 &lt;p&gt;There is another problem when testing Web Components:&lt;&#x2F;p&gt;
 &lt;ol&gt;

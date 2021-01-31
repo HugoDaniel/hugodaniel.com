@@ -34,7 +34,7 @@ Hugo
 
 Running the tests in the browser is essential when testing Web Components. A Web Component can be a low-level piece of logic tightly bound to a particular DOM configuration. Some parts of the Web Component might be hard to test, particularly the Shadow DOM modifications (it's a DOM root designed intentionally to provide encapsulation).
 
-Most things happen asynchronously with Web Components. Either through/after a particular event or because it is a composed Web Component that only shows its intended behavior after a series of `connectedCallback()`'s,`#shadow-root` manipulations, or other strange browser manipulation being done. Anything goes. You gotta love browserland.
+Most things happen asynchronously with Web Components. Either through/after a particular event or because it is a composed Web Component that only shows its intended behavior after a series of `connectedCallback()`'s,`#shadow-root` manipulations, or other strange browser behaviours happening. Anything goes. You gotta love browserland.
 
 ## Eierschalensollbruchstellenverursacher
 
