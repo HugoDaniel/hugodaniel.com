@@ -54,7 +54,7 @@ Once you associate a Web Component to a tag there is there is no way to remove t
 
 This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well (within the same browser session).
 
-The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the fist test fries a global var that other tests will depend on, then they will break.
+The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the first test fries a global var that other tests will depend on, then they will break.
 
 Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it unadvertedly by simply manipulating the global var.
 

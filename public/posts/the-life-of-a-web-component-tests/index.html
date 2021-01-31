@@ -99,7 +99,7 @@ Hugo</p>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a> (the global var that browsers have where we define our custom tag names) has no <code>delete()</code> method.</p>
 <p>Once you associate a Web Component to a tag there is there is no way to remove that association. </p>
 <p>This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well (within the same browser session).</p>
-<p>The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the fist test fries a global var that other tests will depend on, then they will break.</p>
+<p>The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the first test fries a global var that other tests will depend on, then they will break.</p>
 <p>Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it unadvertedly by simply manipulating the global var.</p>
 <p>All this means that if a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests when they are run together.</p>
 <p>This is not a big deal if Web Components do not depend/use other Web Components <em>and</em> they map 1-1 to a given tag.</p>

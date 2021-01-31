@@ -40,7 +40,7 @@ Hugo&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CustomElementRegistry&quot;&gt;CustomElementRegistry&lt;&#x2F;a&gt; (the global var that browsers have where we define our custom tag names) has no &lt;code&gt;delete()&lt;&#x2F;code&gt; method.&lt;&#x2F;p&gt;
 &lt;p&gt;Once you associate a Web Component to a tag there is there is no way to remove that association. &lt;&#x2F;p&gt;
 &lt;p&gt;This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well (within the same browser session).&lt;&#x2F;p&gt;
-&lt;p&gt;The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the fist test fries a global var that other tests will depend on, then they will break.&lt;&#x2F;p&gt;
+&lt;p&gt;The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the first test fries a global var that other tests will depend on, then they will break.&lt;&#x2F;p&gt;
 &lt;p&gt;Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it unadvertedly by simply manipulating the global var.&lt;&#x2F;p&gt;
 &lt;p&gt;All this means that if a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests when they are run together.&lt;&#x2F;p&gt;
 &lt;p&gt;This is not a big deal if Web Components do not depend&#x2F;use other Web Components &lt;em&gt;and&lt;&#x2F;em&gt; they map 1-1 to a given tag.&lt;&#x2F;p&gt;
