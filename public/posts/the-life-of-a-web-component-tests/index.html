@@ -96,14 +96,13 @@ Hugo</p>
 </ol>
 <p>A workaround is needed just to guarantee one of the basic tenents of (Unit|Integration|Regression|End-To-End|Functional|Performance|Who|Invented|This|Shit)-tests.</p>
 <p><em>But why can't I have independent Web Components tests?</em></p>
-<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a> (the global var that browsers have where we define our custom tag names) has no <code>delete()</code> method.</p>
-<p>Once you associate a Web Component to a tag there is there is no way to remove that association. </p>
-<p>This means that when the first test in the test suit determines a Web Component tag, it will be available for the other tests in that suit (within the same browser session).</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a> (the global var that browsers have where we define our custom tag names) has no <code>delete()</code> method. Once you associate a Web Component to a tag there is there is no way to remove that association. This means that when the first test in the test suit determines a Web Component tag, it will be available for the other tests in that suit (within the same browser session).</p>
 <p>The tests should ideally all be independent of each other, running automatically, in parallel if needed. If the first test fries a global var that further tests will depend on, they will break.</p>
 <p>Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it inadvertently by merely manipulating the global var.</p>
 <p>All this means that if a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests when they are run together.</p>
 <p>This is not a big deal if Web Components do not depend/use other Web Components <em>and</em> they map 1-1 to a given tag.</p>
 <p>Unfortunately, this might be a limiting factor for some use cases. It is a limiting factor for the techniques I have been showing in this series.</p>
+<p><img src="/images/global_var.png" alt="Three emojiis diagonally - world, dynamite, mind blown" title="One Global Var per day..." /></p>
 <p><em>Looks like they were unable to keep the 10x programmers away from the Web Components spec.</em></p>
 <p>They certainly Got Shit Done. This is indeed a global var object with no way to remove the stuff placed in it.</p>
 <p>Fear not. There are a couple of ways to circumvent this and other problems.</p>
