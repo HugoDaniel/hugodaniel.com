@@ -14,6 +14,7 @@
 		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-tests/</id>
 		<content type="html">&lt;p&gt;In this post, I present what is by far the 2nd best way to test Web Components. I say this because there must be at least one way better than the one I am presenting. Also, I don&#x27;t know of any other way to test them since I have just started playing with Web Components. So yeah, 2nd best, by (infinitely) far.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-test-a-web-component&quot;&gt;Where to test a Web Component?&lt;&#x2F;h2&gt;
+&lt;p&gt;First, a starting note:&lt;&#x2F;p&gt;
 &lt;p&gt;The techniques I am going to show are not thought for &lt;abbr title=&quot;Command Line Interface&quot;&gt;CLI&lt;&#x2F;abbr&gt; usage. They are meant for the browser. Where Web Components run and are used.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;There is no way that my CircleCI pipes are going to run a browser instance!&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;This is a problem. Maybe for CI, it could be possible to separate the logic parts from the Web Components into contained JS modules with their own separate unit tests in &lt;abbr title=&quot;Command Line Interface&quot;&gt;CLI&lt;&#x2F;abbr&gt;.&lt;&#x2F;p&gt;

@@ -9,6 +9,8 @@ In this post, I present what is by far the 2nd best way to test Web Components. 
 
 ## Where to test a Web Component?
 
+First, a starting note:
+
 The techniques I am going to show are not thought for <abbr title="Command Line Interface">CLI</abbr> usage. They are meant for the browser. Where Web Components run and are used.
 
 _There is no way that my CircleCI pipes are going to run a browser instance!_
