@@ -52,11 +52,11 @@ The [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/Cus
 
 Once you associate a Web Component to a tag there is there is no way to remove that association. 
 
-This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well (within the same browser session).
+This means that when the first test in the test suit determines a Web Component tag, it will be available for the other tests in that suit (within the same browser session).
 
-The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the first test fries a global var that other tests will depend on, then they will break.
+The tests should ideally all be independent of each other, running automatically, in parallel if needed. If the first test fries a global var that further tests will depend on, they will break.
 
-Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it unadvertedly by simply manipulating the global var.
+Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it inadvertently by merely manipulating the global var.
 
 All this means that if a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests when they are run together.
 
