@@ -42,13 +42,13 @@ There is another problem when testing Web Components:
 
 1. Your tests might not be running independently from each other
 
-A workaround is needed just to achieve one of the basic tenents of (Unit|Integration|Regression|End-To-End|Functional|Performance|Who|Invented|This|Shit)-tests.
+A workaround is needed just to guarantee one of the basic tenents of (Unit|Integration|Regression|End-To-End|Functional|Performance|Who|Invented|This|Shit)-tests.
 
 _But why can't I have independent Web Components tests?_
 
 The [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry) (the global var that browsers have where we define our custom tag names) has no `delete()` method.
 
-Once a Web Component is defined, there is no way to undefine it. This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well within the same browser session. Making them dependent.
+Once a Web Component is defined, there is no way to undefine it. This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well within the same browser session. Making them dependent. If a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests.
 
 This is not a big deal if Web Components do not depend/use other Web Components *and* they map 1-1 to a given tag.
 
@@ -62,11 +62,13 @@ Fear not. There are a couple of ways to circumvent this and other problems.
 
 ## The gloves won't fit OJ
 
-The laziest way I found to run Web Components tests in the browser was to have a single `test.html` file that I open with the browser, and that includes the test suits for each Web Component I want to test. These are the `.test.js` files with the tests for each Web Component.
+The laziest way I found to run Web Components tests in the browser was to have a single `test.html` file that I open with the browser.
+
+This single `test.html` file includes the test suits for each Web Component I want to test. The `*.test.js` files with the tests for each Web Component.
 
 This `test.html` has no real dependencies. It is just a `.html` file that I can open directly in the browser without running a development server. Some tools can be used to make it auto-refresh and do parallel runs if necessary. But I just want to run tests for now.
 
-To do this I used Mocha and Chai, two old JS testing tools that provide bundles ready to be used directly in the browser:
+The $FRAMEWORKs I used are Mocha and Chai, two old JS testing tools that provide bundles ready to be used directly in the browser:
 
 ```html
 <!DOCTYPE html>
@@ -138,7 +140,7 @@ Before any tests can be written, I like to do a standard global initialization o
       - setup the App runtime parts
   -->
   <script type=module>
-	import { MyApp } from "../build/final-bundle.js";    
+	import { MyApp } from "../build/app-bundle.js";    
   </script>
 ```
 
@@ -192,7 +194,7 @@ describe("<i-should-go-out-more>", function () {
 })
 ```
 
-Inside the test, I can use things in however I want (AAA pattern, or just spaghetti), but it is essential to at least do these things:
+Inside the test, I can use things in however I want (AAA pattern, or just fetuccine/spaghetti), but it is essential to at least do these things:
 
 1. Put a Web Component tag in the #domTestArea
 2. Get the Web Component class instance on that tag
@@ -366,7 +368,7 @@ describe("<i-should-go-out-more>", function () {
 
 Testing Web Components is not fun. There is also not that much space to be creative here. Web Components have a lot of particularities that need to be considered. In this post, I presented three techniques to handle Web Component tests and their eventual awkward flow.
 
-Having a commonplace (`#domTestArea`) to dump Web Components during testing and using some sort of `async waitFor()` inside a Mutation Observer on the `#shadow-root` looks like too much hassle. It feels that all of this should not be needed. I found that these three techniques solve most problems I often encountered when testing Web Components. I don't like these hacks but *they work* in general. 
+Having a commonplace (`#domTestArea`) to dump Web Components during testing and using some sort of `async waitFor()` inside a Mutation Observer on the `#shadow-root` looks like too much hassle. It feels that all of this should not be needed. I found that these three techniques solve most problems I often encountered when testing Web Components. I don't like these hacks but *they work* in general. Generally.
 
 <hr>
 
