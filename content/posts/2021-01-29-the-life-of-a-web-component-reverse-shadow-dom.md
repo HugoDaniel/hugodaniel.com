@@ -257,3 +257,4 @@ The previous parts are:
 - [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
 - [Part 2 - As a variable bucket](/posts/the-life-of-a-web-component-as-var/).
 - [Part 4 - Declarative State](/posts/the-life-of-a-web-component-state-in-shadow/).
+- [Part 5 - Get Tested](/posts/the-life-of-a-web-component-tests/).

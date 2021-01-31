@@ -230,3 +230,4 @@ The previous parts are:
 - [Part 1 - Initialization](/posts/the-life-of-a-web-component/).
 - [Part 2 - As a variable bucket](/posts/the-life-of-a-web-component-as-var/).
 - [Part 3 - Reversing Shadow DOM visibility](/posts/the-life-of-a-web-component-reverse-shadow-dom/).
+- [Part 5 - Get Tested](/posts/the-life-of-a-web-component-tests/).

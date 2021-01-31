@@ -144,3 +144,4 @@ The other parts are:
 - [Part 2 - As a variable bucket](/posts/the-life-of-a-web-component-as-var/).
 - [Part 3 - Reversing the Shadow DOM](/posts/the-life-of-a-web-component-reverse-shadow-dom/).
 - [Part 4 - Declarative State](/posts/the-life-of-a-web-component-state-in-shadow/).
+- [Part 5 - Get Tested](/posts/the-life-of-a-web-component-tests/).
