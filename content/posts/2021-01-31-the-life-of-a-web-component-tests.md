@@ -288,7 +288,9 @@ describe("<i-should-go-out-more>", function () {
 
 ## 3 - waitFor meeee
 
-Testing Web Components is mostly an async task, tests will often need to wait a beat or a few milliseconds for things to be connected and children/attributes processed. If this is the case for the Web Component being tested then it is importante to make sure that there is some kind of `waitFor` function available (either by the testing framework or place this in the `<script>` that initializes the `MyApp` and all utility functions):
+Testing Web Components is mostly an async task, tests will often need to wait a beat or a few milliseconds for things to be connected and children/attributes processed.
+
+If this is the case for the Web Component being tested then it is importante to make sure that there is some kind of `waitFor` function available (either by the testing framework or place this in the `<script>` that initializes the `MyApp` and all utility functions):
 
 ```javascript
     // A very rough example of a `waitFor` function that
@@ -347,7 +349,7 @@ describe("<i-should-go-out-more>", function () {
         // 2.2 Create a Mutation Observer for it
         const observer = new MutationObserver(async () => {  
         
-            2.3 Wait for content
+            // 2.3 Wait for content
             const contents = [...instance.contentMap.values()];
             const contentCreated = await waitFor(
                () => contents.filter((c) => c !== null).length > 0

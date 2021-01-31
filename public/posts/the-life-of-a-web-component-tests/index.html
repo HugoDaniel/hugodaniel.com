@@ -289,7 +289,8 @@ Hugo</p>
     })
 })
 </span></code></pre><h2 id="3-waitfor-meeee">3 - waitFor meeee</h2>
-<p>Testing Web Components is mostly an async task, tests will often need to wait a beat or a few milliseconds for things to be connected and children/attributes processed. If this is the case for the Web Component being tested then it is importante to make sure that there is some kind of <code>waitFor</code> function available (either by the testing framework or place this in the <code>&lt;script&gt;</code> that initializes the <code>MyApp</code> and all utility functions):</p>
+<p>Testing Web Components is mostly an async task, tests will often need to wait a beat or a few milliseconds for things to be connected and children/attributes processed.</p>
+<p>If this is the case for the Web Component being tested then it is importante to make sure that there is some kind of <code>waitFor</code> function available (either by the testing framework or place this in the <code>&lt;script&gt;</code> that initializes the <code>MyApp</code> and all utility functions):</p>
 <pre style="background-color:#2b303b;">
 <code class="language-javascript" data-lang="javascript"><span style="color:#c0c5ce;">    </span><span style="color:#65737e;">// A very rough example of a `waitFor` function that
     // delays execution until a provided condition
@@ -345,7 +346,7 @@ Hugo</p>
         </span><span style="color:#65737e;">// 2.2 Create a Mutation Observer for it
         </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">observer </span><span style="color:#c0c5ce;">= new MutationObserver(</span><span style="color:#b48ead;">async </span><span style="color:#c0c5ce;">() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">{  
         
-            </span><span style="color:#d08770;">2.3 </span><span style="color:#bf616a;">Wait for content
+            </span><span style="color:#65737e;">// 2.3 Wait for content
             </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">contents </span><span style="color:#c0c5ce;">= [...</span><span style="color:#bf616a;">instance</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">contentMap</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">values</span><span style="color:#c0c5ce;">()];
             </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">contentCreated </span><span style="color:#c0c5ce;">= </span><span style="color:#b48ead;">await </span><span style="color:#8fa1b3;">waitFor</span><span style="color:#c0c5ce;">(
                () </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">contents</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">filter</span><span style="color:#c0c5ce;">((</span><span style="color:#bf616a;">c</span><span style="color:#c0c5ce;">) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">c </span><span style="color:#c0c5ce;">!== </span><span style="color:#d08770;">null</span><span style="color:#c0c5ce;">).length &gt; </span><span style="color:#d08770;">0
