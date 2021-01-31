@@ -50,7 +50,15 @@ _But why can't I have independent Web Components tests?_
 
 The [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry) (the global var that browsers have where we define our custom tag names) has no `delete()` method.
 
-Once a Web Component is defined, there is no way to undefine it. This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well within the same browser session. Making them dependent. If a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests.
+Once you associate a Web Component to a tag there is there is no way to remove that association. 
+
+This means that when the first test in the test suit determines a Web Component tag, then it will be available for the other tests in that suit as well (within the same browser session).
+
+The tests should ideally all be independent from each other, running automatically, in parallel if needed. If the fist test fries a global var that other tests will depend on, then they will break.
+
+Worse still, if your fellow developer introduces a new test that happens to depend on a given state of that global var, then other tests might break it unadvertedly by simply manipulating the global var.
+
+All this means that if a Web Component depends on a declaration flow or on a name tag definition, it might introduce flaky tests when they are run together.
 
 This is not a big deal if Web Components do not depend/use other Web Components *and* they map 1-1 to a given tag.
 
