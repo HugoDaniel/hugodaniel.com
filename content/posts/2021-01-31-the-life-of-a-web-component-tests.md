@@ -110,13 +110,7 @@ The $FRAMEWORKs I used are Mocha and Chai, two old JS testing tools that provide
     // Make "assert" available in all `.test.js` files 
     const { assert } = mocha.chai;
   </script>
-  
-  <!-- Put the Web Components testing files here -->
-  <script src=my-partner-is-a-web-component.test.js></script>
-  <script src=i-should-go-out-more-web-component.test.js></script>
 
-  <!-- Automatically start the Mocha framework -->
-  <script class=mocha-exec>mocha.run();</script>
 
   <!--
     Some global initialization code:
@@ -126,6 +120,14 @@ The $FRAMEWORKs I used are Mocha and Chai, two old JS testing tools that provide
   <script type=module>
 	// App initiliazation code goes here... I'll get to it 
   </script>
+  
+
+  <!-- Put the Web Components testing files here -->
+  <script src=my-partner-is-a-web-component.test.js></script>
+  <script src=i-should-go-out-more-web-component.test.js></script>
+
+  <!-- Automatically start the Mocha framework -->
+  <script class=mocha-exec>mocha.run();</script>
 
 </body></html>
 ```
