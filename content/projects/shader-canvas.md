@@ -389,6 +389,12 @@ will be merged with the graphics backend.
   <fragment-code>
       <webgl-programs>
         <program-2d>
+<!--
+  Also creates a program called
+  "program-2d".
+
+  Collisions are deep merged.
+-->
           <buffer-2d></buffer-2d>
           <fragment-shader>
             <code data-textContent="textContent"></code>
