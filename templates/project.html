@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+<main role="main" class="project">
+
+{% if page.extra.class %}
+	<article class="{{ page.extra.class }}">
+{% else %}
+	<article>
+{% endif %}
+		<header>
+			<h1> {{ page.title }} </h1>
+			<p> {{ page.description }} </p>
+			<nav>
+          <a href="{{ page.extra.github }}">GitHub</a>
+          <!-- <a href="{{ page.extra.docs }}">Documentation</a> -->
+          <a href="#">Documentation</a>
+          <a href="#">Tutorials</a>
+			</nav>
+		</header>
+		{{ page.content | safe }}
+    <hr>
+	</article>
+	<hr>
+	<footer>
+    <em>Created by <a href="/">Hugo Daniel</a> under license <a href="https://eupl.eu">EUPL 1.2</a>.</em>
+	</footer>
+</main>
+{% endblock content %}

@@ -71,8 +71,8 @@
 		<p>Using <code>console.log()</code> to debug JavaScript, a dynamic weakly-typed interpreted language, feels like drinking beers on a lazy summer sunday afternoon.</p>
 <p>It is easy and you do it without thinking too much on how you could probably be more productive doing something else.</p>
 <p>Truth is that in all the other days of the week you don't avoid spraying your code with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger"><code>debugger</code></a> keyword and let the developer tools stop and show you the execution context at that exact location.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">function yourCodeThatCouldBeWorking() {
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">function yourCodeThatCouldBeWorking() {
   const x = 1337;
   const y = parseInt(window.prompt(&#39;Y value:&#39;));
   debugger; // &lt;- hello
@@ -83,8 +83,8 @@
 <p>But lazy summer sunday afternoons are on to get us, and <code>console.log()</code> is our friend for the mood.</p>
 <h2 id="console-log-basic-mode">console.log() basic mode</h2>
 <p>The most basic usage of <code>console.log</code> is to just pass it a string. You can step this up a bit by following the string with JS objects and/or strings. Like this:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const v1 = { x: 123, y: 321 };
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const v1 = { x: 123, y: 321 };
 console.log(&quot;Vector v1: (&quot;, v1.x, &quot;,&quot;, v1.y, &quot;)&quot;);
 // or just:
 console.log(&quot;Vector v1:&quot;, v1);
@@ -94,16 +94,16 @@ console.log(&quot;Vector v1:&quot;, v1);
 <p>But who needs breakpoints when we have <code>console.log</code> ? :)</p>
 <h2 id="colorful-console-log-composer-mode">Colorful console.log() composer mode</h2>
 <p>Besides its simplicity, my next favourite thing in <code>console.log</code> is that it also allows you to pass a format string to be replaced with what you want:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const v1 = { x: 123, y: 321 };
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const v1 = { x: 123, y: 321 };
 console.log(&quot;v1 (%i, %i)&quot;, v1.x, v1.y);
 </span></code></pre>
 <p>There are a handful of other <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#Using_string_substitutions">string substitutions</a> you can use.</p>
 <p>While apparently this is not a big improvement over the simplest mode, it can be used to do a few things that would not be so easy otherwise.</p>
 <p><strong>Colors in console.log</strong></p>
 <p>You can style your output with CSS through the %c substitution:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const v1 = { x: 123, y: 321 };
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const v1 = { x: 123, y: 321 };
 console.log( &quot;%c[Vector 1] %c(%i, %i)%c\nin object %o&quot;
            , &quot;background: #242; color: #bada55&quot;
            , &quot;background: #424; color: #c0ffee&quot;
@@ -115,8 +115,8 @@ console.log( &quot;%c[Vector 1] %c(%i, %i)%c\nin object %o&quot;
 <p><strong>Dynamically create your output</strong></p>
 <p>You can also compose the log format string with code and pass it the args as needed.
 Suppose you are logging messages that can have a varying number of attributes:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const someMsg =
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const someMsg =
   { type: &quot;WORKER_ERROR&quot;
   , action: &quot;division&quot;
   , args: [123, 0]
@@ -148,8 +148,8 @@ logMessage(someMsg);
 </span></code></pre><h2 id="measuring-console-log">Measuring console.log()</h2>
 <p>Another thing to keep in mind when using <code>console.log</code> is that it is not free. It does come with a performance hit, how much exactly ? Lets measure it like we did for <a href="https://hugodaniel.com/posts/how-fast-is-nothing/">requestAnimationFrame()</a>:</p>
 <p>For this test I am going to print just 32 simple console.log messages. I know that this is not a lot, it actually is nothing when compared to using console.log on mousemove events or any other fast firing event, but it should be enough to test.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">performance.mark(&quot;Before&quot;);
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">performance.mark(&quot;Before&quot;);
 // print 32 lines
 for(let i = 0; i &lt; 32; i++)
   console.log(&quot;One of the simplest console.log() possible&quot;, i);
@@ -161,13 +161,13 @@ performance.clearMarks();
 performance.clearMeasures();
 </span></code></pre>
 <p>In my Firefox Developer Edition (56.0b1) console it prints</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&quot;console.log() in 15ms&quot;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">&quot;console.log() in 15ms&quot;
 </span></code></pre>
 <p>15 milliseconds is <em>a lot</em> of time in a computer perspective, specially since we are just printing 32 messages, it is about 0.45ms per message.</p>
 <p>To keep it in perspective here is the time it takes to parse a huge 128KB JSON string:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">function jsonParseAndMeasure(jsonStr) {
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">function jsonParseAndMeasure(jsonStr) {
   performance.mark(&quot;jsonStart&quot;);
   const json = JSON.parse(jsonStr);
   performance.mark(&quot;jsonEnd&quot;);
@@ -181,23 +181,23 @@ performance.clearMeasures();
 jsonParseAndMeasure(&quot;HUGE JSON STRING HERE&quot;);
 </span></code></pre>
 <p>For a 128KB JSON string it prints:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&quot;JSON.parse in 0ms&quot;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">&quot;JSON.parse in 0ms&quot;
 </span></code></pre>
 <p>Hmm... maybe that is not enough, lets increase it to a 2MB JSON string:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&quot;JSON.parse in 0ms&quot;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">&quot;JSON.parse in 0ms&quot;
 </span></code></pre>
 <p>Ok... what about a 50MB JSON string ?</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">&quot;JSON.parse in 17ms&quot;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">&quot;JSON.parse in 17ms&quot;
 </span></code></pre>
 <p>Thats more like it. About the same time it took console.log to print 32 simple messages. There are a few attenuating factors for this in production, but it is good to keep this in mind when leaving those debugging messages in your production code ;)</p>
 <h2 id="buffering-console-log">Buffering console.log()</h2>
 <p>There is an alternative if you have your reasons to use <code>console.log</code> in production code: buffering.</p>
 <p>Instead of printing each message as it comes, lets place them in an array and dump it in a single <code>console.log</code> call every second or so.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">let buffer = [];
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">let buffer = [];
 // use a log function instead of directly calling console.log:
 function log(str, args) {
   buffer.push({ str, args });

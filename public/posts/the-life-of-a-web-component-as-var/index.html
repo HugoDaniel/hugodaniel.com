@@ -75,69 +75,69 @@
 <p>Likewise prefix a regular <abbr title="JavaScript">JS</abbr> object <code>{ ... }</code> with <code>class</code> and have an anonymous class defined.</p>
 <p><img src="/images/HTML5_badge_tag.png" alt="Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation." title="Let those tags roll!" /></p>
 <p>Nothing special here, classes are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> <code>extends</code> syntax to easily carry other objects and acumulate them.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeContext </span><span style="color:#eff1f5;">{
-	</span><span style="color:#bf616a;">name </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">What do Web Components have to do with this?</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#eff1f5;">}
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">SomeContext </span><span style="color:#e8e8d3;">{
+	</span><span style="color:#ffb964;">name </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">What do Web Components have to do with this?</span><span style="color:#556633;">&quot;
+</span><span style="color:#e8e8d3;">}
 
-</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">withExtraContext </span><span style="color:#c0c5ce;">= new (</span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">SomeContext </span><span style="color:#eff1f5;">{
-    </span><span style="color:#8fa1b3;">displayName</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
-        </span><span style="color:#8fa1b3;">alert</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.name);
+</span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">withExtraContext </span><span style="color:#e8e8d3;">= new (</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">SomeContext </span><span style="color:#e8e8d3;">{
+    </span><span style="color:#fad07a;">displayName</span><span style="color:#e8e8d3;">() {
+        </span><span style="color:#fad07a;">alert</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.name);
     }
-}</span><span style="color:#c0c5ce;">)
+})
 
-</span><span style="color:#bf616a;">withExtraContext</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">displayName</span><span style="color:#c0c5ce;">()
+</span><span style="color:#ffb964;">withExtraContext</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">displayName</span><span style="color:#e8e8d3;">()
 </span></code></pre>
 <p>It is possible to pick our favorite class and create other unique classes from it that are, in fact, just declaration copies that add nothing at all. Unique copies of class declarations. Here is an example:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">VeryComplicatedClass </span><span style="color:#eff1f5;">{
-  </span><span style="color:#bf616a;">foo </span><span style="color:#c0c5ce;">= &quot;</span><span style="color:#a3be8c;">bar</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#eff1f5;">}
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">VeryComplicatedClass </span><span style="color:#e8e8d3;">{
+  </span><span style="color:#ffb964;">foo </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">bar</span><span style="color:#556633;">&quot;
+</span><span style="color:#e8e8d3;">}
 
-</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">MyUniqueCopy </span><span style="color:#c0c5ce;">= (</span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">VeryComplicatedClass </span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">)
+</span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">MyUniqueCopy </span><span style="color:#e8e8d3;">= (</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">VeryComplicatedClass </span><span style="color:#e8e8d3;">{})
 
-</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(
-  </span><span style="color:#bf616a;">MyUniqueCopy </span><span style="color:#c0c5ce;">instanceof VeryComplicatedClass
-); </span><span style="color:#65737e;">// prints false
+</span><span style="color:#ffb964;">console</span><span style="color:#e8e8d3;">.log(
+  </span><span style="color:#ffb964;">MyUniqueCopy </span><span style="color:#e8e8d3;">instanceof </span><span style="color:#ffb964;">VeryComplicatedClass
+</span><span style="color:#e8e8d3;">); </span><span style="color:#888888;">// prints false
 
-</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">anOriginalInstance </span><span style="color:#c0c5ce;">= new VeryComplicatedClass(); 
-</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myUniqueCopyInstance </span><span style="color:#c0c5ce;">= new MyUniqueCopy();
+</span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">anOriginalInstance </span><span style="color:#e8e8d3;">= new </span><span style="color:#ffb964;">VeryComplicatedClass</span><span style="color:#e8e8d3;">(); 
+</span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">myUniqueCopyInstance </span><span style="color:#e8e8d3;">= new </span><span style="color:#ffb964;">MyUniqueCopy</span><span style="color:#e8e8d3;">();
 
-</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(
-  </span><span style="color:#bf616a;">anOriginalInstance </span><span style="color:#c0c5ce;">instanceof VeryComplicatedlass,
-  </span><span style="color:#bf616a;">myUniqueCopyInstance </span><span style="color:#c0c5ce;">instanceof MyUniqueCopy
-); </span><span style="color:#65737e;">// prints true, true
+</span><span style="color:#ffb964;">console</span><span style="color:#e8e8d3;">.log(
+  </span><span style="color:#ffb964;">anOriginalInstance </span><span style="color:#e8e8d3;">instanceof </span><span style="color:#ffb964;">VeryComplicatedlass</span><span style="color:#e8e8d3;">,
+  </span><span style="color:#ffb964;">myUniqueCopyInstance </span><span style="color:#e8e8d3;">instanceof </span><span style="color:#ffb964;">MyUniqueCopy
+</span><span style="color:#e8e8d3;">); </span><span style="color:#888888;">// prints true, true
 
 </span></code></pre>
 <p>But what do Web Components have to do with all of this?</p>
 <h2 id="it-is-awesome">It is awesome</h2>
 <p>The global <code>customElements</code> registry (the global var that browsers have, where new tag names get defined) only allows one class to be associated with a single tag. Once a class has a corresponding tag-name set to it, it is no longer possible to set another-tag-name (nor delete it, but that's for another post, hehehe).</p>
 <p>It makes sense. Why associate two tag names to the same class anyway? I don't know, but I still want to be able to do that nevertheless :)</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Awesomeness </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{}
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{}
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">awesome-tag</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">Awesomeness</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ all good, ready to use &lt;awesome-tag&gt; all over the HTML code.
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">awesome-tag</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">Awesomeness</span><span style="color:#e8e8d3;">);
+</span><span style="color:#888888;">// ^ all good, ready to use &lt;awesome-tag&gt; all over the HTML code.
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">i-want-to-be-awesome-too</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">Awesomeness</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ No, you don&#39;t. This will throw an error.
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-want-to-be-awesome-too</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">Awesomeness</span><span style="color:#e8e8d3;">);
+</span><span style="color:#888888;">// ^ No, you don&#39;t. This will throw an error.
 </span></code></pre>
 <p><img src="/images/customElementsError.png" alt="The error text: &quot;Uncaught DOMException: CustomElementRegistry.define: 'i-want-to-be-awesome-too' and 'awesome-tag' have the same constructor&quot;" title="Nope" /></p>
 <p>Anonymous classes provide a simple way to avoid this limitation. By extending the Web Component class and using the unique copy of its declaration as a different tag-name. Like so:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Awesomeness </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{}
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{}
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">awesome-tag</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#bf616a;">Awesomeness</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ all good, like before
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">awesome-tag</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">Awesomeness</span><span style="color:#e8e8d3;">);
+</span><span style="color:#888888;">// ^ all good, like before
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">i-can-be-awesome-too</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">Awesomeness </span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ yay \o/
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-can-be-awesome-too</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#e8e8d3;">{});
+</span><span style="color:#888888;">// ^ yay \o/
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">me-too</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">Awesomeness </span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ party!
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">me-too</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#e8e8d3;">{});
+</span><span style="color:#888888;">// ^ party!
 
-</span><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">lets-all-be-awesome</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">Awesomeness </span><span style="color:#eff1f5;">{}</span><span style="color:#c0c5ce;">);
-</span><span style="color:#65737e;">// ^ ok, you get the idea
+</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">lets-all-be-awesome</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#e8e8d3;">{});
+</span><span style="color:#888888;">// ^ ok, you get the idea
 </span></code></pre>
 <p>The code above uses multiple tag names for the same class. :)</p>
 <p>It also allows the tags <code>&lt;awesome-tag&gt;</code>, <code>&lt;i-can-be-awesome-too&gt;</code>, <code>&lt;me-too&gt;</code> and <code>&lt;lets-all-be-awesome&gt;</code> to be used in <abbr title="HyperText Markup Language">HTML</abbr> and all of them will share the same functionality (because they all have <code>Awesomeness</code>).</p>
@@ -153,38 +153,38 @@
 <h3 id="stylecontainer">StyleContainer</h3>
 <p>This new <abbr title="Cascading Style Sheets">CSS</abbr> framework is going to be made by just two classes. A container class and a class for the children.</p>
 <p>The purpose of the children's class will be to hold a bunch of CSS inline style parts. It starts by reading its <code>textContent</code> and place it as a style part of itself.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">StyleChild </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
-    </span><span style="color:#bf616a;">parts </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">[]
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">StyleChild </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+    </span><span style="color:#ffb964;">parts </span><span style="color:#e8e8d3;">= []
 
-    </span><span style="color:#8fa1b3;">initialize</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
-        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">parts </span><span style="color:#c0c5ce;">= </span><span style="color:#eff1f5;">[</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">textContent</span><span style="color:#eff1f5;">]
+    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
+        </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">parts </span><span style="color:#e8e8d3;">= [</span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">textContent</span><span style="color:#e8e8d3;">]
     }
 	
-    </span><span style="color:#65737e;">// Initialize when added to a parent node
-    </span><span style="color:#8fa1b3;">connectedCallback</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{ </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">initialize</span><span style="color:#eff1f5;">() }
+    </span><span style="color:#888888;">// Initialize when added to a parent node
+    </span><span style="color:#fad07a;">connectedCallback</span><span style="color:#e8e8d3;">() { </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() }
 }
 </span></code></pre>
 <p>For the <code>StyleContainer</code>, I want it to read whatever children tag names it might have and create a new Web Component for each of those new tags.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">StyleContainer </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
-    </span><span style="color:#8fa1b3;">initialize</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">StyleContainer </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
 
-        </span><span style="color:#b48ead;">for </span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">child </span><span style="color:#c0c5ce;">of </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">children</span><span style="color:#eff1f5;">) {
+        </span><span style="color:#8fbfdc;">for </span><span style="color:#e8e8d3;">(</span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">child </span><span style="color:#e8e8d3;">of </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">children</span><span style="color:#e8e8d3;">) {
 
-            </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">childName </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">child</span><span style="color:#eff1f5;">.tagName.</span><span style="color:#8fa1b3;">toLocaleLowerCase</span><span style="color:#eff1f5;">();
+            </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">childName </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">child</span><span style="color:#e8e8d3;">.tagName.</span><span style="color:#fad07a;">toLocaleLowerCase</span><span style="color:#e8e8d3;">();
 
-            </span><span style="color:#65737e;">// Make the child become a new Web Component
+            </span><span style="color:#888888;">// Make the child become a new Web Component
             // if it was not yet made one. 
-            </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">!</span><span style="color:#bf616a;">customElements</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">get</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">childName</span><span style="color:#eff1f5;">)) {
+            </span><span style="color:#8fbfdc;">if </span><span style="color:#e8e8d3;">(!</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.get(</span><span style="color:#ffb964;">childName</span><span style="color:#e8e8d3;">)) {
 
-                </span><span style="color:#bf616a;">customElements</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">childName</span><span style="color:#eff1f5;">, </span><span style="color:#b48ead;">class extends </span><span style="color:#a3be8c;">StyleChild </span><span style="color:#eff1f5;">{});
+                </span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">childName</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">StyleChild </span><span style="color:#e8e8d3;">{});
 
             }
         }
     }
-    </span><span style="color:#65737e;">// Initialize when added to a parent node
-    </span><span style="color:#8fa1b3;">connectedCallback</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{ </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">initialize</span><span style="color:#eff1f5;">() }
+    </span><span style="color:#888888;">// Initialize when added to a parent node
+    </span><span style="color:#fad07a;">connectedCallback</span><span style="color:#e8e8d3;">() { </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() }
 }
 </span></code></pre>
 <p><em>What does this do?</em></p>
@@ -195,76 +195,76 @@
 <p>Yeah, I don't know, but it gets better.</p>
 <h3 id="style-container-1"><code>&lt;style-container&gt;</code></h3>
 <p>The above code allows HTML to be written with some sort of <abbr title="HyperText Markup Language">HTML</abbr> variable buckets.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-	&lt;</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;Spank me&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+	&lt;</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;Spank me&lt;/</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;
 
-	&lt;</span><span style="color:#bf616a;">style-container</span><span style="color:#c0c5ce;">&gt;
-		&lt;</span><span style="color:#bf616a;">super-border</span><span style="color:#c0c5ce;">&gt;
+	&lt;</span><span style="color:#ffb964;">style-container</span><span style="color:#e8e8d3;">&gt;
+		&lt;</span><span style="color:#ffb964;">super-border</span><span style="color:#e8e8d3;">&gt;
 			border: 5px dashed mediumseagreen;
 			box-shadow: 0 0 0 3px;
-		&lt;/</span><span style="color:#bf616a;">super-border</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">super-border</span><span style="color:#e8e8d3;">&gt;
 
-		&lt;</span><span style="color:#bf616a;">fancy-background</span><span style="color:#c0c5ce;">&gt;
+		&lt;</span><span style="color:#ffb964;">fancy-background</span><span style="color:#e8e8d3;">&gt;
 			background: #563f0e;
-		&lt;/</span><span style="color:#bf616a;">fancy-background</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">fancy-background</span><span style="color:#e8e8d3;">&gt;
 
-		&lt;</span><span style="color:#bf616a;">a-cool-font</span><span style="color:#c0c5ce;">&gt;
+		&lt;</span><span style="color:#ffb964;">a-cool-font</span><span style="color:#e8e8d3;">&gt;
 			font-family: Marcellus, serif;
 			font-size: 3em;
 			text-shadow: 0 2px #fff;
-		&lt;/</span><span style="color:#bf616a;">a-cool-font</span><span style="color:#c0c5ce;">&gt;
-	&lt;/</span><span style="color:#bf616a;">style-container</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">a-cool-font</span><span style="color:#e8e8d3;">&gt;
+	&lt;/</span><span style="color:#ffb964;">style-container</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>&quot;style-container&quot;</code> tag name), the above code run its logic. It looks for the children and creates the tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
 <p>These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.</p>
 <h3 id="references-said-the-referee">&quot;References&quot; said the referee</h3>
 <p>The HTML code can then reference these dynamic tags.</p>
 <p>They can be used to compose more complex styles. With a composer Web Component, lets say... the <code>&lt;import-style&gt;</code> Web Component (not yet defined):</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-	&lt;</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;Spank me&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+	&lt;</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;Spank me&lt;/</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;
 
-	&lt;</span><span style="color:#bf616a;">style-container</span><span style="color:#c0c5ce;">&gt;
-		&lt;</span><span style="color:#bf616a;">magic-button</span><span style="color:#c0c5ce;">&gt;
-			&lt;</span><span style="color:#bf616a;">import-style </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">super-border</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">import-style</span><span style="color:#c0c5ce;">&gt;
-			&lt;</span><span style="color:#bf616a;">import-style </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">fancy-background</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">import-style</span><span style="color:#c0c5ce;">&gt;
+	&lt;</span><span style="color:#ffb964;">style-container</span><span style="color:#e8e8d3;">&gt;
+		&lt;</span><span style="color:#ffb964;">magic-button</span><span style="color:#e8e8d3;">&gt;
+			&lt;</span><span style="color:#ffb964;">import-style src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">super-border</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">import-style</span><span style="color:#e8e8d3;">&gt;
+			&lt;</span><span style="color:#ffb964;">import-style src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">fancy-background</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">import-style</span><span style="color:#e8e8d3;">&gt;
 
 			padding: 2rem;
 			text-transform: uppercase;
 			pointer: cursor;
-		&lt;/</span><span style="color:#bf616a;">magic-button</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">magic-button</span><span style="color:#e8e8d3;">&gt;
 
-		&lt;</span><span style="color:#bf616a;">super-border</span><span style="color:#c0c5ce;">&gt;
+		&lt;</span><span style="color:#ffb964;">super-border</span><span style="color:#e8e8d3;">&gt;
 			border: 5px dashed mediumseagreen;
 			box-shadow: 0 0 0 3px;
-		&lt;/</span><span style="color:#bf616a;">super-border</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">super-border</span><span style="color:#e8e8d3;">&gt;
 
-		&lt;</span><span style="color:#bf616a;">fancy-background</span><span style="color:#c0c5ce;">&gt;
+		&lt;</span><span style="color:#ffb964;">fancy-background</span><span style="color:#e8e8d3;">&gt;
 			background: #563f0e;
-		&lt;/</span><span style="color:#bf616a;">fancy-background</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">fancy-background</span><span style="color:#e8e8d3;">&gt;
 
-		&lt;</span><span style="color:#bf616a;">a-cool-font</span><span style="color:#c0c5ce;">&gt;
+		&lt;</span><span style="color:#ffb964;">a-cool-font</span><span style="color:#e8e8d3;">&gt;
 			font-family: Marcellus, serif;
 			font-size: 3em;
 			text-shadow: 0 2px #fff;
-		&lt;/</span><span style="color:#bf616a;">a-cool-font</span><span style="color:#c0c5ce;">&gt;
-	&lt;/</span><span style="color:#bf616a;">style-container</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+		&lt;/</span><span style="color:#ffb964;">a-cool-font</span><span style="color:#e8e8d3;">&gt;
+	&lt;/</span><span style="color:#ffb964;">style-container</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>Or use the dynamic tags as plain references outside of the <code>&lt;style-container&gt;</code>:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-	&lt;</span><span style="color:#bf616a;">button </span><span style="color:#d08770;">styled-by</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">magic-button</span><span style="color:#c0c5ce;">&quot;&gt;Spank me&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+	&lt;</span><span style="color:#ffb964;">button styled-by</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic-button</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;Spank me&lt;/</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;
 
 ...
 </span></code></pre>
 <ol>
 <li>Where the <code>StyleContainer</code> would do something like: </li>
 </ol>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#c0c5ce;">document.</span><span style="color:#96b5b4;">querySelectorAll</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">[styled-by~=&#39;magic-button&#39;]</span><span style="color:#c0c5ce;">&quot;)
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#e8e8d3;">document.querySelectorAll(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">[styled-by~=&#39;magic-button&#39;]</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">)
 </span></code></pre>
 <p>And apply the contents of the <code>magic-button</code> tag to the inline <code>style</code> attribute to the nodes found.</p>
 <p><em>How does this differ from plain HTML?</em></p>

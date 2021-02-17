@@ -197,6 +197,14 @@ main article {
 	padding: 1rem 2rem;
 	margin: auto;
 }
+main.project article {
+	max-width: 70rem;
+  padding: 0 0.5rem;
+}
+main.project {
+  display: flex;
+  flex-direction: column;
+}
 
 main article a,
 main article p {
@@ -248,6 +256,11 @@ main article header nav {
 	margin-top: 3rem;
 }
 
+main.project article header nav {
+  display: flex;
+  justify-content: center;
+}
+
 main article header nav time {
   position: absolute;
   margin-top: 2.8rem;
@@ -282,10 +295,14 @@ main article img {
 }
 
 main article pre {
-	padding: 2rem 1rem;
+  line-height: 1.6;
+  padding: 2rem 1rem;
 	max-width: 100%;
 	width: calc(100vw - 6rem);
 	overflow: auto;
+}
+main.project article pre {
+	width: calc(100vw - 3rem);
 }
 
 main article pre code {
@@ -357,6 +374,17 @@ main {
 main article {
 	padding: 1rem 4rem;
 }
+main article pre {
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+main.project article pre {
+  font-size: 1.5rem;
+}
+main.project article header nav {
+  display: flex;
+  justify-content: center;
+}
 main article header nav {
 	display: grid;
 	grid-template-columns: 0.5fr 1fr;
@@ -377,6 +405,9 @@ main article header nav a {
 
 main footer nav a {
 	padding: 1.5rem 1rem;
+}
+main.project footer a {
+	padding: 1rem 0;
 }
 
 footer {

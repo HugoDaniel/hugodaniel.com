@@ -73,21 +73,21 @@
 		</header>
 		<p>What if custom tags could be used for the application state?</p>
 <p>For instance, consider a simple todo app that gets rendered like this:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-HTML" data-lang="HTML"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-HTML" data-lang="HTML"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
 
-&lt;</span><span style="color:#bf616a;">todo-app</span><span style="color:#c0c5ce;">&gt;
-&lt;</span><span style="color:#bf616a;">ol</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Replace a tire&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Write a tiresome article&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;?????&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Profit&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Nah, forget profit, just write something&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">ol</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">todo-app</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#ffb964;">todo-app</span><span style="color:#e8e8d3;">&gt;
+&lt;</span><span style="color:#ffb964;">ol</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Replace a tire&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Write a tiresome article&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;?????&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Profit&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Nah, forget profit, just write something&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">ol</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">todo-app</span><span style="color:#e8e8d3;">&gt;
 
-&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>Just a simple list of todos, declared and visible both in the browser and in code, a typical day in HTML.</p>
 <p>Then each of those <code>&lt;li&gt;</code> items in the todo app could have some state associated. Here is a configuration that might fit it:</p>
@@ -103,128 +103,128 @@
 </ul>
 <p>It would be cool if they could be referenced by some id as well. In HTML, this &quot;id&quot; is just their node element. It is unique from the moment it exists in the DOM (but there is also the &quot;id&quot; attribute only in case a human readable id is needed). </p>
 <p>One possible state representation for the Todo Item could be done in JS using a normal object:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">createItemState</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">creationDate</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">categories</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">cost</span><span style="color:#c0c5ce;">) {
-    </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">(
-    { </span><span style="color:#bf616a;">creationDate
-    </span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">categories
-    </span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">cost
-    </span><span style="color:#c0c5ce;">});
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">function </span><span style="color:#fad07a;">createItemState</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">creationDate</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">categories</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">cost</span><span style="color:#e8e8d3;">) {
+    </span><span style="color:#8fbfdc;">return </span><span style="color:#e8e8d3;">(
+    { </span><span style="color:#ffb964;">creationDate
+    </span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">categories
+    </span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">cost
+    </span><span style="color:#e8e8d3;">});
 }
 </span></code></pre>
 <p>Which would then be used at the bigger app state structure:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">todoAppState </span><span style="color:#c0c5ce;">= {
-    todoItems: new Map([
-        [ &quot;</span><span style="color:#a3be8c;">Sleep better, don&#39;t be tired</span><span style="color:#c0c5ce;">&quot;
-        , </span><span style="color:#8fa1b3;">createItemState</span><span style="color:#c0c5ce;">(</span><span style="color:#ebcb8b;">Date</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">now</span><span style="color:#c0c5ce;">(), [&quot;</span><span style="color:#a3be8c;">lifestyle</span><span style="color:#c0c5ce;">&quot;], </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)
+<pre style="background-color:#151515;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">todoAppState </span><span style="color:#e8e8d3;">= {
+    todoItems: new </span><span style="color:#ffb964;">Map</span><span style="color:#e8e8d3;">([
+        [ </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Sleep better, don&#39;t be tired</span><span style="color:#556633;">&quot;
+        </span><span style="color:#e8e8d3;">, </span><span style="color:#fad07a;">createItemState</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">Date</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">now</span><span style="color:#e8e8d3;">(), [</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">lifestyle</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">], </span><span style="color:#cf6a4c;">0</span><span style="color:#e8e8d3;">)
         ],
-        [ &quot;</span><span style="color:#a3be8c;">Replace a tire</span><span style="color:#c0c5ce;">&quot;
-        , </span><span style="color:#8fa1b3;">createItemState</span><span style="color:#c0c5ce;">(</span><span style="color:#ebcb8b;">Date</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">now</span><span style="color:#c0c5ce;">(), [&quot;</span><span style="color:#a3be8c;">chores</span><span style="color:#c0c5ce;">&quot;], </span><span style="color:#d08770;">9001</span><span style="color:#c0c5ce;">)
+        [ </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Replace a tire</span><span style="color:#556633;">&quot;
+        </span><span style="color:#e8e8d3;">, </span><span style="color:#fad07a;">createItemState</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">Date</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">now</span><span style="color:#e8e8d3;">(), [</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">chores</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">], </span><span style="color:#cf6a4c;">9001</span><span style="color:#e8e8d3;">)
         ]
-        </span><span style="color:#65737e;">// ...
-    </span><span style="color:#c0c5ce;">])
-</span><span style="color:#65737e;">// some other app state here...
-</span><span style="color:#c0c5ce;">};
+        </span><span style="color:#888888;">// ...
+    </span><span style="color:#e8e8d3;">])
+</span><span style="color:#888888;">// some other app state here...
+</span><span style="color:#e8e8d3;">};
 </span></code></pre>
 <p>There are infinite other ways to map this state in JS. This is just to lay out the mapping to HTML.</p>
 <p><img src="/images/js_logo_with_html.jpg" alt="The yellow JavaScript logo, with HTML5 badges masking the letters J and S" title="On the internet nobody knows you're an HTML!" /></p>
 <p>Bringing the above examples from JavaScript into HTML can be done by using a custom element for each state &quot;unit&quot;. Something like this:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-        &lt;</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;2021-01-31&lt;/</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;[&quot;lifestyle&quot;]&lt;/</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;0&lt;/</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;
-        &lt;/</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+        &lt;</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;2021-01-31&lt;/</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;[&quot;lifestyle&quot;]&lt;/</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;0&lt;/</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
 
-        &lt;</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;2020-10-10&lt;/</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;[&quot;chores&quot;]&lt;/</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;9001&lt;/</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;
-        &lt;/</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
+        &lt;</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;2020-10-10&lt;/</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;[&quot;chores&quot;]&lt;/</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;9001&lt;/</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
 
-        </span><span style="color:#65737e;">&lt;!-- ... other items here ... --&gt;
-    </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
+        </span><span style="color:#888888;">&lt;!-- ... other items here ... --&gt;
+    </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>It has the potential to become involved. A common strategy to break state complexity down is to think of it as the flow of actions that transform it, instead of thinking of it as the content it holds.</p>
 <p>In that view, the above only becomes:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-    </span><span style="color:#65737e;">&lt;!-- contents will be generated by the actions --&gt;
-        </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt; Don&#39;t care &lt;/</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt; Whatever &lt;/</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt; Meh &lt;/</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;
-        &lt;/</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-    </span><span style="color:#65737e;">&lt;!-- ^ no need to think more than one ^ --&gt;
-    </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+    </span><span style="color:#888888;">&lt;!-- contents will be generated by the actions --&gt;
+        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt; Don&#39;t care &lt;/</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt; Whatever &lt;/</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt; Meh &lt;/</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+    </span><span style="color:#888888;">&lt;!-- ^ no need to think more than one ^ --&gt;
+    </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>Since HTML provides sequence, a list of state modifying actions can then be defined with it:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-HTML" data-lang="HTML"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-HTML" data-lang="HTML"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
 
-    &lt;</span><span style="color:#bf616a;">actions-list</span><span style="color:#c0c5ce;">&gt;
-       &lt;</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;
-       &lt;</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;Get out of bed.&lt;/</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;
-       &lt;</span><span style="color:#bf616a;">delete-item</span><span style="color:#c0c5ce;">&gt;Get out of bed.&lt;/</span><span style="color:#bf616a;">delete-item</span><span style="color:#c0c5ce;">&gt;
-    &lt;/</span><span style="color:#bf616a;">actions-list</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#ffb964;">actions-list</span><span style="color:#e8e8d3;">&gt;
+       &lt;</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;
+       &lt;</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;Get out of bed.&lt;/</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;
+       &lt;</span><span style="color:#ffb964;">delete-item</span><span style="color:#e8e8d3;">&gt;Get out of bed.&lt;/</span><span style="color:#ffb964;">delete-item</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">actions-list</span><span style="color:#e8e8d3;">&gt;
 
-    &lt;</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-    </span><span style="color:#65737e;">&lt;!-- ^ This will be populated through the actions above ^ --&gt;
-    </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">todo-app-state</span><span style="color:#c0c5ce;">&gt;
+    &lt;</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+    </span><span style="color:#888888;">&lt;!-- ^ This will be populated through the actions above ^ --&gt;
+    </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">todo-app-state</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>The <code>&lt;todo-items&gt;</code> inner state is populated by running through the sequence of items on the <code>&lt;actions-list&gt;</code> element. This is just bringing into declarative HTML a popular state handling mechanism - a sequence of state transformations.</p>
 <p><em>That is ugly looks like XML, I don't want that in my code</em></p>
 <p>Indeed, that is why reversing the Shadow DOM visibility is handy. It makes for the perfect trash bin to dump this state. Letting the app be just plain pure HTML.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
 
-&lt;</span><span style="color:#bf616a;">todo-app</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#ffb964;">todo-app</span><span style="color:#e8e8d3;">&gt;
   #shadow-root
-      &lt;</span><span style="color:#bf616a;">actions-list</span><span style="color:#c0c5ce;">&gt;
-          &lt;</span><span style="color:#bf616a;">create-item </span><span style="color:#d08770;">category</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">lifestyle</span><span style="color:#c0c5ce;">&quot;&gt;
+      &lt;</span><span style="color:#ffb964;">actions-list</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">create-item category</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">lifestyle</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
               Sleep better, don&#39;t be tired.
-          &lt;/</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;
-          &lt;</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;Get out of bed.&lt;/</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;
-          &lt;</span><span style="color:#bf616a;">delete-item</span><span style="color:#c0c5ce;">&gt;Get out of bed.&lt;/</span><span style="color:#bf616a;">delete-item</span><span style="color:#c0c5ce;">&gt;
-          &lt;</span><span style="color:#bf616a;">create-item </span><span style="color:#d08770;">category</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">chores</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#d08770;">cost</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">9001</span><span style="color:#c0c5ce;">&quot;&gt;
+          &lt;/</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;Get out of bed.&lt;/</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">delete-item</span><span style="color:#e8e8d3;">&gt;Get out of bed.&lt;/</span><span style="color:#ffb964;">delete-item</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">create-item category</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">chores</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">cost</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">9001</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
               Replace a tire.
-          &lt;/</span><span style="color:#bf616a;">create-item</span><span style="color:#c0c5ce;">&gt;
-      &lt;/</span><span style="color:#bf616a;">actions-list</span><span style="color:#c0c5ce;">&gt;
+          &lt;/</span><span style="color:#ffb964;">create-item</span><span style="color:#e8e8d3;">&gt;
+      &lt;/</span><span style="color:#ffb964;">actions-list</span><span style="color:#e8e8d3;">&gt;
 
-      &lt;</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-          &lt;</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;2021-01-31&lt;/</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;[&quot;lifestyle&quot;]&lt;/</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;0&lt;/</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;
-          &lt;/</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
+      &lt;</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;2021-01-31&lt;/</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;[&quot;lifestyle&quot;]&lt;/</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;0&lt;/</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;
+          &lt;/</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
 
-          &lt;</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;2021-01-31&lt;/</span><span style="color:#bf616a;">creation-date</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;[&quot;chores&quot;]&lt;/</span><span style="color:#bf616a;">category-list</span><span style="color:#c0c5ce;">&gt;
-            &lt;</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;9001&lt;/</span><span style="color:#bf616a;">cost-of-doing</span><span style="color:#c0c5ce;">&gt;
-          &lt;/</span><span style="color:#bf616a;">item-state</span><span style="color:#c0c5ce;">&gt; 
-      &lt;/</span><span style="color:#bf616a;">todo-items</span><span style="color:#c0c5ce;">&gt;
-      &lt;</span><span style="color:#bf616a;">style</span><span style="color:#c0c5ce;">&gt;
-          </span><span style="color:#8fa1b3;">:</span><span style="color:#b48ead;">not(slot) </span><span style="color:#c0c5ce;">{
+          &lt;</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;2021-01-31&lt;/</span><span style="color:#ffb964;">creation-date</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;[&quot;chores&quot;]&lt;/</span><span style="color:#ffb964;">category-list</span><span style="color:#e8e8d3;">&gt;
+            &lt;</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;9001&lt;/</span><span style="color:#ffb964;">cost-of-doing</span><span style="color:#e8e8d3;">&gt;
+          &lt;/</span><span style="color:#ffb964;">item-state</span><span style="color:#e8e8d3;">&gt; 
+      &lt;/</span><span style="color:#ffb964;">todo-items</span><span style="color:#e8e8d3;">&gt;
+      &lt;</span><span style="color:#ffb964;">style</span><span style="color:#e8e8d3;">&gt;
+          </span><span style="color:#ffb964;">:not</span><span style="color:#e8e8d3;">(slot) {
              display: none;
           }
-      &lt;/</span><span style="color:#bf616a;">style</span><span style="color:#c0c5ce;">&gt;
-      &lt;</span><span style="color:#bf616a;">slot</span><span style="color:#c0c5ce;">&gt;⮑&lt;/</span><span style="color:#bf616a;">slot</span><span style="color:#c0c5ce;">&gt;
+      &lt;/</span><span style="color:#ffb964;">style</span><span style="color:#e8e8d3;">&gt;
+      &lt;</span><span style="color:#ffb964;">slot</span><span style="color:#e8e8d3;">&gt;⮑&lt;/</span><span style="color:#ffb964;">slot</span><span style="color:#e8e8d3;">&gt;
 
-&lt;</span><span style="color:#bf616a;">ol</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Replace a tire.&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#bf616a;">li</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">ol</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">todo-app</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#ffb964;">ol</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Replace a tire.&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;Sleep better, don&#39;t be tired.&lt;/</span><span style="color:#ffb964;">li</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">ol</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">todo-app</span><span style="color:#e8e8d3;">&gt;
 
-&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p><img src="/images/html5_code_monkeys.png" alt="The HTML5 badge broken in two, in the middle an imagem of two monkeys grooming hair." title="HTML code monkeys" /></p>
 <p>In a way, a tag with the Shadow DOM visibility reversed and state will emit no real HTML. Only the HTML provided by its children gets linked to being shown at the <code>&lt;slot&gt;</code>, nothing else is visually added, things are kept under the Shadow DOM, waiting to be revealed in a late-night debugging session.</p>

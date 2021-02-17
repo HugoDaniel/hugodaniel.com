@@ -69,8 +69,8 @@
 			</nav>
 		</header>
 		<p>One of the fastest functions that can be run inside <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame</a> goes something like this:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">
 function fastest() {
   window.requestAnimationFrame(fastest);
 }
@@ -82,8 +82,8 @@ A request for nothing that hopefully matches the speed of your monitor v-sync to
 <p>Which gives us the perfect chance to use the most important skill we have in our life.</p>
 <h2 id="giving-meaning-to-nothing">Giving meaning to nothing</h2>
 <p>Measuring the function can be done by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark">placing marks</a> and then collecting them with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure">performance.measure() function</a>. To avoid placing a mark every frame lets also count them and place it only once every 120 frames. My monitor updates at about 60Hz so this should place a mark every 2 seconds.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">let count = 0;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">let count = 0;
 // ^ count each frame
 function fastest() {
   window.requestAnimationFrame(fastest);
@@ -115,8 +115,8 @@ This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
 <p>Lets try to promote all our short lived objects into something that might be selected to be tenured by the browser, thus reducing the time that the GC spends analyzing our running code and the nursery heap.</p>
 <h2 id="the-execution-context-is-dead-long-live-the-execution-context">The execution context is dead. Long live the execution context!</h2>
 <p>My first approach is to remove the first invocation to the requestAnimationFrame() and place it inside a global closure in <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">IIFE</a> style.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">let count = 0;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">let count = 0;
 (function() {
   function fastest() {
     window.requestAnimationFrame(fastest);
@@ -135,8 +135,8 @@ This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
 <p>The next step is to remove all obvious objects allocations that happen inside our loop.
 This means we need to remove all the strings (&quot;120&quot; is an object allocation) and all the numbers.</p>
 <p>One of the great things about closures is that their execution context is available in their children, this means we can place the strings and numbers of our loop in vars in the long-lived closure context instead, making them live between our loop function calls.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">(function () {
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">(function () {
   let count = 0;
   const limit = 120;
   const lastMark = &quot;120&quot;;

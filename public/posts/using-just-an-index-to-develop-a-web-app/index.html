@@ -104,20 +104,20 @@ Said someone about something.</p>
 <p>These two will be the subject of my next post. For now, I am going to lay the ground for a simple <code>index.html</code>-only approach.</p>
 <h2 id="a-common-structure-for-most-apps">A common structure for most apps</h2>
 <p>The common structure I plan to follow is something like this:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
-</span><span style="color:#65737e;">&lt;!-- Page meta --&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- Page meta --&gt;
 &lt;!-- &lt;link&gt;&#39;s go here after the meta stuff --&gt;
 &lt;!-- &lt;script type=&quot;module&quot;&gt;&#39;s go here --&gt;
-</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
-&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt; </span><span style="color:#65737e;">&lt;!-- Feature flags as class strings in body --&gt;
+</span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
+&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt; </span><span style="color:#888888;">&lt;!-- Feature flags as class strings in body --&gt;
   &lt;!-- Modals go here --&gt;
-  </span><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">main</span><span style="color:#c0c5ce;">&gt;
-    </span><span style="color:#65737e;">&lt;!-- The content being shown goes here --&gt;
-  </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">main</span><span style="color:#c0c5ce;">&gt;
-  </span><span style="color:#65737e;">&lt;!-- &lt;template&gt;&#39;s go here --&gt;
+  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">main</span><span style="color:#e8e8d3;">&gt;
+    </span><span style="color:#888888;">&lt;!-- The content being shown goes here --&gt;
+  </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">main</span><span style="color:#e8e8d3;">&gt;
+  </span><span style="color:#888888;">&lt;!-- &lt;template&gt;&#39;s go here --&gt;
   &lt;!-- &lt;script&gt;&#39;s go here at the end --&gt;
-</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
+</span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>This structure makes some compromises but overall is enough for most complex apps. It is not that different from a normal HTML page 🧐.</p>
 <p>JavaScript modules are being loaded at the <code>&lt;head&gt;</code>, which is ok because module scripts are deferred by default and do not block the parsing of the rest of the document. They could go anywhere, I prefer to keep the <code>&lt;body&gt;</code> for the main logic and more immediate scripts.</p>
@@ -130,11 +130,11 @@ Said someone about something.</p>
 <h2 id="global-loading-page">Global Loading page</h2>
 <p>A loading page that fills the whole screen is something that most web apps have, some even distract us with cool animations while loading.</p>
 <p>In the above structure, the loading page goes into the modal area. Right before the <code>&lt;main&gt;</code> content. This allows heavy content like <code>&lt;canvas&gt;</code>, <code>&lt;img&gt;</code> to be placed as <code>&lt;main&gt;</code> children and fully load (shaders, image data, etc) behind it, before clearing the loading state and showing them to our friends.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">...
-&lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-  &lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">loading</span><span style="color:#c0c5ce;">&quot;&gt;Loading&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
-  &lt;</span><span style="color:#bf616a;">main</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">...
+&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">loading</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;Loading&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">main</span><span style="color:#e8e8d3;">&gt;
   ...
 </span></code></pre>
 <p>The whole visible space gets covered with that loading <code>&lt;div&gt;</code> which is then removed when all the things that the app needs for a good first run are ready.</p>
@@ -163,38 +163,38 @@ Said someone about something.</p>
 <p>Stamping and repeating a common HTML structure in a couple of places is a frequent routine that most web apps do. Be it for menu entries, list items, or even whole parts like sidebars or modal and toast elements. Finding a common HTML structure and repeat it when needed with small adjustments is a stapled practice.</p>
 <p>HTML templating has many technicalities and possibilities. Most JS frameworks commonly solve it in their own way with different degrees of justifiable complexity.</p>
 <p>Web browsers already provide a very flexible and complex way to do templating through the Web Components suite of technologies. For most of my cases plain HTML will be prefered and written directly at that <code>index.html</code>. For the other cases where DRY speaks louder a simple static &quot;copy/paste&quot; tag will suffice, a small prototype of this could be something like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#bf616a;">customElements</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">define</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">template-content</span><span style="color:#c0c5ce;">&quot;, </span><span style="color:#b48ead;">class extends </span><span style="color:#ebcb8b;">HTMLElement </span><span style="color:#eff1f5;">{
-  </span><span style="color:#b48ead;">constructor</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
-    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">();
-    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">attachShadow</span><span style="color:#eff1f5;">({ mode: </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">open</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#eff1f5;">})
-        .</span><span style="color:#96b5b4;">appendChild</span><span style="color:#eff1f5;">(
-          document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#eff1f5;">(
-            </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">getAttribute</span><span style="color:#eff1f5;">(</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">from-id</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#eff1f5;">)
-          ).content.</span><span style="color:#96b5b4;">cloneNode</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">true</span><span style="color:#eff1f5;">))
+<pre style="background-color:#151515;">
+<code class="language-js" data-lang="js"><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">template-content</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+  </span><span style="color:#8fbfdc;">constructor</span><span style="color:#e8e8d3;">() {
+    </span><span style="color:#ffb964;">super</span><span style="color:#e8e8d3;">();
+    </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">attachShadow</span><span style="color:#e8e8d3;">({ mode: </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">open</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">})
+        .appendChild(
+          document.getElementById(
+            </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.getAttribute(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">from-id</span><span style="color:#556633;">&#39;</span><span style="color:#e8e8d3;">)
+          ).content.cloneNode(true))
   }
-}</span><span style="color:#c0c5ce;">);
+});
 </span></code></pre>
 <p>This small code defines a new WebComponent tag <code>&lt;template-content&gt;</code>, this tag reads an element id from its <code>from-id</code> attribute, then gets the corresponding element on the DOM for that id, clones it, and replaces itself with it.</p>
 <p>This is useful because it provides a quick way to stamp HTML/SVG content on the document. Helpful to replicate SVG elements, lists, and node sub-trees on the client-side.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">nav</span><span style="color:#c0c5ce;">&gt;
-	&lt;</span><span style="color:#bf616a;">button </span><span style="color:#d08770;">onclick</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#bf616a;">tool</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">undo</span><span style="color:#c0c5ce;">&#39;)&quot;&gt;
-		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-button-content</span><span style="color:#c0c5ce;">&quot; /&gt;
-		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-undo</span><span style="color:#c0c5ce;">&quot; /&gt;
-	&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;
-	&lt;</span><span style="color:#bf616a;">button </span><span style="color:#d08770;">onclick</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#bf616a;">tool</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">draw</span><span style="color:#c0c5ce;">&#39;)&quot;&gt;
-		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-button-content</span><span style="color:#c0c5ce;">&quot; /&gt;
-		&lt;</span><span style="color:#bf616a;">template-content </span><span style="color:#d08770;">from-id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-draw</span><span style="color:#c0c5ce;">&quot; /&gt;
-	&lt;/</span><span style="color:#bf616a;">button</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">nav</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">nav</span><span style="color:#e8e8d3;">&gt;
+	&lt;</span><span style="color:#ffb964;">button onclick</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#ffb964;">tool</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">undo</span><span style="color:#556633;">&#39;</span><span style="color:#e8e8d3;">)</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+		&lt;</span><span style="color:#ffb964;">template-content from-id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-button-content</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;
+		&lt;</span><span style="color:#ffb964;">template-content from-id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-undo</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;
+	&lt;/</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;
+	&lt;</span><span style="color:#ffb964;">button onclick</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#ffb964;">tool</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">draw</span><span style="color:#556633;">&#39;</span><span style="color:#e8e8d3;">)</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+		&lt;</span><span style="color:#ffb964;">template-content from-id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-button-content</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;
+		&lt;</span><span style="color:#ffb964;">template-content from-id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-draw</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;
+	&lt;/</span><span style="color:#ffb964;">button</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">nav</span><span style="color:#e8e8d3;">&gt;
 
-&lt;</span><span style="color:#bf616a;">template </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-button-content</span><span style="color:#c0c5ce;">&quot;&gt;
-</span><span style="color:#65737e;">&lt;!-- Some complex content here --&gt;
-</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">template</span><span style="color:#c0c5ce;">&gt;
-&lt;</span><span style="color:#bf616a;">template </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">tools-draw</span><span style="color:#c0c5ce;">&quot;&gt;
-</span><span style="color:#65737e;">&lt;!-- Some other complex content here --&gt;
-</span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">template</span><span style="color:#c0c5ce;">&gt;
+&lt;</span><span style="color:#ffb964;">template id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-button-content</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- Some complex content here --&gt;
+</span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">template</span><span style="color:#e8e8d3;">&gt;
+&lt;</span><span style="color:#ffb964;">template id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">tools-draw</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- Some other complex content here --&gt;
+</span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">template</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre><h2 id="conclusion">Conclusion</h2>
 <p>Keeping a single <code>index.html</code> might be just enough for a simpler naked approach to app development. If there is no need for big dependencies, versioning tracking files, transpilers, and all that, this could very well be good enough. It works directly on top of what browsers already provide and hints at a simpler, leaner, style of development.</p>
 <p>It does not have TypeScript support and it also does not automatically resolve dependencies and bundles them.</p>

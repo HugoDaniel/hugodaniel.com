@@ -71,8 +71,8 @@
 		<p>Any JavaScript spaghetti worth its salt won't keep track of its objects references or their updates.
 These are things that happen between the mind of a chef and the ether of a planned portion with lots of defensive copying.
 <a href="https://facebook.github.io/immutable-js/">Immutable.js</a> aims to reduce these portion sizes to match the ones in fancy restaurants while avoiding ingredients like:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">JSON.parse(JSON.stringify(obj))
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">JSON.parse(JSON.stringify(obj))
 
 </span></code></pre>
 <p>To try out this new pepper lets open the developer tools in a new tab and sharpen our sour-sweet tooth.</p>
@@ -83,23 +83,23 @@ These are things that happen between the mind of a chef and the ether of a plann
 <li>Open the devtools</li>
 <li>Define a simple array with a single item in it and print it to the console
 <ul>
-<li><pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> let test1 = [1337];
-</span><span style="color:#c0c5ce;"> console.log(test1);
+<li><pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;"> let test1 = [1337];
+</span><span style="color:#e8e8d3;"> console.log(test1);
 </span></code></pre></li>
 </ul>
-<pre style="background-color:#2b303b;">
+<pre style="background-color:#151515;">
 <code></code></pre></li>
 <li>Measure the memory usage (memory tab of the dev tools)</li>
 <li>Load Immutable.js directly into the console (copy pasting its minified source directly into the console)</li>
 <li>Define a simple list with a single item in it and print it to the console
 <ul>
-<li><pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;"> let test2 = Immutable.List.of(1337);
-</span><span style="color:#c0c5ce;"> console.log(test2);
+<li><pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;"> let test2 = Immutable.List.of(1337);
+</span><span style="color:#e8e8d3;"> console.log(test2);
 </span></code></pre></li>
 </ul>
-<pre style="background-color:#2b303b;">
+<pre style="background-color:#151515;">
 <code></code></pre></li>
 <li>Measure the memory usage again</li>
 </ol>
@@ -126,16 +126,16 @@ These are things that happen between the mind of a chef and the ether of a plann
 <h2 id="a-list-of-many-secrets">A list of many secrets</h2>
 <p>Immutable allows the discerning chef to cook with well defined ingredients. You can define your own data types and use them as immutable everywhere you want to. To do that the Immutable.Record is their provided interface. </p>
 <p>The following code uses it to define a data type for a 2D point, with X and Y coordinates, and then create some points with it.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const Pt = Immutable.Record( { x: 0, y: 0} );
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const Pt = Immutable.Record( { x: 0, y: 0} );
 
 const pt1 = new Pt(); // uses x: 0, y: 0 by default
 const pt2 = new Pt({ y: 123 }); // uses x: 0 by default
 const pt3 = new Pt({ x: 123, y: 321 }); // uses your provided values
 </span></code></pre>
 <p>Fast-food junkies could do the same in straight JS with the simpler approach:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">function PtJS(x = 0, y = 0) {
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">function PtJS(x = 0, y = 0) {
 	this.x = x;
 	this.y = y;
 }
@@ -147,8 +147,8 @@ let jspt3 = new PtJS(123, 321);
 <p>Some might even argue that they are not wasting the memory that Immutable is. Master chefs are always looking for opportunities to learn, to study and to teach. </p>
 <p>Now for a simple test, create a list with 10000 of those 2D points and compare memory readings of the Immutable approach with the plain JS approach.</p>
 <p>First the plain JS approach (lets assume the constructor is already created as above).</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">
 let testArray = [];
 for(let i = 0; i &lt; 10000; i++) {
   testArray.push(new PtJS());
@@ -163,13 +163,13 @@ for(let i = 0; i &lt; 10000; i++) {
 <li><em>other</em>: 888KiB (19990 objects)</li>
 </ul>
 <p>That seems fair, we get an increase of about 390KiB in comparison to our previous measurement. That should be enough motivation to roll our Chefs Knives suitecase of Persistency and do it in Immutable style to measure it on top of this 2.92MB already in use.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const defaultPt = new Pt();
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const defaultPt = new Pt();
 const testLst = Immutable.Repeat(defaultPt, 10000);
 </span></code></pre>
 <p>After measuring this in the Memory tab we get 2.91MB. This is a decrease of about 10KiB from our previous memory usage. How is this possible ? Is the data even there ?</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">testLst.first().x;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">testLst.first().x;
 // returns 0
 testLst.size();
 // returns 10000
@@ -217,8 +217,8 @@ copy the first list up to the needed value, if the copying is done but the inten
 <h2 id="cuisine-du-monde">Cuisine du monde</h2>
 <p>Immutable.js makes good use of these techniques to avoid doing work when necessary and unnecessary copies. Their approach is lean and well thought, clearly separating the values from the way they are traversed.</p>
 <p>Lets look at our Immutable approach again:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">const defaultPt = new Pt();
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const defaultPt = new Pt();
 const testLst = Immutable.Repeat(defaultPt, 10000);
 testLst.first().x;
 </span></code></pre>

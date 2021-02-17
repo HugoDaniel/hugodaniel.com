@@ -70,8 +70,8 @@
 		</header>
 		<p>Painting stuff on a <code>&lt;canvas&gt;</code> is easy, call <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext()</a> to get the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> and then use its functions to express yourself.</p>
 <p>Doing an animation is also easy, call <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">window.requestAnimationFrame()</a> to tell the browser that you want to do an animation, and on it use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext</a> to animate as you see fit (tipically clearing the part of the drawing that changed and painting the new version of it).</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">var canvasElem = document.getElementById(&quot;canvas&quot;);
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">var canvasElem = document.getElementById(&quot;canvas&quot;);
 var w = window.innerWidth;
 var h = window.innerHeight;
 var rectSize = 256;
@@ -100,8 +100,8 @@ window.requestAnimationFrame(animation);
 <p><a href="https://facebook.github.io/react/">React</a> lets us use composable components of code and html elements to do our web apps of the future. To keep things running nicely it defines a common lifecycle for each component. The most simple version of it is that it &quot;mounts&quot; the component on the renderer and updates it when input changes.</p>
 <p>The most used React DOM renderer is their official <a href="https://www.npmjs.com/package/react-dom">&quot;react-dom&quot;</a>, it uses minimal stateless virtual DOM elements (called ReactElements) for your components and pushes them to the real DOM when appropriate.</p>
 <p>A common approach of using only <a href="https://facebook.github.io/react/">React</a> to paint on a <code>&lt;canvas&gt;</code> is to render the element and fetch the context when it is mounted. Here is an example of a basic canvas component:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">export default class Canvas extends Component {
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">export default class Canvas extends Component {
   componentDidMount() {
     let canvas = findDOMNode(this.refs.canvas),
         ctx = canvas.getContext(&quot;2d&quot;);
@@ -126,8 +126,8 @@ Canvas.propTypes =
 </span></code></pre>
 <p>To increase reusability the context is passed to the parent component where it can be used by its developer sprawling moisture of creative juices.</p>
 <p>Here is an example of a component that draws a simple grid using the Canvas component defined above.</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">import React, { Component, PropTypes } from &quot;react&quot;;
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">import React, { Component, PropTypes } from &quot;react&quot;;
 import { findDOMNode }                 from &quot;react-dom&quot;;
 import Canvas                          from &quot;./Canvas.jsx&quot;;
 
@@ -199,30 +199,30 @@ GridCanvas.defaultProps =
 <p>You can try to optimize your <a href="https://facebook.github.io/react/index.html">React</a> UI with <a href="https://facebook.github.io/react/docs/component-specs.html#updating-shouldcomponentupdate">shouldComponentUpdate</a> and you should. But it is still going to contend when your UI hasn't changed and all you want to do is to update the <code>&lt;canvas&gt;</code> with a master piece of an animation.</p>
 <h2 id="react-but-only-partially">React, but only partially</h2>
 <p>Luckily <a href="https://facebook.github.io/react/index.html">React</a> is not intrusive and <a href="https://www.npmjs.com/package/react-dom">&quot;react-dom&quot;</a> is intended to be used along standard HTML/JS code. This allows developers to only use <a href="https://facebook.github.io/react/index.html">React</a> on certain parts of their website, the aspiring artist can then use it for most of the parts of the app and keep the <code>&lt;canvas&gt;</code> outside of its logic.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-html" data-lang="html"><span style="color:#c0c5ce;">&lt;!doctype html&gt;
-&lt;</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
-  &lt;</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt; &lt;</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt;React and Canvas&lt;/</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">&gt; &lt;/</span><span style="color:#bf616a;">head</span><span style="color:#c0c5ce;">&gt;
-  &lt;</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">react-root</span><span style="color:#c0c5ce;">&quot;&gt;
-      </span><span style="color:#65737e;">&lt;!-- react goes here --&gt;
-    </span><span style="color:#c0c5ce;">&lt;/</span><span style="color:#bf616a;">div</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">canvas </span><span style="color:#8fa1b3;">id</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">animation</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">canvas</span><span style="color:#c0c5ce;">/&gt;
-    &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://fb.me/react-15.0.1.js</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">https://fb.me/react-dom-15.0.1.js</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
-    &lt;</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
-      </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">animNode </span><span style="color:#c0c5ce;">= document.</span><span style="color:#bf616a;">getElementById</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">animation</span><span style="color:#c0c5ce;">&quot;);
-      </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">ctx </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">animNode</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">getContext</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">2d</span><span style="color:#c0c5ce;">&quot;);
-      </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">loop</span><span style="color:#c0c5ce;">(t) {
-        window.</span><span style="color:#bf616a;">requestAnimationFrame</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">);
-        </span><span style="color:#65737e;">// draw something on the canvas
-      </span><span style="color:#c0c5ce;">}
-      window.</span><span style="color:#bf616a;">requestAnimationFrame</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">loop</span><span style="color:#c0c5ce;">);
-      </span><span style="color:#65737e;">// React renders on the &quot;react-root&quot; node
-      </span><span style="color:#ebcb8b;">ReactDOM</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">render</span><span style="color:#c0c5ce;">(&lt;</span><span style="color:#bf616a;">MyApp </span><span style="color:#c0c5ce;">/&gt;, document.</span><span style="color:#bf616a;">getElementById</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">react-root</span><span style="color:#c0c5ce;">&quot;));
-    &lt;/</span><span style="color:#bf616a;">script</span><span style="color:#c0c5ce;">&gt;
-  &lt;/</span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">&gt;
-&lt;/</span><span style="color:#bf616a;">html</span><span style="color:#c0c5ce;">&gt;
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;!doctype html&gt;
+&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt; &lt;</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;React and Canvas&lt;/</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt; &lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">react-root</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+      </span><span style="color:#888888;">&lt;!-- react goes here --&gt;
+    </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">canvas id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">animation</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">canvas</span><span style="color:#e8e8d3;">/&gt;
+    &lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">https://fb.me/react-15.0.1.js</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">https://fb.me/react-dom-15.0.1.js</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+      </span><span style="color:#8fbfdc;">var </span><span style="color:#ffb964;">animNode </span><span style="color:#e8e8d3;">= document.</span><span style="color:#ffb964;">getElementById</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">animation</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
+      </span><span style="color:#8fbfdc;">var </span><span style="color:#ffb964;">ctx </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">animNode</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">getContext</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
+      </span><span style="color:#8fbfdc;">function </span><span style="color:#fad07a;">loop</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">t</span><span style="color:#e8e8d3;">) {
+        window.</span><span style="color:#ffb964;">requestAnimationFrame</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">loop</span><span style="color:#e8e8d3;">);
+        </span><span style="color:#888888;">// draw something on the canvas
+      </span><span style="color:#e8e8d3;">}
+      window.</span><span style="color:#ffb964;">requestAnimationFrame</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">loop</span><span style="color:#e8e8d3;">);
+      </span><span style="color:#888888;">// React renders on the &quot;react-root&quot; node
+      </span><span style="color:#ffb964;">ReactDOM</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">render</span><span style="color:#e8e8d3;">(&lt;</span><span style="color:#ffb964;">MyApp </span><span style="color:#e8e8d3;">/&gt;, document.</span><span style="color:#ffb964;">getElementById</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">react-root</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">));
+    &lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+  &lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
 <p>All is good if you don't intend to make the <code>&lt;canvas&gt;</code> high-speed animation interact with the <a href="https://facebook.github.io/react/index.html">React</a> part of the code.</p>
 <p>If you want to communicate between the <code>&lt;canvas&gt;</code> and <a href="https://facebook.github.io/react/index.html">React</a> then you will have to adopt some interaction strategy (e.g. passing a callback as a prop; using plain JS events; etc...).</p>
