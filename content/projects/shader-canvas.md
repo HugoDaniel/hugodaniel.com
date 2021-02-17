@@ -9,8 +9,12 @@ extra = { github = "https://github.com/HugoDaniel/shader_canvas", docs = "https:
 ```html
 <shader-canvas>
 <!--
-  Shader canvas can have multiple
-  backends
+  Shader canvas starts with this tag
+  Its children tags defines what will
+  be rendered.
+
+  It can use multiple graphical API
+  backends.
 -->
   <webgl-canvas>
 <!--
@@ -60,13 +64,14 @@ extra = { github = "https://github.com/HugoDaniel/shader_canvas", docs = "https:
 -->
         <draw-vao src="triangle-vao"></draw-vao>
 <!--
-  Any tag inside the <use-program>
+  Any tag inside <use-program>
   has the program bound to it.
 
   Here, <draw-vao> is calling the
   WebGL draw function for the
   Vertex Array Object defined
   bellow at the tag <triangle-vao>.
+  (VAO stands for Vertex Array Object).
 -->
       </use-program>
     </draw-calls>
@@ -214,7 +219,7 @@ A declarative syntax for graphics API's has several benefits and disadvantages.
 ### Benefits
 
 - Easy to debug
-  * The state and its setup is always available in the DOM
+  * The state and its setup are always available in the DOM
 - Emphasis on the initialization phase
   * Graphics APIs are typically inclined towards Command-like
     and Factory-like usage patterns. <br>
@@ -233,9 +238,10 @@ A declarative syntax for graphics API's has several benefits and disadvantages.
   grouping features. <br>
   `<shader-canvas>` tries to tackle this by providing containers
   and a way to reference their contents.
-- A descriptive approach to development
-  * The compound gains by this approach can be significant, but they are
-  not always clear and are hard to explain.
+- New tags to learn
+  * `<shader-canvas>` introduces one tag per WebGL function, on
+  top of these, it adds < 10 new tags that try to remove a lot
+  of the imperative nature of the WebGL API.
 
 ## Compose and create
 
@@ -408,4 +414,6 @@ will be merged with the graphics backend.
   Congrats, three new tags to use!
 -->
 ```
+
+`<shader-canvas>` uses no dependencies and has ~80KB of JavaScript (~15KB minified and gzipped).
 

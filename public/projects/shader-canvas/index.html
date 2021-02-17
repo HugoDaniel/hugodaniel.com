@@ -72,8 +72,12 @@
 		<pre style="background-color:#151515;">
 <code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
 </span><span style="color:#888888;">&lt;!--
-  Shader canvas can have multiple
-  backends
+  Shader canvas starts with this tag
+  Its children tags defines what will
+  be rendered.
+
+  It can use multiple graphical API
+  backends.
 --&gt;
   </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-canvas</span><span style="color:#e8e8d3;">&gt;
 </span><span style="color:#888888;">&lt;!--
@@ -123,13 +127,14 @@
 --&gt;
         </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">draw-vao src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">triangle-vao</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">draw-vao</span><span style="color:#e8e8d3;">&gt;
 </span><span style="color:#888888;">&lt;!--
-  Any tag inside the &lt;use-program&gt;
+  Any tag inside &lt;use-program&gt;
   has the program bound to it.
 
   Here, &lt;draw-vao&gt; is calling the
   WebGL draw function for the
   Vertex Array Object defined
   bellow at the tag &lt;triangle-vao&gt;.
+  (VAO stands for Vertex Array Object).
 --&gt;
       </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">use-program</span><span style="color:#e8e8d3;">&gt;
     &lt;/</span><span style="color:#ffb964;">draw-calls</span><span style="color:#e8e8d3;">&gt;
@@ -273,7 +278,7 @@
 <ul>
 <li>Easy to debug
 <ul>
-<li>The state and its setup is always available in the DOM</li>
+<li>The state and its setup are always available in the DOM</li>
 </ul>
 </li>
 <li>Emphasis on the initialization phase
@@ -306,10 +311,11 @@ grouping features. <br>
 and a way to reference their contents.</li>
 </ul>
 </li>
-<li>A descriptive approach to development
+<li>New tags to learn
 <ul>
-<li>The compound gains by this approach can be significant, but they are
-not always clear and are hard to explain.</li>
+<li><code>&lt;shader-canvas&gt;</code> introduces one tag per WebGL function, on
+top of these, it adds &lt; 10 new tags that try to remove a lot
+of the imperative nature of the WebGL API.</li>
 </ul>
 </li>
 </ul>
@@ -475,6 +481,8 @@ will be merged with the graphics backend.
   Congrats, three new tags to use!
 --&gt;
 </span></code></pre>
+<p><code>&lt;shader-canvas&gt;</code> uses no dependencies and has ~80KB of JavaScript (~15KB minified and gzipped).</p>
+
     <hr>
 	</article>
 	<hr>
