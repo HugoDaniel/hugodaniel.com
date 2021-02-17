@@ -9,8 +9,8 @@ extra = { github = "https://github.com/HugoDaniel/shader_canvas", docs = "https:
 ```html
 <shader-canvas>
 <!--
-  Shader canvas starts with this tag
-  Its children tags defines what will
+  Shader Canvas starts with this tag
+  Its children tags define what will
   be rendered.
 
   It can use multiple graphical API
