@@ -267,7 +267,7 @@
 
 </span><span style="color:#888888;">&lt;!-- The data for the buffer --&gt;
 </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">trianglePoints</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;[-0.7, 0, 0, 0.5, 0.7, 0]&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
-</span></code></pre><h2 id="one-tag-per-low-level-function">One tag per low level function</h2>
+</span></code></pre><h2 id="one-tag-per-low-level-function">One tag per low-level function</h2>
 <p>A declarative syntax for graphics API's has several benefits and disadvantages.</p>
 <h3 id="benefits">Benefits</h3>
 <ul>
@@ -283,10 +283,10 @@ and Factory-like usage patterns. <br>
 <code>&lt;shader-canvas&gt;</code> makes these stand-out even more.</li>
 </ul>
 </li>
-<li>Frame drawing is tuned to what is being declared.
+<li>Frame drawing is tuned to what is declared.
 <ul>
 <li>A specialized drawing function is created at initialization
-by reading the low level declaration in the DOM.</li>
+by reading the low-level declaration in the DOM.</li>
 </ul>
 </li>
 </ul>
@@ -300,25 +300,25 @@ started.</li>
 </li>
 <li>Can become verbose.
 <ul>
-<li>Lots of tags are hard to manage with good collapsing and
+<li>Lots of tags are hard to manage without good collapsing and
 grouping features. <br>
 <code>&lt;shader-canvas&gt;</code> tries to tackle this by providing containers
 and a way to reference their contents.</li>
 </ul>
 </li>
-<li>Development is done with a descriptive approach
+<li>A descriptive approach to development
 <ul>
-<li>The compound gains with this approach can be big but they are
+<li>The compound gains by this approach can be significant, but they are
 not always clear and are hard to explain.</li>
 </ul>
 </li>
 </ul>
 <h2 id="compose-and-create">Compose and create</h2>
-<p>With <code>&lt;shader-canvas&gt;</code> you can also create your own beautiful
-abstractions and compositions with the low level graphics tags.</p>
-<p>You can create your own tags and split the graphics api into
+<p>With <code>&lt;shader-canvas&gt;</code>, you can also create your own beautiful
+abstractions and compositions with low-level graphics tags.</p>
+<p>You can create your tags and split the graphics API into
 composable parts.</p>
-<p>As an example, the triangle from the code above can also be done
+<p>As an example, you might want to redo the triangle from the code 
 with something like this:</p>
 <pre style="background-color:#151515;">
 <code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;

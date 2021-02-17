@@ -206,7 +206,7 @@ extra = { github = "https://github.com/HugoDaniel/shader_canvas", docs = "https:
 <div id="trianglePoints">[-0.7, 0, 0, 0.5, 0.7, 0]</div>
 ```
 
-## One tag per low level function 
+## One tag per low-level function 
 
 
 A declarative syntax for graphics API's has several benefits and disadvantages.
@@ -219,9 +219,9 @@ A declarative syntax for graphics API's has several benefits and disadvantages.
   * Graphics APIs are typically inclined towards Command-like
     and Factory-like usage patterns. <br>
     `<shader-canvas>` makes these stand-out even more.
-- Frame drawing is tuned to what is being declared.
+- Frame drawing is tuned to what is declared.
   * A specialized drawing function is created at initialization
-    by reading the low level declaration in the DOM.
+    by reading the low-level declaration in the DOM.
 
 ### Disadvantages
 
@@ -229,23 +229,23 @@ A declarative syntax for graphics API's has several benefits and disadvantages.
   * Requires good knowledge of the graphics API structure to get
   started.
 - Can become verbose.
-  * Lots of tags are hard to manage with good collapsing and
+  * Lots of tags are hard to manage without good collapsing and
   grouping features. <br>
   `<shader-canvas>` tries to tackle this by providing containers
   and a way to reference their contents.
-- Development is done with a descriptive approach
-  * The compound gains with this approach can be big but they are
+- A descriptive approach to development
+  * The compound gains by this approach can be significant, but they are
   not always clear and are hard to explain.
 
 ## Compose and create
 
-With `<shader-canvas>` you can also create your own beautiful
-abstractions and compositions with the low level graphics tags.
+With `<shader-canvas>`, you can also create your own beautiful
+abstractions and compositions with low-level graphics tags.
 
-You can create your own tags and split the graphics api into
+You can create your tags and split the graphics API into
 composable parts.
 
-As an example, the triangle from the code above can also be done
+As an example, you might want to redo the triangle from the code 
 with something like this:
 
 
