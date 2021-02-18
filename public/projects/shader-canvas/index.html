@@ -319,13 +319,21 @@ of the imperative nature of the WebGL API.</li>
 </ul>
 </li>
 </ul>
-<h2 id="compose-and-create">Compose and create</h2>
+<h2 id="composable-modules">Composable modules</h2>
 <p>With <code>&lt;shader-canvas&gt;</code>, you can also create your own beautiful
-abstractions and compositions with low-level graphics tags.</p>
-<p>You can create your tags and split the graphics API into
-composable parts.</p>
-<p>As an example, you might want to redo the triangle from the code 
-with something like this:</p>
+abstractions and compositions through modules.</p>
+<p>With the module system, you can:</p>
+<ul>
+<li>Create new tags that bundle new functionality.</li>
+<li>Extend shader code with new functions and variables.</li>
+<li>Hook custom functions to specific entry points (on enter frame, on use program, etc.)</li>
+<li>Split the graphics API into composable parts.</li>
+</ul>
+<p><code>&lt;shader-canvas&gt;</code> uses no dependencies and has ~80KB of JavaScript (~15KB minified and gzipped).</p>
+<h2 id="customizable-high-level-abstractions">Customizable high-level abstractions</h2>
+<p>Shader Canvas allows you to create your abstractions.</p>
+<p>You might want to redo the low-level triangle approach from the code above
+with an abstraction like this:</p>
 <pre style="background-color:#151515;">
 <code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
   &lt;</span><span style="color:#ffb964;">buffer-2d variable</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">vertex2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
@@ -350,138 +358,8 @@ with something like this:</p>
   &lt;/</span><span style="color:#ffb964;">fragment-code</span><span style="color:#e8e8d3;">&gt;
 &lt;/</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
 </span></code></pre>
-<p>You can create these three new tags, or any other tag and abstraction
-, as parts of the WebGL API.</p>
-<p>To do so <code>&lt;shader-canvas&gt;</code> provides the <code>&lt;new-parts&gt;</code> special container.
-Each child of the <code>&lt;new-parts&gt;</code> tag represents a part of the low level
-graphics API.</p>
-<p>For the three new tags above (<code>&lt;buffer-2d&gt;</code>, <code>&lt;vertex-code&gt;</code> and <code>&lt;fragment-code&gt;</code>),
-the <code>&lt;new-parts&gt;</code> would look like this:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#888888;">&lt;!--
-Create new tags to be used when
-composing parts of the graphics backend
-
-Name each child tag as you want.
-
-When they are used, their contents
-will be merged with the graphics backend.
---&gt;
-</span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">new-parts</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Any name can be set, here &quot;buffer-2d&quot;
-  was chosen.
-
-  Inside each &lt;new-parts&gt; child you setup
-  the &quot;blueprint&quot; of what it will do and
-  define at the graphics backend when
-  the tag is used.
---&gt;
-      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  The buffers declared will be merged with
-  the existing &lt;webgl-canvas&gt; buffers.
---&gt;
-        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">vertices-2d</span><span style="color:#e8e8d3;">&gt;
-          &lt;</span><span style="color:#ffb964;">buffer-data data-src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">textContent</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">buffer-data</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Attributes from the tag being created
-  can be placed into its blueprint through
-  the data-attributes.
-
-  Here the `data-src` is setting the &quot;src&quot;
-  of the &lt;buffer-data&gt; to be the
-  &quot;textContent&quot; of the &lt;buffer-2d&gt; instance.
---&gt;
-        </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">vertices-2d</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
-
-      &lt;</span><span style="color:#ffb964;">webgl-program-part</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Shaders can also be created from parts.
-  The code from the &lt;vertex-shader&gt; inside
-  a &lt;webgl-program-part&gt; can be composed with
-  any shader program whenever the &lt;buffer-2d&gt;
-  element is declared in them.
---&gt;
-        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
-         &lt;</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
-           in vec4 vertex2d;
-         &lt;/</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
-        &lt;/</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">webgl-program-part</span><span style="color:#e8e8d3;">&gt;
-
-      &lt;</span><span style="color:#ffb964;">webgl-vertex-array-objects</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">vao-2d</span><span style="color:#e8e8d3;">&gt;
-          &lt;</span><span style="color:#ffb964;">bind-buffer src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">vertices-2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-            &lt;</span><span style="color:#ffb964;">vertex-attrib-pointer data-variable</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">variable</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">size</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">2</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-            &lt;/</span><span style="color:#ffb964;">vertex-attrib-pointer</span><span style="color:#e8e8d3;">&gt;
-          &lt;/</span><span style="color:#ffb964;">bind-buffer</span><span style="color:#e8e8d3;">&gt;
-        &lt;/</span><span style="color:#ffb964;">vao-2d</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">webgl-vertex-array-objects</span><span style="color:#e8e8d3;">&gt;
-
-</span><span style="color:#888888;">&lt;!--
-  Draw calls can also be composed
-  and merged.
---&gt;
-      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">draw-calls</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">viewport-transform x</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">y</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">viewport-transform</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">clear-color red</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">green</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">blue</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">alpha</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">1</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">clear-color</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">clear-flags mask</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">COLOR_BUFFER_BIT</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">clear-flags</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">use-program src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">program-2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-          &lt;</span><span style="color:#ffb964;">draw-vao src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">vao-2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">draw-vao</span><span style="color:#e8e8d3;">&gt;
-        &lt;/</span><span style="color:#ffb964;">use-program</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">draw-calls</span><span style="color:#e8e8d3;">&gt;
-  &lt;/</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;
-
-  &lt;</span><span style="color:#ffb964;">vertex-code</span><span style="color:#e8e8d3;">&gt;
-      &lt;</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">program-2d</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Creates a new program
-  called &quot;program-2d&quot;.
---&gt;
-          </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Using the tag inside a WebGL container
-  will make it merge the specific contents
-  that the tag might have for that container.
-
-  Here &lt;buffer-2d&gt; will merge its 
-  &lt;webgl-program-part&gt; into this
-  shader.
---&gt;
-          </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
-            &lt;</span><span style="color:#ffb964;">code data-textContent</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">textContent</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
-          &lt;/</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
-        &lt;/</span><span style="color:#ffb964;">program-2d</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
-  &lt;/</span><span style="color:#ffb964;">vertex-code</span><span style="color:#e8e8d3;">&gt;
-
-  &lt;</span><span style="color:#ffb964;">fragment-code</span><span style="color:#e8e8d3;">&gt;
-      &lt;</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
-        &lt;</span><span style="color:#ffb964;">program-2d</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#888888;">&lt;!--
-  Also creates a program called
-  &quot;program-2d&quot;.
-
-  Collisions are deep merged.
---&gt;
-          </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;
-          &lt;</span><span style="color:#ffb964;">fragment-shader</span><span style="color:#e8e8d3;">&gt;
-            &lt;</span><span style="color:#ffb964;">code data-textContent</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">textContent</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
-          &lt;/</span><span style="color:#ffb964;">fragment-shader</span><span style="color:#e8e8d3;">&gt;
-        &lt;/</span><span style="color:#ffb964;">program-2d</span><span style="color:#e8e8d3;">&gt;
-      &lt;/</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
-  &lt;/</span><span style="color:#ffb964;">fragment-code</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">new-parts</span><span style="color:#e8e8d3;">&gt;
-
-</span><span style="color:#888888;">&lt;!--
-  Congrats, three new tags to use!
---&gt;
-</span></code></pre>
-<p><code>&lt;shader-canvas&gt;</code> uses no dependencies and has ~80KB of JavaScript (~15KB minified and gzipped).</p>
+<p>With the Shader Canvas module system you can declaratively, through HTML tags, create these kind of abstractions and new tags.</p>
+<p>Read more about how you can create graphics abstractions in the <code>&lt;new-modules&gt;</code> tutorial section.</p>
 
     <hr>
 	</article>
