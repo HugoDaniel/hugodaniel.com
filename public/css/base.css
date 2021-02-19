@@ -196,6 +196,8 @@ main article {
 	max-width: 49rem;
 	padding: 1rem 2rem;
 	margin: auto;
+  width: 100vw;
+  overflow: hidden;
 }
 main.project article {
 	max-width: 70rem;
