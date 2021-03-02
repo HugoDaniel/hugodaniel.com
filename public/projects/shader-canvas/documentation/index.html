@@ -34,6 +34,9 @@
 		
 		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;">
 		
+			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;shader-canvas-logo.png" >
+			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;shader-canvas-logo.png" >
+		
 		
 		
 		<!-- Matomo -->
@@ -129,7 +132,7 @@ project documentation center-images
                     <ul>
                         
                             <li>
-                                <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#3-steps-setup">3 steps setup</a>
+                                <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#3-step-setup">3 step setup</a>
                             </li>
                         
                             <li>
@@ -138,6 +141,23 @@ project documentation center-images
                         
                             <li>
                                 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#creating-a-scene">Creating a scene</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#modules">Modules</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#shadercanvas-api">ShaderCanvas API</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#mandatory-functions">Mandatory functions</a>
                             </li>
                         
                     </ul>
@@ -296,9 +316,9 @@ project documentation center-images
     
       <h1 id="getting-started">Getting Started</h1>
 <p>Shader Canvas is made with <a href="https://deno.land">Deno</a> and intended to be used
-as a bundle in an HTML file that declares its specific graphics Web Components
-tags.</p>
-<h3 id="3-steps-setup">3 steps setup</h3>
+as a bundle in an HTML file that makes use of its specific Web
+Components tags.</p>
+<h3 id="3-step-setup">3 step setup</h3>
 <p>You can begin using Shader Canvas with these 3 steps.</p>
 <ol>
 <li><em>Step 1</em> Start with a simple HTML file for your project:</li>
@@ -381,7 +401,149 @@ file directly:</p>
 </span></code></pre>
 <p>And run your project <code>deno bundle</code> CLI command or equivalent on it.</p>
 <h2 id="creating-a-scene">Creating a scene</h2>
-<p>This is how you create a scene...</p>
+<p>To create a scene in Shader Canvas you have to think of it in the low-level
+elements from the graphics framework that you want to draw with.</p>
+<p>For now there is only WebGL, which means that a scene has to be made to work
+with the following parts:</p>
+<ul>
+<li>Programs (how is it going to be expressed in GLSL?)</li>
+<li>Buffers (what raw binary data it might need?)</li>
+<li>Textures (what raw image data it might need?)</li>
+<li>Vertex Array Objects (what information to send in each vertex?)</li>
+</ul>
+<p>The Shader Canvas provides the tag <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> to hold all
+of the WebGL related tags. In this tag the following container tags can be used
+to define each of the above parts:</p>
+<ul>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLPrograms"><code>&lt;webgl-programs&gt;</code></a></li>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLBuffers"><code>&lt;webgl-buffers&gt;</code></a></li>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLTextures"><code>&lt;webgl-textures&gt;</code></a></li>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLVertexArrayObjects"><code>&lt;webgl-vertex-array-objects&gt;</code></a></li>
+</ul>
+<p>Within each of these tags you create new parts for your program. Each of their
+children is a uniquely named new tag that you create. This new name is then
+referenced by other tags (if you create a buffer named &quot;monkey-vertices&quot; then
+you can reference it in a Vertex Array Object with that name).</p>
+<p>And finally the <code>&lt;webgl-canvas&gt;</code> also has a container for the drawing
+instructions:</p>
+<ul>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a></li>
+</ul>
+<p>This contains an ordered list of WebGL actions to perform (Each WebGL function 
+has its corresponding tag).</p>
+<h3 id="textured-rectangle">Textured rectangle</h3>
+<p>For a simple textured rectangle this means that you would need the following:</p>
+<h4 id="textures">Textures</h4>
+<ul>
+<li>An image to use as texture.</li>
+</ul>
+<h4 id="buffers">Buffers</h4>
+<ul>
+<li>Vertices positions for the rectangle.</li>
+<li>Texture positions for the rectangle.</li>
+</ul>
+<h4 id="programs">Programs</h4>
+<ul>
+<li>A vertex shader that reads the vertices positions and texture coordinates and
+places them in the screen</li>
+<li>A fragment shader that reads the texture and its coordinates and uses it to 
+paint its interpolated rectangle pixel position.</li>
+</ul>
+<h4 id="vertex-array-objects">Vertex Array Objects</h4>
+<ul>
+<li>Assign the buffers for the vertex positions and texture coordinates to their 
+respective variables in the program.</li>
+</ul>
+<h4 id="example">Example</h4>
+<p>A working textured rectangle example of this can be read at the <a href="https://github.com/HugoDaniel/shader_canvas/blob/main/examples/2-textured-quad/index.html">project GitHub
+repository</a>.</p>
+<p>It is a rework of the <a href="https://webgl2fundamentals.org">WebGL2Fundamentals</a>
+examples with Shader Canvas.</p>
+<h2 id="modules">Modules</h2>
+<p>Shader Canvas modules allows you to have reusable shader code parts and create your
+tags that merge WebGL functionality in each of the <code>&lt;webgl-canvas&gt;</code> parts.</p>
+<p>To create your modules you have to think that they act like a blueprint of
+tags that get pasted and merged with the parent where the module tag shows.</p>
+<h3 id="animation-module">Animation module</h3>
+<p>To begin a Shader Canvas module you need a unique name for it. This name
+must be a valid Web Component tag name. It must have at least one '-' character.</p>
+<p>For this example the module is going to be named <code>with-anim</code>.</p>
+<p>To declare a new module, place its unique name as a child tag of the Shader
+Canvas <code>&lt;new-modules&gt;</code> tag:</p>
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">new-modules</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;
+      </span><span style="color:#888888;">&lt;!-- Module blueprint here --&gt;
+    </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;
+  &lt;/</span><span style="color:#ffb964;">new-modules</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+</span></code></pre>
+<p>Inside it, any of the <code>&lt;webgl-canvas&gt;</code> containers might be defined
+(<code>&lt;webgl-programs&gt;</code>, <code>&lt;webgl-buffers&gt;</code>, <code>&lt;webgl-textures&gt;</code>,
+<code>&lt;webgl-vertex-array-objects&gt;</code> and <code>&lt;draw-calls&gt;</code>).</p>
+<p>If after this declaration you use this new <code>&lt;with-anim&gt;</code> tag in Shader Canvas,
+these containers corresponding HTML part will be copied and merged
+into the final <code>&lt;webgl-canvas&gt;</code> corresponding tag.</p>
+<p>As an example, if you declare a new buffer as a child of your tag in the
+<code>&lt;new-modules&gt;</code>, then when the tag is used directly in <code>&lt;shader-canvas&gt;</code> it
+will copy that buffer into the final <code>webgl-canvas</code> buffers.</p>
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">new-modules</span><span style="color:#e8e8d3;">&gt;
+    &lt;</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;
+      </span><span style="color:#888888;">&lt;!-- Module blueprint here --&gt;
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
+        &lt;</span><span style="color:#ffb964;">my-animated-buffer</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">buffer-data src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">monkey.obj</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">buffer-data</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">my-animated-buffer</span><span style="color:#e8e8d3;">&gt;
+      &lt;/</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;
+  &lt;/</span><span style="color:#ffb964;">new-modules</span><span style="color:#e8e8d3;">&gt;
+
+  </span><span style="color:#888888;">&lt;!--
+    Using the tag outside &lt;new-modules&gt; merges
+    its containers with the final ones on
+    &lt;webgl-canvas&gt;
+  --&gt;
+  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">with-anim</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+</span></code></pre>
+<p>This works well for the main parts of the <code>&lt;webgl-canvas&gt;</code>. To have a GLSL 
+program reusable part, that is specific to a program inside <code>&lt;webgl-programs&gt;</code>,
+the Shader Canvas module system provides a specific module tag:</p>
+<ul>
+<li><a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLProgramPart"><code>&lt;webgl-program-part&gt;</code></a></li>
+</ul>
+<p>Inside this tag, code parts of <code>&lt;vertex-shader&gt;</code>and <code>&lt;fragment-shader&gt;</code> tags can
+be reused in many programs.</p>
+<h4 id="example-1">Example</h4>
+<p>A working example of the animation module can be read at the <a href="https://github.com/HugoDaniel/shader_canvas/blob/main/examples/3-animation/index.html">project GitHub
+repository</a>.</p>
+<p>Like the other examples, it is a rework of the
+<a href="https://webgl2fundamentals.org">WebGL2Fundamentals</a> examples with Shader Canvas.</p>
+<h1 id="shadercanvas-api">ShaderCanvas API</h1>
+<p>The ShaderCanvas API consists of static functions you can call to perform actions
+at given key moments of the framework.</p>
+<h2 id="mandatory-functions">Mandatory functions</h2>
+<p>The basic and essential actions are:</p>
+<ul>
+<li>
+<p><code>ShaderCanvas.initialize</code></p>
+<p><em>An async function that reads the DOM tree under <code>&lt;shader-canvas&gt;</code> and
+creates the functions to render the WebGL parts declared.</em></p>
+</li>
+<li>
+<p><code>ShaderCanvas.draw</code> </p>
+<p><em>A function that calls the render function created by <code>ShaderCanvas.initialize()</code>,
+it might start a loop if there is a <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawLoop"><code>&lt;draw-loop&gt;</code></a> tag present under the
+<a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a>.</em></p>
+</li>
+</ul>
+<p>These two functions must be called for Shader Canvas to render anything.</p>
+<p>They can be seen in action in all of the
+<a href="https://github.com/HugoDaniel/shader_canvas/blob/main/examples/1-triangle/index.html">provided examples</a>.</p>
+<hr></hr>
 <h1 id="reference">Reference</h1>
 <p>This section lists all the new HTML elements that Shader Canvas introduces.</p>
 <h2 id="ActiveTexture"><code>&lt;active-texture&gt;</code></h2>
