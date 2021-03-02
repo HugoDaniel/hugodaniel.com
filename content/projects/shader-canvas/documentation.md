@@ -108,6 +108,8 @@ This is how you create a scene...
 
 
 # Reference
+
+This section lists all the new HTML elements that Shader Canvas introduces.
 ## `<active-texture>` {#ActiveTexture}
 
 This tag is the equivalent of the [WebGL `activeTexture() function`](https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/activeTexture).
