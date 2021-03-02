@@ -3,7 +3,7 @@ title = "Shader Canvas"
 description = "A graphics framework for specialists"
 template = "project.html"
 date = 2021-03-03
-extra = { github = "https://github.com/HugoDaniel/shader_canvas", intro = "/projects/shader-canvas", docs = "/projects/shader-canvas/documentation", author = "Hugo Daniel", social_img = "/images/deno_tag_logo.png", class="introduction center-images with-lists" }
+extra = { github = "https://github.com/HugoDaniel/shader_canvas", intro = "/projects/shader-canvas", docs = "/projects/shader-canvas/documentation", author = "Hugo Daniel", social_img = "/images/shader-canvas-logo.png", class="introduction center-images with-lists" }
 +++
 
 Low-level tags for your high-level graphics projects.
@@ -296,6 +296,6 @@ with an abstraction like this:
 
 With the Shader Canvas module system you can declaratively, through HTML tags, create these kind of abstractions and new tags.
 
-Read more about how you can create graphics abstractions in the `<new-modules>` tutorial section.
+Read more about Shader Canvas in the [documentation page](/projects/shader-canvas/documentation/).
 
 
