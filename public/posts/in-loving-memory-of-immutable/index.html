@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Using Immutable.js and trying to make some sense out of its memory usage.">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>In loving memory of Immutable.js</title>
+			<meta name="twitter:title" content="In loving memory of Immutable.js">
+			<meta property="og:title" content="In loving memory of Immutable.js">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="Using Immutable.js and trying to make some sense out of its memory usage.">
+			<meta property="og:description" content="Using Immutable.js and trying to make some sense out of its memory usage.">
+		
+		
+			<meta property="og:article:published_time" content="2017-10-03">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;">
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article>
+
+		<header>
+			<h1> In loving memory of Immutable.js </h1>
+			<p> Using Immutable.js and trying to make some sense out of its memory usage. </p>
+			<nav>
+				<time datetime="2017-10-03"> 3-Oct-2017</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p>Any JavaScript spaghetti worth its salt won't keep track of its objects references or their updates.
+These are things that happen between the mind of a chef and the ether of a planned portion with lots of defensive copying.
+<a href="https://facebook.github.io/immutable-js/">Immutable.js</a> aims to reduce these portion sizes to match the ones in fancy restaurants while avoiding ingredients like:</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">JSON.parse(JSON.stringify(obj))
+
+</span></code></pre>
+<p>To try out this new pepper lets open the developer tools in a new tab and sharpen our sour-sweet tooth.</p>
+<p><img src="/images/devtools.png" alt="Screenshot of the Firefox developer tools in console mode." /></p>
+<h2 id="how-many-calories-has-the-appetizer">How many calories has the appetizer ?</h2>
+<p>In order to measure the amount of memory that Immutable.js uses by itself lets marinate it in a quick and dirty formula:</p>
+<ol>
+<li>Open the devtools</li>
+<li>Define a simple array with a single item in it and print it to the console
+<ul>
+<li><pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;"> let test1 = [1337];
+</span><span style="color:#e8e8d3;"> console.log(test1);
+</span></code></pre></li>
+</ul>
+<pre style="background-color:#151515;">
+<code></code></pre></li>
+<li>Measure the memory usage (memory tab of the dev tools)</li>
+<li>Load Immutable.js directly into the console (copy pasting its minified source directly into the console)</li>
+<li>Define a simple list with a single item in it and print it to the console
+<ul>
+<li><pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;"> let test2 = Immutable.List.of(1337);
+</span><span style="color:#e8e8d3;"> console.log(test2);
+</span></code></pre></li>
+</ul>
+<pre style="background-color:#151515;">
+<code></code></pre></li>
+<li>Measure the memory usage again</li>
+</ol>
+<p>The key points are 3. and 6. so lets do it and take a look into the memory info. For these measures I am using Firefox Developer Edition 53.0a2 (2017-03-05) (64-bit) in OSX Sierra.</p>
+<p>After point 3. I have 2.11MB of used memory with the following layout:</p>
+<ul>
+<li><em>scripts</em>: 37KiB (347 objects)</li>
+<li><em>strings</em>: 362KiB (9685 objects)</li>
+<li><em>objects</em>: 813KiB (11325 objects)</li>
+<li><em>other</em>: 849KiB (18365 objects)</li>
+</ul>
+<p>This is for nothing but an empty tab with devtools opened after point 3. in the magic formula.</p>
+<p>Now lets load <a href="https://raw.githubusercontent.com/facebook/immutable-js/master/dist/immutable.min.js">Immutable.js raw minification</a> and run the rest of the steps.</p>
+<p>After point 6.  I have 2.53MB of used memory with the following layout:</p>
+<ul>
+<li><em>scripts</em>: 248KiB (1717 objects)</li>
+<li><em>strings</em>: 384KiB (10252 objects)</li>
+<li><em>objects</em>: 904KiB (12618 objects)</li>
+<li><em>other</em>: 933KiB (19984 objects)</li>
+</ul>
+<p><strong>Immutable.js makes the memory usage go up from 2.1MB to about 2.5MB.</strong> That's around 0.4MB just to load the minified Immutable.js in memory.</p>
+<p>Lets keep this value as a reference in further tests. I am keeping these memory snapshots also for further reference.</p>
+<p>How can we leverage the juice from these 0.4MB into our secret sauce ?</p>
+<h2 id="a-list-of-many-secrets">A list of many secrets</h2>
+<p>Immutable allows the discerning chef to cook with well defined ingredients. You can define your own data types and use them as immutable everywhere you want to. To do that the Immutable.Record is their provided interface. </p>
+<p>The following code uses it to define a data type for a 2D point, with X and Y coordinates, and then create some points with it.</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const Pt = Immutable.Record( { x: 0, y: 0} );
+
+const pt1 = new Pt(); // uses x: 0, y: 0 by default
+const pt2 = new Pt({ y: 123 }); // uses x: 0 by default
+const pt3 = new Pt({ x: 123, y: 321 }); // uses your provided values
+</span></code></pre>
+<p>Fast-food junkies could do the same in straight JS with the simpler approach:</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">function PtJS(x = 0, y = 0) {
+	this.x = x;
+	this.y = y;
+}
+
+let jspt1 = new PtJS();
+let jspt2 = new PtJS(0, 123);
+let jspt3 = new PtJS(123, 321);
+</span></code></pre>
+<p>Some might even argue that they are not wasting the memory that Immutable is. Master chefs are always looking for opportunities to learn, to study and to teach. </p>
+<p>Now for a simple test, create a list with 10000 of those 2D points and compare memory readings of the Immutable approach with the plain JS approach.</p>
+<p>First the plain JS approach (lets assume the constructor is already created as above).</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">
+let testArray = [];
+for(let i = 0; i &lt; 10000; i++) {
+  testArray.push(new PtJS());
+}
+
+</span></code></pre>
+<p>After measuring this in the Memory tab we get 2.92MB in this layout:</p>
+<ul>
+<li><em>scripts</em>: 228KiB (1692 objects)</li>
+<li><em>strings</em>: 384KiB (10251 objects)</li>
+<li><em>objects</em>: 1MiB (22688 objects)</li>
+<li><em>other</em>: 888KiB (19990 objects)</li>
+</ul>
+<p>That seems fair, we get an increase of about 390KiB in comparison to our previous measurement. That should be enough motivation to roll our Chefs Knives suitecase of Persistency and do it in Immutable style to measure it on top of this 2.92MB already in use.</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const defaultPt = new Pt();
+const testLst = Immutable.Repeat(defaultPt, 10000);
+</span></code></pre>
+<p>After measuring this in the Memory tab we get 2.91MB. This is a decrease of about 10KiB from our previous memory usage. How is this possible ? Is the data even there ?</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">testLst.first().x;
+// returns 0
+testLst.size();
+// returns 10000
+</span></code></pre>
+<p>Yep, it's all there. Immutable.js allows you to take good care of your memory, but as with all sharp knifes you need to know how to avoid hurting yourself. Lets dive a bit further to understand what is going on and how to master these data structures.</p>
+<h2 id="master-chef-mystery-boxes">Master Chef Mystery Boxes</h2>
+<p>One common misconception about immutable data structures is that there is a lot of useless copying being done. In fact this is so common that there are even <a href="https://github.com/rtfeldman/seamless-immutable">JS libraries based on it</a>. Playing with the flavour of common things note the most typical data structure in functional languages.</p>
+<h3 id="the-single-linked-list">The single linked list.</h3>
+<p><img src="/images/immutable-list1.gif" alt="A single linked list with 3 values" /></p>
+<p>Supposed that this is a immutable list. It is not possible to add, remove or change its values without returning a new version of it.</p>
+<p>Does this mean that we need to copy all of it when we need to put a new value in it ? Not necessarily. We can just create the new list item and make sure its pointer is targeting the beginning of the original list.</p>
+<p><img src="/images/immutable-list2.png" alt="Placing a new value in the previous list" /></p>
+<p>This works because the list is immutable, we know for sure that the original list won't change so <strong>it is possible to reuse its values</strong>, no copying is involved in this.</p>
+<p>As before, our new immutable list is again defined by its first value, which in this new case is our new value.</p>
+<h3 id="master-the-simple-cuts-first">Master the simple cuts first</h3>
+<p>Many operations are possible on our immutable single linked list that leverage the fact that it is an immutable list.</p>
+<p>Operations like <em>head</em> (return the first value in the list) and <em>tail</em> (return all the items in the list except for the first) are almost instantaneous to implement. For <em>head</em> we just return the value of the first item and for <em>tail</em> we just return the first item pointer value (which is an immutable single linked list, in this case, our original 3 value list).</p>
+<h4 id="concat">Concat</h4>
+<p>Joining two lists is one of those simple operations that is worth your time and attention in order to understand it. If we have 2 different immutable lists that we want to join we need to go to the first list and adjust the last pointer of the last item to point to the first item of the second list.</p>
+<p>Here it is in pictures:</p>
+<p><img src="/images/immutable_two_lists.png" alt="Joining these two lists" /></p>
+<p><img src="/images/immutable_two_lists_2.png" alt="We need to make the last item point to the first item of the second list" /></p>
+<p><img src="/images/immutable_two_lists_3.png" alt="A copy of this element is necessary because we can't just change it to point to the first item of lst2" /></p>
+<p><img src="/images/immutable_two_lists_4.png" alt="But now we need to make the previous item point to the newly created copy. So a copy of it will also be necessary." /></p>
+<p><img src="/images/immutable_two_lists_final.png" alt="That is why to concat two lists a new list is made with a copy of the elements in the first list" /></p>
+<p>Concat is a heavy operation, it mostly depends on the size of the first list. There are a few tricks to make it faster.</p>
+<p>To keep it simple I am not going to go much more into this and move to the point.</p>
+<h2 id="the-best-recipe-is-made-of-many-subrecipes">The best recipe is made of many subrecipes</h2>
+<p>The list holds data. That's why it's called a <em>data</em> structure. Now what if instead of directly putting our data in each list item we could instead just point to the data ? Like this:</p>
+<p><img src="/images/immutable_lazy1.png" alt="List doesn't directly hold the data anymore" /></p>
+<p>The list effectively now holds <strong>a way to reach</strong> each value instead of the real values. We can get more generic and greatly simplify it by saying that in each list item there is a recipe to reach each value. In the above picture this <em>recipe</em> generalization is represented by the red arrows.</p>
+<p>Let me try to simplify it with the hope that it might stand out the intended purpose.</p>
+<p><img src="/images/immutable_lazy2.png" alt="A list of recipes can be a list of values" /></p>
+<p>The term <em>recipe</em> is not chosen by chance: it represents something that must be done to produce the value that the list item holds.</p>
+<p>If we follow the <em>recipe</em> in each item we can get to the intended values. For instance, suppose that this is a list of JS Number's, a good recipe to produce the value would be to just call Number() on the data. If it was a list of String's, a good recipe would be to call String() on the data. This also holds for very complex values, say this is a list of balanced tree's, or your favourite custom complex data type, <strong>a recipe is the way to construct the value</strong>, could just be following a pointer but perhaps that would not be a very useful constructor due to being too general.</p>
+<h3 id="lazy-concat">Lazy concat</h3>
+<p>In our previous look into <em>concat</em> we noticed that it was a heavy operation, requiring a full copy of the first list that we want to join. When working with immutable data there are only a few of these &quot;heavy&quot; operations that do need a full copy.</p>
+<p>Now that we are taking quality steps as chefs how about we use a <em>recipe</em> for concat ?</p>
+<p>Instead of doing a full copy of the first list, just copy the first element and make it point to a recipe. That way, no matter the size of the lists, concat would be done in a single operation (the first item). Here it is in a picture:</p>
+<p><img src="/images/immutable_concat_lazy.png" alt="Why copy the whole first list if we don't know if it will be needed ?" /></p>
+<p>Now if we need the second element of the list the recipe will be followed to get it.</p>
+<p>That is a simple recipe:
+copy the first list up to the needed value, if the copying is done but the intended value is not yet reached then start going through the second list values (without copying them). In the case we want the 2nd value of a concat'ed list a single copy will happen because we already copied the first item when concat was called. This is a case where the recipe is itself the whole concat operation, meaning that it will only copy until the end of the first list and after it will use the reference of the second list.</p>
+<p>This <a href="https://en.wikipedia.org/wiki/Thunk"><em>recipe</em></a> approach is usually known as laziness and typically enhanced with a cache of results to avoid copying and constructing the same values over again (this caching approach is known as &quot;memoization&quot;).</p>
+<h2 id="cuisine-du-monde">Cuisine du monde</h2>
+<p>Immutable.js makes good use of these techniques to avoid doing work when necessary and unnecessary copies. Their approach is lean and well thought, clearly separating the values from the way they are traversed.</p>
+<p>Lets look at our Immutable approach again:</p>
+<pre style="background-color:#151515;">
+<code><span style="color:#e8e8d3;">const defaultPt = new Pt();
+const testLst = Immutable.Repeat(defaultPt, 10000);
+testLst.first().x;
+</span></code></pre>
+<p>A few things stand out:</p>
+<ol>
+<li>We are always using the same reference <em>defaultPt</em> instead of creating a new value in each item.
+<ul>
+<li>This is possible thanks to immutability, if we change it we are effectively creating a new value and a new list.</li>
+<li>Immutability encourages reutilization and is typically a GC friendly approach.</li>
+</ul>
+</li>
+<li>Repeat just returns a <em>recipe</em> (thunk)
+<ul>
+<li>No heavy work is actually done, it just returns a way to access and construct the values</li>
+<li>We used 10000 but could have used infinite with no performance or memory hit</li>
+<li>Work is only done when values are being requested and only up until them.</li>
+</ul>
+</li>
+</ol>
+<p>Immutable.js also uses a few other tricks to speed up common operations. For instance their List approach uses deques, which means that it keeps your list split in two, so [1,2,3,4,5,6] is kept by Immutable as [1,2,3] and [6,5,4] (reversed rest). This is a very simplified explanation of it, but in practice it allows for very fast insertions in the beginning and end of the list (<a href="http://blog.klipse.tech/javascript/2016/06/23/immutable-perf.html">faster than JS arrays</a>).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Immutable is certainly a different way of doing JS. Given the normal tendency JS coders have to lean more towards object oriented concepts, immutable feels like the schrodinger's immigrant in a foreign land.</p>
+<p><img src="/images/immigrant.jpeg" alt="" /></p>
+<p>I hope this post was in any way useful to you. Immutable sure is a fun library to get to know and work with. </p>
+
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>

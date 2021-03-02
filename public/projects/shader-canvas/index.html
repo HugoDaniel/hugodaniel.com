@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Hugo Daniel's site about ideas and software experimentations">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>Hugo Daniel</title>
+			<meta name="twitter:title" content="Hugo Daniel">
+			<meta property="og:type" content="website" >
+		
+		
+			<meta name="twitter:description" content="Hugo Daniel's site about ideas and software experimentations">
+			<meta property="og:description" content="Hugo Daniel's site about ideas and software experimentations">
+		
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;">
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+
+<main role="main" class="project">
+
+	<article class="
+
+introduction center-images with-lists
+
+    ">
+
+		<header>
+      <h1>
+        
+          Shader Canvas
+        
+      </h1>
+			<p>
+        
+          A graphics framework for specialists
+        
+      </p>
+			<nav>
+        <a class="introduction" href="
+        
+          &#x2F;projects&#x2F;shader-canvas
+        
+        ">Introduction</a>
+        <a class="documentation" href="
+        
+        &#x2F;projects&#x2F;shader-canvas&#x2F;documentation
+        
+        ">Documentation</a>
+          <a href="
+        
+          https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas
+        ">GitHub</a>
+			</nav>
+		</header>
+
+<nav class="project-menu">
+        <a class="introduction" href="
+        
+          &#x2F;projects&#x2F;shader-canvas
+        
+        ">Intro</a>
+        <a class="documentation" href="
+        
+        &#x2F;projects&#x2F;shader-canvas&#x2F;documentation
+        
+        ">Docs</a>
+          <a href="
+        
+          https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas
+        ">GitHub</a>
+        
+</nav>
+
+    
+
+    
+      <p>Low-level tags for your high-level graphics projects.</p>
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Shader Canvas starts with this tag
+  Its children tags define what will
+  be rendered.
+
+  These tags match the low-level WebGL
+  operations.
+
+  It can support multiple graphical API
+  backends in the future.
+--&gt;
+  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-canvas</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Start the WebGl backend
+  (the only one supported for now)
+
+  Inside this element, each tag
+  corresponds to its low level
+  WebGL function.
+--&gt;
+
+    </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">draw-calls</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  List the actions to perform when
+  drawing. Each tag matches the
+  corresponding WebGL function.
+--&gt;
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">clear-color red</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">green</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">blue</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">0</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">alpha</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">1</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">clear-color</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  The &lt;clear-color&gt; matches the
+  WebGL &quot;clearColor()&quot; function
+
+  There is one of these for each
+  WebGL function.
+--&gt;
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">clear-flags mask</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">COLOR_BUFFER_BIT</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">clear-flags</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  The &lt;clear-flags&gt; matches the
+  WebGL &quot;clearFlags()&quot; function
+
+  Each tag has attributes according
+  to the names given to the function
+  arguments in the WebGL spec.
+--&gt;
+
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">use-program src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-triangle</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- 
+  Likewise &lt;use-program&gt; matches the
+  &quot;useProgram()&quot; function.
+  The &quot;src&quot; attribute can reference
+  the tag name that defines the
+  WebGL program to use.
+
+  In this case &lt;use-program&gt; will
+  look for the &lt;simple-triangle&gt;
+  program, defined bellow.
+--&gt;
+        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">draw-vao src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">triangle-vao</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">draw-vao</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Any tag inside &lt;use-program&gt;
+  has the program bound to it.
+
+  Here, &lt;draw-vao&gt; is calling the
+  WebGL draw function for the
+  Vertex Array Object defined
+  bellow at the tag &lt;triangle-vao&gt;.
+  (VAO stands for Vertex Array Object).
+--&gt;
+      </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">use-program</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">draw-calls</span><span style="color:#e8e8d3;">&gt;
+
+
+</span><span style="color:#888888;">&lt;!--
+  Besides the &lt;draw-calls&gt; the 
+  &lt;webgl-canvas&gt; can have 4 containers:
+   - &lt;webgl-programs&gt;
+      * every child will be a program
+   - &lt;webgl-buffers&gt;
+      * every child will be a buffer
+   - &lt;webgl-textures&gt;
+      * every child will be a texture
+   - &lt;webgl-vertex-array-objects&gt;
+      * every child will be a
+        vertex-array-object
+
+  Their direct children tag names can
+  be used as a reference in the &quot;src&quot;
+  attribute of other tags.
+--&gt;
+    </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Inside the &lt;webgl-programs&gt; container
+  you can define the WebGL programs
+  by specifying a unique tag name to
+  each program.
+--&gt;
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">simple-triangle</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Here starts the program
+  &quot;simple-triangle&quot;. Any name could
+  be set.
+--&gt;
+        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  A WebGL program has a vertex-shader
+  and a fragment-shader.
+--&gt;
+          </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
+            #version 300 es
+            in vec4 a_position;
+            void main() {
+                gl_Position = a_position;
+            }
+          &lt;/</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">vertex-shader</span><span style="color:#e8e8d3;">&gt;
+        &lt;</span><span style="color:#ffb964;">fragment-shader</span><span style="color:#e8e8d3;">&gt;
+          &lt;</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
+            #version 300 es
+            precision highp float;
+            out vec4 outColor;
+    
+            void main() {
+              outColor = vec4(1, 0, 1, 1);
+            }
+          &lt;/</span><span style="color:#ffb964;">code</span><span style="color:#e8e8d3;">&gt;
+        &lt;/</span><span style="color:#ffb964;">fragment-shader</span><span style="color:#e8e8d3;">&gt;
+      &lt;/</span><span style="color:#ffb964;">simple-triangle</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">webgl-programs</span><span style="color:#e8e8d3;">&gt;
+
+    &lt;</span><span style="color:#ffb964;">webgl-vertex-array-objects</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- 
+  &lt;webgl-vertex-array-objects&gt; works
+  like &lt;webgl-programs&gt;: you can put
+  any name here as a child tag,
+  provided it is unique.
+
+  Other tags can then reference this
+  name in their &quot;src&quot; attributes.
+--&gt;
+      </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">triangle-vao</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!-- 
+  Here a Vertex Array Object
+  called &quot;triangle-vao&quot; is being
+  defined.
+--&gt;
+        </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">bind-buffer src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">triangle-vertices</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  &lt;bind-buffer&gt; corresponds to the
+  WebGL function &quot;bindBuffer()&quot;
+
+  It is referencing the tag 
+  &quot;triangle-vertices&quot; which is
+  a buffer defined bellow
+  in &lt;webgl-buffers&gt;
+--&gt;
+          </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">vertex-attrib-pointer variable</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">a_position</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">size</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">2</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+          &lt;/</span><span style="color:#ffb964;">vertex-attrib-pointer</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  Any child of &lt;bind-buffer&gt; will
+  have the referenced buffer bound.
+
+  Here the &lt;vertex-attrib-pointer&gt;
+  will use the &quot;vertexAttribPointer()&quot;
+  function for the buffer set at the
+  &lt;triangle-vertices&gt; tag.
+--&gt;
+        </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">bind-buffer</span><span style="color:#e8e8d3;">&gt;
+      &lt;/</span><span style="color:#ffb964;">triangle-vao</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">webgl-vertex-array-objects</span><span style="color:#e8e8d3;">&gt;
+
+</span><span style="color:#888888;">&lt;!--
+  &lt;webgl-buffers&gt; is a container like
+  &lt;webgl-vertex-array-objects&gt; and 
+  &lt;webl-programs&gt;.
+
+  It is used to set buffers and their
+  data. In WebGL the buffers data is
+  separated from their meaning and usage.
+
+  &lt;webgl-vertex-array-objects&gt;,
+  &lt;webgl-programs&gt; and &lt;webgl-textures&gt;
+  can provide meaning and use the
+  buffers declared here.
+--&gt;
+    </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
+      &lt;</span><span style="color:#ffb964;">triangle-vertices</span><span style="color:#e8e8d3;">&gt;
+        &lt;</span><span style="color:#ffb964;">buffer-data src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">#trianglePoints</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">buffer-data</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#888888;">&lt;!--
+  The tag &lt;buffer-data&gt; is equivalent
+  to the &quot;bufferData&quot; WebGL function.
+
+  The &quot;src&quot; attribute can also be an
+  element query string (used in the
+  &quot;querySelector&quot; function), as well as
+  a url that can point to the data to load.
+--&gt; 
+      </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">triangle-vertices</span><span style="color:#e8e8d3;">&gt;
+    &lt;/</span><span style="color:#ffb964;">webgl-buffers</span><span style="color:#e8e8d3;">&gt;
+
+  &lt;/</span><span style="color:#ffb964;">webgl-canvas</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+
+</span><span style="color:#888888;">&lt;!-- The data for the buffer --&gt;
+</span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">trianglePoints</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;[-0.7, 0, 0, 0.5, 0.7, 0]&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
+</span></code></pre><h2 id="one-tag-per-low-level-function">One tag per low-level function</h2>
+<p>A declarative syntax for graphics API's has several benefits and disadvantages.</p>
+<h3 id="benefits">Benefits</h3>
+<ul>
+<li>Easy to debug
+<ul>
+<li>The state and its setup are always available in the DOM</li>
+</ul>
+</li>
+<li>Emphasis on the initialization phase
+<ul>
+<li>Graphics APIs are typically inclined towards Command-like
+and Factory-like usage patterns. <br>
+<code>&lt;shader-canvas&gt;</code> makes these stand-out even more.</li>
+</ul>
+</li>
+<li>Frame drawing is tuned to what is declared.
+<ul>
+<li>A specialized drawing function is created at initialization
+by reading the low-level declaration in the DOM.</li>
+</ul>
+</li>
+</ul>
+<h3 id="disadvantages">Disadvantages</h3>
+<ul>
+<li>Hard for beginners
+<ul>
+<li>Requires good knowledge of the graphics API structure to get
+started.</li>
+</ul>
+</li>
+<li>Can become verbose.
+<ul>
+<li>Lots of tags are hard to manage without good collapsing and
+grouping features. <br>
+<code>&lt;shader-canvas&gt;</code> tries to tackle this by providing containers
+and a way to reference their contents.</li>
+</ul>
+</li>
+<li>New tags to learn
+<ul>
+<li><code>&lt;shader-canvas&gt;</code> introduces one tag per WebGL function, on
+top of these, it adds &lt; 10 new tags that try to remove a lot
+of the imperative nature of the WebGL API.</li>
+</ul>
+</li>
+</ul>
+<h2 id="composable-modules">Composable modules</h2>
+<p>With <code>&lt;shader-canvas&gt;</code>, you can also create custom abstractions and compositions through modules.</p>
+<p>With the module system, you can:</p>
+<ul>
+<li>Create new tags that bundle new functionality.</li>
+<li>Extend shader code with new functions and variables.</li>
+<li>Hook custom functions to specific entry points (on enter frame, on use program, etc.)</li>
+<li>Split the graphics API into composable parts.</li>
+</ul>
+<p><code>&lt;shader-canvas&gt;</code> uses no dependencies and has ~80KB of JavaScript (~15KB minified and gzipped).</p>
+<h2 id="customizable-high-level-abstractions">Customizable high-level abstractions</h2>
+<p>Shader Canvas allows you to work as high-level as you need.</p>
+<p>You might want to redo the low-level triangle approach from the code above
+with an abstraction like this:</p>
+<pre style="background-color:#151515;">
+<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">buffer-2d variable</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">vertex2d</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
+    [-0.7,   0,
+        0, 0.5,
+      0.7,   0]
+  &lt;/</span><span style="color:#ffb964;">buffer-2d</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">vertex-code</span><span style="color:#e8e8d3;">&gt;
+    #version 300 es
+    void main() {
+      gl_Position = vertex2d;
+    }
+  &lt;/</span><span style="color:#ffb964;">vertex-code</span><span style="color:#e8e8d3;">&gt;
+  &lt;</span><span style="color:#ffb964;">fragment-code</span><span style="color:#e8e8d3;">&gt;
+    #version 300 es
+    precision highp float;
+    out vec4 outColor;
+
+    void main() {
+      outColor = vec4(1, 0, 1, 1);
+    }
+  &lt;/</span><span style="color:#ffb964;">fragment-code</span><span style="color:#e8e8d3;">&gt;
+&lt;/</span><span style="color:#ffb964;">shader-canvas</span><span style="color:#e8e8d3;">&gt;
+</span></code></pre>
+<p>With the Shader Canvas module system you can declaratively, through HTML tags, create these kind of abstractions and new tags.</p>
+<p>Read more about how you can create graphics abstractions in the <code>&lt;new-modules&gt;</code> tutorial section.</p>
+
+    
+    <hr>
+	</article>
+	<hr>
+	<footer>
+    <em>Created by <a href="/">Hugo Daniel</a> under license <a href="https://eupl.eu">EUPL 1.2</a>.</em>
+	</footer>
+</main>
+<script>
+  function closeToc(e) {
+    document.body.removeEventListener("click", closeToc);
+    document.body.classList.remove("show-toc");
+  }
+  document.querySelector(".toc")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  for(let elem of document.querySelectorAll(".toc a")) {
+    elem.addEventListener("click", closeToc)
+  }
+
+  document.querySelector(".hamburger").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!document.body.classList.contains("show-toc")) {
+      document.body.addEventListener("click", closeToc);
+    }
+    document.body.classList.add("show-toc");
+    e.stopPropagation();
+  })
+</script>
+
+	</body>
+</html>

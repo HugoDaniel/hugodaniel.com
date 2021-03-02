@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="It is 2020 and we have a great set of cool tech to play with on the web">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>From Rust to Svelte, what tech stack will I use</title>
+			<meta name="twitter:title" content="From Rust to Svelte, what tech stack will I use">
+			<meta property="og:title" content="From Rust to Svelte, what tech stack will I use">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="It is 2020 and we have a great set of cool tech to play with on the web">
+			<meta property="og:description" content="It is 2020 and we have a great set of cool tech to play with on the web">
+		
+		
+			<meta property="og:article:published_time" content="2020-06-07">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;browser-tech-stack-2020&#x2F;">
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article>
+
+		<header>
+			<h1> From Rust to Svelte, what tech stack will I use </h1>
+			<p> It is 2020 and we have a great set of cool tech to play with on the web </p>
+			<nav>
+				<time datetime="2020-06-07"> 7-Jun-2020</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p><strong>TL;DR</strong> Here is a template for your new web app project: <a href="https://github.com/HugoDaniel/svelte-template">Svelte + TypeScript + Parcel + Rust</a></p>
+<p>The web is a big open platform that keeps evolving with the URL at its core.</p>
+<p>We have a lot of tech and frameworks at our disposal to chose when starting a new web app in 2020.</p>
+<p>There certainly is a lot of mud to crawl into, from an all-in vanilla JS approach up until an all-out React with a 100+ dependencies approach.</p>
+<p>Among these there are a few cool things that strike my attention:</p>
+<h2 id="svelte"><a href="https://svelte.dev">Svelte</a></h2>
+<p>Their component approach and state handling is fresh.</p>
+<p>They lean towards using standards like CSS Variables and JS imports in an HTML first compiled approach.</p>
+<p>The Svelte compiler outputs very lean JS code. Which comes in stark contrast with the current frontend bundle trends.</p>
+<p>Perhaps in the future browsers will provide us higher-level components that can pack together HTML+JS+CSS in a way that is at least as elegant as Svelte does.</p>
+<h2 id="parcel"><a href="https://parceljs.org">Parcel</a></h2>
+<p>Most bundlers configuration is typically write-once and write-only. It is a pain to maintain and properly configure a bundle.</p>
+<p>Parcel does it right by providing sane defaults that don't need configuration upfront. (A bit like the <a href="https://fishshell.com/docs/current/design.html">fish shell</a> )</p>
+<p><strong>Why is a bundler needed if Svelte already has a compiler ?</strong></p>
+<p>A bundler like Parcel provides the extra goodies of allowing us to import strange files directly in our <code>.svelte</code> components.</p>
+<p>Stuff like TypeScript and even Rust become a breeze to work with.</p>
+<p>Perhaps in the future bundlers won't be needed. Perhaps even text files won't be needed to code. Unfortunately we need them in our current state of things.</p>
+<h2 id="typescript"><a href="https://www.typescriptlang.org">TypeScript</a></h2>
+<p>This language has been evolving fast. For now types are the way to go and TypeScript does a great job at typifying JavaScript and preventing those nasty null errors where you least expect(ed) them.</p>
+<p>Perhaps in the future startups will again push towards dynamic languages as a way to bring faster products to market and the &quot;Move fast, break things&quot; will make sense again. But for now static is the way to go.</p>
+<h2 id="rust"><a href="https://www.rust-lang.org">Rust</a></h2>
+<p>Rust has a lot of good things. It appeals the front-end crowd as much as the backend people and the language is leveraging those windows of opportunity much better than any other language or community.</p>
+<p>Wasm bindgen is a bliss of fresh air, it even works very well with TypeScript.</p>
+<h2 id="webassembly"><a href="https://webassembly.org">WebAssembly</a></h2>
+<p>This is a total game changer for the next years. As a compile target it will allow near native performance and open the door for a lot of programming languages to be used on the web.</p>
+<p>A new era of web apps is coming thanks to Web Assembly. It is hard to forsee what exactly will this be.</p>
+<p>There are nevertheless a few cool extensions already being worked on for it:</p>
+<ul>
+<li><a href="https://github.com/WebAssembly/WASI">WASI</a></li>
+<li><a href="https://github.com/WebAssembly/simd">128-bit SIMD</a></li>
+<li><a href="https://github.com/WebAssembly/threads">Threads</a></li>
+<li><a href="https://github.com/WebAssembly/reference-types">Ref. Types</a></li>
+<li><a href="https://github.com/WebAssembly/multi-value">Multiple value returns and block parameters</a></li>
+<li><a href="https://github.com/webassembly/bulk-memory-operations">Bulk Memory Operations</a></li>
+<li><a href="https://github.com/WebAssembly/nontrapping-float-to-int-conversions">Non-trapping float-to-int convertions</a></li>
+<li><a href="https://github.com/WebAssembly/sign-extension-ops">Sign-extension ops</a></li>
+<li><a href="https://github.com/WebAssembly/exception-handling">Exception handling</a></li>
+<li><a href="https://github.com/WebAssembly/extended-name-section">Extended name section</a></li>
+<li><a href="https://github.com/WebAssembly/multi-memory">Multi-memory</a></li>
+<li><a href="https://github.com/WebAssembly/gc">Garbage Collection</a></li>
+</ul>
+<p>Web development is going to be a very different beast in a few moments in time. Lets enjoy the ride.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I have fetched some ideas from a few repos and forked them into a ready to use template you can start your projects with.</p>
+<p><a href="https://github.com/HugoDaniel/svelte-template">Check it out.</a></p>
+
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>
