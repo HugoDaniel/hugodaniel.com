@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{% if page.description %}
 			<meta name="description" content="{{ page.description }}">
+		{% elif section.description %}
+			<meta name="description" content="{{ section.description }}">
 		{% else %}
 			<meta name="description" content="Hugo Daniel's site about ideas and software experimentations">
 		{% endif %}
