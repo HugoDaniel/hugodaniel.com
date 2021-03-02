@@ -1,0 +1,597 @@
+[
+  {
+    "kind": "class",
+    "name": "ShaderCanvas",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 34,
+      "col": 0
+    },
+    "jsDoc": "Class for the shader-canvas tags.",
+    "classDef": {
+      "isAbstract": false,
+      "constructors": [],
+      "properties": [
+        {
+          "jsDoc": "ShaderCanvas class is used to define a custom element with the\n\"shader-canvas\" name.",
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "tag",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 39,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "programInitializers",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 48,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "partsInitializers",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 49,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "partsFunctions",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 53,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "whenLoaded",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 68,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": {
+            "repr": "",
+            "kind": "union",
+            "union": [
+              {
+                "repr": "WebGLCanvas",
+                "kind": "typeRef",
+                "typeRef": {
+                  "typeParams": null,
+                  "typeName": "WebGLCanvas"
+                }
+              },
+              {
+                "repr": "null",
+                "kind": "keyword",
+                "keyword": "null"
+              }
+            ]
+          },
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "webglCanvas",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 85,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": null,
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "root",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 86,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "tsType": {
+            "repr": "",
+            "kind": "fnOrConstructor",
+            "fnOrConstructor": {
+              "constructor": false,
+              "tsType": {
+                "repr": "void",
+                "kind": "keyword",
+                "keyword": "void"
+              },
+              "params": [],
+              "typeParams": []
+            }
+          },
+          "readonly": false,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "draw",
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 87,
+            "col": 2
+          }
+        }
+      ],
+      "indexSignatures": [],
+      "methods": [
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "createProgram",
+          "kind": "method",
+          "functionDef": {
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "render",
+                "optional": false,
+                "tsType": {
+                  "repr": "InitializerFunction",
+                  "kind": "typeRef",
+                  "typeRef": {
+                    "typeParams": null,
+                    "typeName": "InitializerFunction"
+                  }
+                }
+              }
+            ],
+            "returnType": {
+              "repr": "ShaderProgram",
+              "kind": "typeRef",
+              "typeRef": {
+                "typeParams": null,
+                "typeName": "ShaderProgram"
+              }
+            },
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 40,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": true,
+          "name": "webglPart",
+          "kind": "method",
+          "functionDef": {
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "createPart",
+                "optional": false,
+                "tsType": {
+                  "repr": "",
+                  "kind": "fnOrConstructor",
+                  "fnOrConstructor": {
+                    "constructor": false,
+                    "tsType": {
+                      "repr": "",
+                      "kind": "union",
+                      "union": [
+                        {
+                          "repr": "void",
+                          "kind": "keyword",
+                          "keyword": "void"
+                        },
+                        {
+                          "repr": "PartsFunctions",
+                          "kind": "typeRef",
+                          "typeRef": {
+                            "typeParams": null,
+                            "typeName": "PartsFunctions"
+                          }
+                        }
+                      ]
+                    },
+                    "params": [
+                      {
+                        "kind": "identifier",
+                        "name": "p",
+                        "optional": false,
+                        "tsType": {
+                          "repr": "Payload",
+                          "kind": "typeRef",
+                          "typeRef": {
+                            "typeParams": null,
+                            "typeName": "Payload"
+                          }
+                        }
+                      }
+                    ],
+                    "typeParams": []
+                  }
+                }
+              }
+            ],
+            "returnType": null,
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 54,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "width",
+          "kind": "getter",
+          "functionDef": {
+            "params": [],
+            "returnType": {
+              "repr": "number",
+              "kind": "keyword",
+              "keyword": "number"
+            },
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 72,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "width",
+          "kind": "setter",
+          "functionDef": {
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "value",
+                "optional": false,
+                "tsType": {
+                  "repr": "number",
+                  "kind": "keyword",
+                  "keyword": "number"
+                }
+              }
+            ],
+            "returnType": null,
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 75,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "height",
+          "kind": "getter",
+          "functionDef": {
+            "params": [],
+            "returnType": {
+              "repr": "number",
+              "kind": "keyword",
+              "keyword": "number"
+            },
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 78,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "height",
+          "kind": "setter",
+          "functionDef": {
+            "params": [
+              {
+                "kind": "identifier",
+                "name": "value",
+                "optional": false,
+                "tsType": {
+                  "repr": "number",
+                  "kind": "keyword",
+                  "keyword": "number"
+                }
+              }
+            ],
+            "returnType": null,
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 81,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": null,
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "initialize",
+          "kind": "method",
+          "functionDef": {
+            "params": [],
+            "returnType": null,
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 88,
+            "col": 2
+          }
+        },
+        {
+          "jsDoc": null,
+          "accessibility": "private",
+          "optional": false,
+          "isAbstract": false,
+          "isStatic": false,
+          "name": "setWebGLCanvas",
+          "kind": "method",
+          "functionDef": {
+            "params": [],
+            "returnType": null,
+            "isAsync": false,
+            "isGenerator": false,
+            "typeParams": []
+          },
+          "location": {
+            "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+            "line": 158,
+            "col": 2
+          }
+        }
+      ],
+      "extends": "CanHaveParts",
+      "implements": [],
+      "typeParams": [],
+      "superTypeParams": []
+    }
+  },
+  {
+    "kind": "import",
+    "name": "nop",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 12,
+      "col": 0
+    },
+    "jsDoc": "YAY",
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/common/nop.ts",
+      "imported": "nop"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "DrawCalls",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 13,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/draw_calls/draw_calls.ts",
+      "imported": "DrawCalls"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "WebGLCanvas",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 14,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/webgl_canvas/webgl_canvas.ts",
+      "imported": "WebGLCanvas"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "InitializerFunction",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 15,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/common/program_class.ts",
+      "imported": "InitializerFunction"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "PartsFunctions",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 15,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/common/program_class.ts",
+      "imported": "PartsFunctions"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "ShaderPart",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 15,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/common/program_class.ts",
+      "imported": "ShaderPart"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "ShaderProgram",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 15,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/common/program_class.ts",
+      "imported": "ShaderProgram"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "NewModules",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 21,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/new_modules/new_modules.ts",
+      "imported": "NewModules"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "Payload",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 22,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/new_modules/payload.ts",
+      "imported": "Payload"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "CanHaveParts",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 23,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/new_modules/create_part.ts",
+      "imported": "CanHaveParts"
+    }
+  },
+  {
+    "kind": "import",
+    "name": "CreatePart",
+    "location": {
+      "filename": "file:///Users/semba/Documents/projects/shader_canvas/shader_canvas.ts",
+      "line": 23,
+      "col": 0
+    },
+    "jsDoc": null,
+    "importDef": {
+      "src": "file:///Users/semba/Documents/projects/shader_canvas/core/new_modules/create_part.ts",
+      "imported": "CreatePart"
+    }
+  }
+]

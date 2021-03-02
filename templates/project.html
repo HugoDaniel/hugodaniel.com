@@ -1,23 +1,113 @@
 {% extends "index.html" %}
 {% block content %}
+
 <main role="main" class="project">
 
+	<article class="
 {% if page.extra.class %}
-	<article class="{{ page.extra.class }}">
-{% else %}
-	<article>
-{% endif %}
+{{page.extra.class}}
+{% elif section.extra.class %}
+{{section.extra.class}}
+{%endif%}
+    ">
+
 		<header>
-			<h1> {{ page.title }} </h1>
-			<p> {{ page.description }} </p>
+      <h1>
+        {% if page.title %}
+          {{ page.title }}
+        {% else %}
+          {{ section.title }}
+        {% endif %}
+      </h1>
+			<p>
+        {% if page.description %}
+          {{page.description}}
+        {% else %}
+          {{section.description}}
+        {% endif %}
+      </p>
 			<nav>
-          <a href="{{ page.extra.github }}">GitHub</a>
-          <!-- <a href="{{ page.extra.docs }}">Documentation</a> -->
-          <a href="#">Documentation</a>
-          <a href="#">Tutorials</a>
+        <a class="introduction" href="
+        {% if section %}
+          {{section.extra.intro}}
+        {% else %}
+          {{page.extra.intro}}
+        {% endif %}
+        ">Introduction</a>
+        <a class="documentation" href="
+        {% if section %}
+        {{section.extra.docs}}
+        {% else %}
+        {{page.extra.docs}}
+        {% endif %}
+        ">Documentation</a>
+          <a href="
+        {% if page.extra.github %}
+          {{page.extra.github}}
+        {% else %}
+          {{section.extra.github}}
+        {% endif %}">GitHub</a>
 			</nav>
 		</header>
-		{{ page.content | safe }}
+
+<nav class="project-menu">
+        <a class="introduction" href="
+        {% if section %}
+          {{section.extra.intro}}
+        {% else %}
+          {{page.extra.intro}}
+        {% endif %}
+        ">Intro</a>
+        <a class="documentation" href="
+        {% if section %}
+        {{section.extra.docs}}
+        {% else %}
+        {{page.extra.docs}}
+        {% endif %}
+        ">Docs</a>
+          <a href="
+        {% if page.extra.github %}
+          {{page.extra.github}}
+        {% else %}
+          {{section.extra.github}}
+        {% endif %}">GitHub</a>
+        {% if page.extra.showTOC %}
+        <a class="hamburger" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="#000000">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </a>
+        {% endif %}
+</nav>
+
+    {% if page %}
+      <nav class="toc">
+        <h1>{{ page.title}}</h1>
+        <ul>
+        {% for h1 in page.toc %}
+            <li>
+                <a href="{{h1.permalink | safe}}">{{ h1.title }}</a>
+                {% if h1.children %}
+                    <ul>
+                        {% for h2 in h1.children %}
+                            <li>
+                                <a href="{{h2.permalink | safe}}">{{ h2.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+
+    {% if page.content %}
+      {{page.content | safe }}
+    {% else %}
+      {{section.content | safe }}
+    {% endif %}
     <hr>
 	</article>
 	<hr>
@@ -25,4 +115,26 @@
     <em>Created by <a href="/">Hugo Daniel</a> under license <a href="https://eupl.eu">EUPL 1.2</a>.</em>
 	</footer>
 </main>
+<script>
+  function closeToc(e) {
+    document.body.removeEventListener("click", closeToc);
+    document.body.classList.remove("show-toc");
+  }
+  document.querySelector(".toc")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  for(let elem of document.querySelectorAll(".toc a")) {
+    elem.addEventListener("click", closeToc)
+  }
+
+  document.querySelector(".hamburger").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!document.body.classList.contains("show-toc")) {
+      document.body.addEventListener("click", closeToc);
+    }
+    document.body.classList.add("show-toc");
+    e.stopPropagation();
+  })
+</script>
 {% endblock content %}

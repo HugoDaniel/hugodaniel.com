@@ -98,6 +98,10 @@ article li {
 	line-height: 1.7;
 }
 
+main article small a {
+  font-size: 1rem;
+}
+
 footer {
 	text-align: center;
 	padding: 0rem 3rem;
@@ -114,7 +118,6 @@ footer nav h4 {
 	font-weight: 500;
 }
 
-
 .logo {
 	margin: auto;
 	color: var(--main-text-color);
@@ -122,6 +125,7 @@ footer nav h4 {
 	padding-bottom: 3rem;
 	text-align: center;
 }
+
 .logo h1 {
 	font-size: 1.15rem;
 	color: #555;
@@ -170,6 +174,7 @@ footer nav h4 {
 	text-align: center;
 	padding-bottom: 2.5rem;
 }
+
 .posts li p {
 	max-width: 25rem;
 	margin: auto;
@@ -190,6 +195,71 @@ footer nav h4 {
 	text-align: center;
 }
 
+.project-menu {
+  background: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: calc(100vw - 1rem);
+  height: 3rem;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  margin-top: -3rem;
+}
+
+.hamburger {
+  margin-left: auto;
+  margin-right: 0rem;
+}
+
+.toc,
+.show-toc .toc {
+  position: fixed;
+  z-index: 2;
+
+  visibility: visible;
+  padding: 2rem;
+  padding-right: 3rem;
+  top: 0;
+  right: 0;
+  height: 92vh;
+  background: white;
+  box-shadow: -2px 1px 5px -1px rgba(0,0,0,0.75);
+  transition-property: right, visibility;
+  transition-duration: 0.25s, 0.01s;
+  transition-delay: 0s, 0s;
+  transition-timing-function: ease-out, linear;
+  overflow-y: auto;
+}
+
+.toc {
+  visibility: hidden;
+  transition-duration: 0.25s, 0.01s;
+  transition-delay: 0s, 2s;
+  transition-timing-function: linear, linear;
+  right: -150%;
+}
+
+.show-toc:before {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  content: " ";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.show-toc {
+  overflow: hidden;
+}
+
+.toc h1 {
+  font-size: 1.5rem;
+}
+
 main article {
 	color: #222;
 	box-sizing: border-box;
@@ -199,10 +269,13 @@ main article {
   width: 100vw;
   overflow: hidden;
 }
+
 main.project article {
 	max-width: 70rem;
   padding: 0 0.5rem;
+  overflow: visible;
 }
+
 main.project {
   display: flex;
   flex-direction: column;
@@ -227,6 +300,11 @@ main article header {
 	padding-bottom: 0.5rem;
 	margin-bottom: 3rem;
 	border-bottom: 1px solid #777;
+  overflow: visible;
+}
+
+main.project article header {
+	border-bottom: transparent;
 }
 
 main article header h1 {
@@ -235,6 +313,10 @@ main article header h1 {
 	margin-bottom: 1.5rem;
 	padding-bottom: 0;
 	line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 main article header p {
@@ -244,6 +326,8 @@ main article header p {
 	margin-top: 0;
 	padding-top: 0;
 	line-height: 1.2;
+  width: 100%;
+  text-align: center;
 }
 
 main article header time {
@@ -259,8 +343,7 @@ main article header nav {
 }
 
 main.project article header nav {
-  display: flex;
-  justify-content: center;
+  display: none;
 }
 
 main article header nav time {
@@ -268,16 +351,25 @@ main article header nav time {
   margin-top: 2.8rem;
   margin-left: 0.3rem;
 }
+
 main article header nav span {
   display: flex;
 	text-align: center;
   width: 100%;
 }
+
+.project-menu a,
 main article header nav a {
 	font-size: 0.9rem;
 	text-transform: uppercase;
-	padding: 0.3rem;
 	color: #777;
+  margin-right: 0.6rem;
+}
+
+main article.documentation a.documentation,
+main article.introduction a.introduction {
+  font-weight: 500;
+  color: #222;
 }
 
 main article h2 a,
@@ -303,6 +395,7 @@ main article pre {
 	width: calc(100vw - 6rem);
 	overflow: auto;
 }
+
 main.project article pre {
 	width: calc(100vw - 3rem);
 }
@@ -310,6 +403,7 @@ main.project article pre {
 main article pre code {
 	overflow: auto;
 }
+
 main hr {
 	margin-bottom: 0;
 	padding-bottom: 0;
@@ -321,6 +415,7 @@ main footer {
 	align-items: center;
 	height: 3rem;
 }
+
 main footer nav {
 	text-align: center;
 	text-transform: uppercase;
@@ -342,185 +437,7 @@ main .with-lists ol {
 	padding-left: 2rem;
 }
 
-
-/************************************/
-/*          Non Mobile CSS          */
-/************************************/
-@media screen and (min-width: 40em) {
-
-.intro article {
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 4rem;
-}
-
-.intro article figure {
-	grid-row: 1;
-	margin-top: 4rem;
-}
-
-.intro article h1 {
-	text-align: left;
-}
-.intro footer {
-	display: grid;
-	grid-template-columns: minmax(1fr, 25rem) 1fr;
-	column-gap: 4rem;
-	max-width: 54rem;
-	overflow: hidden;
-}
-
-main {
-	overflow: hidden;
-}
-
-main article {
-	padding: 1rem 4rem;
-}
-main article pre {
-  padding: 1rem;
-  width: calc(100% - 2rem);
-}
-main.project article pre {
-  font-size: 1.5rem;
-}
-main.project article header nav {
-  display: flex;
-  justify-content: center;
-}
-main article header nav {
-	display: grid;
-	grid-template-columns: 0.5fr 1fr;
-}
-main article header nav time {
-  position: static;
-  margin-top: 0;
-  margin-left: 0;
-}
-main article header nav span {
-  display: block;
-	text-align: right;
-}
-
-main article header nav a {
-	padding: 0.5rem;
-}
-
-main footer nav a {
-	padding: 1.5rem 1rem;
-}
-main.project footer a {
-	padding: 1rem 0;
-}
-
-footer {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(120px, 1fr));
-	grid-gap: 32px;
-	text-align: left;
-}
-footer nav:first-of-type {
-	grid-row: 1;
-	grid-column: 2;
-}
-}
-@media (prefers-color-scheme: dark) {
-
-body {
-	color: var(--dark-text-color);
-  background-color: var(--dark-background-color);
-}
-a {
-  color: var(--dark-link-color);
-}
-main article ul,
-main article {
-	color: var(--dark-text-color);
-}
-main article header time,
-main article header p,
-main article h1,
-main article h2,
-main article h3,
-main article h4,
-main article h5,
-h1,h2,h3,h4,h5 {
-	color: var(--dark-title-color);
-}
-}
-
-
 .blur {
   filter: blur(5px);
 }
 
-.formContainer {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.1);
-	align-items: center;
-  display: flex;
-	justify-content: center;
-}
-#imediatos div {
-  padding-bottom: 0px;
-}
-#imediatos .objetos {
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #EAEAEA;
-  max-width: 20rem;
-  padding: 2rem 1rem;
-}
-#imediatos .objetos h3 {
-  padding: 0 1rem;
-  text-align: center;
-  line-height: 1.5;
-}
-/* General */
-    .Input {display: flex; padding: 20px;}
-/* Input */
-    .Input input{ -webkit-appearance: none; margin: 0; outline: none; resize: vertical;  font-size:0.9em; box-sizing: border-box;  padding:10px 15px; width: 100%; border-radius:0px 5px 5px 0px; border:1px solid #ddd;}
-    .Input input:read-only{color: #aaa;}
-/* Label */
-    .Input input:last-child{ order: 2; border-radius: 5px; }
-    .Input label{ white-space: nowrap; order: -1; border: 1px solid #ddd; border-right: none; border-radius: 5px 0px 0px 5px; text-align: right; display: block;  font-size:0.7em; padding: 13px 15px;  padding-right: 1.5em;  background: rgb(247, 247, 247);}
-/* Focus */
-    .Input input:focus{ border-top-color: #000;border-right-color: #000;border-bottom-color: #000;}
-    .Input input:last-child:focus{ border-left-color: #000;}
-    .Input input:focus + label{ border-color: #000;}
-/* Read Only */
-    .Input input:read-only{color: #888; background-size: 12px auto; background-position:right 20px top 15px; background-image: url(./lock.svg); background-repeat: no-repeat;}
-/* Zoom iOS */
-    @supports (-webkit-touch-callout: none) { .Input input{ font-size: 16px; } }
-
-/* General */
-    .Submit { overflow: hidden; text-transform: uppercase; font-size: 0.8em; letter-spacing: 2px; padding:20px;}
-/* Submit */
-    .Submit button[type='submit'] { text-transform: uppercase; letter-spacing: 2px; cursor: pointer; position: relative; background: rgb(139, 139, 255); color: #fff; outline: none; resize: vertical; font-size:1em; box-sizing: border-box; float: right; padding:10px 50px 10px 25px; border-radius: 5px; border: none; }
-    .Submit button[type='submit']:after{ content: ''; display: block; height: 1px; width: 15px; background: #fff; position: absolute; right: 17px; top: 50%;;}
-    .Submit button[type='submit']:before{ content: ''; display: block; height: 8px; width: 8px; border-right: 1px solid #fff;margin-top: -4px; border-top: 1px solid #fff; transform: rotate(45deg); position: absolute; right: 18px; top: 50%; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); }
-/* Delete */
-    .Submit a { position: relative; font-weight: 400; padding-left: 30px; margin-right: 10px;color: rgb(157, 53, 53); text-decoration: none; outline: none; resize: vertical; font-size:1em; box-sizing: border-box; float: left; padding:5px 10px 5px 35px;margin: 5px 10px 5px 10px; border-radius: 5px; border:1px solid #eee; }
-    .Submit a:after{ content: ''; display: block; height: 1px; width: 15px; transform:rotate(45deg) ; background: rgb(157, 53, 53); position: absolute; left: 11px; top: 50%; -webkit-transform:rotate(45deg) ; -moz-transform:rotate(45deg) ; -ms-transform:rotate(45deg) ; -o-transform:rotate(45deg) ; }
-    .Submit a:before{ content: ''; display: block; height: 1px; width: 15px; transform:rotate(-45deg) ; background: rgb(157, 53, 53); position: absolute; left: 11px; top: 50%; -webkit-transform:rotate(-45deg) ; -moz-transform:rotate(-45deg) ; -ms-transform:rotate(-45deg) ; -o-transform:rotate(-45deg) ; }
-/* Reset */
-    .Submit button[type='reset'] { color: #aaa; text-transform: uppercase; letter-spacing: 2px; position: relative; margin-right: 10px; outline: none; resize: vertical; font-size:1em; box-sizing: border-box; float: left; padding:5px 10px 5px 35px; border-radius: 5px; border:1px solid #eee; background-color: rgb(255, 255, 255); margin: 5px 10px 5px 10px;}
-    .Submit button[type='reset']:after{ border-radius: 100px; content: ''; display: block; height: 12px; width: 12px;margin-top: -6px; transform:rotate(45deg) ; border: 1px solid #aaa; border-bottom-color: transparent; position: absolute; left: 11px; top: 50%; -webkit-transform:rotate(45deg) ; -moz-transform:rotate(45deg) ; -ms-transform:rotate(45deg) ; -o-transform:rotate(45deg) ; -webkit-border-radius: 100px; -moz-border-radius: 100px; -ms-border-radius: 100px; -o-border-radius: 100px; }
-    .Submit button[type='reset']:before{ content: ''; display: block; height: 5px; width: 5px; transform:rotate(-120deg) ; border-top: 1px solid #aaa; border-left:1px solid #aaa; position: absolute; left: 9px; margin-top: -5px; top: 50%; -webkit-transform:rotate(-120deg) ; -moz-transform:rotate(-120deg) ; -ms-transform:rotate(-120deg) ; -o-transform:rotate(-120deg) ; }
-/* Responsive */
-    @media only screen and (max-width:440px) {
-        .Submit button[type='reset']{ display: none;}
-    }
-    @media only screen and (max-width:300px) {
-        .Submit{ padding-left: 0;}
-        .Submit a{ border: none;}
-    }
-    @media only screen and (max-width:260px) {
-        .Submit a{ display: none; }
-    }
-/* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-    .Submit{ font-family: 'Open Sans', sans-serif; }

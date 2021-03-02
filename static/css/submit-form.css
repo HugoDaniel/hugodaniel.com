@@ -1,0 +1,29 @@
+.formContainer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.1);
+	align-items: center;
+  display: flex;
+	justify-content: center;
+}
+
+#imediatos div {
+  padding-bottom: 0px;
+}
+
+#imediatos .objetos {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #EAEAEA;
+  max-width: 20rem;
+  padding: 2rem 1rem;
+}
+
+#imediatos .objetos h3 {
+  padding: 0 1rem;
+  text-align: center;
+  line-height: 1.5;
+}
