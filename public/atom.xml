@@ -110,7 +110,7 @@ a proof-of-concept and the base of my future work.&lt;&#x2F;p&gt;
 with small nuances. I looked for inspiration in other libraries in how to
 decompose graphical problems. The part that intrigued me most was the balance
 between the WebGL API&#x27;s low-level aspects and its high-level compositions. It
-should be possible to be target a lower-mid-level of abstraction.&lt;&#x2F;p&gt;
+should be possible to target a lower-mid-level of abstraction.&lt;&#x2F;p&gt;
 &lt;p&gt;Today is the 10th anniversary of WebGL. It felt appropriate to write about it
 and introduce &lt;a href=&quot;&#x2F;projects&#x2F;shader-canvas&quot;&gt;shader-canvas&lt;&#x2F;a&gt; together with some of
 the motivation behind it.&lt;&#x2F;p&gt;

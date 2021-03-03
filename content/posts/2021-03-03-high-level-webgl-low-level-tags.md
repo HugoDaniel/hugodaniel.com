@@ -132,7 +132,7 @@ Before I started doing [shader-canvas](/projects/shader-canvas), I repeatedly wr
 with small nuances. I looked for inspiration in other libraries in how to
 decompose graphical problems. The part that intrigued me most was the balance
 between the WebGL API's low-level aspects and its high-level compositions. It
-should be possible to be target a lower-mid-level of abstraction.
+should be possible to target a lower-mid-level of abstraction.
 
 Today is the 10th anniversary of WebGL. It felt appropriate to write about it
 and introduce [shader-canvas](/projects/shader-canvas) together with some of
