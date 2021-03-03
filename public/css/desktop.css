@@ -55,6 +55,9 @@ main.project article.documentation p {
   max-width: calc(100% - 24rem);
   min-width: 14rem;
 }
+main.project article.documentation header p {
+  min-width: 100%;
+}
 
 main.project article.documentation pre {
   width: calc(100% - 20em);
