@@ -100,7 +100,7 @@ it.
 What if this declarative tag-oriented approach could be used in the WebGL
 domain primitives instead of the typical camera/scene graph representation?
 
-## Meet `<shader-canvas>`
+## Meet [`<shader-canvas>`](/projects/shader-canvas)
 
 In my life quest of making different drawing tools and apps, I find myself
 leaning more towards using buffers and GLSL programs than with "cameras" and
@@ -128,16 +128,18 @@ a proof-of-concept and the base of my future work.
 
 ## Closing thoughts
 
-Before I started doing shader-canvas, I repeatedly wrote the same WebGL code
+Before I started doing [shader-canvas](/projects/shader-canvas), I repeatedly wrote the same WebGL code
 with small nuances. I looked for inspiration in other libraries in how to
 decompose graphical problems. The part that intrigued me most was the balance
 between the WebGL API's low-level aspects and its high-level compositions. It
 should be possible to be target a lower-mid-level of abstraction.
 
 Today is the 10th anniversary of WebGL. It felt appropriate to write about it
-and introduce shader-canvas together with some of the motivation behind it.
+and introduce [shader-canvas](/projects/shader-canvas) together with some of
+the motivation behind it.
 
-Shader-canvas is a graphics framework that uses HTML tags to perform the WebGL
+[Shader-canvas](/projects/shader-canvas) is a graphics framework that uses HTML
+tags to perform the WebGL
 API calls and manage its primitives. It does not have a camera or a scene.
 Instead, there is a set of tags to declare most of the recurrent WebGL code
 that I found myself writing over and over.
