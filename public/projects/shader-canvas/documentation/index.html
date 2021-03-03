@@ -559,13 +559,13 @@ referencing.</p>
 </ul>
 <p>The <code>&lt;active-texture&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L17">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L19">View Source</a></small></em></p>
 <h3 id="attributes-of-activetexture">Attributes of <code>&lt;ActiveTexture&gt;</code></h3>
-<h4 id="src"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L60">src</a></em></h4>
+<h4 id="src"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L62">src</a></em></h4>
 <p>A string that references a texture name.</p>
 <p>This must be the name of a tag available in the <code>&lt;webgl-textures&gt;</code>
 container.</p>
-<h4 id="var"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L66">var</a></em></h4>
+<h4 id="var"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/active_texture.ts#L68">var</a></em></h4>
 <p>A string with the GLSL variable name to put this texture at.</p>
 <hr>
 <h2 id="BindBuffer"><code>&lt;bind-buffer&gt;</code></h2>
@@ -603,9 +603,9 @@ the <code>&lt;webgl-buffers&gt;</code> container.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>The <code>&lt;bind-buffer&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateVertexArray"><code>&lt;{{vao-name}}&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/bind_buffer.ts#L27">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/bind_buffer.ts#L29">View Source</a></small></em></p>
 <h3 id="attributes-of-bindbuffer">Attributes of <code>&lt;BindBuffer&gt;</code></h3>
-<h4 id="src-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/bind_buffer.ts#L80">src</a></em></h4>
+<h4 id="src-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/bind_buffer.ts#L82">src</a></em></h4>
 <p>The bind buffer <code>src</code> attribute is a string that references a buffer.</p>
 <p>This must be the name of a tag available in the <code>&lt;webgl-buffers&gt;</code>
 container.</p>
@@ -617,9 +617,9 @@ container.</p>
 <p>No child tags allowed in <code>&lt;blend-func&gt;</code>.</p>
 <p>The <code>&lt;blend-func&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L64">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L66">View Source</a></small></em></p>
 <h3 id="attributes-of-blendfunc">Attributes of <code>&lt;BlendFunc&gt;</code></h3>
-<h4 id="sfactor"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L115">sfactor</a></em></h4>
+<h4 id="sfactor"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L117">sfactor</a></em></h4>
 <p>A string specifying a multiplier for the <em>source</em> blending factors. The
 default value is <code>gl.ONE</code>.</p>
 <p>Possible values:</p>
@@ -640,7 +640,7 @@ default value is <code>gl.ONE</code>.</p>
 <li><code>&quot;ONE_MINUS_CONSTANT_ALPHA&quot;</code></li>
 <li><code>&quot;SRC_ALPHA_SATURATE&quot;</code></li>
 </ul>
-<h4 id="dfactor"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L140">dfactor</a></em></h4>
+<h4 id="dfactor"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/blend_func.ts#L142">dfactor</a></em></h4>
 <p>A string specifying a multiplier for the <em>destination</em> blending factors.
 The default value is <code>gl.ZERO</code>.</p>
 <p>Possible values:</p>
@@ -687,9 +687,9 @@ It loads the data at the location set by the <code>src</code> attribute.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>The <code>&lt;buffer-data&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateBuffer"><code>&lt;{{buffer-name}}&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L107">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L109">View Source</a></small></em></p>
 <h3 id="attributes-of-bufferdata">Attributes of <code>&lt;BufferData&gt;</code></h3>
-<h4 id="target"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L172">target</a></em></h4>
+<h4 id="target"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L174">target</a></em></h4>
 <p>The buffer data target attribute that specifies the WebGL binding point.</p>
 <p>This attribute allows the same values that the &quot;target&quot; parameter of the
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/bufferData#parameters"><code>gl.bufferData()</code></a>
@@ -710,11 +710,11 @@ function does: </p>
    target</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">ELEMENT_ARRAY_BUFFER</span><span style="color:#556633;">&quot;
    </span><span style="color:#ffb964;">src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">data.json</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
 &lt;/</span><span style="color:#ffb964;">buffer-data</span><span style="color:#e8e8d3;">&gt;
-</span></code></pre><h4 id="size"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L181">size</a></em></h4>
+</span></code></pre><h4 id="size"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L183">size</a></em></h4>
 <p>The buffer data <code>size</code> attribute sets the size in bytes of the WebGL 
 buffer object's data store.</p>
 <p>This attribute is a number.</p>
-<h4 id="usage"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L202">usage</a></em></h4>
+<h4 id="usage"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L204">usage</a></em></h4>
 <p>The buffer data &quot;usage&quot; attribute that specifies the WebGL intended usage
 pattern of the data store for optimization purposes.</p>
 <p>This attribute allows the same values that the &quot;usage&quot; parameter of the
@@ -731,11 +731,11 @@ function does: </p>
 <li><code>&quot;DYNAMIC_COPY&quot;</code></li>
 <li><code>&quot;STREAM_COPY&quot;</code></li>
 </ul>
-<h4 id="offset"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L211">offset</a></em></h4>
+<h4 id="offset"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L213">offset</a></em></h4>
 <p>The buffer data &quot;offset&quot; attribute that sets the offset in bytes to where
 the raw data starts.</p>
 <p>This attribute is a number (defaults to 0).</p>
-<h4 id="src-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L222">src</a></em></h4>
+<h4 id="src-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/buffer_data.ts#L224">src</a></em></h4>
 <p>This attribute is used to get the raw data from.</p>
 <p>It can be a URL, a query selector, or a JSON array with the data.</p>
 <p>If it is a query selector <em><code>(&quot;#someId&quot;)</code></em>, the element <code>textContent</code> will
@@ -747,18 +747,18 @@ be read and parsed as JSON.</p>
 <p>No child tags allowed in <code>&lt;clear-color&gt;</code>.</p>
 <p>The <code>&lt;clear-color&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-clearcolor">Attributes of <code>&lt;ClearColor&gt;</code></h3>
-<h4 id="red"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L42">red</a></em></h4>
+<h4 id="red"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L44">red</a></em></h4>
 <p>The &quot;red&quot; color value, a number between 0.0 and 1.0.
 Defaults to 0.</p>
-<h4 id="green"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L49">green</a></em></h4>
+<h4 id="green"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L51">green</a></em></h4>
 <p>The &quot;green&quot; color value, a number between 0.0 and 1.0.
 Defaults to 0.</p>
-<h4 id="blue"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L56">blue</a></em></h4>
+<h4 id="blue"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L58">blue</a></em></h4>
 <p>The &quot;blue&quot; color value, a number between 0.0 and 1.0.
 Defaults to 0.</p>
-<h4 id="alpha"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L63">alpha</a></em></h4>
+<h4 id="alpha"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_color.ts#L65">alpha</a></em></h4>
 <p>The &quot;alpha&quot; color value, a number between 0.0 and 1.0.
 Defaults to 0.</p>
 <hr>
@@ -768,9 +768,9 @@ Defaults to 0.</p>
 <p>No child tags allowed in <code>&lt;clear-depth&gt;</code>.</p>
 <p>The <code>&lt;clear-depth&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_depth.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_depth.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-cleardepth">Attributes of <code>&lt;ClearDepth&gt;</code></h3>
-<h4 id="depth"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_depth.ts#L39">depth</a></em></h4>
+<h4 id="depth"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_depth.ts#L41">depth</a></em></h4>
 <p>A number specifying the depth value used when the depth buffer is cleared.
 Default value: 1.</p>
 <hr>
@@ -780,9 +780,9 @@ Default value: 1.</p>
 <p>No child tags allowed in <code>&lt;clear-flags&gt;</code>.</p>
 <p>The <code>&lt;clear-color&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_flags.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_flags.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-clearflags">Attributes of <code>&lt;ClearFlags&gt;</code></h3>
-<h4 id="flags"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_flags.ts#L32">flags</a></em></h4>
+<h4 id="flags"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_flags.ts#L34">flags</a></em></h4>
 <p>A string that sets the &quot;mask&quot; of the clear method.</p>
 <p>This string can contain the three following strings separated by the
 char &quot;|&quot;:</p>
@@ -798,9 +798,9 @@ char &quot;|&quot;:</p>
 <p>No child tags allowed in <code>&lt;clear-stencil&gt;</code>.</p>
 <p>The <code>&lt;clear-stencil&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_stencil.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_stencil.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-clearstencil">Attributes of <code>&lt;ClearStencil&gt;</code></h3>
-<h4 id="s"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_stencil.ts#L38">s</a></em></h4>
+<h4 id="s"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/clear_stencil.ts#L40">s</a></em></h4>
 <p>A number specifying the index used when the stencil buffer is cleared.
 Default value: 0.</p>
 <hr>
@@ -833,7 +833,7 @@ vertex array objects and draw calls).</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>This custom named tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLBuffers"><code>&lt;webgl-buffers&gt;</code></a> container tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/create_buffer.ts#L13">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/create_buffer.ts#L15">View Source</a></small></em></p>
 <hr>
 <h2 id="CreateModule"><code>&lt;{{module-name}}&gt;</code></h2>
 <p>You chose the tag name for your modules when declaring them.</p>
@@ -869,7 +869,7 @@ used inside a program.</em></li>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/4-composition">4th example - composition</a></p>
 <p>This custom named tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#NewModules"><code>&lt;new-modules&gt;</code></a> container tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/create_module.ts#L15">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/create_module.ts#L17">View Source</a></small></em></p>
 <hr>
 <h2 id="CreateProgram"><code>&lt;{{program-name}}&gt;</code></h2>
 <p>The tag name is set by you when declaring a program. Use the tag name
@@ -919,7 +919,7 @@ program in other Shader Canvas containers and parts.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>This custom named tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLPrograms"><code>&lt;webgl-programs&gt;</code></a> container tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/create_program.ts#L23">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/create_program.ts#L25">View Source</a></small></em></p>
 <hr>
 <h2 id="CreateTexture"><code>&lt;{{texture-name}}&gt;</code></h2>
 <p>You chose the tag name for your textures when declaring them.
@@ -946,7 +946,7 @@ containers and parts (like draw calls).</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/2-textured-quad">2nd example - texture quad</a></p>
 <p>This custom named tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLTextures"><code>&lt;webgl-textures&gt;</code></a> container tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/create_texture.ts#L19">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/create_texture.ts#L21">View Source</a></small></em></p>
 <hr>
 <h2 id="CreateVertexArray"><code>&lt;{{vao-name}}&gt;</code></h2>
 <p>You chose the tag name for your vertex array objects (VAO) when declaring them.
@@ -980,7 +980,7 @@ buffers container</em></li>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>This custom named tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLVertexArrayObjects"><code>&lt;webgl-vertex-array-objects&gt;</code></a> container tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/create_vertex_array.ts#L31">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/create_vertex_array.ts#L33">View Source</a></small></em></p>
 <hr>
 <h2 id="CullFace"><code>&lt;cull-face&gt;</code></h2>
 <p>This tag is the equivalent of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/cullFace">WebGL <code>cullFace() function</code></a>.</p>
@@ -990,9 +990,9 @@ culled.</p>
 <p>No child tags allowed in <code>&lt;cull-face&gt;</code>.</p>
 <p>The <code>&lt;cull-face&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/cull_face.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/cull_face.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-cullface">Attributes of <code>&lt;CullFace&gt;</code></h3>
-<h4 id="mode"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/cull_face.ts#L35">mode</a></em></h4>
+<h4 id="mode"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/cull_face.ts#L37">mode</a></em></h4>
 <p>A string specifying whether front- or back-facing polygons are candidates
 for culling.</p>
 <p>The default value is &quot;BACK&quot;. Possible values are:</p>
@@ -1010,9 +1010,9 @@ depth buffer value.</p>
 <p>No child tags allowed in <code>&lt;depth-func&gt;</code>.</p>
 <p>The <code>&lt;depth-func&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/depth_func.ts#L53">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/depth_func.ts#L55">View Source</a></small></em></p>
 <h3 id="attributes-of-depthfunc">Attributes of <code>&lt;DepthFunc&gt;</code></h3>
-<h4 id="func"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/depth_func.ts#L103">func</a></em></h4>
+<h4 id="func"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/depth_func.ts#L105">func</a></em></h4>
 <p>A string specifying the depth comparison function, which sets the
 conditions under which the pixel will be drawn. The default value is
 <code>gl.LESS</code>.</p>
@@ -1102,7 +1102,7 @@ it references)</em></li>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>The <code>&lt;draw-calls&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_calls.ts#L23">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_calls.ts#L24">View Source</a></small></em></p>
 <hr>
 <h2 id="DrawLoop"><code>&lt;draw-loop&gt;</code></h2>
 <p>This tag is a container of a WebGL draw commands. Each child defines a
@@ -1115,7 +1115,7 @@ then registers a <code>requestAnimationFrame</code> for that draw function.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>The <code>&lt;draw-loop&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_loop.ts#L16">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_loop.ts#L18">View Source</a></small></em></p>
 <hr>
 <h2 id="DrawVAO"><code>&lt;draw-vao&gt;</code></h2>
 <p>This tag is equivalent to either the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements"><code>gl.drawElements()</code></a>
@@ -1130,13 +1130,13 @@ specifications.</p>
 <p>No allowed child tags.</p>
 <p>The <code>&lt;draw-vao&gt;</code> tag is meant to be used within the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L9">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L11">View Source</a></small></em></p>
 <h3 id="attributes-of-drawvao">Attributes of <code>&lt;DrawVAO&gt;</code></h3>
-<h4 id="src-3"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L37">src</a></em></h4>
+<h4 id="src-3"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L39">src</a></em></h4>
 <p>A string that references a vertex array object name.</p>
 <p>This must be the name of a tag available in the
 <code>&lt;webgl-vertex-array-objects&gt;</code> container.</p>
-<h4 id="mode-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L54">mode</a></em></h4>
+<h4 id="mode-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L56">mode</a></em></h4>
 <p>A string that specifies the type primitive to render. </p>
 <p>Possible values are:</p>
 <ul>
@@ -1148,12 +1148,12 @@ specifications.</p>
 <li><code>&quot;TRIANGLE_FAN&quot;</code></li>
 <li><code>&quot;TRIANGLES&quot;</code> <em>(default)</em></li>
 </ul>
-<h4 id="offset-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L77">offset</a></em></h4>
+<h4 id="offset-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L79">offset</a></em></h4>
 <p>A number specifying a byte offset in the element array buffer. Must be a
 valid multiple of the size of the given type.</p>
-<h4 id="first"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L84">first</a></em></h4>
+<h4 id="first"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L86">first</a></em></h4>
 <p>A number specifying the starting index in the array of vector points.</p>
-<h4 id="type"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L95">type</a></em></h4>
+<h4 id="type"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/draw_vao.ts#L97">type</a></em></h4>
 <p>A string specifying the type of the values in the element array buffer.</p>
 <p>Possible values are:</p>
 <ul>
@@ -1206,7 +1206,7 @@ code. Code tag is useful because it allows preformatted text as content.</em></l
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>The <code>&lt;fragment-shader&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateProgram"><code>&lt;{{program-name}}&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/shaders.ts#L200">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/shaders.ts#L202">View Source</a></small></em></p>
 <hr>
 <h2 id="NewModules"><code>&lt;new-modules&gt;</code></h2>
 <p>This tag is a container of a Shader Canvas modules. Each child defines a 
@@ -1246,7 +1246,7 @@ merged into the final Shader Canvas DOM.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/4-composition">4th example - composition</a></p>
 <p>The <code>&lt;new-modules&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#ShaderCanvas"><code>&lt;shader-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/new_modules.ts#L22">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/new_modules.ts#L24">View Source</a></small></em></p>
 <hr>
 <h2 id="ShaderCanvas"><code>&lt;shader-canvas&gt;</code></h2>
 <p>This is the starting tag of the graphics framework. Your app can have
@@ -1320,20 +1320,20 @@ it should be processed.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/2-textured-quad">2nd example - texture quad</a></p>
 <p>The <code>&lt;tex-image-2d&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateTexture"><code>&lt;{{texture-name}}&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L89">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L91">View Source</a></small></em></p>
 <h3 id="attributes-of-teximage2d">Attributes of <code>&lt;TexImage2D&gt;</code></h3>
-<h4 id="width-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L129">width</a></em></h4>
+<h4 id="width-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L131">width</a></em></h4>
 <p>The width of the texture.</p>
 <p>This attribute is a number.</p>
-<h4 id="height-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L137">height</a></em></h4>
+<h4 id="height-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L139">height</a></em></h4>
 <p>The height of the texture.</p>
 <p>This attribute is a number.</p>
-<h4 id="level"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L148">level</a></em></h4>
+<h4 id="level"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L150">level</a></em></h4>
 <p>Specifies the level of detail that this texture data is for.
 Level 0 is the base image level and level n is the nth mipmap reduction
 level.</p>
 <p>This attribute is a number.</p>
-<h4 id="target-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L166">target</a></em></h4>
+<h4 id="target-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L168">target</a></em></h4>
 <p>The WebGL binding point for this texture.</p>
 <p>This attribute allows the same values that the &quot;target&quot; parameter of the
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D#parameters"><code>gl.texImage2D()</code></a>
@@ -1347,7 +1347,7 @@ function does: </p>
 <li><code>&quot;TEXTURE_CUBE_MAP_POSITIVE_Z&quot;</code></li>
 <li><code>&quot;TEXTURE_CUBE_MAP_NEGATIVE_Z&quot;</code></li>
 </ul>
-<h4 id="internalformat"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L233">internalFormat</a></em></h4>
+<h4 id="internalformat"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L235">internalFormat</a></em></h4>
 <p>Specifies the color components in the texture.</p>
 <p>This attribute allows the same values that the &quot;internalFormat&quot; parameter of
 the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D#parameters"><code>gl.texImage2D()</code></a>
@@ -1410,12 +1410,12 @@ function does (and the same as the &quot;format&quot; attribute):</p>
 <li><code>&quot;RGBA32I&quot;</code></li>
 <li><code>&quot;RGBA32UI&quot;</code></li>
 </ul>
-<h4 id="format"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L243">format</a></em></h4>
+<h4 id="format"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L245">format</a></em></h4>
 <p>Specifies the format for the texel data.</p>
 <p>This attribute allows the same values that the &quot;format&quot; parameter of
 the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D#parameters"><code>gl.texImage2D()</code></a>
 function does (and the same as the &quot;internalFormat&quot; attribute).</p>
-<h4 id="type-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L270">type</a></em></h4>
+<h4 id="type-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L272">type</a></em></h4>
 <p>Specifies the data type of the texel data.</p>
 <p>This attribute allows the same values that the &quot;type&quot; parameter of
 the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/texImage2D#parameters"><code>gl.texImage2D()</code></a>
@@ -1438,7 +1438,7 @@ function does:</p>
 <li><code>&quot;UNSIGNED_SHORT_4_4_4_4&quot;</code></li>
 <li><code>&quot;UNSIGNED_SHORT_5_5_5_1&quot;</code></li>
 </ul>
-<h4 id="src-4"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L278">src</a></em></h4>
+<h4 id="src-4"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/tex_image_2d.ts#L280">src</a></em></h4>
 <p>This attribute is used to get the image data from.</p>
 <p>It can be a URL or a query selector for an image/video tag.</p>
 <hr>
@@ -1449,16 +1449,16 @@ function does:</p>
 <p>No child tags allowed in <code>&lt;tex-parameter-f&gt;</code>.</p>
 <p>The <code>&lt;tex-parameter-f&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#ActiveTexture"><code>&lt;active-texture&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L272">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L274">View Source</a></small></em></p>
 <h3 id="attributes-of-texparameterf">Attributes of <code>&lt;TexParameterF&gt;</code></h3>
-<h4 id="texparameter"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L291">texParameter</a></em></h4>
+<h4 id="texparameter"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L293">texParameter</a></em></h4>
 <p>Returns the gl function for this tag. Not intended to be used as a 
 tag attribute.</p>
-<h4 id="target-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L297">target</a></em></h4>
+<h4 id="target-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L299">target</a></em></h4>
 <p>A string (GLenum) specifying the binding point (target)</p>
-<h4 id="pname"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L303">pname</a></em></h4>
+<h4 id="pname"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L305">pname</a></em></h4>
 <p>The parameter name. Can be any valid <code>TextureParameterName</code>.</p>
-<h4 id="param"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L309">param</a></em></h4>
+<h4 id="param"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L311">param</a></em></h4>
 <p>The parameter value. Can be any valid <code>TextureParameter</code>.</p>
 <hr>
 <h2 id="TexParameterI"><code>&lt;tex-parameter-i&gt;</code></h2>
@@ -1468,16 +1468,16 @@ tag attribute.</p>
 <p>No child tags allowed in <code>&lt;tex-parameter-i&gt;</code>.</p>
 <p>The <code>&lt;tex-parameter-i&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#ActiveTexture"><code>&lt;active-texture&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L230">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L232">View Source</a></small></em></p>
 <h3 id="attributes-of-texparameteri">Attributes of <code>&lt;TexParameterI&gt;</code></h3>
-<h4 id="texparameter-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L249">texParameter</a></em></h4>
+<h4 id="texparameter-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L251">texParameter</a></em></h4>
 <p>Returns the gl function for this tag. Not intended to be used as a 
 tag attribute.</p>
-<h4 id="target-3"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L256">target</a></em></h4>
+<h4 id="target-3"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L258">target</a></em></h4>
 <p>A string (GLenum) specifying the binding point (target)</p>
-<h4 id="pname-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L262">pname</a></em></h4>
+<h4 id="pname-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L264">pname</a></em></h4>
 <p>The parameter name. Can be any valid <code>TextureParameterName</code>.</p>
-<h4 id="param-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L268">param</a></em></h4>
+<h4 id="param-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/tex_parameter.ts#L270">param</a></em></h4>
 <p>The parameter value. Can be any valid <code>TextureParameter</code>.</p>
 <hr>
 <h2 id="UseProgram"><code>&lt;use-program&gt;</code></h2>
@@ -1496,9 +1496,9 @@ it references)</em></li>
 </ul>
 <p>The <code>&lt;use-program&gt;</code> tag is meant to be used within the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/use_program.ts#L17">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/use_program.ts#L19">View Source</a></small></em></p>
 <h3 id="attributes-of-useprogram">Attributes of <code>&lt;UseProgram&gt;</code></h3>
-<h4 id="src-5"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/use_program.ts#L54">src</a></em></h4>
+<h4 id="src-5"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/use_program.ts#L56">src</a></em></h4>
 <p>A string that references a program name.</p>
 <p>This must be the name of a tag available in the <code>&lt;webgl-programs&gt;</code>
 container.</p>
@@ -1512,15 +1512,15 @@ areas to variables.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>The <code>&lt;vertex-attrib-pointer&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#BindBuffer"><code>&lt;bind-buffer&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L48">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L50">View Source</a></small></em></p>
 <h3 id="attributes-of-vertexattribpointer">Attributes of <code>&lt;VertexAttribPointer&gt;</code></h3>
-<h4 id="variable"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L129">variable</a></em></h4>
+<h4 id="variable"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L131">variable</a></em></h4>
 <p>A string specifying the name of the variable that this data is going to be
 placed at.</p>
-<h4 id="size-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L145">size</a></em></h4>
+<h4 id="size-1"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L147">size</a></em></h4>
 <p>A number specifying the number of components per vertex attribute.
 Must be 1, 2, 3, or 4.</p>
-<h4 id="type-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L175">type</a></em></h4>
+<h4 id="type-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L177">type</a></em></h4>
 <p>A string (GLenum) specifying the data type of each component in the array.</p>
 <p>This attribute allows the same values that the <code>type</code> parameter of the
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/vertexAttribPointer#parameters"><code>gl.vertexAttribPointer()</code></a>
@@ -1533,10 +1533,10 @@ function does: </p>
 <li><code>&quot;FLOAT&quot;</code> <em>(default)</em></li>
 <li><code>&quot;HALF_FLOAT&quot;</code></li>
 </ul>
-<h4 id="offset-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L190">offset</a></em></h4>
+<h4 id="offset-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L192">offset</a></em></h4>
 <p>A GLintptr specifying an offset in bytes of the first component in the
 vertex attribute array. Must be a multiple of the byte length of type.</p>
-<h4 id="normalized"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L212">normalized</a></em></h4>
+<h4 id="normalized"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L214">normalized</a></em></h4>
 <p>A boolean specifying whether integer data values should be normalized
 into a certain range when being cast to a float.</p>
 <ul>
@@ -1546,7 +1546,7 @@ true.</li>
 values to [0, 1] if true.</li>
 <li>For types gl.FLOAT and gl.HALF_FLOAT, this parameter has no effect.</li>
 </ul>
-<h4 id="stride"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L230">stride</a></em></h4>
+<h4 id="stride"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/vertex_attrib_pointer.ts#L232">stride</a></em></h4>
 <p>A GLsizei specifying the offset in bytes between the beginning of
 consecutive vertex attributes. Cannot be larger than 255. If stride is 0,
 the attribute is assumed to be tightly packed, that is, the attributes are
@@ -1596,7 +1596,7 @@ code. Code tag is useful because it allows preformatted text as content.</em></l
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>The <code>&lt;vertex-shader&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateProgram"><code>&lt;{{program-name}}&gt;</code></a> custom named tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/shaders.ts#L136">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/shaders.ts#L138">View Source</a></small></em></p>
 <hr>
 <h2 id="ViewportTransformation"><code>&lt;viewport-transform&gt;</code></h2>
 <p>This tag is the equivalent of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/viewport">WebGL <code>viewport() function</code></a>.</p>
@@ -1605,20 +1605,20 @@ y from normalized device coordinates to window coordinates.</p>
 <p>No child tags allowed in <code>&lt;viewport-transform&gt;</code>.</p>
 <p>The <code>&lt;viewport-transform&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#DrawCalls"><code>&lt;draw-calls&gt;</code></a> list of actions.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L7">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L9">View Source</a></small></em></p>
 <h3 id="attributes-of-viewporttransformation">Attributes of <code>&lt;ViewportTransformation&gt;</code></h3>
-<h4 id="x"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L44">x</a></em></h4>
+<h4 id="x"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L46">x</a></em></h4>
 <p>A number specifying the horizontal coordinate for the lower left corner
 of the viewport origin.</p>
 <p>Default value: 0.</p>
-<h4 id="y"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L57">y</a></em></h4>
+<h4 id="y"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L59">y</a></em></h4>
 <p>A number specifying the vertical coordinate for the lower left corner of
 the viewport origin.</p>
 <p>Default value: 0.</p>
-<h4 id="width-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L69">width</a></em></h4>
+<h4 id="width-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L71">width</a></em></h4>
 <p>A number specifying the width of the viewport.</p>
 <p>Default value: width of the canvas.</p>
-<h4 id="height-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L80">height</a></em></h4>
+<h4 id="height-2"><em><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/draw_calls/viewport.ts#L82">height</a></em></h4>
 <p>A number specifying the height of the viewport.</p>
 <p>Default value: height of the canvas.</p>
 <hr>
@@ -1658,7 +1658,7 @@ either at its initialization or during the render loop.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/3-animation">3rd example - animation</a></p>
 <p>The <code>&lt;webgl-buffers&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/webgl_buffers.ts#L34">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_buffers/webgl_buffers.ts#L36">View Source</a></small></em></p>
 <hr>
 <h2 id="WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></h2>
 <p>This tag defines a WebGL graphics backend.
@@ -1728,7 +1728,7 @@ is formatted and what it contains)</em> </li>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/2-textured-quad">2nd example - texture quad</a></p>
 <p>The <code>&lt;webgl-canvas&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#ShaderCanvas"><code>&lt;shader-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_canvas/webgl_canvas.ts#L44">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_canvas/webgl_canvas.ts#L46">View Source</a></small></em></p>
 <hr>
 <h2 id="WebGLProgramPart"><code>&lt;webgl-program-part&gt;</code></h2>
 <p>Use this tag to declare a reusable part of your WebGL program GLSL code.</p>
@@ -1745,7 +1745,7 @@ Vertex shader program</em></li>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/4-composition">4th example - composition</a></p>
 <p>This tag is meant to be used inside the custom named module tag
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#CreateModule"><code>&lt;{{module-name}}&gt;</code></a>.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/webgl_program_part.ts#L12">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/new_modules/webgl_program_part.ts#L14">View Source</a></small></em></p>
 <hr>
 <h2 id="WebGLPrograms"><code>&lt;webgl-programs&gt;</code></h2>
 <p>This tag is a container of a WebGL programs. Each child defines a WebGL 
@@ -1782,7 +1782,7 @@ loaded, compiled, linked and their variable locations set.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/1-triangle">1st example - simple triangle</a></p>
 <p>The <code>&lt;webgl-programs&gt;</code> tag is meant to be used as a child of the
 <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/webgl_programs.ts#L38">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_programs/webgl_programs.ts#L40">View Source</a></small></em></p>
 <hr>
 <h2 id="WebGLTextures"><code>&lt;webgl-textures&gt;</code></h2>
 <p>This tag is a container of a WebGL Textures. Each child defines a WebGL
@@ -1818,7 +1818,7 @@ either at its initialization or during the render loop.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/2-textured-quad">2nd example - texture quad</a></p>
 <p>The <code>&lt;webgl-textures&gt;</code> tag is meant to be used as a child of
 the <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/webgl_textures.ts#L34">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_textures/webgl_textures.ts#L36">View Source</a></small></em></p>
 <hr>
 <h2 id="WebGLVertexArrayObjects"><code>&lt;webgl-vertex-array-objects&gt;</code></h2>
 <p>This tag is a container of a WebGL Vertex Array Objects. Each child defines
@@ -1861,7 +1861,7 @@ either at its initialization or during the render loop.</p>
 <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/2-textured-quad">2nd example - texture quad</a></p>
 <p>The <code>&lt;webgl-vertex-array-objects&gt;</code> tag is meant to be used as a child of
 the <a href="https://hugodaniel.com/projects/shader-canvas/documentation/#WebGLCanvas"><code>&lt;webgl-canvas&gt;</code></a> tag.</p>
-<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/webgl_vertex_array_objects.ts#L37">View Source</a></small></em></p>
+<p><em><small><a href="https://github.com/HugoDaniel/shader_canvas/blob/main/core/webgl_vertex_array_objects/webgl_vertex_array_objects.ts#L39">View Source</a></small></em></p>
 <hr>
 
     

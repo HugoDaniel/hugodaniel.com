@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="This is the list of articles I have written while exploring Web Components. It details the possibilities of uncommon practices and puts them in use in shader-canvas, an abstraction of the WebGL API done with Web Components.">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>The life of a Web Component</title>
+			<meta name="twitter:title" content="The life of a Web Component">
+			<meta property="og:title" content="The life of a Web Component">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="This is the list of articles I have written while exploring Web Components. It details the possibilities of uncommon practices and puts them in use in shader-canvas, an abstraction of the WebGL API done with Web Components.">
+			<meta property="og:description" content="This is the list of articles I have written while exploring Web Components. It details the possibilities of uncommon practices and puts them in use in shader-canvas, an abstraction of the WebGL API done with Web Components.">
+		
+		
+			<meta property="og:article:published_time" content="2021-03-02">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;the-life-of-a-web-component-series&#x2F;">
+		
+			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5-muscle.png" >
+			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5-muscle.png" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> The life of a Web Component </h1>
+			<p> This is the list of articles I have written while exploring Web Components. It details the possibilities of uncommon practices and puts them in use in shader-canvas, an abstraction of the WebGL API done with Web Components. </p>
+			<nav>
+				<time datetime="2021-03-02"> 2-Mar-2021</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<h2 id="1-initialization"><a href="/posts/the-life-of-a-web-component/">1 - Initialization</a></h2>
+<p>This post is the first in the series. It talks about avoiding the Web
+Components constructor, events and life-cycle methods while rolling your
+approach.</p>
+<h2 id="2-as-a-variable-bucket"><a href="/posts/the-life-of-a-web-component-as-var/">2 - As a variable bucket</a></h2>
+<p>In this post I was trying to automatically declare new tags as they get
+written in the DOM. Here I introduce container elements, which allow their
+child tags to have any name by assuming that they will all be using the same
+Web Component class.</p>
+<h2 id="3-reversing-shadow-dom-visibility"><a href="/posts/the-life-of-a-web-component-reverse-shadow-dom/">3 - Reversing Shadow DOM visibility</a></h2>
+<p>Once a Shadow DOM is used the browser assumes it to be the source of truth and
+the holder of the content that is going to be displayed. What if it was the
+other way around? In this post the child tags of a Web Component get displayed
+by default while the Shadow DOM is used to keep hidden state.</p>
+<h2 id="4-declarative-state"><a href="/posts/the-life-of-a-web-component-state-in-shadow/">4 - Declarative State</a></h2>
+<p>This post uses the variable buckets from part 2 to declare complex app state.</p>
+<h2 id="5-getting-tested"><a href="/posts/the-life-of-a-web-component-tests/">5 - Getting tested</a></h2>
+<p>Trying to test Web Components without any bigger knowledge of its related
+best-practices. Just thoughts about trying it out and seeing where it goes.</p>
+<h2 id="shader-canvas"><a href="/projects/shader-canvas/">shader-canvas</a></h2>
+<p>A graphics framework that makes use of the Web Component techniques in this
+series.</p>
+
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>

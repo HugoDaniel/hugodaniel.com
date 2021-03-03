@@ -26,8 +26,9 @@ h1 {
 	line-height: 1.5;
 }
 
+main article li,
 p {
-	line-height: 1.5;
+	line-height: 1.8;
 	word-break: break-word;
 }
 
@@ -281,6 +282,7 @@ main.project {
   flex-direction: column;
 }
 
+main article li,
 main article a,
 main article p {
 	font-size: 1.15rem;
@@ -288,6 +290,9 @@ main article p {
 
 main article strong {
 	font-weight: 500;
+}
+main article li strong {
+  font-size: 1.25rem;
 }
 
 main article ul {
