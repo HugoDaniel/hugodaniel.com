@@ -51,7 +51,7 @@ You can begin using Shader Canvas with these 3 steps.
 
 
   <script type="module">
-    import { ShaderCanvas } from "https://cdn.deno.land/shader_canvas/versions/v1.1.0/raw/build/shader_canvas.min.js";
+    import { ShaderCanvas } from "https://cdn.deno.land/shader_canvas/versions/v1.1.1/raw/build/shader_canvas.min.js";
   </script>
 </body>
 </html>
@@ -73,7 +73,7 @@ You can begin using Shader Canvas with these 3 steps.
   </shader-canvas>
 
   <script type="module">
-    import { ShaderCanvas } from "https://cdn.deno.land/shader_canvas/versions/v1.1.0/raw/build/shader_canvas.min.js";
+    import { ShaderCanvas } from "https://cdn.deno.land/shader_canvas/versions/v1.1.1/raw/build/shader_canvas.min.js";
 
     window.addEventListener("load", async () => {
       const c = document.querySelector("shader-canvas");
@@ -91,11 +91,11 @@ You can begin using Shader Canvas with these 3 steps.
 
 Only Deno is supported for now to use and bundle Shader Canvas in your project.
 
-To do that use the import from the [`deno.land`](https://deno.land/x/shader_canvas@v1.1.0)
+To do that use the import from the [`deno.land`](https://deno.land/x/shader_canvas@v1.1.1)
 file directly:
 
 ```typescript
-import { ShaderCanvas } from "https://deno.land/x/shader_canvas@v1.1.0/shader_canvas.ts"
+import { ShaderCanvas } from "https://deno.land/x/shader_canvas@v1.1.1/shader_canvas.ts"
 
 // your project code ...
 ```
