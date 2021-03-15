@@ -202,7 +202,7 @@ Components tags.&lt;&#x2F;p&gt;
 
 
   &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;script type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;module&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;cdn.deno.land&#x2F;shader_canvas&#x2F;versions&#x2F;v1.0.0&#x2F;raw&#x2F;build&#x2F;shader_canvas.min.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;;
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;cdn.deno.land&#x2F;shader_canvas&#x2F;versions&#x2F;v1.1.0&#x2F;raw&#x2F;build&#x2F;shader_canvas.min.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;;
   &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
@@ -224,7 +224,7 @@ Components tags.&lt;&#x2F;p&gt;
   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;shader-canvas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
 
   &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;script type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;module&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;cdn.deno.land&#x2F;shader_canvas&#x2F;versions&#x2F;v1.0.0&#x2F;raw&#x2F;build&#x2F;shader_canvas.min.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;;
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;cdn.deno.land&#x2F;shader_canvas&#x2F;versions&#x2F;v1.1.0&#x2F;raw&#x2F;build&#x2F;shader_canvas.min.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;;
 
     window.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;addEventListener&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;load&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{
       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;= document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;querySelector&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;shader-canvas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;);
@@ -238,10 +238,10 @@ Components tags.&lt;&#x2F;p&gt;
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;using-deno&quot;&gt;Using Deno&lt;&#x2F;h3&gt;
 &lt;p&gt;Only Deno is supported for now to use and bundle Shader Canvas in your project.&lt;&#x2F;p&gt;
-&lt;p&gt;To do that use the import from the &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;shader_canvas@v1.0.0&quot;&gt;&lt;code&gt;deno.land&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+&lt;p&gt;To do that use the import from the &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;shader_canvas@v1.1.0&quot;&gt;&lt;code&gt;deno.land&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
 file directly:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#151515;&quot;&gt;
-&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;shader_canvas@v1.0.0&#x2F;shader_canvas.ts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;
+&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;ShaderCanvas &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#99ad6a;&quot;&gt;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;shader_canvas@v1.1.0&#x2F;shader_canvas.ts&lt;&#x2F;span&gt;&lt;span style=&quot;color:#556633;&quot;&gt;&amp;quot;
 
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#888888;&quot;&gt;&#x2F;&#x2F; your project code ...
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
@@ -389,6 +389,19 @@ it might start a loop if there is a &lt;a href=&quot;https:&#x2F;&#x2F;hugodanie
 &lt;p&gt;These two functions must be called for Shader Canvas to render anything.&lt;&#x2F;p&gt;
 &lt;p&gt;They can be seen in action in all of the
 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;examples&#x2F;1-triangle&#x2F;index.html&quot;&gt;provided examples&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;utility-functions&quot;&gt;Utility functions&lt;&#x2F;h2&gt;
+&lt;p&gt;Starting and stopping the drawing loop can be done with the instance functions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;shaderCanvasInstance&amp;gt;.startLoop&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Starts the drawing loop if there is one defined and it is not started.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;shaderCanvasInstance&amp;gt;.stopLoop&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Stops the drawing loop if there is one defined and it is started.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;You can define a drawing loop with the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawLoop&quot;&gt;&lt;code&gt;&amp;lt;draw-loop&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tag.&lt;&#x2F;p&gt;
 &lt;hr&gt;&lt;&#x2F;hr&gt;
 &lt;h1 id=&quot;reference&quot;&gt;Reference&lt;&#x2F;h1&gt;
 &lt;p&gt;This section lists all the new HTML elements that Shader Canvas introduces.&lt;&#x2F;p&gt;
@@ -628,7 +641,7 @@ Default value: 1.&lt;&#x2F;p&gt;
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawCalls&quot;&gt;&lt;code&gt;&amp;lt;draw-calls&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; list of actions.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;clear_flags.ts#L9&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attributes-of-clearflags&quot;&gt;Attributes of &lt;code&gt;&amp;lt;ClearFlags&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;h4 id=&quot;flags&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;clear_flags.ts#L34&quot;&gt;flags&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;mask&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;clear_flags.ts#L34&quot;&gt;mask&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string that sets the &amp;quot;mask&amp;quot; of the clear method.&lt;&#x2F;p&gt;
 &lt;p&gt;This string can contain the three following strings separated by the
 char &amp;quot;|&amp;quot;:&lt;&#x2F;p&gt;
@@ -955,21 +968,33 @@ it references)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
 WebGL draw call. It is intended to hold an ordered list of tags that is run
 sequentially &lt;em&gt;and repeatedly&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;It creates a draw function to perform each action listed as children and
-then registers a &lt;code&gt;requestAnimationFrame&lt;&#x2F;code&gt; for that draw function.&lt;&#x2F;p&gt;
+then registers a &lt;code&gt;requestAnimationFrame&lt;&#x2F;code&gt; for that draw function
+(the &lt;code&gt;setTimeout()&lt;&#x2F;code&gt; is used instead if a the number of FPS&#x27;s are specified
+).&lt;&#x2F;p&gt;
 &lt;p&gt;It allows the same children that the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawCalls&quot;&gt;&lt;code&gt;&amp;lt;draw-calls&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; accepts.&lt;&#x2F;p&gt;
 &lt;p&gt;For a usable example check the
 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;tree&#x2F;main&#x2F;examples&#x2F;3-animation&quot;&gt;3rd example - animation&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;code&gt;&amp;lt;draw-loop&amp;gt;&lt;&#x2F;code&gt; tag is meant to be used as a child of the
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawCalls&quot;&gt;&lt;code&gt;&amp;lt;draw-calls&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tag.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_loop.ts#L18&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_loop.ts#L19&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;attributes-of-drawloop&quot;&gt;Attributes of &lt;code&gt;&amp;lt;DrawLoop&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;fps&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_loop.ts#L134&quot;&gt;fps&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Sets the number of Frames Per Second (FPS) that the loop should run.
+It defaults to using the &lt;code&gt;window.requestAnimationFrame&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This attribute is a number.&lt;&#x2F;p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;DrawVAO&quot;&gt;&lt;code&gt;&amp;lt;draw-vao&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;This tag is equivalent to either the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGLRenderingContext&#x2F;drawElements&quot;&gt;&lt;code&gt;gl.drawElements()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
-or the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGLRenderingContext&#x2F;drawArrays&quot;&gt;&lt;code&gt;gl.drawArrays()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+or the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGLRenderingContext&#x2F;drawArrays&quot;&gt;&lt;code&gt;gl.drawArrays()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;If the &amp;quot;instanceCount&amp;quot; attribute is set, then it makes use
+of the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGL2RenderingContext&#x2F;drawElementsInstanced&quot;&gt;&lt;code&gt;gl.drawElementsInstanced()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+or the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGL2RenderingContext&#x2F;drawArraysInstanced&quot;&gt;&lt;code&gt;gl.drawArraysInstanced()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
 functions.&lt;&#x2F;p&gt;
 &lt;p&gt;It searches for the Vertex Array Object specified by the &lt;code&gt;src&lt;&#x2F;code&gt; attribute
 and calls &lt;code&gt;gl.drawElements&lt;&#x2F;code&gt; if it has an element array buffer, or 
-&lt;code&gt;gl.drawArrays&lt;&#x2F;code&gt; otherwise.&lt;&#x2F;p&gt;
+&lt;code&gt;gl.drawArrays&lt;&#x2F;code&gt; otherwise.
+(or &lt;code&gt;gl.drawElementsInstanced()&lt;&#x2F;code&gt;&#x2F;&lt;code&gt;gl.drawArraysInstanced()&lt;&#x2F;code&gt; if
+&amp;quot;instanceCount&amp;quot; is set)&lt;&#x2F;p&gt;
 &lt;p&gt;The number of items to draw can be specified in the &amp;quot;count&amp;quot; attribute,
 but these also get calculated automatically by the vertex array buffer 
 specifications.&lt;&#x2F;p&gt;
@@ -978,11 +1003,11 @@ specifications.&lt;&#x2F;p&gt;
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawCalls&quot;&gt;&lt;code&gt;&amp;lt;draw-calls&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; list of actions.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L11&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attributes-of-drawvao&quot;&gt;Attributes of &lt;code&gt;&amp;lt;DrawVAO&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;h4 id=&quot;src-3&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L39&quot;&gt;src&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;src-3&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L45&quot;&gt;src&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string that references a vertex array object name.&lt;&#x2F;p&gt;
 &lt;p&gt;This must be the name of a tag available in the
 &lt;code&gt;&amp;lt;webgl-vertex-array-objects&amp;gt;&lt;&#x2F;code&gt; container.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;mode-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L56&quot;&gt;mode&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;mode-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L62&quot;&gt;mode&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string that specifies the type primitive to render. &lt;&#x2F;p&gt;
 &lt;p&gt;Possible values are:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -994,12 +1019,12 @@ specifications.&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;TRIANGLE_FAN&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;TRIANGLES&amp;quot;&lt;&#x2F;code&gt; &lt;em&gt;(default)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;offset-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L79&quot;&gt;offset&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;offset-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L104&quot;&gt;offset&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A number specifying a byte offset in the element array buffer. Must be a
 valid multiple of the size of the given type.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;first&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L86&quot;&gt;first&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;first&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L111&quot;&gt;first&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A number specifying the starting index in the array of vector points.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;type&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L97&quot;&gt;type&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;type&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;draw_vao.ts#L122&quot;&gt;type&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string specifying the type of the values in the element array buffer.&lt;&#x2F;p&gt;
 &lt;p&gt;Possible values are:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -1052,7 +1077,7 @@ code. Code tag is useful because it allows preformatted text as content.&lt;&#x2
 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;tree&#x2F;main&#x2F;examples&#x2F;1-triangle&quot;&gt;1st example - simple triangle&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;code&gt;&amp;lt;fragment-shader&amp;gt;&lt;&#x2F;code&gt; tag is meant to be used as a child of the
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#CreateProgram&quot;&gt;&lt;code&gt;&amp;lt;{{program-name}}&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; custom named tag.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;shaders.ts#L202&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;shaders.ts#L259&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;NewModules&quot;&gt;&lt;code&gt;&amp;lt;new-modules&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;This tag is a container of a Shader Canvas modules. Each child defines a 
@@ -1128,15 +1153,15 @@ several of these tags.&lt;&#x2F;p&gt;
 
 &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;shader-canvas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e8e8d3;&quot;&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L70&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L75&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attributes-of-shadercanvas&quot;&gt;Attributes of &lt;code&gt;&amp;lt;ShaderCanvas&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;h4 id=&quot;width&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L295&quot;&gt;width&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;width&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L316&quot;&gt;width&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A number that sets the width of the underlying graphics backend.
 This number is passed to the graphics backend to set its canvas dimensions.&lt;&#x2F;p&gt;
 &lt;p&gt;It defaults to the &lt;code&gt;window.innerWidth&lt;&#x2F;code&gt; attribute value.&lt;&#x2F;p&gt;
 &lt;p&gt;A graphics backend might not follow this number exactly and use it as a
 basis to set the pixel width based on the underlying pixel ratio.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;height&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L309&quot;&gt;height&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;height&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;shader_canvas.ts#L330&quot;&gt;height&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A number that sets the height of the underlying graphics backend.
 Like the width, this is passed to the graphics backend to set its
 canvas dimensions.&lt;&#x2F;p&gt;
@@ -1342,9 +1367,9 @@ it references)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The &lt;code&gt;&amp;lt;use-program&amp;gt;&lt;&#x2F;code&gt; tag is meant to be used within the
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#DrawCalls&quot;&gt;&lt;code&gt;&amp;lt;draw-calls&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; list of actions.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;use_program.ts#L19&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;use_program.ts#L40&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attributes-of-useprogram&quot;&gt;Attributes of &lt;code&gt;&amp;lt;UseProgram&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;h4 id=&quot;src-5&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;use_program.ts#L56&quot;&gt;src&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;src-5&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;draw_calls&#x2F;use_program.ts#L77&quot;&gt;src&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string that references a program name.&lt;&#x2F;p&gt;
 &lt;p&gt;This must be the name of a tag available in the &lt;code&gt;&amp;lt;webgl-programs&amp;gt;&lt;&#x2F;code&gt;
 container.&lt;&#x2F;p&gt;
@@ -1360,13 +1385,16 @@ areas to variables.&lt;&#x2F;p&gt;
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#BindBuffer&quot;&gt;&lt;code&gt;&amp;lt;bind-buffer&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tag.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L50&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attributes-of-vertexattribpointer&quot;&gt;Attributes of &lt;code&gt;&amp;lt;VertexAttribPointer&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
-&lt;h4 id=&quot;variable&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L131&quot;&gt;variable&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;variable&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L136&quot;&gt;variable&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string specifying the name of the variable that this data is going to be
 placed at.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;size-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L147&quot;&gt;size&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;divisor&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L151&quot;&gt;divisor&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;A number specifying the instance items for this attribute.
+If it is greater than 0 a call to &lt;code&gt;gl.vertexAttribDivisor&lt;&#x2F;code&gt; is made with it.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;size-1&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L158&quot;&gt;size&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A number specifying the number of components per vertex attribute.
 Must be 1, 2, 3, or 4.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;type-2&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L177&quot;&gt;type&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;type-2&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L188&quot;&gt;type&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A string (GLenum) specifying the data type of each component in the array.&lt;&#x2F;p&gt;
 &lt;p&gt;This attribute allows the same values that the &lt;code&gt;type&lt;&#x2F;code&gt; parameter of the
 &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGLRenderingContext&#x2F;vertexAttribPointer#parameters&quot;&gt;&lt;code&gt;gl.vertexAttribPointer()&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
@@ -1379,10 +1407,10 @@ function does: &lt;&#x2F;p&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;FLOAT&amp;quot;&lt;&#x2F;code&gt; &lt;em&gt;(default)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;HALF_FLOAT&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;offset-2&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L192&quot;&gt;offset&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;offset-2&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L203&quot;&gt;offset&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A GLintptr specifying an offset in bytes of the first component in the
 vertex attribute array. Must be a multiple of the byte length of type.&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;normalized&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L214&quot;&gt;normalized&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;normalized&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L225&quot;&gt;normalized&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A boolean specifying whether integer data values should be normalized
 into a certain range when being cast to a float.&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -1392,7 +1420,7 @@ true.&lt;&#x2F;li&gt;
 values to [0, 1] if true.&lt;&#x2F;li&gt;
 &lt;li&gt;For types gl.FLOAT and gl.HALF_FLOAT, this parameter has no effect.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;stride&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L232&quot;&gt;stride&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;stride&quot;&gt;&lt;em&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_vertex_array_objects&#x2F;vertex_attrib_pointer.ts#L243&quot;&gt;stride&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;A GLsizei specifying the offset in bytes between the beginning of
 consecutive vertex attributes. Cannot be larger than 255. If stride is 0,
 the attribute is assumed to be tightly packed, that is, the attributes are
@@ -1442,7 +1470,7 @@ code. Code tag is useful because it allows preformatted text as content.&lt;&#x2
 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;tree&#x2F;main&#x2F;examples&#x2F;1-triangle&quot;&gt;1st example - simple triangle&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;code&gt;&amp;lt;vertex-shader&amp;gt;&lt;&#x2F;code&gt; tag is meant to be used as a child of the
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#CreateProgram&quot;&gt;&lt;code&gt;&amp;lt;{{program-name}}&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; custom named tag.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;shaders.ts#L138&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;shaders.ts#L195&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;ViewportTransformation&quot;&gt;&lt;code&gt;&amp;lt;viewport-transform&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;This tag is the equivalent of the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGLRenderingContext&#x2F;viewport&quot;&gt;WebGL &lt;code&gt;viewport() function&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
@@ -1628,7 +1656,7 @@ loaded, compiled, linked and their variable locations set.&lt;&#x2F;p&gt;
 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;tree&#x2F;main&#x2F;examples&#x2F;1-triangle&quot;&gt;1st example - simple triangle&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The &lt;code&gt;&amp;lt;webgl-programs&amp;gt;&lt;&#x2F;code&gt; tag is meant to be used as a child of the
 &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;projects&#x2F;shader-canvas&#x2F;documentation&#x2F;#WebGLCanvas&quot;&gt;&lt;code&gt;&amp;lt;webgl-canvas&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tag.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;webgl_programs.ts#L40&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;small&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;blob&#x2F;main&#x2F;core&#x2F;webgl_programs&#x2F;webgl_programs.ts#L41&quot;&gt;View Source&lt;&#x2F;a&gt;&lt;&#x2F;small&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;WebGLTextures&quot;&gt;&lt;code&gt;&amp;lt;webgl-textures&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;This tag is a container of a WebGL Textures. Each child defines a WebGL
