@@ -134,10 +134,11 @@ That is a 100% optimization right there. It beats "doing it faster" every time. 
 
 For this particular case of shape picking, it can be fruitful to avoid doing any work at all for the most part.
 Reading pixels from the screen/array is expensive and complicated.
-In WebGL, this requires at least one flush and one sync outside of the frame boundaries (besides the array copy).
-These have severe performance costs and do not fit at every mouse move or frame.
+In WebGL, this requires at least one [flush](https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/flush) and one [sync](https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/fenceSync) outside of the frame boundaries (besides the array copy).
 
-For the particular case of a grid, interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving the grid.
+These are not only hard to perform but also carry severe performance costs. They are not a good fit for every mouse move or frame.
+
+The case of the grid is a curious one: interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving/zooming the grid.
 A grid changes when there is a panning or zooming action. Besides those two actions, it stays the same. The shape ids are at the same position all the time (even if their contents change, the ids remain at the same place provided no translation or zooming is going on).
 
 Interacting with grid elements only happens after the pan/zoom action finishes, which is the perfect place to "hide" the flush/sync/copy operation. Once right after the panning/zooming ends, WebGL renders the shape id's to multiple targets, flushes/syncs, and copies the array to the CPU, where it stays static forever (at least until some following pan/zoom operation finishes). Interacting with the grid is then only about reading this array for shape ids, with no need for WebGL or position updates.

@@ -165,9 +165,9 @@ A global picking method compatible with anything I can throw at it.</p>
 <p>That is a 100% optimization right there. It beats &quot;doing it faster&quot; every time. Some even apply this to life in general with great success.</p>
 <p>For this particular case of shape picking, it can be fruitful to avoid doing any work at all for the most part.
 Reading pixels from the screen/array is expensive and complicated.
-In WebGL, this requires at least one flush and one sync outside of the frame boundaries (besides the array copy).
-These have severe performance costs and do not fit at every mouse move or frame.</p>
-<p>For the particular case of a grid, interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving the grid.
+In WebGL, this requires at least one <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/flush">flush</a> and one <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/fenceSync">sync</a> outside of the frame boundaries (besides the array copy).</p>
+<p>These are not only hard to perform but also carry severe performance costs. They are not a good fit for every mouse move or frame.</p>
+<p>The case of the grid is a curious one: interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving/zooming the grid.
 A grid changes when there is a panning or zooming action. Besides those two actions, it stays the same. The shape ids are at the same position all the time (even if their contents change, the ids remain at the same place provided no translation or zooming is going on).</p>
 <p>Interacting with grid elements only happens after the pan/zoom action finishes, which is the perfect place to &quot;hide&quot; the flush/sync/copy operation. Once right after the panning/zooming ends, WebGL renders the shape id's to multiple targets, flushes/syncs, and copies the array to the CPU, where it stays static forever (at least until some following pan/zoom operation finishes). Interacting with the grid is then only about reading this array for shape ids, with no need for WebGL or position updates.</p>
 <h2 id="what-is-next-for-shader-canvas">What is next for <code>&lt;shader_canvas&gt;</code>?</h2>
