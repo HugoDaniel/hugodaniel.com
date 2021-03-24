@@ -1,6 +1,6 @@
 +++
 title = "Infinite grid with just one square"
-description = ""
+description = "Creating an infinite grid of squares drawing multiple instances of the same shape and multiple render targets. Both features that WebGL 2 provides."
 date = 2021-03-24
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/infinite_square_grid.png", class="center-images with-lists" }
 +++
@@ -10,6 +10,8 @@ A Web App to explore the possibilities of an infinite grid of squares.
 Driven primarily out of curiosity, I wondered if even I could create something cool with an endless grid of customizable squares?
 
 I spent almost two years on it. Two years of trial and error iterations in code, UI, product orientation, business, and failing hard at all those things and so many others. "This time will be different."
+
+![A square grid with some squares painted in random colors](/images/square_grid.png "This grid is infinite.")
 
 ## WebGL 2 flex its wings.
 
@@ -148,7 +150,7 @@ You can read the code for this at the [Shader Canvas repository](https://github.
 I am working on its second iteration after the first release. I will evolve and use this framework for my next drawing web app called "Shape The Pixel".
 The road ahead for `<shader_canvas>` is like this in my head, things are going to change for sure:
 
-1. Release `<shader_canvas>` proof of concept (occured in 2021-03-03)
+1. Release `<shader_canvas>` proof of concept ([occured in 2021-03-03](https://hugodaniel.com/posts/high-level-webgl-low-level-tags/))
 1. The first iteration of the proof of concept with a focus on its modules (in 2021-03-15)
 1. A second iteration of the proof of concept with a focus on framebuffers and texture arrays/atlas (ongoing)
 1. A third iteration of the proof of concept with a focus on animation and transform feedbacks (to be done)
@@ -156,8 +158,14 @@ The road ahead for `<shader_canvas>` is like this in my head, things are going t
   - Change it into a simple "compiler."
   - Provide the first support for the Metal graphics framework.
   - It will only happen when the "Shape The Pixel" web app is released, and the [deno_tag](https://hugodaniel.com/posts/introducing-deno-tag/) and the [GLSL parser](https://deno.land/x/glsl_variables@v1.0.2) get some planned updates - they are all connected 🤫.
+  - **Demos and examples will only show up here at this stage**
 
 ### Conclusion
+
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/sq_grid.webm" type="video/webm">
+  <source src="/videos/sq_grid.mp4" type="video/mp4">
+</video>
 
 Drawing an infinite grid in WebGL 2 can be done using its instance drawing functions to avoid repeating vertices and multiple-render-targets for picking.
 Read the pixels only once when the grid panning/zooming operation finishes to avoid WebGL pipeline stalls.
