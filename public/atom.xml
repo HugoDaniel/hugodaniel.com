@@ -25,12 +25,12 @@ breaking at most of the device&#x27;s pixel ratios and CPU usage abuse wrapped i
 &lt;p&gt;The plan now is to change the part that needs to be improved: &lt;em&gt;the WebGL version.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;single-in-shape&quot;&gt;Single, in shape&lt;&#x2F;h2&gt;
 &lt;p&gt;WebGL focuses on triangles. A square is nothing more than two triangles glued together.&lt;&#x2F;p&gt;
-&lt;p&gt;There are a couple of primitives to describe triangles with WebGL. The &amp;quot;triangle fan&amp;quot; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.&lt;&#x2F;p&gt;
+&lt;p&gt;There are a couple of primitives to describe triangles with WebGL. The &lt;em&gt;&amp;quot;triangle fan&amp;quot;&lt;&#x2F;em&gt; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.&lt;&#x2F;p&gt;
 &lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan2.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
-&lt;p&gt;On top of it, a triangle fan works well together with a line strip.
+&lt;p&gt;On top of it, a &lt;strong&gt;triangle fan&lt;&#x2F;strong&gt; works well together with a &lt;strong&gt;line stripe&lt;&#x2F;strong&gt;.
 I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.&lt;&#x2F;p&gt;
 &lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;line_stripe.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
@@ -41,20 +41,20 @@ I can create an outline for the shape using the same mesh of points, no need to 
 &lt;p&gt;WebGL 2 brings &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGL2RenderingContext&#x2F;drawElementsInstanced&quot;&gt;instanced drawing&lt;&#x2F;a&gt; mode for the mesh masses.&lt;&#x2F;p&gt;
 &lt;p&gt;The process to use instanced elements is as follows:&lt;&#x2F;p&gt;
 &lt;ol&gt;
-&lt;li&gt;Define a bunch of unique vertices (4 vertices for a square).&lt;&#x2F;li&gt;
-&lt;li&gt;Define a single element by specifying the vertice indexes that make it up (vertex 1, vertex 2, vertex 3, and so on).&lt;&#x2F;li&gt;
-&lt;li&gt;Say how many occurrences of that element to render (draw 5000000 instances of this square!!)&lt;&#x2F;li&gt;
+&lt;li&gt;Define a bunch of unique vertices (&lt;em&gt;4 vertices for a square&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Define a single element by specifying the vertice indexes that make it up (&lt;em&gt;vertex 1, vertex 2, vertex 3, and so on&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Say how many occurrences of that element to render (&lt;em&gt;draw 5000000 instances of this square!!&lt;&#x2F;em&gt;)&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;A square would have &lt;em&gt;4&lt;&#x2F;em&gt; vertices total, &lt;em&gt;1&lt;&#x2F;em&gt; triangle fan element, and &lt;em&gt;1&lt;&#x2F;em&gt; instance of it for a single one.&lt;&#x2F;p&gt;
 &lt;p&gt;Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
 More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;infinity-is-a-long-way-especially-towards-the-end&quot;&gt;Infinity is a long way, especially towards the end.&lt;&#x2F;h2&gt;
 &lt;p&gt;An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid&#x27;s panning.&lt;&#x2F;p&gt;
-&lt;p&gt;The exact number depends on the square size. With a 16x16 pixels size square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 &#x2F; 16) * (1080 &#x2F; 16) + padding[1920 &#x2F;16 +1080&#x2F;16]).&lt;&#x2F;p&gt;
-&lt;p&gt;A common approach to make it look infinite is to adjust its x and y position to be &lt;code&gt;size - pan % size&lt;&#x2F;code&gt;  when moving the grid.
-I tried many variations of this modulo and division approaches in the past &amp;quot;with varying degrees of success&amp;quot; (failure).
-Either precision errors started showing in some grid transformations (zooming, rotation, etc.), or subtle flickering would appear because of minor miscalculations that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or squares would disappear.
-So nothing unusual, just another day with my code.&lt;&#x2F;p&gt;
+&lt;p&gt;The exact number depends on both the square size and screen size. With a 16x16 pixels sized square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 &#x2F; 16) * (1080 &#x2F; 16) + padding[1920 &#x2F;16 +1080&#x2F;16]).&lt;&#x2F;p&gt;
+&lt;p&gt;A common approach to make it look infinite is to adjust its x and y position to be &lt;code&gt;size - pan % size&lt;&#x2F;code&gt;  when moving the grid.&lt;&#x2F;p&gt;
+&lt;p&gt;I tried many variations of this &lt;em&gt;modulo and division&lt;&#x2F;em&gt; approaches in the past &amp;quot;with varying degrees of success&amp;quot; (read: failure ☠️).
+Either precision errors started showing in some grid transformations (zooming, rotation, etc.)🔥, or subtle flickering would appear because of minor miscalculations ؇ that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or 🙈 squares would disappear.&lt;&#x2F;p&gt;
+&lt;p&gt;So nothing unusual, just another day with my code 🤯.&lt;&#x2F;p&gt;
 &lt;p&gt;Scrap all that. In the end, the best approach for an infinite grid that these two neurons could muster is more straightforward than those modulo and margin square adjustments.
 It goes like this:&lt;&#x2F;p&gt;
 &lt;ol&gt;

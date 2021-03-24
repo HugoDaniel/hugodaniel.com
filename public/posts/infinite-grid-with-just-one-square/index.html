@@ -88,12 +88,12 @@ breaking at most of the device's pixel ratios and CPU usage abuse wrapped in lea
 <p>The plan now is to change the part that needs to be improved: <em>the WebGL version.</em></p>
 <h2 id="single-in-shape">Single, in shape</h2>
 <p>WebGL focuses on triangles. A square is nothing more than two triangles glued together.</p>
-<p>There are a couple of primitives to describe triangles with WebGL. The &quot;triangle fan&quot; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.</p>
+<p>There are a couple of primitives to describe triangles with WebGL. The <em>&quot;triangle fan&quot;</em> has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.</p>
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/triangle_fan.webm" type="video/webm">
   <source src="/videos/triangle_fan2.mp4" type="video/mp4">
 </video>
-<p>On top of it, a triangle fan works well together with a line strip.
+<p>On top of it, a <strong>triangle fan</strong> works well together with a <strong>line stripe</strong>.
 I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.</p>
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/line_stripe.webm" type="video/webm">
@@ -104,20 +104,20 @@ I can create an outline for the shape using the same mesh of points, no need to 
 <p>WebGL 2 brings <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced">instanced drawing</a> mode for the mesh masses.</p>
 <p>The process to use instanced elements is as follows:</p>
 <ol>
-<li>Define a bunch of unique vertices (4 vertices for a square).</li>
-<li>Define a single element by specifying the vertice indexes that make it up (vertex 1, vertex 2, vertex 3, and so on).</li>
-<li>Say how many occurrences of that element to render (draw 5000000 instances of this square!!)</li>
+<li>Define a bunch of unique vertices (<em>4 vertices for a square</em>).</li>
+<li>Define a single element by specifying the vertice indexes that make it up (<em>vertex 1, vertex 2, vertex 3, and so on</em>).</li>
+<li>Say how many occurrences of that element to render (<em>draw 5000000 instances of this square!!</em>)</li>
 </ol>
 <p>A square would have <em>4</em> vertices total, <em>1</em> triangle fan element, and <em>1</em> instance of it for a single one.</p>
 <p>Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
 More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).</p>
 <h2 id="infinity-is-a-long-way-especially-towards-the-end">Infinity is a long way, especially towards the end.</h2>
 <p>An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid's panning.</p>
-<p>The exact number depends on the square size. With a 16x16 pixels size square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).</p>
-<p>A common approach to make it look infinite is to adjust its x and y position to be <code>size - pan % size</code>  when moving the grid.
-I tried many variations of this modulo and division approaches in the past &quot;with varying degrees of success&quot; (failure).
-Either precision errors started showing in some grid transformations (zooming, rotation, etc.), or subtle flickering would appear because of minor miscalculations that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or squares would disappear.
-So nothing unusual, just another day with my code.</p>
+<p>The exact number depends on both the square size and screen size. With a 16x16 pixels sized square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).</p>
+<p>A common approach to make it look infinite is to adjust its x and y position to be <code>size - pan % size</code>  when moving the grid.</p>
+<p>I tried many variations of this <em>modulo and division</em> approaches in the past &quot;with varying degrees of success&quot; (read: failure ☠️).
+Either precision errors started showing in some grid transformations (zooming, rotation, etc.)🔥, or subtle flickering would appear because of minor miscalculations ؇ that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or 🙈 squares would disappear.</p>
+<p>So nothing unusual, just another day with my code 🤯.</p>
 <p>Scrap all that. In the end, the best approach for an infinite grid that these two neurons could muster is more straightforward than those modulo and margin square adjustments.
 It goes like this:</p>
 <ol>

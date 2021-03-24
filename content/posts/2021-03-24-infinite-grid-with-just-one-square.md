@@ -26,7 +26,7 @@ The plan now is to change the part that needs to be improved: _the WebGL version
 
 WebGL focuses on triangles. A square is nothing more than two triangles glued together.
 
-There are a couple of primitives to describe triangles with WebGL. The "triangle fan" has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.
+There are a couple of primitives to describe triangles with WebGL. The _"triangle fan"_ has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.
 
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/triangle_fan.webm" type="video/webm">
@@ -34,7 +34,7 @@ There are a couple of primitives to describe triangles with WebGL. The "triangle
 </video>
 
 
-On top of it, a triangle fan works well together with a line strip.
+On top of it, a **triangle fan** works well together with a **line stripe**.
 I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.
 
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
@@ -50,9 +50,9 @@ WebGL 2 brings [instanced drawing](https://developer.mozilla.org/en-US/docs/Web/
 
 The process to use instanced elements is as follows:
 
-1. Define a bunch of unique vertices (4 vertices for a square).
-1. Define a single element by specifying the vertice indexes that make it up (vertex 1, vertex 2, vertex 3, and so on).
-1. Say how many occurrences of that element to render (draw 5000000 instances of this square!!)
+1. Define a bunch of unique vertices (_4 vertices for a square_).
+1. Define a single element by specifying the vertice indexes that make it up (_vertex 1, vertex 2, vertex 3, and so on_).
+1. Say how many occurrences of that element to render (_draw 5000000 instances of this square!!_)
 
 A square would have _4_ vertices total, _1_ triangle fan element, and _1_ instance of it for a single one.
 
@@ -63,12 +63,14 @@ More importantly, the seed mesh can be changed to any shape, effectively giving 
 
 An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid's panning.
 
-The exact number depends on the square size. With a 16x16 pixels size square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).
+The exact number depends on both the square size and screen size. With a 16x16 pixels sized square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).
 
 A common approach to make it look infinite is to adjust its x and y position to be `size - pan % size`  when moving the grid.
-I tried many variations of this modulo and division approaches in the past "with varying degrees of success" (failure).
-Either precision errors started showing in some grid transformations (zooming, rotation, etc.), or subtle flickering would appear because of minor miscalculations that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or squares would disappear.
-So nothing unusual, just another day with my code.
+
+I tried many variations of this _modulo and division_ approaches in the past "with varying degrees of success" (read: failure ☠️).
+Either precision errors started showing in some grid transformations (zooming, rotation, etc.)🔥, or subtle flickering would appear because of minor miscalculations ؇ that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or 🙈 squares would disappear.
+
+So nothing unusual, just another day with my code 🤯.
 
 Scrap all that. In the end, the best approach for an infinite grid that these two neurons could muster is more straightforward than those modulo and margin square adjustments.
 It goes like this:
@@ -78,7 +80,6 @@ It goes like this:
 1. Only place the number of squares needed to fill the viewport.
 
 Here is a rough sketch:
-
 
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/ortho_projection.webm" type="video/webm">
