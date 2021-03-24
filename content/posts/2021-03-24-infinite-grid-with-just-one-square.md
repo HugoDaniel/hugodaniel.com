@@ -90,9 +90,9 @@ It is easy(er), and the GPU can do these calculations at lightning speed.
 
 ## Pick me up before I go.
 
-Selecting the grid element below the mouse pointer or at the touch position is sometimes called "picking" in the streets of graphics programming. You "pick" the shape by mousing over it or touching it with those beautiful fingers.
+In the streets of graphics programming, selecting the grid element below the mouse pointer or at the touch position is sometimes called "picking". You "pick" the shape by mousing over it or touching it with those beautiful fingers.
 
-The typical "simple" approach involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
+The typical "simple" approach to perform this involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
 
 However, I want to explore a standard "picking" technique that works with any shape.
 A global picking method compatible with anything I can throw at it.
@@ -153,14 +153,14 @@ I am working on its second iteration after the first release. I will evolve and 
 The road ahead for `<shader_canvas>` is like this in my head, things are going to change for sure:
 
 1. Release `<shader_canvas>` proof of concept ([occured in 2021-03-03](https://hugodaniel.com/posts/high-level-webgl-low-level-tags/))
-1. The first iteration of the proof of concept with a focus on its modules (in 2021-03-15)
-1. A second iteration of the proof of concept with a focus on framebuffers and texture arrays/atlas (ongoing)
+1. The first iteration of the proof of concept with a focus on its modules (in [2021-03-15](https://github.com/HugoDaniel/shader_canvas/blob/main/CHANGELOG.md))
+1. A second iteration of the proof of concept with a focus on framebuffers and texture arrays/atlas (_ongoing_)
 1. A third iteration of the proof of concept with a focus on animation and transform feedbacks (to be done)
-1. Version 2.0.0 release
+1. Version 2.0.0 release:
   - Change it into a simple "compiler."
   - Provide the first support for the Metal graphics framework.
   - It will only happen when the "Shape The Pixel" web app is released, and the [deno_tag](https://hugodaniel.com/posts/introducing-deno-tag/) and the [GLSL parser](https://deno.land/x/glsl_variables@v1.0.2) get some planned updates - they are all connected 🤫.
-  - **Demos and examples will only show up here at this stage**
+  - _Demos and examples will only show up here at this 2.0 stage_
 
 ### Conclusion
 
