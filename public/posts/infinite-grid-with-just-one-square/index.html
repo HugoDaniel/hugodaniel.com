@@ -88,7 +88,7 @@ breaking at most of the device's pixel ratios and CPU usage abuse wrapped in lea
 <p>The plan now is to change the part that needs to be improved: <em>the WebGL version.</em></p>
 <h2 id="single-in-shape">Single, in shape</h2>
 <p>WebGL focuses on triangles. A square is nothing more than two triangles glued together.</p>
-<p>There are a couple of primitives to describe triangles with WebGL. The <em>&quot;triangle fan&quot;</em> has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.</p>
+<p>There are a couple of primitives to describe triangles with WebGL. The <em>&quot;triangle fan&quot;</em> has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertex. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.</p>
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/triangle_fan.webm" type="video/webm">
   <source src="/videos/triangle_fan2.mp4" type="video/mp4">
@@ -105,12 +105,12 @@ I can create an outline for the shape using the same mesh of points, no need to 
 <p>The process to use instanced elements is as follows:</p>
 <ol>
 <li>Define a bunch of unique vertices (<em>4 vertices for a square</em>).</li>
-<li>Define a single element by specifying the vertice indexes that make it up (<em>vertex 1, vertex 2, vertex 3, and so on</em>).</li>
+<li>Define a single element by specifying the vertex indexes that make it up (<em>vertex 1, vertex 2, vertex 3, and so on</em>).</li>
 <li>Say how many occurrences of that element to render (<em>draw 5000000 instances of this square!!</em>)</li>
 </ol>
-<p>A square would have <em>4</em> vertices total, <em>1</em> triangle fan element, and <em>1</em> instance of it for a single one.</p>
+<p>A single square would have <em>4</em> vertices total, <em>1</em> triangle fan element, and <em>1</em> instance of it (its a single square).</p>
 <p>Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
-More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).</p>
+More importantly, the seed mesh can be changed to any shape, effectively allowing for infinite grids of any tileable form (or non-tileable if its your thing).</p>
 <h2 id="infinity-is-a-long-way-especially-towards-the-end">Infinity is a long way, especially towards the end.</h2>
 <p>An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid's panning.</p>
 <p>The exact number depends on both the square size and screen size. With a 16x16 pixels sized square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).</p>
@@ -133,8 +133,8 @@ It goes like this:</p>
 <p>It is easy(er), and the GPU can do these calculations at lightning speed.</p>
 <h2 id="pick-me-up-before-i-go">Pick me up before I go.</h2>
 <p>In the streets of graphics programming, selecting the grid element below the mouse pointer or at the touch position is sometimes called &quot;picking&quot;. You &quot;pick&quot; the shape by mousing over it or touching it with those beautiful fingers.</p>
-<p>The typical &quot;simple&quot; approach to perform this involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is &quot;very easy&quot; when all the squares always align with the x/y axis and have the same size.</p>
-<p>However, I want to explore a standard &quot;picking&quot; technique that works with any shape.
+<p>The typical &quot;simple&quot; approach to perform this involves doing the shape&lt;-&gt;mouse intersection with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each different figure (an intersection function for squares, another for hexagons, another for triangles, etc.). Doing it for a square grid is &quot;very easy&quot; when all the squares always align with the x/y axis and have the same size.</p>
+<p>This time I want to explore a different, but common, technique for &quot;picking&quot;. One that works with any shape.
 A global picking method compatible with anything I can throw at it.</p>
 <p>It goes like this:</p>
 <ol>

@@ -26,7 +26,7 @@ The plan now is to change the part that needs to be improved: _the WebGL version
 
 WebGL focuses on triangles. A square is nothing more than two triangles glued together.
 
-There are a couple of primitives to describe triangles with WebGL. The _"triangle fan"_ has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.
+There are a couple of primitives to describe triangles with WebGL. The _"triangle fan"_ has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertex. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.
 
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>
   <source src="/videos/triangle_fan.webm" type="video/webm">
@@ -51,13 +51,13 @@ WebGL 2 brings [instanced drawing](https://developer.mozilla.org/en-US/docs/Web/
 The process to use instanced elements is as follows:
 
 1. Define a bunch of unique vertices (_4 vertices for a square_).
-1. Define a single element by specifying the vertice indexes that make it up (_vertex 1, vertex 2, vertex 3, and so on_).
+1. Define a single element by specifying the vertex indexes that make it up (_vertex 1, vertex 2, vertex 3, and so on_).
 1. Say how many occurrences of that element to render (_draw 5000000 instances of this square!!_)
 
-A square would have _4_ vertices total, _1_ triangle fan element, and _1_ instance of it for a single one.
+A single square would have _4_ vertices total, _1_ triangle fan element, and _1_ instance of it (its a single square).
 
 Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
-More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).
+More importantly, the seed mesh can be changed to any shape, effectively allowing for infinite grids of any tileable form (or non-tileable if its your thing).
 
 ## Infinity is a long way, especially towards the end.
 
@@ -92,9 +92,9 @@ It is easy(er), and the GPU can do these calculations at lightning speed.
 
 In the streets of graphics programming, selecting the grid element below the mouse pointer or at the touch position is sometimes called "picking". You "pick" the shape by mousing over it or touching it with those beautiful fingers.
 
-The typical "simple" approach to perform this involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
+The typical "simple" approach to perform this involves doing the shape<->mouse intersection with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each different figure (an intersection function for squares, another for hexagons, another for triangles, etc.). Doing it for a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
 
-However, I want to explore a standard "picking" technique that works with any shape.
+This time I want to explore a different, but common, technique for "picking". One that works with any shape.
 A global picking method compatible with anything I can throw at it.
 
 It goes like this:

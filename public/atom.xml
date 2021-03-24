@@ -25,7 +25,7 @@ breaking at most of the device&#x27;s pixel ratios and CPU usage abuse wrapped i
 &lt;p&gt;The plan now is to change the part that needs to be improved: &lt;em&gt;the WebGL version.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;single-in-shape&quot;&gt;Single, in shape&lt;&#x2F;h2&gt;
 &lt;p&gt;WebGL focuses on triangles. A square is nothing more than two triangles glued together.&lt;&#x2F;p&gt;
-&lt;p&gt;There are a couple of primitives to describe triangles with WebGL. The &lt;em&gt;&amp;quot;triangle fan&amp;quot;&lt;&#x2F;em&gt; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.&lt;&#x2F;p&gt;
+&lt;p&gt;There are a couple of primitives to describe triangles with WebGL. The &lt;em&gt;&amp;quot;triangle fan&amp;quot;&lt;&#x2F;em&gt; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertex. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.&lt;&#x2F;p&gt;
 &lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan2.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
@@ -42,12 +42,12 @@ I can create an outline for the shape using the same mesh of points, no need to 
 &lt;p&gt;The process to use instanced elements is as follows:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;Define a bunch of unique vertices (&lt;em&gt;4 vertices for a square&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
-&lt;li&gt;Define a single element by specifying the vertice indexes that make it up (&lt;em&gt;vertex 1, vertex 2, vertex 3, and so on&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Define a single element by specifying the vertex indexes that make it up (&lt;em&gt;vertex 1, vertex 2, vertex 3, and so on&lt;&#x2F;em&gt;).&lt;&#x2F;li&gt;
 &lt;li&gt;Say how many occurrences of that element to render (&lt;em&gt;draw 5000000 instances of this square!!&lt;&#x2F;em&gt;)&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;A square would have &lt;em&gt;4&lt;&#x2F;em&gt; vertices total, &lt;em&gt;1&lt;&#x2F;em&gt; triangle fan element, and &lt;em&gt;1&lt;&#x2F;em&gt; instance of it for a single one.&lt;&#x2F;p&gt;
+&lt;p&gt;A single square would have &lt;em&gt;4&lt;&#x2F;em&gt; vertices total, &lt;em&gt;1&lt;&#x2F;em&gt; triangle fan element, and &lt;em&gt;1&lt;&#x2F;em&gt; instance of it (its a single square).&lt;&#x2F;p&gt;
 &lt;p&gt;Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
-More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).&lt;&#x2F;p&gt;
+More importantly, the seed mesh can be changed to any shape, effectively allowing for infinite grids of any tileable form (or non-tileable if its your thing).&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;infinity-is-a-long-way-especially-towards-the-end&quot;&gt;Infinity is a long way, especially towards the end.&lt;&#x2F;h2&gt;
 &lt;p&gt;An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid&#x27;s panning.&lt;&#x2F;p&gt;
 &lt;p&gt;The exact number depends on both the square size and screen size. With a 16x16 pixels sized square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 &#x2F; 16) * (1080 &#x2F; 16) + padding[1920 &#x2F;16 +1080&#x2F;16]).&lt;&#x2F;p&gt;
@@ -70,8 +70,8 @@ It goes like this:&lt;&#x2F;p&gt;
 &lt;p&gt;It is easy(er), and the GPU can do these calculations at lightning speed.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;pick-me-up-before-i-go&quot;&gt;Pick me up before I go.&lt;&#x2F;h2&gt;
 &lt;p&gt;In the streets of graphics programming, selecting the grid element below the mouse pointer or at the touch position is sometimes called &amp;quot;picking&amp;quot;. You &amp;quot;pick&amp;quot; the shape by mousing over it or touching it with those beautiful fingers.&lt;&#x2F;p&gt;
-&lt;p&gt;The typical &amp;quot;simple&amp;quot; approach to perform this involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is &amp;quot;very easy&amp;quot; when all the squares always align with the x&#x2F;y axis and have the same size.&lt;&#x2F;p&gt;
-&lt;p&gt;However, I want to explore a standard &amp;quot;picking&amp;quot; technique that works with any shape.
+&lt;p&gt;The typical &amp;quot;simple&amp;quot; approach to perform this involves doing the shape&amp;lt;-&amp;gt;mouse intersection with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each different figure (an intersection function for squares, another for hexagons, another for triangles, etc.). Doing it for a square grid is &amp;quot;very easy&amp;quot; when all the squares always align with the x&#x2F;y axis and have the same size.&lt;&#x2F;p&gt;
+&lt;p&gt;This time I want to explore a different, but common, technique for &amp;quot;picking&amp;quot;. One that works with any shape.
 A global picking method compatible with anything I can throw at it.&lt;&#x2F;p&gt;
 &lt;p&gt;It goes like this:&lt;&#x2F;p&gt;
 &lt;ol&gt;
