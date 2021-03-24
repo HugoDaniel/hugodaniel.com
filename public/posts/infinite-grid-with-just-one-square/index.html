@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Hugo Daniel's site about ideas and software experimentations">
+		
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
+		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>Infinite grid with just one square</title>
+			<meta name="twitter:title" content="Infinite grid with just one square">
+			<meta property="og:title" content="Infinite grid with just one square">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="Hugo Daniel's site about ideas and software experimentations">
+			<meta property="og:description" content="Hugo Daniel's site about ideas and software experimentations">
+		
+		
+			<meta property="og:article:published_time" content="2021-03-24">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;infinite-grid-with-just-one-square&#x2F;">
+		
+			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;infinite_square_grid.png" >
+			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;infinite_square_grid.png" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> Infinite grid with just one square </h1>
+			<p>  </p>
+			<nav>
+				<time datetime="2021-03-24">24-Mar-2021</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p>Around 2017, I took up more seriously the &quot;Grid Generator&quot; project.
+A Web App to explore the possibilities of an infinite grid of squares.
+Driven primarily out of curiosity, I wondered if even I could create something cool with an endless grid of customizable squares?</p>
+<p>I spent almost two years on it. Two years of trial and error iterations in code, UI, product orientation, business, and failing hard at all those things and so many others. &quot;This time will be different.&quot;</p>
+<h2 id="webgl-2-flex-its-wings">WebGL 2 flex its wings.</h2>
+<p>To do an infinite grid in WebGL 1, I used many buffers and sluggish texture updates at each frame (and vast texture atlases).
+The shaders code was a mess. Memory usage was like a rocket while at use.
+It also did not benefit from my rusty elementary math and miscalculations,
+breaking at most of the device's pixel ratios and CPU usage abuse wrapped in leaky abstractions.</p>
+<p>The plan now is to change the part that needs to be improved: <em>the WebGL version.</em></p>
+<h2 id="single-in-shape">Single, in shape</h2>
+<p>WebGL focuses on triangles. A square is nothing more than two triangles glued together.</p>
+<p>There are a couple of primitives to describe triangles with WebGL. The &quot;triangle fan&quot; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.</p>
+<video autoplay="autoplay" muted loop preload width="100%" playsinline>
+  <source src="/videos/triangle_fan.webm" type="video/webm">
+  <source src="/videos/triangle_fan2.mp4" type="video/mp4">
+</video>
+<p>On top of it, a triangle fan works well together with a line strip.
+I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.</p>
+<video autoplay="autoplay" muted loop preload width="100%" playsinline>
+  <source src="/videos/line_stripe.webm" type="video/webm">
+  <source src="/videos/line_stripe.mp4" type="video/mp4">
+</video>
+<p>There it is, a square and its outline all alone in the world.</p>
+<h2 id="take-a-square-for-instance">Take a square, for instance.</h2>
+<p>WebGL 2 brings <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced">instanced drawing</a> mode for the mesh masses.</p>
+<p>The process to use instanced elements is as follows:</p>
+<ol>
+<li>Define a bunch of unique vertices (4 vertices for a square).</li>
+<li>Define a single element by specifying the vertice indexes that make it up (vertex 1, vertex 2, vertex 3, and so on).</li>
+<li>Say how many occurrences of that element to render (draw 5000000 instances of this square!!)</li>
+</ol>
+<p>A square would have <em>4</em> vertices total, <em>1</em> triangle fan element, and <em>1</em> instance of it for a single one.</p>
+<p>Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
+More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).</p>
+<h2 id="infinity-is-a-long-way-especially-towards-the-end">Infinity is a long way, especially towards the end.</h2>
+<p>An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid's panning.</p>
+<p>The exact number depends on the square size. With a 16x16 pixels size square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 / 16) * (1080 / 16) + padding[1920 /16 +1080/16]).</p>
+<p>A common approach to make it look infinite is to adjust its x and y position to be <code>size - pan % size</code>  when moving the grid.
+I tried many variations of this modulo and division approaches in the past &quot;with varying degrees of success&quot; (failure).
+Either precision errors started showing in some grid transformations (zooming, rotation, etc.), or subtle flickering would appear because of minor miscalculations that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or squares would disappear.
+So nothing unusual, just another day with my code.</p>
+<p>Scrap all that. In the end, the best approach for an infinite grid that these two neurons could muster is more straightforward than those modulo and margin square adjustments.
+It goes like this:</p>
+<ol>
+<li>Set up an <a href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic viewport projection</a> transformation.</li>
+<li>When it moves/zooms, place the squares in it at the positions they would typically be at (i.e., no modulo or tricks or transformations, start at the top left index for the current viewport transformation and fill the screen with squares).</li>
+<li>Only place the number of squares needed to fill the viewport.</li>
+</ol>
+<p>Here is a rough sketch:</p>
+<video autoplay="autoplay" muted loop preload width="100%" playsinline>
+  <source src="/videos/ortho_projection.webm" type="video/webm">
+  <source src="/videos/ortho_projection.mp4" type="video/mp4">
+</video>
+<p>It is easy(er), and the GPU can do these calculations at lightning speed.</p>
+<h2 id="pick-me-up-before-i-go">Pick me up before I go.</h2>
+<p>Selecting the grid element below the mouse pointer or at the touch position is sometimes called &quot;picking&quot; in the streets of graphics programming. You &quot;pick&quot; the shape by mousing over it or touching it with those beautiful fingers.</p>
+<p>The typical &quot;simple&quot; approach involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is &quot;very easy&quot; when all the squares always align with the x/y axis and have the same size.</p>
+<p>However, I want to explore a standard &quot;picking&quot; technique that works with any shape.
+A global picking method compatible with anything I can throw at it.</p>
+<p>It goes like this:</p>
+<ol>
+<li>Draw the grid into multiple targets, the screen, and an array in GPU memory.</li>
+<li>On the screen, paint the shapes as expected (their colors, etc.). On the array in memory, &quot;paint&quot; only the shape ids.</li>
+<li>When the mouse moves/interacts, get the shape id by reading the pixel at the current mouse position from the shape ids array.</li>
+</ol>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/mrt.webm" type="video/webm">
+  <source src="/videos/mrt.mp4" type="video/mp4">
+</video>
+<p>This way, it is possible to get the shape id at each screen pixel, and when the mouse moves over a pixel or a finger touches the screen, the code looks for the shape id in the array of shape ids instead.</p>
+<h3 id="jargon">Jargon</h3>
+<p>This technique is sometimes named &quot;single-pass picking&quot; and makes use of WebGL MRT (<a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.11">Multiple-Render-Targets</a> - the screen and the array) and PBOs (<a href="https://www.khronos.org/registry/OpenGL/specs/es/3.0/es_spec_3.0.pdf#subsection.3.7.1">Pixel-Buffer-Objects</a> - arrays to use as if they were a screen).</p>
+<h3 id="benefits">Benefits</h3>
+<p>It can work with any shape, with no need for special intersection functions.</p>
+<h3 id="drawbacks">Drawbacks</h3>
+<ul>
+<li>It is much slower than using specialized intersection functions.</li>
+<li>It requires extra memory for the arrays, and they need additional copies to leave the GPU and reach the CPU.</li>
+<li>It can introduce &quot;pipeline stalls&quot; (WebGL is primarily a &quot;write-only&quot; API, intended to write colors to the screen/arrays - things can get complicated when reading these values back from WebGL).</li>
+</ul>
+<h3 id="optimizations">Optimizations</h3>
+<p>Many optimizations can limit these drawbacks. Here is my favorite optimization of them all:</p>
+<ul>
+<li>Do nothing. Avoid work at all costs.</li>
+</ul>
+<p>That is a 100% optimization right there. It beats &quot;doing it faster&quot; every time. Some even apply this to life in general with great success.</p>
+<p>For this particular case of shape picking, it can be fruitful to avoid doing any work at all for the most part.
+Reading pixels from the screen/array is expensive and complicated.
+In WebGL, this requires at least one flush and one sync outside of the frame boundaries (besides the array copy).
+These have severe performance costs and do not fit at every mouse move or frame.</p>
+<p>For the particular case of a grid, interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving the grid.
+A grid changes when there is a panning or zooming action. Besides those two actions, it stays the same. The shape ids are at the same position all the time (even if their contents change, the ids remain at the same place provided no translation or zooming is going on).</p>
+<p>Interacting with grid elements only happens after the pan/zoom action finishes, which is the perfect place to &quot;hide&quot; the flush/sync/copy operation. Once right after the panning/zooming ends, WebGL renders the shape id's to multiple targets, flushes/syncs, and copies the array to the CPU, where it stays static forever (at least until some following pan/zoom operation finishes). Interacting with the grid is then only about reading this array for shape ids, with no need for WebGL or position updates.</p>
+<h2 id="what-is-next-for-shader-canvas">What is next for <code>&lt;shader_canvas&gt;</code>?</h2>
+<p>You can read the code for this at the <a href="https://github.com/HugoDaniel/shader_canvas/tree/main/examples/6-infinite-grid">Shader Canvas repository</a> (still in progress).</p>
+<p><a href="/projects/shader-canvas/">Shader Canvas</a> is my low-level framework for graphics programming. It consists of HTML tags that perform each WebGL function, bringing the API into a declarative space.</p>
+<p>I am working on its second iteration after the first release. I will evolve and use this framework for my next drawing web app called &quot;Shape The Pixel&quot;.
+The road ahead for <code>&lt;shader_canvas&gt;</code> is like this in my head, things are going to change for sure:</p>
+<ol>
+<li>Release <code>&lt;shader_canvas&gt;</code> proof of concept (occured in 2021-03-03)</li>
+<li>The first iteration of the proof of concept with a focus on its modules (in 2021-03-15)</li>
+<li>A second iteration of the proof of concept with a focus on framebuffers and texture arrays/atlas (ongoing)</li>
+<li>A third iteration of the proof of concept with a focus on animation and transform feedbacks (to be done)</li>
+<li>Version 2.0.0 release</li>
+</ol>
+<ul>
+<li>Change it into a simple &quot;compiler.&quot;</li>
+<li>Provide the first support for the Metal graphics framework.</li>
+<li>It will only happen when the &quot;Shape The Pixel&quot; web app is released, and the <a href="https://hugodaniel.com/posts/introducing-deno-tag/">deno_tag</a> and the <a href="https://deno.land/x/glsl_variables@v1.0.2">GLSL parser</a> get some planned updates - they are all connected 🤫.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>Drawing an infinite grid in WebGL 2 can be done using its instance drawing functions to avoid repeating vertices and multiple-render-targets for picking.
+Read the pixels only once when the grid panning/zooming operation finishes to avoid WebGL pipeline stalls.
+Using these two WebGL graphics techniques allows for infinite grids of custom shapes so that shape updates happen (mostly) only at the single seed mesh/shape level.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/tris.webm" type="video/webm">
+  <source src="/videos/tris.mp4" type="video/mp4">
+</video>
+
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>

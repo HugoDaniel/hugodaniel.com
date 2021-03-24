@@ -4,8 +4,135 @@
 	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://hugodaniel.com"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2021-03-03T00:00:00+00:00</updated>
+	<updated>2021-03-24T00:00:00+00:00</updated>
 	<id>https://hugodaniel.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Infinite grid with just one square</title>
+		<published>2021-03-24T00:00:00+00:00</published>
+		<updated>2021-03-24T00:00:00+00:00</updated>
+		<link href="https://hugodaniel.com/posts/infinite-grid-with-just-one-square/" type="text/html"/>
+		<id>https://hugodaniel.com/posts/infinite-grid-with-just-one-square/</id>
+		<content type="html">&lt;p&gt;Around 2017, I took up more seriously the &amp;quot;Grid Generator&amp;quot; project.
+A Web App to explore the possibilities of an infinite grid of squares.
+Driven primarily out of curiosity, I wondered if even I could create something cool with an endless grid of customizable squares?&lt;&#x2F;p&gt;
+&lt;p&gt;I spent almost two years on it. Two years of trial and error iterations in code, UI, product orientation, business, and failing hard at all those things and so many others. &amp;quot;This time will be different.&amp;quot;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;webgl-2-flex-its-wings&quot;&gt;WebGL 2 flex its wings.&lt;&#x2F;h2&gt;
+&lt;p&gt;To do an infinite grid in WebGL 1, I used many buffers and sluggish texture updates at each frame (and vast texture atlases).
+The shaders code was a mess. Memory usage was like a rocket while at use.
+It also did not benefit from my rusty elementary math and miscalculations,
+breaking at most of the device&#x27;s pixel ratios and CPU usage abuse wrapped in leaky abstractions.&lt;&#x2F;p&gt;
+&lt;p&gt;The plan now is to change the part that needs to be improved: &lt;em&gt;the WebGL version.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;single-in-shape&quot;&gt;Single, in shape&lt;&#x2F;h2&gt;
+&lt;p&gt;WebGL focuses on triangles. A square is nothing more than two triangles glued together.&lt;&#x2F;p&gt;
+&lt;p&gt;There are a couple of primitives to describe triangles with WebGL. The &amp;quot;triangle fan&amp;quot; has excellent properties that I like to use. It allows triangle meshes to be represented by adding vertices on top of a root vertice. It is not only fast to process a triangle fan mesh, but it also can save a lot of space by avoiding vertices to be repeatedly declared per triangle.&lt;&#x2F;p&gt;
+&lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan2.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;On top of it, a triangle fan works well together with a line strip.
+I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.&lt;&#x2F;p&gt;
+&lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;line_stripe.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;line_stripe.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;There it is, a square and its outline all alone in the world.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;take-a-square-for-instance&quot;&gt;Take a square, for instance.&lt;&#x2F;h2&gt;
+&lt;p&gt;WebGL 2 brings &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;WebGL2RenderingContext&#x2F;drawElementsInstanced&quot;&gt;instanced drawing&lt;&#x2F;a&gt; mode for the mesh masses.&lt;&#x2F;p&gt;
+&lt;p&gt;The process to use instanced elements is as follows:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Define a bunch of unique vertices (4 vertices for a square).&lt;&#x2F;li&gt;
+&lt;li&gt;Define a single element by specifying the vertice indexes that make it up (vertex 1, vertex 2, vertex 3, and so on).&lt;&#x2F;li&gt;
+&lt;li&gt;Say how many occurrences of that element to render (draw 5000000 instances of this square!!)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;A square would have &lt;em&gt;4&lt;&#x2F;em&gt; vertices total, &lt;em&gt;1&lt;&#x2F;em&gt; triangle fan element, and &lt;em&gt;1&lt;&#x2F;em&gt; instance of it for a single one.&lt;&#x2F;p&gt;
+&lt;p&gt;Using instances of a simple mesh can be faster to draw (fewer draw calls per frame).
+More importantly, the seed mesh can be changed to any shape, effectively giving infinite grids of any tileable form (or non-tileable if its your thing).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;infinity-is-a-long-way-especially-towards-the-end&quot;&gt;Infinity is a long way, especially towards the end.&lt;&#x2F;h2&gt;
+&lt;p&gt;An infinite grid needs to have at least enough squares to fill the whole screen, plus padding of one row and one column to accommodate the grid&#x27;s panning.&lt;&#x2F;p&gt;
+&lt;p&gt;The exact number depends on the square size. With a 16x16 pixels size square, at least ~8300 instances are needed to cover a 1920x1080 pixels canvas ((1920 &#x2F; 16) * (1080 &#x2F; 16) + padding[1920 &#x2F;16 +1080&#x2F;16]).&lt;&#x2F;p&gt;
+&lt;p&gt;A common approach to make it look infinite is to adjust its x and y position to be &lt;code&gt;size - pan % size&lt;&#x2F;code&gt;  when moving the grid.
+I tried many variations of this modulo and division approaches in the past &amp;quot;with varying degrees of success&amp;quot; (failure).
+Either precision errors started showing in some grid transformations (zooming, rotation, etc.), or subtle flickering would appear because of minor miscalculations that would then get emphasized with the conversion between the JavaScript 64bit floats and the GPU 32bit floats, or squares would disappear.
+So nothing unusual, just another day with my code.&lt;&#x2F;p&gt;
+&lt;p&gt;Scrap all that. In the end, the best approach for an infinite grid that these two neurons could muster is more straightforward than those modulo and margin square adjustments.
+It goes like this:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set up an &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Orthographic_projection&quot;&gt;orthographic viewport projection&lt;&#x2F;a&gt; transformation.&lt;&#x2F;li&gt;
+&lt;li&gt;When it moves&#x2F;zooms, place the squares in it at the positions they would typically be at (i.e., no modulo or tricks or transformations, start at the top left index for the current viewport transformation and fill the screen with squares).&lt;&#x2F;li&gt;
+&lt;li&gt;Only place the number of squares needed to fill the viewport.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Here is a rough sketch:&lt;&#x2F;p&gt;
+&lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;ortho_projection.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;ortho_projection.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;It is easy(er), and the GPU can do these calculations at lightning speed.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pick-me-up-before-i-go&quot;&gt;Pick me up before I go.&lt;&#x2F;h2&gt;
+&lt;p&gt;Selecting the grid element below the mouse pointer or at the touch position is sometimes called &amp;quot;picking&amp;quot; in the streets of graphics programming. You &amp;quot;pick&amp;quot; the shape by mousing over it or touching it with those beautiful fingers.&lt;&#x2F;p&gt;
+&lt;p&gt;The typical &amp;quot;simple&amp;quot; approach involves doing the intersections with the shape and the mouse position with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each figure. Doing it in a square grid is &amp;quot;very easy&amp;quot; when all the squares always align with the x&#x2F;y axis and have the same size.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I want to explore a standard &amp;quot;picking&amp;quot; technique that works with any shape.
+A global picking method compatible with anything I can throw at it.&lt;&#x2F;p&gt;
+&lt;p&gt;It goes like this:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Draw the grid into multiple targets, the screen, and an array in GPU memory.&lt;&#x2F;li&gt;
+&lt;li&gt;On the screen, paint the shapes as expected (their colors, etc.). On the array in memory, &amp;quot;paint&amp;quot; only the shape ids.&lt;&#x2F;li&gt;
+&lt;li&gt;When the mouse moves&#x2F;interacts, get the shape id by reading the pixel at the current mouse position from the shape ids array.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;mrt.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;mrt.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;p&gt;This way, it is possible to get the shape id at each screen pixel, and when the mouse moves over a pixel or a finger touches the screen, the code looks for the shape id in the array of shape ids instead.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;jargon&quot;&gt;Jargon&lt;&#x2F;h3&gt;
+&lt;p&gt;This technique is sometimes named &amp;quot;single-pass picking&amp;quot; and makes use of WebGL MRT (&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;registry&#x2F;webgl&#x2F;specs&#x2F;latest&#x2F;2.0&#x2F;#3.7.11&quot;&gt;Multiple-Render-Targets&lt;&#x2F;a&gt; - the screen and the array) and PBOs (&lt;a href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;registry&#x2F;OpenGL&#x2F;specs&#x2F;es&#x2F;3.0&#x2F;es_spec_3.0.pdf#subsection.3.7.1&quot;&gt;Pixel-Buffer-Objects&lt;&#x2F;a&gt; - arrays to use as if they were a screen).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;benefits&quot;&gt;Benefits&lt;&#x2F;h3&gt;
+&lt;p&gt;It can work with any shape, with no need for special intersection functions.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;drawbacks&quot;&gt;Drawbacks&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is much slower than using specialized intersection functions.&lt;&#x2F;li&gt;
+&lt;li&gt;It requires extra memory for the arrays, and they need additional copies to leave the GPU and reach the CPU.&lt;&#x2F;li&gt;
+&lt;li&gt;It can introduce &amp;quot;pipeline stalls&amp;quot; (WebGL is primarily a &amp;quot;write-only&amp;quot; API, intended to write colors to the screen&#x2F;arrays - things can get complicated when reading these values back from WebGL).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;optimizations&quot;&gt;Optimizations&lt;&#x2F;h3&gt;
+&lt;p&gt;Many optimizations can limit these drawbacks. Here is my favorite optimization of them all:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do nothing. Avoid work at all costs.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That is a 100% optimization right there. It beats &amp;quot;doing it faster&amp;quot; every time. Some even apply this to life in general with great success.&lt;&#x2F;p&gt;
+&lt;p&gt;For this particular case of shape picking, it can be fruitful to avoid doing any work at all for the most part.
+Reading pixels from the screen&#x2F;array is expensive and complicated.
+In WebGL, this requires at least one flush and one sync outside of the frame boundaries (besides the array copy).
+These have severe performance costs and do not fit at every mouse move or frame.&lt;&#x2F;p&gt;
+&lt;p&gt;For the particular case of a grid, interacting with its elements happens when the grid is stopped, if someone is interacting with a grid element then they are not moving the grid.
+A grid changes when there is a panning or zooming action. Besides those two actions, it stays the same. The shape ids are at the same position all the time (even if their contents change, the ids remain at the same place provided no translation or zooming is going on).&lt;&#x2F;p&gt;
+&lt;p&gt;Interacting with grid elements only happens after the pan&#x2F;zoom action finishes, which is the perfect place to &amp;quot;hide&amp;quot; the flush&#x2F;sync&#x2F;copy operation. Once right after the panning&#x2F;zooming ends, WebGL renders the shape id&#x27;s to multiple targets, flushes&#x2F;syncs, and copies the array to the CPU, where it stays static forever (at least until some following pan&#x2F;zoom operation finishes). Interacting with the grid is then only about reading this array for shape ids, with no need for WebGL or position updates.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-is-next-for-shader-canvas&quot;&gt;What is next for &lt;code&gt;&amp;lt;shader_canvas&amp;gt;&lt;&#x2F;code&gt;?&lt;&#x2F;h2&gt;
+&lt;p&gt;You can read the code for this at the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;shader_canvas&#x2F;tree&#x2F;main&#x2F;examples&#x2F;6-infinite-grid&quot;&gt;Shader Canvas repository&lt;&#x2F;a&gt; (still in progress).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;&#x2F;projects&#x2F;shader-canvas&#x2F;&quot;&gt;Shader Canvas&lt;&#x2F;a&gt; is my low-level framework for graphics programming. It consists of HTML tags that perform each WebGL function, bringing the API into a declarative space.&lt;&#x2F;p&gt;
+&lt;p&gt;I am working on its second iteration after the first release. I will evolve and use this framework for my next drawing web app called &amp;quot;Shape The Pixel&amp;quot;.
+The road ahead for &lt;code&gt;&amp;lt;shader_canvas&amp;gt;&lt;&#x2F;code&gt; is like this in my head, things are going to change for sure:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Release &lt;code&gt;&amp;lt;shader_canvas&amp;gt;&lt;&#x2F;code&gt; proof of concept (occured in 2021-03-03)&lt;&#x2F;li&gt;
+&lt;li&gt;The first iteration of the proof of concept with a focus on its modules (in 2021-03-15)&lt;&#x2F;li&gt;
+&lt;li&gt;A second iteration of the proof of concept with a focus on framebuffers and texture arrays&#x2F;atlas (ongoing)&lt;&#x2F;li&gt;
+&lt;li&gt;A third iteration of the proof of concept with a focus on animation and transform feedbacks (to be done)&lt;&#x2F;li&gt;
+&lt;li&gt;Version 2.0.0 release&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Change it into a simple &amp;quot;compiler.&amp;quot;&lt;&#x2F;li&gt;
+&lt;li&gt;Provide the first support for the Metal graphics framework.&lt;&#x2F;li&gt;
+&lt;li&gt;It will only happen when the &amp;quot;Shape The Pixel&amp;quot; web app is released, and the &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;introducing-deno-tag&#x2F;&quot;&gt;deno_tag&lt;&#x2F;a&gt; and the &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;glsl_variables@v1.0.2&quot;&gt;GLSL parser&lt;&#x2F;a&gt; get some planned updates - they are all connected 🤫.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
+&lt;p&gt;Drawing an infinite grid in WebGL 2 can be done using its instance drawing functions to avoid repeating vertices and multiple-render-targets for picking.
+Read the pixels only once when the grid panning&#x2F;zooming operation finishes to avoid WebGL pipeline stalls.
+Using these two WebGL graphics techniques allows for infinite grids of custom shapes so that shape updates happen (mostly) only at the single seed mesh&#x2F;shape level.&lt;&#x2F;p&gt;
+&lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;tris.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;tris.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>High-level WebGL. Low-level tags.</title>
 		<published>2021-03-03T00:00:00+00:00</published>
