@@ -1,6 +1,6 @@
 +++
 title = "Infinite grid with just one square"
-description = "Creating an infinite grid of squares drawing multiple instances of the same shape and multiple render targets. Both features that WebGL 2 provides."
+description = "Creating an infinite grid of squares drawing multiple instances of the same single shape. Exploring a bit of what WebGL 2 provides."
 date = 2021-03-24
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/infinite_square_grid.png", class="center-images with-lists" }
 +++
