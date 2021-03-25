@@ -65,7 +65,7 @@ Low-level tags for your high-level graphics projects.
 
   In this case <use-program> will
   look for the <simple-triangle>
-  program, defined bellow.
+  program, defined below.
 -->
         <draw-vao src="triangle-vao"></draw-vao>
 <!--
@@ -75,7 +75,7 @@ Low-level tags for your high-level graphics projects.
   Here, <draw-vao> is calling the
   WebGL draw function for the
   Vertex Array Object defined
-  bellow at the tag <triangle-vao>.
+  below at the tag <triangle-vao>.
   (VAO stands for Vertex Array Object).
 -->
       </use-program>
@@ -162,7 +162,7 @@ Low-level tags for your high-level graphics projects.
 
   It is referencing the tag 
   "triangle-vertices" which is
-  a buffer defined bellow
+  a buffer defined below
   in <webgl-buffers>
 -->
           <vertex-attrib-pointer variable="a_position" size="2">
