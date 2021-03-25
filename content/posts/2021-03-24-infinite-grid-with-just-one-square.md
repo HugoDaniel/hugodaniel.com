@@ -92,7 +92,7 @@ It is easy(er), and the GPU can do these calculations at lightning speed.
 
 In the streets of graphics programming, selecting the grid element below the mouse pointer or at the touch position is sometimes called "picking". You "pick" the shape by mousing over it or touching it with those beautiful fingers.
 
-The typical "simple" approach to perform this involves doing the shape<->mouse intersection with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each different figure (an intersection function for squares, another for hexagons, another for triangles, etc.). Doing it for a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
+The typical "simple" approach to perform this involves doing the <span style="white-space: nowrap;">shape<->mouse</span> intersection with JavaScript (thus in the CPU). Calculating this intersection is a specialized function for each different figure (an intersection function for squares, another for hexagons, another for triangles, etc.). Doing it for a square grid is "very easy" when all the squares always align with the x/y axis and have the same size.
 
 This time I want to explore a different, but common, technique for "picking". One that works with any shape.
 A global picking method compatible with anything I can throw at it.
