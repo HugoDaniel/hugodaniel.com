@@ -34,7 +34,7 @@ There are a couple of primitives to describe triangles with WebGL. The _"triangl
 </video>
 
 
-On top of it, a **triangle fan** works well together with a **line stripe**.
+On top of it, a **triangle fan** works well together with a **line strip**.
 I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.
 
 <video autoplay="autoplay" muted loop preload width="100%" playsinline>

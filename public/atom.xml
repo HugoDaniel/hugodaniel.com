@@ -30,7 +30,7 @@ breaking at most of the device&#x27;s pixel ratios and CPU usage abuse wrapped i
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;triangle_fan2.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
-&lt;p&gt;On top of it, a &lt;strong&gt;triangle fan&lt;&#x2F;strong&gt; works well together with a &lt;strong&gt;line stripe&lt;&#x2F;strong&gt;.
+&lt;p&gt;On top of it, a &lt;strong&gt;triangle fan&lt;&#x2F;strong&gt; works well together with a &lt;strong&gt;line strip&lt;&#x2F;strong&gt;.
 I can create an outline for the shape using the same mesh of points, no need to provide an extra mesh of points just for it.&lt;&#x2F;p&gt;
 &lt;video autoplay=&quot;autoplay&quot; muted loop preload width=&quot;100%&quot; playsinline&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;line_stripe.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
