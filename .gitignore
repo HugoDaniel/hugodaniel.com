@@ -26,13 +26,11 @@ dist/
 config/
 dist.tar.gz
 dist.*
-assets
 package-lock.json
 deploy.sh
 prod.sh
 decls/
 tmp/
-video/
 TODO
 .env
 .env_sandbox
