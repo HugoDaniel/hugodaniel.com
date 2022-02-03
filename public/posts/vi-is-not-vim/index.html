@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="A few hints to get started using nvi, a lean and clean terminal based editor">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -90,24 +90,23 @@ The kind that gives rise to dark divinities that come to haunt you in your sleep
 <p>The rest of this blog post is about some nvi parts (vi, not vim), in particular some parts that are percieved as limitations. I will run through them and try to provide arguments that favor them and reasons to use them. Have your salt and pepper at hand before reading further.</p>
 <h2 id="minimal-config-file-exrc">Minimal config file (.exrc)</h2>
 <p>The nvi config file is named .exrc, here is my current setup:</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">set showmode
-set showmatch
-set ruler
-set shiftwidth=2
-set tabstop=2
-set verbose
-set leftright
-set cedit=\
-set filec=\
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>set showmode
+</span><span>set showmatch
+</span><span>set ruler
+</span><span>set shiftwidth=2
+</span><span>set tabstop=2
+</span><span>set verbose
+</span><span>set leftright
+</span><span>set cedit=\
+</span><span>set filec=\
 </span></code></pre>
 <p>9 lines only. No maintenance. No BS.</p>
 <p>These options are mostly similar to those in .vimrc, a special note for cedit and filec, these have a =\&lt;TAB&gt; (the &lt;TAB&gt; is the actual tab character there after the \).
 The <strong>cedit</strong> property sets the character to trigger command expansion in the vi command colon mode. The <strong>filec</strong> sets the the character for file name expansion (auto-complete) when opening a new file inside vi (e.g. with :e).</p>
 <p>All of these are well documented in the man page.</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">$ man nvi
-</span></code></pre><h2 id="no-unicode-support">No unicode support</h2>
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>$ man nvi
+</span></code></pre>
+<h2 id="no-unicode-support">No unicode support</h2>
 <p>There are some vi implementations that support multibyte characters like <a href="https://github.com/lichray/nvi2">nvi2</a>. But for this blog post I am assuming your vi is plain <a href="https://sites.google.com/a/bostic.com/keithbostic/vi/">nvi</a>.</p>
 <p>No multibyte, wide-char, wtf-8, extended codepoints. Although those are very important to learn and master I do prefer to keep code in plain strict single-byte ASCII (UTF-8 supersedes it).</p>
 <p><strong>Why ?</strong></p>
@@ -164,10 +163,9 @@ To do that use the <em>t</em> or <em>f</em> commands, like ytx (I read it as: <e
 </ul>
 <p><strong>Who needs macros when you have buffers</strong></p>
 <p>Write a few commands to be executed in your file, place then in a buffer and tell vi that you want to execute the buffer:</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">2)
-4dd
-G
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>2)
+</span><span>4dd
+</span><span>G
 </span></code></pre>
 <p>Line by line:</p>
 <ol>

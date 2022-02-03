@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="After trying out Deno I got passionate about it. This post introduces my first Deno module, a simple preprocessor for HTML files that runs Deno where the new `&lt;deno&gt;` tag is specified. How useful can a simple file preprocessor be? What can it help build?">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -34,8 +34,8 @@
 		
 		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;introducing-deno-tag&#x2F;">
 		
-			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;deno_tag_logo.png" >
-			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;deno_tag_logo.png" >
+			<meta property="og:image" content="https://hugodaniel.com/images/deno_tag_logo.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/deno_tag_logo.png" >
 		
 		
 		
@@ -99,38 +99,34 @@ Naming things as closely as possible to what they are is a very nice improvement
 <p><em>What does this new tag do?</em></p>
 <p>It runs the <code>deno</code> command on the specified file and replaces the <code>&lt;deno&gt;</code> tag with its output.</p>
 <p>Here is an example, suppose you have this file called <code>advanced_logic.ts</code> with this content:</p>
-<pre style="background-color:#151515;">
-<code class="language-typescript" data-lang="typescript"><span style="color:#ffb964;">console</span><span style="color:#e8e8d3;">.log(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">PHP is the best computer language ever invented!</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
+<pre data-lang="typescript" style="background-color:#151515;color:#e8e8d3;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#ffb964;">console</span><span>.log(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">PHP is the best computer language ever invented!</span><span style="color:#556633;">&quot;</span><span>);
 </span></code></pre>
 <p>Just an example. The <code>&lt;deno&gt;</code> tag would transform something like this:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">deno run</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">advanced_logic.ts</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">head</span><span>&gt;&lt;</span><span style="color:#ffb964;">title</span><span>&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span>&gt;&lt;/</span><span style="color:#ffb964;">head</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">p</span><span>&gt;&lt;</span><span style="color:#ffb964;">deno run</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">advanced_logic.ts</span><span style="color:#556633;">&quot; </span><span>/&gt;&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>Into this:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;PHP is the best computer language ever invented!&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">head</span><span>&gt;&lt;</span><span style="color:#ffb964;">title</span><span>&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span>&gt;&lt;/</span><span style="color:#ffb964;">head</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">p</span><span>&gt;PHP is the best computer language ever invented!&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>It runs something similar to <code>deno run advanced_logic.ts</code> and pipes the execution's output directly into the location of the <code>&lt;deno&gt;</code> tags. </p>
 <p>The tag can handle other attributes besides <code>run</code>. It can also bundle your modules with <code>&lt;deno bundle=&quot;my_app.ts&quot; /&gt;</code>. Perfect for including within <code>&lt;script&gt;</code> tags and having the HTML file include a bundle of your code and its imports.</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">deno bundle</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my_app.ts</span><span style="color:#556633;">&quot; </span><span style="color:#e8e8d3;">/&gt;
-&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">head</span><span>&gt;&lt;</span><span style="color:#ffb964;">title</span><span>&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span>&gt;&lt;/</span><span style="color:#ffb964;">head</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">deno bundle</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my_app.ts</span><span style="color:#556633;">&quot; </span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>Just call the <code>deno_tag</code> CLI on your build scripts or release playbooks to have the HTML files ready to go.</p>
 <h3 id="the-possibilities-are-endless">The possibilities are endless</h3>

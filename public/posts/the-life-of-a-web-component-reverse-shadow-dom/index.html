@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="Shadow DOM displays its contents by default while hidding the original tag children. Can this be reversed? What kind of possibilities does it offer us if it does?">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -34,8 +34,8 @@
 		
 		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;the-life-of-a-web-component-reverse-shadow-dom&#x2F;">
 		
-			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_mask.png" >
-			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_mask.png" >
+			<meta property="og:image" content="https://hugodaniel.com/images/html5_mask.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/html5_mask.png" >
 		
 		
 		
@@ -79,43 +79,39 @@
 <ol>
 <li><strong>Hierarchy</strong></li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">luke-im-your-father</span><span style="color:#e8e8d3;">&gt;
-
-	&lt;</span><span style="color:#ffb964;">nooo-thats-impossible</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">nooo-thats-impossible</span><span style="color:#e8e8d3;">&gt;
-
-&lt;/</span><span style="color:#ffb964;">luke-im-your-father</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">luke-im-your-father</span><span>&gt;
+</span><span>
+</span><span>	&lt;</span><span style="color:#ffb964;">nooo-thats-impossible</span><span>&gt;&lt;/</span><span style="color:#ffb964;">nooo-thats-impossible</span><span>&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">luke-im-your-father</span><span>&gt;
 </span></code></pre>
 <ol start="2">
 <li><strong>Sequence</strong></li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;I’d use one for parts&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;If I ever have twins&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;	
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">p</span><span>&gt;I’d use one for parts&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">p</span><span>&gt;If I ever have twins&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;	
 </span></code></pre>
 <ol start="3">
 <li><strong>Meaning</strong></li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">q cite</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">https://en.wikipedia.org/wiki/Meaning_(philosophy)</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-A relationship between two sorts of things:
-signs and the kinds of things they intend, express or signify
-&lt;/</span><span style="color:#ffb964;">q</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">q cite</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">https://en.wikipedia.org/wiki/Meaning_(philosophy)</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>A relationship between two sorts of things:
+</span><span>signs and the kinds of things they intend, express or signify
+</span><span>&lt;/</span><span style="color:#ffb964;">q</span><span>&gt;
 </span></code></pre>
 <ol start="4">
 <li><strong>Functionality</strong></li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">video controls width</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">250</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-
-    &lt;</span><span style="color:#ffb964;">source src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">/media/cc0-videos/flower.webm</span><span style="color:#556633;">&quot;
-            </span><span style="color:#ffb964;">type</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">video/webm</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-
-    &lt;</span><span style="color:#ffb964;">source src</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">/media/cc0-videos/flower.mp4</span><span style="color:#556633;">&quot;
-            </span><span style="color:#ffb964;">type</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">video/mp4</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-
-    Sorry, your browser doesn&#39;t support embedded videos.
-&lt;/</span><span style="color:#ffb964;">video</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">video controls width</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">250</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>
+</span><span>    &lt;</span><span style="color:#ffb964;">source src</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">/media/cc0-videos/flower.webm</span><span style="color:#556633;">&quot;
+</span><span>            </span><span style="color:#ffb964;">type</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">video/webm</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>
+</span><span>    &lt;</span><span style="color:#ffb964;">source src</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">/media/cc0-videos/flower.mp4</span><span style="color:#556633;">&quot;
+</span><span>            </span><span style="color:#ffb964;">type</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">video/mp4</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>
+</span><span>    Sorry, your browser doesn&#39;t support embedded videos.
+</span><span>&lt;/</span><span style="color:#ffb964;">video</span><span>&gt;
 </span></code></pre>
 <p>This list is by no means exhaustive. There are likely many more things that HTML tags give us (like headaches, reactjs, and some money at the end of the month if we are lucky).</p>
 <p>With the Shadow DOM it is possible to compose all of the features above and hide them away inside custom tags.</p>
@@ -123,64 +119,61 @@ signs and the kinds of things they intend, express or signify
 <ol start="5">
 <li><strong>Encapsulation</strong></li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">nevermind-the-backend-this-is-where-the-dragons-are</span><span style="color:#e8e8d3;">&gt;
-
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">nevermind-the-backend-this-is-where-the-dragons-are</span><span>&gt;
+</span><span>
 </span><span style="color:#888888;">&lt;!-- there is nothing to see here because this tag has a Shadow root --&gt;
-
-</span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">nevermind-the-backend-this-is-where-the-dragons-are</span><span style="color:#e8e8d3;">&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">nevermind-the-backend-this-is-where-the-dragons-are</span><span>&gt;
 </span></code></pre>
 <p>This DOM root inception made me wonder: <em>&quot;What is the default visibility behavior of the Shadow DOM? could it be reversed?&quot;</em></p>
 <p><img src="/images/html5_mask.png" alt="The HTML5 badge with an amazing purple eye mask" title="Shadow DOM is such a cool name, but wait until you see its fabulous mask!" /></p>
 <h2 id="hmm-that-sounds-stupid-but-how-would-it-work">Hmm, that sounds stupid, but how would it work?</h2>
 <p>When a Web Component has no shadow root, it will happily render all its children:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-
-&lt;</span><span style="color:#ffb964;">simple-web-component</span><span style="color:#e8e8d3;">&gt;
-    &lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;Hello world! I am not inside the shadow root.&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">simple-web-component</span><span style="color:#e8e8d3;">&gt;
-
-&lt;</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">,
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">simple-web-component</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#ffb964;">p</span><span>&gt;Hello world! I am not inside the shadow root.&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">simple-web-component</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#ffb964;">define</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span>,
 </span><span style="color:#888888;">// What follows is the the &lt;simple-web-component&gt; code:
-</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
-    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
-      </span><span style="color:#888888;">// Nothing for now... just a simple component
-    </span><span style="color:#e8e8d3;">}
-
-    </span><span style="color:#888888;">// Call initialize when added to a parent node
-    </span><span style="color:#fad07a;">connectedCallback</span><span style="color:#e8e8d3;">() { </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">initialize</span><span style="color:#e8e8d3;">(); }
-});
-
-&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
+</span><span>    </span><span style="color:#fad07a;">initialize</span><span>() {
+</span><span>      </span><span style="color:#888888;">// Nothing for now... just a simple component
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Call initialize when added to a parent node
+</span><span>    </span><span style="color:#fad07a;">connectedCallback</span><span>() { </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">initialize</span><span>(); }
+</span><span>});
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>The code above creates the functionality for the <code>&lt;simple-web-component&gt;</code> tag. Which gets rendered as expected:</p>
 <p><img src="/images/no-shadow-dom.png" alt="A portion of a browser window, showing the following text in black letters &quot;Hello world! I am not inside the shadow root&quot;, in a white background." title="In direct sunlight" /></p>
 <p>However, this is not how it behaves when a shadow root is added to it.</p>
 <h3 id="adding-a-bare-shadow-root">Adding a bare shadow root</h3>
 <p>The code inside the <code>&lt;script&gt;</code> tag needs to be slightly adjusted to add a shadow root.</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">,
-
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#fad07a;">define</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span>,
+</span><span>
 </span><span style="color:#888888;">// The &lt;simple-web-component&gt; code:
-</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
-    
-    </span><span style="color:#ffb964;">root </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">attachShadow</span><span style="color:#e8e8d3;">({mode: </span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">open</span><span style="color:#556633;">&#39;</span><span style="color:#e8e8d3;">})
-    
-    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span style="color:#e8e8d3;">= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">textContent </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">;
-        </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">root</span><span style="color:#e8e8d3;">.append(</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">);
-    }
-
-    </span><span style="color:#888888;">// Call initialize when added to a parent node
-    </span><span style="color:#fad07a;">connectedCallback</span><span style="color:#e8e8d3;">() { </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">(); }
-});
-
+</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
+</span><span>    
+</span><span>    </span><span style="color:#ffb964;">root </span><span>= </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#fad07a;">attachShadow</span><span>({mode: </span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">open</span><span style="color:#556633;">&#39;</span><span>})
+</span><span>    
+</span><span>    </span><span style="color:#fad07a;">initialize</span><span>() {
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span>= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#ffb964;">p</span><span>.</span><span style="color:#ffb964;">textContent </span><span>= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>        </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">root</span><span>.append(</span><span style="color:#ffb964;">p</span><span>);
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Call initialize when added to a parent node
+</span><span>    </span><span style="color:#fad07a;">connectedCallback</span><span>() { </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#fad07a;">initialize</span><span>(); }
+</span><span>});
+</span><span>
 </span></code></pre>
 <p>The <code>&lt;simple-web-component&gt;</code> class now has a <code>root</code> attribute <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow">set with its shadow root</a>. Then a simple <code>&lt;p&gt;In the shadow!&lt;/p&gt;</code> is placed inside it by the <code>initialize()</code> function.</p>
 <p>This simple shadow root will affect the display of the component.</p>
@@ -201,37 +194,36 @@ signs and the kinds of things they intend, express or signify
 <p>This tag is used mainly in HTML <code>&lt;template&gt;</code>'s. It is the way that <code>&lt;template&gt;</code>'s have to tell which parts can be set by outsiders. Typically <code>&lt;slot&gt;</code>'s have a name attribute to be used as the reference to where the content will go. (You can see an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes">example of it here</a>, but it is not necessary, I won't be using it.)</p>
 <p>The cool thing is that if there is no <code>name</code> specified on the <code>&lt;slot&gt;</code>, then it becomes the default <code>&lt;slot&gt;</code> where all unspecified content will go in.</p>
 <p>This is perfect. It means that if a <code>&lt;slot&gt;</code> is placed inside the shadow root (without a <code>name=&quot;...&quot;</code> attribute), then all of the custom element children will automatically be copied into it.</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-
-&lt;</span><span style="color:#ffb964;">simple-web-component</span><span style="color:#e8e8d3;">&gt;
-    &lt;</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;Hello world! I am not inside the shadow root.&lt;/</span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">simple-web-component</span><span style="color:#e8e8d3;">&gt;
-
-&lt;</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-</span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">define</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">,
-
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">simple-web-component</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#ffb964;">p</span><span>&gt;Hello world! I am not inside the shadow root.&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">simple-web-component</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#ffb964;">define</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-web-component</span><span style="color:#556633;">&quot;</span><span>,
+</span><span>
 </span><span style="color:#888888;">// The &lt;simple-web-component&gt; code:
-</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
-    
-    </span><span style="color:#ffb964;">root </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">attachShadow</span><span style="color:#e8e8d3;">({mode: </span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">open</span><span style="color:#556633;">&#39;</span><span style="color:#e8e8d3;">})
-    
-    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span style="color:#e8e8d3;">= document.</span><span style="color:#ffb964;">createElement</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">.textContent = </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">;
-
-        </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.root.</span><span style="color:#ffb964;">append</span><span style="color:#e8e8d3;">(
-          </span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">,
-          document.</span><span style="color:#ffb964;">createElement</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">slot</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">)
-        );
-    }
-
-    </span><span style="color:#888888;">// Call initialize when added to a parent node
-    </span><span style="color:#fad07a;">connectedCallback</span><span style="color:#e8e8d3;">() { </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">initialize</span><span style="color:#e8e8d3;">(); }
-});
-&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+</span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
+</span><span>    
+</span><span>    </span><span style="color:#ffb964;">root </span><span>= </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">attachShadow</span><span>({mode: </span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">open</span><span style="color:#556633;">&#39;</span><span>})
+</span><span>    
+</span><span>    </span><span style="color:#fad07a;">initialize</span><span>() {
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span>= document.</span><span style="color:#ffb964;">createElement</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#ffb964;">p</span><span>.textContent = </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span>        </span><span style="color:#ffb964;">this</span><span>.root.</span><span style="color:#ffb964;">append</span><span>(
+</span><span>          </span><span style="color:#ffb964;">p</span><span>,
+</span><span>          document.</span><span style="color:#ffb964;">createElement</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">slot</span><span style="color:#556633;">&quot;</span><span>)
+</span><span>        );
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Call initialize when added to a parent node
+</span><span>    </span><span style="color:#fad07a;">connectedCallback</span><span>() { </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">initialize</span><span>(); }
+</span><span>});
+</span><span>&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>The Shadow Root above will contain a single <code>&lt;slot&gt;</code> tag. This makes the <code>&lt;p&gt;Hello world! I am not inside the shadow root.&lt;/p&gt;</code> show up when the tag is rendered.</p>
 <p><img src="/images/with-slot.png" alt="A portion of a browser window, showing two lines of text. The first one has the phrase &quot;In the shadow!&quot; and the second line has the phrase &quot;Hello world! I am not inside the shadow root.&quot;. Both of them have black letters on a white background." title="Both visible" /></p>
@@ -239,29 +231,27 @@ signs and the kinds of things they intend, express or signify
 <p>The second step to revert the Shadow DOM display is to only show the children of the element.</p>
 <p>Hide everything that is outside the <code>&lt;slot&gt;</code>. Only the tag's original children must be visible, while all the other shadow root contents must be hidden.</p>
 <p>To achieve it, the following CSS is added to the Shadow DOM:</p>
-<pre style="background-color:#151515;">
-<code class="language-css" data-lang="css"><span style="color:#ffb964;">:not</span><span style="color:#e8e8d3;">(slot) {
-    display: none;
-}
+<pre data-lang="css" style="background-color:#151515;color:#e8e8d3;" class="language-css "><code class="language-css" data-lang="css"><span style="color:#ffb964;">:not</span><span>(slot) {
+</span><span>    display: none;
+</span><span>}
 </span></code></pre>
 <p>The common practice is to create a <code>&lt;style&gt;</code> tag, place the above content inside it and then append the <code>&lt;style&gt;</code> tag to the Shadow DOM:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#e8e8d3;">    </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span style="color:#e8e8d3;">= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">textContent </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">;
-
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">style </span><span style="color:#e8e8d3;">= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">style</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#ffb964;">style</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">textContent </span><span style="color:#e8e8d3;">= </span><span style="color:#99ad6a;">`
-        :not(slot) {
-          display: none;
-        }`</span><span style="color:#e8e8d3;">;
-
-        </span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">root</span><span style="color:#e8e8d3;">.append(
-          </span><span style="color:#ffb964;">style</span><span style="color:#e8e8d3;">,
-          </span><span style="color:#ffb964;">p</span><span style="color:#e8e8d3;">,
-          document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">slot</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">)
-        );
-    }
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>    </span><span style="color:#fad07a;">initialize</span><span>() {
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">p </span><span>= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">p</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#ffb964;">p</span><span>.</span><span style="color:#ffb964;">textContent </span><span>= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">In the shadow!</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">style </span><span>= document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">style</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#ffb964;">style</span><span>.</span><span style="color:#ffb964;">textContent </span><span>= </span><span style="color:#99ad6a;">`
+</span><span style="color:#99ad6a;">        :not(slot) {
+</span><span style="color:#99ad6a;">          display: none;
+</span><span style="color:#99ad6a;">        }`</span><span>;
+</span><span>
+</span><span>        </span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">root</span><span>.append(
+</span><span>          </span><span style="color:#ffb964;">style</span><span>,
+</span><span>          </span><span style="color:#ffb964;">p</span><span>,
+</span><span>          document.createElement(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">slot</span><span style="color:#556633;">&quot;</span><span>)
+</span><span>        );
+</span><span>    }
 </span></code></pre>
 <p>And just like that, the actual behavior of the Shadow DOM is reversed. The Shadow DOM contents are hidden by default, while the original custom tag children get rendered by default.</p>
 <p><img src="/images/reversed-shadow-dom.png" alt="A portion of a browser window, showing one line of text with the phrase &quot;Hello world! I am not inside the shadow root.&quot;. This text line has black letters on a white background." title="Only the child paragraph is visible" /></p>

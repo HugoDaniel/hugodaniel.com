@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="Testing Web Components is a torny road. In this post I assemble three techniques that solved the majority of the situations I found in testing them.">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -34,8 +34,8 @@
 		
 		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;the-life-of-a-web-component-tests&#x2F;">
 		
-			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html_bugs.png" >
-			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html_bugs.png" >
+			<meta property="og:image" content="https://hugodaniel.com/images/html_bugs.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/html_bugs.png" >
 		
 		
 		
@@ -115,90 +115,87 @@ Hugo</p>
 <p>This single <code>test.html</code> file includes the test suits for each Web Component I want to test. The <code>*.test.js</code> files with the tests for each Web Component.</p>
 <p>This <code>test.html</code> has no real dependencies. It is just a <code>.html</code> file that I can open directly in the browser without running a development server. Some tools can be used to make it auto-refresh and do parallel runs if necessary. But I just want to run tests for now.</p>
 <p>The $FRAMEWORKs I used are Mocha and Chai, two old JS testing tools that provide bundles ready to be used directly in the browser:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">&lt;!DOCTYPE html&gt;
-&lt;</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
-&lt;</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">meta charset</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">utf-8</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;Web Components Tests&lt;/</span><span style="color:#ffb964;">title</span><span style="color:#e8e8d3;">&gt;
-
-  </span><span style="color:#888888;">&lt;!-- Include the Mocha and Chai code bundles --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">link rel</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">stylesheet </span><span style="color:#ffb964;">href</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">https://unpkg.com/mocha/mocha.css</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">https://unpkg.com/chai/chai.js</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">https://unpkg.com/mocha/mocha.js</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-&lt;/</span><span style="color:#ffb964;">head</span><span style="color:#e8e8d3;">&gt;
-
-&lt;</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;
-  </span><span style="color:#888888;">&lt;!-- Test results will show up inside this #mocha &lt;div&gt; --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">mocha</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
-
-  </span><span style="color:#888888;">&lt;!-- This is where my Web Components will be placed at during testing --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">div id</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">domTestArea </span><span style="color:#ffb964;">style</span><span style="color:#e8e8d3;">=</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">display: none;</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">&gt;
-  </span><span style="color:#888888;">&lt;!--                  ^ no need to show them --&gt;
-  </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">div</span><span style="color:#e8e8d3;">&gt;
-  
-  </span><span style="color:#888888;">&lt;!-- Initialize the Mocha framework --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script class</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">mocha-init</span><span style="color:#e8e8d3;">&gt;
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">setup</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">bdd</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-    </span><span style="color:#888888;">// Leak checking is important with Web Components
-    // Always include a list of global vars to ignore (empty for now)
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">global</span><span style="color:#e8e8d3;">([]);
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">checkLeaks</span><span style="color:#e8e8d3;">();
-    </span><span style="color:#888888;">// Make &quot;assert&quot; available in all `.test.js` files 
-    </span><span style="color:#8fbfdc;">const </span><span style="color:#e8e8d3;">{ </span><span style="color:#ffb964;">assert </span><span style="color:#e8e8d3;">} = </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.chai;
-  &lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-
-  </span><span style="color:#888888;">&lt;!--
-    Some global initialization code:
-      - create global testing helpers 
-      - setup the App runtime parts
-  --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script type</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">module</span><span style="color:#e8e8d3;">&gt;
-	</span><span style="color:#888888;">// App initiliazation code goes here... I&#39;ll get to it 
-  </span><span style="color:#e8e8d3;">&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-  
-
-  </span><span style="color:#888888;">&lt;!-- Put the Web Components testing files here --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">my-partner-is-a-web-component.test.js</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-  &lt;</span><span style="color:#ffb964;">script src</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">i-should-go-out-more-web-component.test.js</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-  </span><span style="color:#888888;">&lt;!-- Automatically start the Mocha framework --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script class</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">mocha-exec</span><span style="color:#e8e8d3;">&gt;</span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">run</span><span style="color:#e8e8d3;">();&lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
-
-&lt;/</span><span style="color:#ffb964;">body</span><span style="color:#e8e8d3;">&gt;&lt;/</span><span style="color:#ffb964;">html</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;!DOCTYPE html&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">head</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">meta charset</span><span>=</span><span style="color:#99ad6a;">utf-8</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">title</span><span>&gt;Web Components Tests&lt;/</span><span style="color:#ffb964;">title</span><span>&gt;
+</span><span>
+</span><span>  </span><span style="color:#888888;">&lt;!-- Include the Mocha and Chai code bundles --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">link rel</span><span>=</span><span style="color:#99ad6a;">stylesheet </span><span style="color:#ffb964;">href</span><span>=</span><span style="color:#99ad6a;">https://unpkg.com/mocha/mocha.css</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#99ad6a;">https://unpkg.com/chai/chai.js</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#99ad6a;">https://unpkg.com/mocha/mocha.js</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">head</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
+</span><span>  </span><span style="color:#888888;">&lt;!-- Test results will show up inside this #mocha &lt;div&gt; --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">div id</span><span>=</span><span style="color:#99ad6a;">mocha</span><span>&gt;&lt;/</span><span style="color:#ffb964;">div</span><span>&gt;
+</span><span>
+</span><span>  </span><span style="color:#888888;">&lt;!-- This is where my Web Components will be placed at during testing --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">div id</span><span>=</span><span style="color:#99ad6a;">domTestArea </span><span style="color:#ffb964;">style</span><span>=</span><span style="color:#556633;">&quot;</span><span>display: none;</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>  </span><span style="color:#888888;">&lt;!--                  ^ no need to show them --&gt;
+</span><span>  &lt;/</span><span style="color:#ffb964;">div</span><span>&gt;
+</span><span>  
+</span><span>  </span><span style="color:#888888;">&lt;!-- Initialize the Mocha framework --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script class</span><span>=</span><span style="color:#99ad6a;">mocha-init</span><span>&gt;
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">setup</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">bdd</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>    </span><span style="color:#888888;">// Leak checking is important with Web Components
+</span><span>    </span><span style="color:#888888;">// Always include a list of global vars to ignore (empty for now)
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">global</span><span>([]);
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">checkLeaks</span><span>();
+</span><span>    </span><span style="color:#888888;">// Make &quot;assert&quot; available in all `.test.js` files 
+</span><span>    </span><span style="color:#8fbfdc;">const </span><span>{ </span><span style="color:#ffb964;">assert </span><span>} = </span><span style="color:#ffb964;">mocha</span><span>.chai;
+</span><span>  &lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span>
+</span><span>  </span><span style="color:#888888;">&lt;!--
+</span><span style="color:#888888;">    Some global initialization code:
+</span><span style="color:#888888;">      - create global testing helpers 
+</span><span style="color:#888888;">      - setup the App runtime parts
+</span><span style="color:#888888;">  --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script type</span><span>=</span><span style="color:#99ad6a;">module</span><span>&gt;
+</span><span>	</span><span style="color:#888888;">// App initiliazation code goes here... I&#39;ll get to it 
+</span><span>  &lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>  
+</span><span>
+</span><span>  </span><span style="color:#888888;">&lt;!-- Put the Web Components testing files here --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#99ad6a;">my-partner-is-a-web-component.test.js</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#99ad6a;">i-should-go-out-more-web-component.test.js</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span>  </span><span style="color:#888888;">&lt;!-- Automatically start the Mocha framework --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script class</span><span>=</span><span style="color:#99ad6a;">mocha-exec</span><span>&gt;</span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">run</span><span>();&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
 <p>The code above is a straightforward Mocha and Chai browser-only setup for Web Components.</p>
 <p><img src="/images/html_bugs.png" alt="The HTML5 badge in the middle of a lot of colored PacMan ghosts." title="Who is afraid of the Shadow DOM?" /></p>
 <h2 id="tests-initialization">Tests initialization</h2>
 <p>Before any tests can be written, I like to do a standard global initialization of the whole thing. This mostly consists of importing the App module where the Web Components are declared and some global utility functions.</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">  </span><span style="color:#888888;">&lt;!--
-    Some global initialization code:
-      - create global testing helpers 
-      - setup the App runtime parts
-  --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script type</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">module</span><span style="color:#e8e8d3;">&gt;
-	</span><span style="color:#8fbfdc;">import </span><span style="color:#e8e8d3;">{ </span><span style="color:#ffb964;">MyApp </span><span style="color:#e8e8d3;">} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">../build/app-bundle.js</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">;    
-  &lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>  </span><span style="color:#888888;">&lt;!--
+</span><span style="color:#888888;">    Some global initialization code:
+</span><span style="color:#888888;">      - create global testing helpers 
+</span><span style="color:#888888;">      - setup the App runtime parts
+</span><span style="color:#888888;">  --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script type</span><span>=</span><span style="color:#99ad6a;">module</span><span>&gt;
+</span><span>	</span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">MyApp </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">../build/app-bundle.js</span><span style="color:#556633;">&quot;</span><span>;    
+</span><span>  &lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
 </span></code></pre>
 <p>The above creates the globally available things: The <code>MyApp</code> object of the app that will be using or wrapping the Web Components. This is optional. If the Web Components are just stand-alone, there will be no need for this. This is also a good place to create single tags with <code>customElements.define()</code> (if this is not done by the <code>MyApp</code> bundle).</p>
 <p>When using Mocha it is necessary to also include the intended globals in the leaks ignore array:</p>
-<pre style="background-color:#151515;">
-<code class="language-html" data-lang="html"><span style="color:#e8e8d3;">  </span><span style="color:#888888;">&lt;!-- Initialize the Mocha framework --&gt;
-  </span><span style="color:#e8e8d3;">&lt;</span><span style="color:#ffb964;">script class</span><span style="color:#e8e8d3;">=</span><span style="color:#99ad6a;">mocha-init</span><span style="color:#e8e8d3;">&gt;
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">setup</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">bdd</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-    </span><span style="color:#888888;">// Leak checking is necessary with Web Components
-    // Always include a list of global vars to ignore
-
-
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">global</span><span style="color:#e8e8d3;">([</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">MyApp</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">]);
-    &lt;!--          ^^^^^^^  --&gt;
-
-    </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">checkLeaks</span><span style="color:#e8e8d3;">();
-    </span><span style="color:#888888;">// Make &quot;assert&quot; available in all `.test.js` files 
-    </span><span style="color:#8fbfdc;">const </span><span style="color:#e8e8d3;">{ </span><span style="color:#ffb964;">assert </span><span style="color:#e8e8d3;">} = </span><span style="color:#ffb964;">mocha</span><span style="color:#e8e8d3;">.chai;
-  &lt;/</span><span style="color:#ffb964;">script</span><span style="color:#e8e8d3;">&gt;
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>  </span><span style="color:#888888;">&lt;!-- Initialize the Mocha framework --&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">script class</span><span>=</span><span style="color:#99ad6a;">mocha-init</span><span>&gt;
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">setup</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">bdd</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>    </span><span style="color:#888888;">// Leak checking is necessary with Web Components
+</span><span>    </span><span style="color:#888888;">// Always include a list of global vars to ignore
+</span><span>
+</span><span>
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">global</span><span>([</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">MyApp</span><span style="color:#556633;">&quot;</span><span>]);
+</span><span>    &lt;!--          ^^^^^^^  --&gt;
+</span><span>
+</span><span>    </span><span style="color:#ffb964;">mocha</span><span>.</span><span style="color:#ffb964;">checkLeaks</span><span>();
+</span><span>    </span><span style="color:#888888;">// Make &quot;assert&quot; available in all `.test.js` files 
+</span><span>    </span><span style="color:#8fbfdc;">const </span><span>{ </span><span style="color:#ffb964;">assert </span><span>} = </span><span style="color:#ffb964;">mocha</span><span>.chai;
+</span><span>  &lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
 </span></code></pre>
 <p><em>Yeah, but how are the Web Component tests gonna be done?</em></p>
 <h2 id="suit-up">Suit up</h2>
@@ -208,16 +205,15 @@ Hugo</p>
 <p><img src="/images/bug_target.png" alt="A worm bug emoji in the middle of a target." title="Please don't kill me!" /></p>
 <h3 id="1-place-the-tags-in-domtestarea-and-get-the-class">1 - Place the tags in #domTestArea and get the class</h3>
 <p>The basic test template to run the Web Component tests in the <code>#domTestArea</code> can be something like this:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">function </span><span style="color:#e8e8d3;">() {
-  
-    </span><span style="color:#888888;">// Clear the #domTestArea between each test
-    </span><span style="color:#fad07a;">beforeEach</span><span style="color:#e8e8d3;">(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;&quot;</span><span style="color:#e8e8d3;">);
-
-    </span><span style="color:#fad07a;">it</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, (</span><span style="color:#ffb964;">done</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-  
-    })
-})
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">function </span><span>() {
+</span><span>  
+</span><span>    </span><span style="color:#888888;">// Clear the #domTestArea between each test
+</span><span>    </span><span style="color:#fad07a;">beforeEach</span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#556633;">&quot;&quot;</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#fad07a;">it</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">done</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  
+</span><span>    })
+</span><span>})
 </span></code></pre>
 <p>Inside the test, I can use things in however I want (AAA pattern, or just fetuccine/spaghetti), but it is essential to at least do these things:</p>
 <ol>
@@ -225,154 +221,152 @@ Hugo</p>
 <li>Get the Web Component class instance on that tag</li>
 <li>Do some assertions</li>
 </ol>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">function </span><span style="color:#e8e8d3;">() {
-  
-    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span style="color:#e8e8d3;">= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
-    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
-    `</span><span style="color:#e8e8d3;">;
-
-    </span><span style="color:#888888;">// Clear the #domTestArea between each test
-    </span><span style="color:#fad07a;">beforeEach</span><span style="color:#e8e8d3;">(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;&quot;</span><span style="color:#e8e8d3;">);
-
-    </span><span style="color:#fad07a;">it</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, (</span><span style="color:#ffb964;">done</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
-        </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#fad07a;">simpleTag</span><span style="color:#e8e8d3;">();
-
-        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span style="color:#e8e8d3;">= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-  
-        </span><span style="color:#888888;">// 3. Do some assertions
-        // (here is where the test happens)
-        </span><span style="color:#fad07a;">assert</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">instance</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">parsedLines </span><span style="color:#e8e8d3;">&gt; </span><span style="color:#cf6a4c;">0</span><span style="color:#e8e8d3;">, </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Should parse content lines\n</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        
-        </span><span style="color:#888888;">// Async by default
-        </span><span style="color:#fad07a;">done</span><span style="color:#e8e8d3;">();
-    })
-})
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">function </span><span>() {
+</span><span>  
+</span><span>    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span>= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
+</span><span style="color:#99ad6a;">    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
+</span><span style="color:#99ad6a;">    `</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Clear the #domTestArea between each test
+</span><span>    </span><span style="color:#fad07a;">beforeEach</span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#556633;">&quot;&quot;</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#fad07a;">it</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">done</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
+</span><span>        </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#fad07a;">simpleTag</span><span>();
+</span><span>
+</span><span>        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span>= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>  
+</span><span>        </span><span style="color:#888888;">// 3. Do some assertions
+</span><span>        </span><span style="color:#888888;">// (here is where the test happens)
+</span><span>        </span><span style="color:#fad07a;">assert</span><span>(</span><span style="color:#ffb964;">instance</span><span>.</span><span style="color:#ffb964;">parsedLines </span><span>&gt; </span><span style="color:#cf6a4c;">0</span><span>, </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Should parse content lines\n</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        
+</span><span>        </span><span style="color:#888888;">// Async by default
+</span><span>        </span><span style="color:#fad07a;">done</span><span>();
+</span><span>    })
+</span><span>})
 </span></code></pre>
 <p>A note of attention is needed, if the original <code>MyApp</code> global var does not define a unique the Web Component tag (and its dependencies), and the <code>customElements</code> is part of the test then it might be needed to produce a new dynamic tag per test to work-around the global var problem:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#e8e8d3;">    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span style="color:#e8e8d3;">= (</span><span style="color:#ffb964;">testId</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
-    &lt;i-should-go-out-more-${</span><span style="color:#ffb964;">testId</span><span style="color:#99ad6a;">}&gt;
-        Some content
-    &lt;/i-shoud-go-out-more-${</span><span style="color:#ffb964;">testId</span><span style="color:#99ad6a;">}&gt;`</span><span style="color:#e8e8d3;">;
-</span></code></pre><h3 id="2-shadow-dom-inspection">2 - Shadow DOM inspection</h3>
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span>= (</span><span style="color:#ffb964;">testId</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
+</span><span style="color:#99ad6a;">    &lt;i-should-go-out-more-${</span><span style="color:#ffb964;">testId</span><span style="color:#99ad6a;">}&gt;
+</span><span style="color:#99ad6a;">        Some content
+</span><span style="color:#99ad6a;">    &lt;/i-shoud-go-out-more-${</span><span style="color:#ffb964;">testId</span><span style="color:#99ad6a;">}&gt;`</span><span>;
+</span></code></pre>
+<h3 id="2-shadow-dom-inspection">2 - Shadow DOM inspection</h3>
 <p>If a Shadow DOM is being used, it will be the root of what the Web Component renders. There might be a need to test its contents to see if the Web Component is doing the expected DOM output.</p>
 <p>However, Shadow DOM can be manipulated throughout a Web Component's life in many different situations and ways.</p>
 <p>One way to abstract the Web Component's inner workings from the test is to use a Mutation Observer for the root. The assertions are then placed inside the observer.</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">function </span><span style="color:#e8e8d3;">() {
-  
-    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span style="color:#e8e8d3;">= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
-    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
-    `</span><span style="color:#e8e8d3;">;
-
-    </span><span style="color:#888888;">// Clear the #domTestArea between each test
-    </span><span style="color:#fad07a;">beforeEach</span><span style="color:#e8e8d3;">(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;&quot;</span><span style="color:#e8e8d3;">);
-
-    </span><span style="color:#fad07a;">it</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, (</span><span style="color:#ffb964;">done</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
-        </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#fad07a;">simpleTag</span><span style="color:#e8e8d3;">();
-
-        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span style="color:#e8e8d3;">= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#888888;">// 2.1 Get the Shadow Root
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">root </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">instance</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">shadowRoot</span><span style="color:#e8e8d3;">;
-        </span><span style="color:#888888;">// 2.2 Create a Mutation Observer for it
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">observer </span><span style="color:#e8e8d3;">= new </span><span style="color:#ffb964;">MutationObserver</span><span style="color:#e8e8d3;">(</span><span style="color:#8fbfdc;">async </span><span style="color:#e8e8d3;">() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{  
-        
-            </span><span style="color:#888888;">// 3. Do some assertions when the shadowRoot exists
-            // (here is where the test happens)
-            </span><span style="color:#fad07a;">assert</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">instance</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">somethingShadowy</span><span style="color:#e8e8d3;">, </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Should have this property\n</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-            </span><span style="color:#888888;">// Async because nobody knows when
-            // the shadow root observer might trigger 
-            </span><span style="color:#fad07a;">done</span><span style="color:#e8e8d3;">();
-        });
-
-        </span><span style="color:#888888;">// Shadow DOM is being changed asynchronously
-        // &quot;childList&quot; is enough to observe its changes
-        </span><span style="color:#ffb964;">observer</span><span style="color:#e8e8d3;">.observe(root, {
-            childList: true,
-        });
-    })
-})
-</span></code></pre><h2 id="3-waitfor-meeee">3 - waitFor meeee</h2>
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">function </span><span>() {
+</span><span>  
+</span><span>    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span>= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
+</span><span style="color:#99ad6a;">    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
+</span><span style="color:#99ad6a;">    `</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Clear the #domTestArea between each test
+</span><span>    </span><span style="color:#fad07a;">beforeEach</span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#556633;">&quot;&quot;</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#fad07a;">it</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">done</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
+</span><span>        </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#fad07a;">simpleTag</span><span>();
+</span><span>
+</span><span>        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span>= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#888888;">// 2.1 Get the Shadow Root
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">root </span><span>= </span><span style="color:#ffb964;">instance</span><span>.</span><span style="color:#ffb964;">shadowRoot</span><span>;
+</span><span>        </span><span style="color:#888888;">// 2.2 Create a Mutation Observer for it
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">observer </span><span>= new </span><span style="color:#ffb964;">MutationObserver</span><span>(</span><span style="color:#8fbfdc;">async </span><span>() </span><span style="color:#8fbfdc;">=&gt; </span><span>{  
+</span><span>        
+</span><span>            </span><span style="color:#888888;">// 3. Do some assertions when the shadowRoot exists
+</span><span>            </span><span style="color:#888888;">// (here is where the test happens)
+</span><span>            </span><span style="color:#fad07a;">assert</span><span>(</span><span style="color:#ffb964;">instance</span><span>.</span><span style="color:#ffb964;">somethingShadowy</span><span>, </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Should have this property\n</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>            </span><span style="color:#888888;">// Async because nobody knows when
+</span><span>            </span><span style="color:#888888;">// the shadow root observer might trigger 
+</span><span>            </span><span style="color:#fad07a;">done</span><span>();
+</span><span>        });
+</span><span>
+</span><span>        </span><span style="color:#888888;">// Shadow DOM is being changed asynchronously
+</span><span>        </span><span style="color:#888888;">// &quot;childList&quot; is enough to observe its changes
+</span><span>        </span><span style="color:#ffb964;">observer</span><span>.observe(root, {
+</span><span>            childList: true,
+</span><span>        });
+</span><span>    })
+</span><span>})
+</span></code></pre>
+<h2 id="3-waitfor-meeee">3 - waitFor meeee</h2>
 <p>Testing Web Components is mostly an async task, tests will often need to wait a beat or a few milliseconds for things to be connected and children/attributes processed.</p>
 <p>If this is the case for the Web Component being tested then it is importante to make sure that there is some kind of <code>waitFor</code> function available (either by the testing framework or place this in the <code>&lt;script&gt;</code> that initializes the <code>MyApp</code> and all utility functions):</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#e8e8d3;">    </span><span style="color:#888888;">// A very rough example of a `waitFor` function that
-    // delays execution until a provided condition
-    // becomes true (or a timeout is reached)
-    </span><span style="color:#8fbfdc;">async function </span><span style="color:#fad07a;">waitFor</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">condition</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">timeout </span><span style="color:#e8e8d3;">= </span><span style="color:#cf6a4c;">200</span><span style="color:#e8e8d3;">) {
-      </span><span style="color:#888888;">// I don&#39;t want to comment this. It is just a quick and dirty approach
-      // Give preference to your testing framework tools for this
-      // I couldn&#39;t find anything similar for Mocha, so yeah:
-      </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">activePoll </span><span style="color:#e8e8d3;">= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-        </span><span style="color:#8fbfdc;">return </span><span style="color:#e8e8d3;">new </span><span style="color:#ffb964;">Promise</span><span style="color:#e8e8d3;">((</span><span style="color:#ffb964;">resolve</span><span style="color:#e8e8d3;">, </span><span style="color:#ffb964;">reject</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-          </span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">timeoutId</span><span style="color:#e8e8d3;">;
-          </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">intervalId </span><span style="color:#e8e8d3;">= setInterval(</span><span style="color:#8fbfdc;">function </span><span style="color:#e8e8d3;">() {
-            </span><span style="color:#8fbfdc;">if </span><span style="color:#e8e8d3;">(</span><span style="color:#fad07a;">condition</span><span style="color:#e8e8d3;">()) {
-              clearTimeout(</span><span style="color:#ffb964;">timeoutId</span><span style="color:#e8e8d3;">)
-              clearInterval(</span><span style="color:#ffb964;">intervalId</span><span style="color:#e8e8d3;">)
-              </span><span style="color:#fad07a;">resolve</span><span style="color:#e8e8d3;">(true);
-            }
-          }, </span><span style="color:#cf6a4c;">20</span><span style="color:#e8e8d3;">);
-          </span><span style="color:#ffb964;">timeoutId </span><span style="color:#e8e8d3;">= setTimeout(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-            clearInterval(</span><span style="color:#ffb964;">intervalId</span><span style="color:#e8e8d3;">);
-            </span><span style="color:#fad07a;">reject</span><span style="color:#e8e8d3;">()
-          }, </span><span style="color:#ffb964;">timeout</span><span style="color:#e8e8d3;">)
-        })
-      }
-      </span><span style="color:#8fbfdc;">try </span><span style="color:#e8e8d3;">{
-        </span><span style="color:#8fbfdc;">await </span><span style="color:#fad07a;">activePoll</span><span style="color:#e8e8d3;">();
-        </span><span style="color:#8fbfdc;">return </span><span style="color:#e8e8d3;">true;
-      } </span><span style="color:#8fbfdc;">catch </span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">e</span><span style="color:#e8e8d3;">) {
-        </span><span style="color:#8fbfdc;">return </span><span style="color:#e8e8d3;">false;
-      }
-    }
-    </span><span style="color:#ffb964;">globalThis</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">waitFor </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">waitFor</span><span style="color:#e8e8d3;">;
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>    </span><span style="color:#888888;">// A very rough example of a `waitFor` function that
+</span><span>    </span><span style="color:#888888;">// delays execution until a provided condition
+</span><span>    </span><span style="color:#888888;">// becomes true (or a timeout is reached)
+</span><span>    </span><span style="color:#8fbfdc;">async function </span><span style="color:#fad07a;">waitFor</span><span>(</span><span style="color:#ffb964;">condition</span><span>, </span><span style="color:#ffb964;">timeout </span><span>= </span><span style="color:#cf6a4c;">200</span><span>) {
+</span><span>      </span><span style="color:#888888;">// I don&#39;t want to comment this. It is just a quick and dirty approach
+</span><span>      </span><span style="color:#888888;">// Give preference to your testing framework tools for this
+</span><span>      </span><span style="color:#888888;">// I couldn&#39;t find anything similar for Mocha, so yeah:
+</span><span>      </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">activePoll </span><span>= () </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>        </span><span style="color:#8fbfdc;">return </span><span>new </span><span style="color:#ffb964;">Promise</span><span>((</span><span style="color:#ffb964;">resolve</span><span>, </span><span style="color:#ffb964;">reject</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>          </span><span style="color:#8fbfdc;">let </span><span style="color:#ffb964;">timeoutId</span><span>;
+</span><span>          </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">intervalId </span><span>= setInterval(</span><span style="color:#8fbfdc;">function </span><span>() {
+</span><span>            </span><span style="color:#8fbfdc;">if </span><span>(</span><span style="color:#fad07a;">condition</span><span>()) {
+</span><span>              clearTimeout(</span><span style="color:#ffb964;">timeoutId</span><span>)
+</span><span>              clearInterval(</span><span style="color:#ffb964;">intervalId</span><span>)
+</span><span>              </span><span style="color:#fad07a;">resolve</span><span>(true);
+</span><span>            }
+</span><span>          }, </span><span style="color:#cf6a4c;">20</span><span>);
+</span><span>          </span><span style="color:#ffb964;">timeoutId </span><span>= setTimeout(() </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>            clearInterval(</span><span style="color:#ffb964;">intervalId</span><span>);
+</span><span>            </span><span style="color:#fad07a;">reject</span><span>()
+</span><span>          }, </span><span style="color:#ffb964;">timeout</span><span>)
+</span><span>        })
+</span><span>      }
+</span><span>      </span><span style="color:#8fbfdc;">try </span><span>{
+</span><span>        </span><span style="color:#8fbfdc;">await </span><span style="color:#fad07a;">activePoll</span><span>();
+</span><span>        </span><span style="color:#8fbfdc;">return </span><span>true;
+</span><span>      } </span><span style="color:#8fbfdc;">catch </span><span>(</span><span style="color:#ffb964;">e</span><span>) {
+</span><span>        </span><span style="color:#8fbfdc;">return </span><span>false;
+</span><span>      }
+</span><span>    }
+</span><span>    </span><span style="color:#ffb964;">globalThis</span><span>.</span><span style="color:#ffb964;">waitFor </span><span>= </span><span style="color:#ffb964;">waitFor</span><span>;
 </span></code></pre>
 <p>With this function, I can wait for a given condition to happen before running the test assertions.</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, </span><span style="color:#8fbfdc;">function </span><span style="color:#e8e8d3;">() {
-  
-    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span style="color:#e8e8d3;">= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
-    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
-    `</span><span style="color:#e8e8d3;">;
-
-    </span><span style="color:#888888;">// Clear the #domTestArea between each test
-    </span><span style="color:#fad07a;">beforeEach</span><span style="color:#e8e8d3;">(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#556633;">&quot;&quot;</span><span style="color:#e8e8d3;">);
-
-    </span><span style="color:#fad07a;">it</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">, (</span><span style="color:#ffb964;">done</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
-        </span><span style="color:#ffb964;">domTestArea</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">innerHTML </span><span style="color:#e8e8d3;">= </span><span style="color:#fad07a;">simpleTag</span><span style="color:#e8e8d3;">();
-
-        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span style="color:#e8e8d3;">= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">);
-        </span><span style="color:#888888;">// 2.1 Get the Shadow Root
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">root </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">instance</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">shadowRoot</span><span style="color:#e8e8d3;">;
-        </span><span style="color:#888888;">// 2.2 Create a Mutation Observer for it
-        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">observer </span><span style="color:#e8e8d3;">= new </span><span style="color:#ffb964;">MutationObserver</span><span style="color:#e8e8d3;">(</span><span style="color:#8fbfdc;">async </span><span style="color:#e8e8d3;">() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{  
-        
-            </span><span style="color:#888888;">// 2.3 Wait for content
-            </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">contents </span><span style="color:#e8e8d3;">= [...</span><span style="color:#ffb964;">instance</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">contentMap</span><span style="color:#e8e8d3;">.values()];
-            </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">contentCreated </span><span style="color:#e8e8d3;">= </span><span style="color:#8fbfdc;">await </span><span style="color:#fad07a;">waitFor</span><span style="color:#e8e8d3;">(
-               () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">contents</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">filter</span><span style="color:#e8e8d3;">((</span><span style="color:#ffb964;">c</span><span style="color:#e8e8d3;">) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">c </span><span style="color:#e8e8d3;">!== null).length &gt; </span><span style="color:#cf6a4c;">0
-            </span><span style="color:#e8e8d3;">);
-
-            </span><span style="color:#888888;">// 3. Do some assertions for the content above
-            </span><span style="color:#fad07a;">assert</span><span style="color:#e8e8d3;">(</span><span style="color:#ffb964;">contentCreated</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">includes</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">cool stuff</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">));
-            
-            </span><span style="color:#fad07a;">done</span><span style="color:#e8e8d3;">();
-        });
-
-        </span><span style="color:#ffb964;">observer</span><span style="color:#e8e8d3;">.observe(root, {
-            childList: true,
-        });
-    })
-})
-</span></code></pre><h2 id="conclusion">Conclusion</h2>
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">function </span><span>() {
+</span><span>  
+</span><span>    </span><span style="color:#8fbfdc;">const </span><span style="color:#fad07a;">simpleTag </span><span>= () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#99ad6a;">`
+</span><span style="color:#99ad6a;">    &lt;i-should-go-out-more&gt;Some content&lt;/i-shoud-go-out-more&gt;
+</span><span style="color:#99ad6a;">    `</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#888888;">// Clear the #domTestArea between each test
+</span><span>    </span><span style="color:#fad07a;">beforeEach</span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#556633;">&quot;&quot;</span><span>);
+</span><span>
+</span><span>    </span><span style="color:#fad07a;">it</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">can do simple stuff with DOM tags</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">done</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>        </span><span style="color:#888888;">// 1. Put a Web Component tag in the #domTestArea
+</span><span>        </span><span style="color:#ffb964;">domTestArea</span><span>.</span><span style="color:#ffb964;">innerHTML </span><span>= </span><span style="color:#fad07a;">simpleTag</span><span>();
+</span><span>
+</span><span>        </span><span style="color:#888888;">// 2. Get the Web Component class instance on that tag
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">instance </span><span>= document.querySelector(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-should-go-out-more</span><span style="color:#556633;">&quot;</span><span>);
+</span><span>        </span><span style="color:#888888;">// 2.1 Get the Shadow Root
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">root </span><span>= </span><span style="color:#ffb964;">instance</span><span>.</span><span style="color:#ffb964;">shadowRoot</span><span>;
+</span><span>        </span><span style="color:#888888;">// 2.2 Create a Mutation Observer for it
+</span><span>        </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">observer </span><span>= new </span><span style="color:#ffb964;">MutationObserver</span><span>(</span><span style="color:#8fbfdc;">async </span><span>() </span><span style="color:#8fbfdc;">=&gt; </span><span>{  
+</span><span>        
+</span><span>            </span><span style="color:#888888;">// 2.3 Wait for content
+</span><span>            </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">contents </span><span>= [...</span><span style="color:#ffb964;">instance</span><span>.</span><span style="color:#ffb964;">contentMap</span><span>.values()];
+</span><span>            </span><span style="color:#8fbfdc;">const </span><span style="color:#ffb964;">contentCreated </span><span>= </span><span style="color:#8fbfdc;">await </span><span style="color:#fad07a;">waitFor</span><span>(
+</span><span>               () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">contents</span><span>.</span><span style="color:#fad07a;">filter</span><span>((</span><span style="color:#ffb964;">c</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">c </span><span>!== null).length &gt; </span><span style="color:#cf6a4c;">0
+</span><span>            );
+</span><span>
+</span><span>            </span><span style="color:#888888;">// 3. Do some assertions for the content above
+</span><span>            </span><span style="color:#fad07a;">assert</span><span>(</span><span style="color:#ffb964;">contentCreated</span><span>.</span><span style="color:#fad07a;">includes</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">cool stuff</span><span style="color:#556633;">&quot;</span><span>));
+</span><span>            
+</span><span>            </span><span style="color:#fad07a;">done</span><span>();
+</span><span>        });
+</span><span>
+</span><span>        </span><span style="color:#ffb964;">observer</span><span>.observe(root, {
+</span><span>            childList: true,
+</span><span>        });
+</span><span>    })
+</span><span>})
+</span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
 <p>Testing Web Components is not fun. There is also not that much space to be creative here. Web Components have a lot of particularities that need to be considered. In this post, I presented three techniques to handle Web Component tests and their eventual awkward flow.</p>
 <p>Having a commonplace (<code>#domTestArea</code>) to dump Web Components during testing and using some sort of <code>async waitFor()</code> inside a Mutation Observer on the <code>#shadow-root</code> looks like too much hassle. It feels that all of this should not be needed. I found that these three techniques solve most problems I often encountered when testing Web Components. I don't like these hacks but <em>they work</em> in general. Generally.</p>
 <hr>

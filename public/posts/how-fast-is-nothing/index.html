@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="Running and measuring no-op code in a requestAnimationFrame()">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -73,40 +73,38 @@
 			</nav>
 		</header>
 		<p>One of the fastest functions that can be run inside <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame</a> goes something like this:</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">
-function fastest() {
-  window.requestAnimationFrame(fastest);
-}
-window.requestAnimationFrame(fastest);
-
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>
+</span><span>function fastest() {
+</span><span>  window.requestAnimationFrame(fastest);
+</span><span>}
+</span><span>window.requestAnimationFrame(fastest);
+</span><span>
 </span></code></pre>
 <p>A simple no-op. It does nothing besides requesting to be called in another frame in order to do nothing besides requesting to be called in another frame, and so on.
 A request for nothing that hopefully matches the speed of your monitor v-sync to hastily do just nothing.</p>
 <p>Which gives us the perfect chance to use the most important skill we have in our life.</p>
 <h2 id="giving-meaning-to-nothing">Giving meaning to nothing</h2>
 <p>Measuring the function can be done by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark">placing marks</a> and then collecting them with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure">performance.measure() function</a>. To avoid placing a mark every frame lets also count them and place it only once every 120 frames. My monitor updates at about 60Hz so this should place a mark every 2 seconds.</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">let count = 0;
-// ^ count each frame
-function fastest() {
-  window.requestAnimationFrame(fastest);
-  count += 1;
-  if(count === 120) {
-    performance.mark(&quot;120&quot;);
-    // ^ place a mark in the 120th
- }
-}
-performance.mark(&quot;0&quot;);
-// ^ place a mark before the first frame
-window.requestAnimationFrame(fastest);
-window.setTimeout(function() {
-  // measure the duration between those two marks;
-  performance.measure(&quot;120frames&quot;, &quot;0&quot;, &quot;120&quot;);
-  const measure = performance.getEntriesByType(&quot;measure&quot;)[0];
-  console.log(&quot;120 frames in: &quot; + measure.duration);
-}, 3000);
-
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>let count = 0;
+</span><span>// ^ count each frame
+</span><span>function fastest() {
+</span><span>  window.requestAnimationFrame(fastest);
+</span><span>  count += 1;
+</span><span>  if(count === 120) {
+</span><span>    performance.mark(&quot;120&quot;);
+</span><span>    // ^ place a mark in the 120th
+</span><span> }
+</span><span>}
+</span><span>performance.mark(&quot;0&quot;);
+</span><span>// ^ place a mark before the first frame
+</span><span>window.requestAnimationFrame(fastest);
+</span><span>window.setTimeout(function() {
+</span><span>  // measure the duration between those two marks;
+</span><span>  performance.measure(&quot;120frames&quot;, &quot;0&quot;, &quot;120&quot;);
+</span><span>  const measure = performance.getEntriesByType(&quot;measure&quot;)[0];
+</span><span>  console.log(&quot;120 frames in: &quot; + measure.duration);
+</span><span>}, 3000);
+</span><span>
 </span></code></pre>
 <p>At 60fps we get around 16.7ms per frame, 120 frames should run in ~2000ms. Yet after 3 seconds this code prints &quot;120 frames in: 2148.415&quot; in the console.
 This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
@@ -119,52 +117,51 @@ This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
 <p>Lets try to promote all our short lived objects into something that might be selected to be tenured by the browser, thus reducing the time that the GC spends analyzing our running code and the nursery heap.</p>
 <h2 id="the-execution-context-is-dead-long-live-the-execution-context">The execution context is dead. Long live the execution context!</h2>
 <p>My first approach is to remove the first invocation to the requestAnimationFrame() and place it inside a global closure in <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">IIFE</a> style.</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">let count = 0;
-(function() {
-  function fastest() {
-    window.requestAnimationFrame(fastest);
-    count += 1;
-    if(count === 120) {
-      performance.mark(&quot;120&quot;);
-    }
-  }
-  performance.mark(&quot;0&quot;);
-  fastest();
-  // ^ call the function directly for the first frame
-})();
-// ^ IIFE
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>let count = 0;
+</span><span>(function() {
+</span><span>  function fastest() {
+</span><span>    window.requestAnimationFrame(fastest);
+</span><span>    count += 1;
+</span><span>    if(count === 120) {
+</span><span>      performance.mark(&quot;120&quot;);
+</span><span>    }
+</span><span>  }
+</span><span>  performance.mark(&quot;0&quot;);
+</span><span>  fastest();
+</span><span>  // ^ call the function directly for the first frame
+</span><span>})();
+</span><span>// ^ IIFE
 </span></code></pre>
 <p>The idea here is to make the reference to the fastest() function explicitly last for the whole execution of the animation loop by wrapping it in a closure context that is immediatly called.</p>
 <p>The next step is to remove all obvious objects allocations that happen inside our loop.
 This means we need to remove all the strings (&quot;120&quot; is an object allocation) and all the numbers.</p>
 <p>One of the great things about closures is that their execution context is available in their children, this means we can place the strings and numbers of our loop in vars in the long-lived closure context instead, making them live between our loop function calls.</p>
-<pre style="background-color:#151515;">
-<code><span style="color:#e8e8d3;">(function () {
-  let count = 0;
-  const limit = 120;
-  const lastMark = &quot;120&quot;;
-  const firstMark = &quot;0&quot;;
-  // ^ all vars go here
-  function fastest() {
-    window.requestAnimationFrame(fastest);
-    count += 1;
-    if(count === limit) {
-      performance.mark(lastMark);
-    }
-  }
-  // ^ when the fastest() context finishes there
-  // are no obvious object allocations to free
-  performance.mark(firstMark);
-  fastest();
-})();
-// setTimeout remains the same, this is just for performance measure
-window.setTimeout(function() {
-  performance.measure(&quot;120frames&quot;, &quot;0&quot;, &quot;120&quot;);
-  const totalTime = performance.getEntriesByType(&quot;measure&quot;)[0].duration;
-  console.log(&quot;120 frames in: &quot; + totalTime);
-}, 3000);
-</span></code></pre><h2 id="a-speed-freak-nighmare-is-a-control-junkie-best-dream">A speed-freak nighmare is a control-junkie best dream</h2>
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>(function () {
+</span><span>  let count = 0;
+</span><span>  const limit = 120;
+</span><span>  const lastMark = &quot;120&quot;;
+</span><span>  const firstMark = &quot;0&quot;;
+</span><span>  // ^ all vars go here
+</span><span>  function fastest() {
+</span><span>    window.requestAnimationFrame(fastest);
+</span><span>    count += 1;
+</span><span>    if(count === limit) {
+</span><span>      performance.mark(lastMark);
+</span><span>    }
+</span><span>  }
+</span><span>  // ^ when the fastest() context finishes there
+</span><span>  // are no obvious object allocations to free
+</span><span>  performance.mark(firstMark);
+</span><span>  fastest();
+</span><span>})();
+</span><span>// setTimeout remains the same, this is just for performance measure
+</span><span>window.setTimeout(function() {
+</span><span>  performance.measure(&quot;120frames&quot;, &quot;0&quot;, &quot;120&quot;);
+</span><span>  const totalTime = performance.getEntriesByType(&quot;measure&quot;)[0].duration;
+</span><span>  console.log(&quot;120 frames in: &quot; + totalTime);
+</span><span>}, 3000);
+</span></code></pre>
+<h2 id="a-speed-freak-nighmare-is-a-control-junkie-best-dream">A speed-freak nighmare is a control-junkie best dream</h2>
 <p>That code above produces the string &quot;120 frames in: 1990.69&quot;. This is great, it says that our measures were taken before the 16.7ms frame time has passed.</p>
 <p>Lets look at the performance tab:</p>
 <p><img src="/images/measure2.png" alt="Screenshot of the performance monitor of Firefox developer tools, it shows a maximum of 60 frames-per-second, a minimum 38.98 frames-per-second, and an average of 57.66 frames-per-second." /></p>

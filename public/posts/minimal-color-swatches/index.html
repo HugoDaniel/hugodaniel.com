@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="A look into the color relations that went into creating a simple color palette generator.">
+		
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>Minimal Color Swatches</title>
+			<meta name="twitter:title" content="Minimal Color Swatches">
+			<meta property="og:title" content="Minimal Color Swatches">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="A look into the color relations that went into creating a simple color palette generator.">
+			<meta property="og:description" content="A look into the color relations that went into creating a simple color palette generator.">
+		
+		
+			<meta property="og:article:published_time" content="2022-02-03">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;minimal-color-swatches&#x2F;">
+		
+			<meta property="og:image" content="https://hugodaniel.com/images/minimal_color_swatches.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/minimal_color_swatches.png" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> Minimal Color Swatches </h1>
+			<p> A look into the color relations that went into creating a simple color palette generator. </p>
+			<nav>
+				<time datetime="2022-02-03"> 3-Feb-2022</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p>Recently I gained a boost of motivation that made me want to look into colors and drawing tools again.</p>
+<p>I hate choosing colors, and it is tough for me to find good mixes of related colors that look well together and have multiple use cases. </p>
+<p>For this reason, I have long been cultivating an attraction towards color pickers, the idea that software can help me choose colors and give me good working sets of matching colors.</p>
+<p><a href="https://twitter.com/ndchristie">Naomi Danielle</a> gave an <a href="https://twitter.com/ndchristie/status/1382134093731794948">excellent explanation</a> of making minimal and exciting color palettes a while back. At that time, I had not enough energy or motivation to pursue this idea, so it went into the bucket list until now.</p>
+<p>This blog post explains my rudimentary interpretation of the idea behind it and provides simple examples of its inner workings. The final objective is the implementation of it all as a simple color palette generator, which is available here.</p>
+<p><img src="/images/final_palette.png" alt="13 color diamonds displayed in a grid. All the colors are related to the one present in the central diamond " /></p>
+<h2 id="don-t-pick-me">Don't pick me.</h2>
+<p>Pick a color. This color will be the root color for a minimal palette of 12 other colors. </p>
+<p>For example purposes, I am going to roll with #69b9d9.</p>
+<p><img src="/images/color_picked.png" alt="A square with a blue color" title="#69b9d9" /></p>
+<p>To ease the creation of the 12 variations, I will use HSL (Hue, Saturation, Lightness), a common RGB alternative that allows varying the color lightness and saturation directly.</p>
+<h2 id="hairy-gray">Hairy Gray.</h2>
+<p>Each color in the palette will have its light, which means that light will not be uniform across all colors, allowing artists to use darker tones and lighter tones consistently if they stick to the palette.</p>
+<p>Taking the base color chosen, start by deciding which is the brightest and darkest tone possible (I am going with a max of +25 Lightness and -25 for the darker one, but roll your own).</p>
+<p>Then create a gradient by splitting the difference into five tones each way.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/gradient_light.webm" type="video/webm">
+  <source src="/videos/gradient_light.mp4" type="video/mp4">
+</video>
+<p>Now create a relationship between these color variations by zig-zagging them and filling the two missing spots of the final palette layout. </p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/zig_zag_light.webm" type="video/webm">
+  <source src="/videos/zig_zag_light.mp4" type="video/mp4">
+</video>
+<p>Zig-zagging the lightness creates visual ways to establish relations between them. </p>
+<h2 id="no-more-can-be-absorbed">No more can be absorbed</h2>
+<p>As with lightness, the palette must provide an excellent range of color saturation. I replicated the lightness logic to get the color saturation range as an initial approach.</p>
+<p>Using the same Zig Zag logic for saturation produces the following effect.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/zig_zag_saturation.webm" type="video/webm">
+  <source src="/videos/zig_zag_saturation.mp4" type="video/mp4">
+</video>
+<p>However, after playing around with the final palette of colors, I found that this produced a high emphasis on the light colors and a lower focus on the darker shades. Coinciding the saturation highs and lows with the light did not make a balanced final result to my eyes.</p>
+<p>After showing it to a couple of friends, I opted to rearrange the saturation in an alternating fashion, highs-lows-highs from the base color outward.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/checker_saturation.webm" type="video/webm">
+  <source src="/videos/checker_saturation.mp4" type="video/mp4">
+</video>
+<h2 id="hue-is-a-lovely-city">Hue is a lovely city</h2>
+<p>For Hue, the logic is denser. I have failed to formalize it in a good way in this palette generator. The idea is to shift the base color 118º in one direction and 34º in the other—these values I took from the Danielle example.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/hue_diff.webm" type="video/webm">
+  <source src="/videos/hue_diff.mp4" type="video/mp4">
+</video>
+<p>Then the relations for all the palette diamonds involve dividing by two and sometimes by four. These relations are present in the <code>hueValues()</code> function in the code. They are fickle and sometimes jump, but the overall result is good enough.</p>
+<h2 id="at-the-end-of-the-night">At the end of the night</h2>
+<p>The final palette uses this lightness, saturation, and hue palettes.</p>
+<p><img src="/images/swatches_mix.png" alt="4 palettes: lightness palette + saturation palette + hue palette with arrows to indicate that mixing them produces the final palette " title="H+S+L" /></p>
+<p>Using the system color-picker, we can make these colors act alive.</p>
+<video autoplay="autoplay" muted loop preload width="100%">
+  <source src="/videos/swatches_final.webm" type="video/webm">
+  <source src="/videos/swatches_final.mp4" type="video/mp4">
+</video>
+<p><a href="https://svelte.dev/repl/d92223f84088414da98cce78f3ab382a?version=3.46.3">Try it out</a>.</p>
+<h2 id="final-words">Final words</h2>
+<p>Creating this palette generator was my first <a href="https://svelte.dev/">Svelte</a> project.</p>
+<p>Svelte is a lean front-end framework with an excellent initial community in Portugal.
+Their help and patience were paramount as I routinely bombed their Discord channel with questions and bugs.</p>
+<p>If you would like to get involved, <a href="https://discord.gg/fCT57QzmJV">here is an invitation link</a>.</p>
+
+    <hr>
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>

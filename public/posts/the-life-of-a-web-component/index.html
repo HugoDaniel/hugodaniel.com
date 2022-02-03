@@ -6,13 +6,13 @@
 		
 			<meta name="description" content="This post is a quick write-up on some of my learnings in experimenting with Web Components. It focuses mostly on the small subset of their life-cycle methods that deal with initialization.">
 		
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;base.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;html-system.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;dark-mode.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;desktop.css">
-		<link rel="stylesheet" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;css&#x2F;submit-form.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
 		
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https:&#x2F;&#x2F;hugodaniel.com&#x2F;atom.xml">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
 		
 		
 		
@@ -34,8 +34,8 @@
 		
 		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;">
 		
-			<meta property="og:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_components.png" >
-			<meta name="twitter:image" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;images&#x2F;html5_components.png" >
+			<meta property="og:image" content="https://hugodaniel.com/images/html5_components.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/html5_components.png" >
 		
 		
 		
@@ -122,63 +122,58 @@
 <p>Since I'm not too fond of code and rules, I tend to skip adding a constructor in most of my Web Components. I ask myself: &quot;do I need an event listener? Can it be delegated elsewhere? Do I need shadow root encapsulation? What am I going to cook for dinner? If food were Web Components would it need to be constructed?&quot;.</p>
 <p>Anyway, delegating logic to the caller/parent is the long-honored approach of the lazy dev. Moving some logic to the component or code above usually makes things easier to remove while keeping it more uncomplicated down the hierarchy.</p>
 <p>In this regard, the basic Web Component creation template would be something like:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
 </span><span style="color:#888888;">// no constructor()
-</span><span style="color:#e8e8d3;">}
+</span><span>}
 </span></code></pre>
 <p>That's it, no constructor. No need to keep up with the Web Components spec rules and the browser will use the <code>HTMLElement</code> standard constructor.</p>
 <h2 id="all-these-notifications-keep-distracting-me">All these notifications keep distracting me.</h2>
 <p>Like the constructor approach above, it is better to keep the Web Component disconnected. That means that it is preferable to avoid using the <code>connectedCallback()</code> method when possible.</p>
 <p>Why? Because this particular method can be called multiple times throughout the life of a Web Component. Should it be responsible for the initialization of the Web Component? What happens if the components move around after being already initialized? Can the component code handle being &quot;initialized&quot; multiple times on top of each other? Why is this Web Component alive? (why are we all?) Will it have fun during its life-time? Will this Web Component spend its life under its parent's home?</p>
 <p>For most autonomous Web Components I find it better to design them with no DOM attachment flow in mind. That means that the simple Web Component template remains the same:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
 </span><span style="color:#888888;">// no constructor()
-// no connectedCallback()
-</span><span style="color:#e8e8d3;">}
+</span><span style="color:#888888;">// no connectedCallback()
+</span><span>}
 </span></code></pre>
 <p>Then use a life flow that I am more comfortable with, say something like:</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">ImAWebComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
 </span><span style="color:#888888;">// no constructor()
-// no connectedCallback()
-
-</span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
+</span><span style="color:#888888;">// no connectedCallback()
+</span><span>
+</span><span style="color:#fad07a;">initialize</span><span>() {
 </span><span style="color:#888888;">// some initialization logic here
-</span><span style="color:#e8e8d3;">}
-
-</span><span style="color:#fad07a;">update</span><span style="color:#e8e8d3;">() {
+</span><span>}
+</span><span>
+</span><span style="color:#fad07a;">update</span><span>() {
 </span><span style="color:#888888;">// refresh stuff and keep things revised
-</span><span style="color:#e8e8d3;">}
-...
+</span><span>}
+</span><span>...
 </span></code></pre>
 <p>The idea here is to use whatever suits you better as the life-cycle-flow of your components. Web Components have a somewhat low-level API that molds quickly to the kinkiest desires. You can make them work closer to how you like to decompose problems or instead go wild and be creative. </p>
 <p>You can avoid classes altogether and use a pure-functional approach that ultimately nails down to the Web Component class like some IO trash-can. Or keep using Object-Oriented Programming and spawn a vast forest of hierarchical extensions. Or use another language, why stick to JavaScript if Web Components are just HTML that can be executed by your favorite language WebView in a declarative way? All good, everything is possible here.</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">addEventListener</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">load</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">,
-  () </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">document.querySelectorAll(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my-tag</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">)
-                .forEach(</span><span style="color:#ffb964;">tag </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">tag</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">()))
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">addEventListener</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">load</span><span style="color:#556633;">&quot;</span><span>,
+</span><span>  () </span><span style="color:#8fbfdc;">=&gt; </span><span>document.querySelectorAll(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my-tag</span><span style="color:#556633;">&quot;</span><span>)
+</span><span>                .forEach(</span><span style="color:#ffb964;">tag </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#ffb964;">tag</span><span>.</span><span style="color:#fad07a;">initialize</span><span>()))
 </span></code></pre>
 <p>Calling the <code>initialize()</code> or <code>update()</code> functions can then happen at any moment, controllable by the app. In a <code>render()</code> function? Once at the &quot;load&quot; event? How to use it will largely depend on what kind of component this is and its context.</p>
 <h2 id="web-components-can-use-other-web-components">Web Components can use other Web Components.</h2>
 <p>As expected, a Web Component can use another Web Component. However, the browser is not always smart enough to delay its creation until the <code>customElements</code> global registry defines the tag for the Web Component that it depends.</p>
 <p>A common approach is to use the <code>customElements.whenDefined(&quot;my-tag&quot;)</code>, which returns a Promise when the tag is defined. Put a bunch of these in a <code>Promise.all</code> array if the Web Component uses other Web Component tags inside it.</p>
-<pre style="background-color:#151515;">
-<code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">MyComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span style="color:#e8e8d3;">{
-  </span><span style="color:#ffb964;">whenLoaded </span><span style="color:#e8e8d3;">= </span><span style="color:#ffb964;">Promise</span><span style="color:#e8e8d3;">.all(
-    [
-      </span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">whenDefined</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">dom-loop</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">),
-      </span><span style="color:#ffb964;">customElements</span><span style="color:#e8e8d3;">.</span><span style="color:#fad07a;">whenDefined</span><span style="color:#e8e8d3;">(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">redux-for-blink-tags</span><span style="color:#556633;">&quot;</span><span style="color:#e8e8d3;">),
-    ],
-  );
-
-  </span><span style="color:#fad07a;">initialize</span><span style="color:#e8e8d3;">() {
-	</span><span style="color:#ffb964;">this</span><span style="color:#e8e8d3;">.</span><span style="color:#ffb964;">whenLoaded</span><span style="color:#e8e8d3;">.then(() </span><span style="color:#8fbfdc;">=&gt; </span><span style="color:#e8e8d3;">{
-    </span><span style="color:#888888;">// Runs after the `whenLoaded` promise resolves
-    </span><span style="color:#e8e8d3;">});
-  }
-}
+<pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">MyComponent </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
+</span><span>  </span><span style="color:#ffb964;">whenLoaded </span><span>= </span><span style="color:#ffb964;">Promise</span><span>.all(
+</span><span>    [
+</span><span>      </span><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#fad07a;">whenDefined</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">dom-loop</span><span style="color:#556633;">&quot;</span><span>),
+</span><span>      </span><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#fad07a;">whenDefined</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">redux-for-blink-tags</span><span style="color:#556633;">&quot;</span><span>),
+</span><span>    ],
+</span><span>  );
+</span><span>
+</span><span>  </span><span style="color:#fad07a;">initialize</span><span>() {
+</span><span>	</span><span style="color:#ffb964;">this</span><span>.</span><span style="color:#ffb964;">whenLoaded</span><span>.then(() </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#888888;">// Runs after the `whenLoaded` promise resolves
+</span><span>    });
+</span><span>  }
+</span><span>}
 </span></code></pre>
 <p>The above pattern guarantees that the &quot;dom-loop&quot; and &quot;redux-for-blink-tags&quot; are availabe inside the initialization promise.</p>
 <h2 id="conclusion">Conclusion</h2>

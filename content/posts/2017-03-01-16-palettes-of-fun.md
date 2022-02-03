@@ -3,7 +3,7 @@ title = "Palettes 0xF Fun"
 description = "Overview and comparison of different 8-bit computer color palettes (NSFW)"
 date = 2017-03-01
 extra = { place = "Lisboa", author = "Hugo Daniel" }
-++++
++++
 
 Like most of the country in the 80's, Alenquer, the village where I was born, was trying to modernize itself in what can be considered an insurgence against its rural past.
 
