@@ -13,7 +13,7 @@ For this reason, I have long been cultivating an attraction towards color picker
 
 [Naomi Danielle](https://twitter.com/ndchristie) gave an [excellent explanation](https://twitter.com/ndchristie/status/1382134093731794948) of making minimal and exciting color palettes a while back. At that time, I had not enough energy or motivation to pursue this idea, so it went into the bucket list until now.
 
-This blog post explains my rudimentary interpretation of the idea behind it and provides simple examples of its inner workings. The final objective is the implementation of it all as a simple color palette generator, which is available here.
+This blog post explains my rudimentary interpretation of the idea behind it and provides simple examples of its inner workings. The final objective is the implementation of it all as a simple color palette generator, which is [available here](https://svelte.dev/repl/d92223f84088414da98cce78f3ab382a?version=3.46.3).
 
 ![13 color diamonds displayed in a grid. All the colors are related to the one present in the central diamond ](/images/final_palette.png)
 
