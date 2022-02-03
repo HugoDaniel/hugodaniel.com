@@ -56,7 +56,7 @@
   &lt;source src=&quot;&#x2F;videos&#x2F;hue_diff.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;hue_diff.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
-&lt;p&gt;Then the relations for all the palette diamonds involve dividing by two and sometimes by four. These relations are present in the &lt;code&gt;hueValues()&lt;&#x2F;code&gt; function in the code. They are fickle and sometimes jump, but the overall result is good enough.&lt;&#x2F;p&gt;
+&lt;p&gt;Then the relations for all the palette diamonds involve dividing by two and sometimes by four. These relations are present in the &lt;code&gt;hueValues()&lt;&#x2F;code&gt; function &lt;a href=&quot;https:&#x2F;&#x2F;svelte.dev&#x2F;repl&#x2F;d92223f84088414da98cce78f3ab382a?version=3.46.3&quot;&gt;in the code&lt;&#x2F;a&gt;. They are fickle and sometimes jump, but the overall result is good enough.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;at-the-end-of-the-night&quot;&gt;At the end of the night&lt;&#x2F;h2&gt;
 &lt;p&gt;The final palette uses this lightness, saturation, and hue palettes.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;swatches_mix.png&quot; alt=&quot;4 palettes: lightness palette + saturation palette + hue palette with arrows to indicate that mixing them produces the final palette &quot; title=&quot;H+S+L&quot; &#x2F;&gt;&lt;&#x2F;p&gt;

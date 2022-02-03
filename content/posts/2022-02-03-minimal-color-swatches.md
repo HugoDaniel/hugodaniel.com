@@ -78,7 +78,7 @@ For Hue, the logic is denser. I have failed to formalize it in a good way in thi
   <source src="/videos/hue_diff.mp4" type="video/mp4">
 </video>
 
-Then the relations for all the palette diamonds involve dividing by two and sometimes by four. These relations are present in the `hueValues()` function in the code. They are fickle and sometimes jump, but the overall result is good enough.
+Then the relations for all the palette diamonds involve dividing by two and sometimes by four. These relations are present in the `hueValues()` function [in the code](https://svelte.dev/repl/d92223f84088414da98cce78f3ab382a?version=3.46.3). They are fickle and sometimes jump, but the overall result is good enough.
 
 
 ## At the end of the night
