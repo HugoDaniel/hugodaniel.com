@@ -35,14 +35,14 @@ Taking the base color chosen, start by deciding which is the brightest and darke
 
 Then create a gradient by splitting the difference into five tones each way.
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/gradient_light.webm" type="video/webm">
   <source src="/videos/gradient_light.mp4" type="video/mp4">
 </video>
 
 Now create a relationship between these color variations by zig-zagging them and filling the two missing spots of the final palette layout. 
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/zig_zag_light.webm" type="video/webm">
   <source src="/videos/zig_zag_light.mp4" type="video/mp4">
 </video>
@@ -55,7 +55,7 @@ As with lightness, the palette must provide an excellent range of color saturati
 
 Using the same Zig Zag logic for saturation produces the following effect.
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/zig_zag_saturation.webm" type="video/webm">
   <source src="/videos/zig_zag_saturation.mp4" type="video/mp4">
 </video>
@@ -64,7 +64,7 @@ However, after playing around with the final palette of colors, I found that thi
 
 After showing it to a couple of friends, I opted to rearrange the saturation in an alternating fashion, highs-lows-highs from the base color outward.
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/checker_saturation.webm" type="video/webm">
   <source src="/videos/checker_saturation.mp4" type="video/mp4">
 </video>
@@ -73,7 +73,7 @@ After showing it to a couple of friends, I opted to rearrange the saturation in 
 
 For Hue, the logic is denser. I have failed to formalize it in a good way in this palette generator. The idea is to shift the base color 118º in one direction and 34º in the other—these values I took from the Danielle example.
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/hue_diff.webm" type="video/webm">
   <source src="/videos/hue_diff.mp4" type="video/mp4">
 </video>
@@ -89,7 +89,7 @@ The final palette uses this lightness, saturation, and hue palettes.
 
 Using the system color-picker, we can make these colors act alive.
 
-<video autoplay="autoplay" muted loop preload width="100%">
+<video controls muted loop preload width="100%">
   <source src="/videos/swatches_final.webm" type="video/webm">
   <source src="/videos/swatches_final.mp4" type="video/mp4">
 </video>
