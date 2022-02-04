@@ -104,5 +104,7 @@ Creating this palette generator was my first [Svelte](https://svelte.dev/) proje
 Svelte is a lean front-end framework with an excellent initial community in Portugal.
 Their help and patience were paramount as I routinely bombed their Discord channel with questions and bugs.
 
+<img src=/images/svelte_portugal.svg width=96 alt="Svelte Portugal Discord group logo"/>
+
 If you would like to get involved, [here is an invitation link](https://discord.gg/fCT57QzmJV).
 
