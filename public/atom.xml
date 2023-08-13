@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-	<title></title>
-	<link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://hugodaniel.com"/>
-	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-02-03T00:00:00+00:00</updated>
-	<id>https://hugodaniel.com/atom.xml</id>
-	<entry xml:lang="en">
-		<title>Minimal Color Swatches</title>
-		<published>2022-02-03T00:00:00+00:00</published>
-		<updated>2022-02-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/minimal-color-swatches/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/minimal-color-swatches/</id>
-		<content type="html">&lt;p&gt;Recently I gained a boost of motivation that made me want to look into colors and drawing tools again.&lt;&#x2F;p&gt;
+    <title></title>
+    <link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://hugodaniel.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-02-03T00:00:00+00:00</updated>
+    <id>https://hugodaniel.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Minimal Color Swatches</title>
+        <published>2022-02-03T00:00:00+00:00</published>
+        <updated>2022-02-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/minimal-color-swatches/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/minimal-color-swatches/</id>
+        
+        <content type="html">&lt;p&gt;Recently I gained a boost of motivation that made me want to look into colors and drawing tools again.&lt;&#x2F;p&gt;
 &lt;p&gt;I hate choosing colors, and it is tough for me to find good mixes of related colors that look well together and have multiple use cases. &lt;&#x2F;p&gt;
 &lt;p&gt;For this reason, I have long been cultivating an attraction towards color pickers, the idea that software can help me choose colors and give me good working sets of matching colors.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;ndchristie&quot;&gt;Naomi Danielle&lt;&#x2F;a&gt; gave an &lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;ndchristie&#x2F;status&#x2F;1382134093731794948&quot;&gt;excellent explanation&lt;&#x2F;a&gt; of making minimal and exciting color palettes a while back. At that time, I had not enough energy or motivation to pursue this idea, so it went into the bucket list until now.&lt;&#x2F;p&gt;
@@ -73,14 +77,19 @@ Their help and patience were paramount as I routinely bombed their Discord chann
 &lt;img src=&#x2F;images&#x2F;svelte_portugal.svg width=96 alt=&quot;Svelte Portugal Discord group logo&quot;&#x2F;&gt;
 &lt;p&gt;If you would like to get involved, &lt;a href=&quot;https:&#x2F;&#x2F;discord.gg&#x2F;fCT57QzmJV&quot;&gt;here is an invitation link&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Infinite grid with just one square</title>
-		<published>2021-03-24T00:00:00+00:00</published>
-		<updated>2021-03-24T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/infinite-grid-with-just-one-square/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/infinite-grid-with-just-one-square/</id>
-		<content type="html">&lt;p&gt;Around 2017, I took up more seriously the &amp;quot;Grid Generator&amp;quot; project.
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Infinite grid with just one square</title>
+        <published>2021-03-24T00:00:00+00:00</published>
+        <updated>2021-03-24T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/infinite-grid-with-just-one-square/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/infinite-grid-with-just-one-square/</id>
+        
+        <content type="html">&lt;p&gt;Around 2017, I took up more seriously the &amp;quot;Grid Generator&amp;quot; project.
 A Web App to explore the possibilities of an infinite grid of squares.
 Driven primarily out of curiosity, I wondered if even I could create something cool with an endless grid of customizable squares?&lt;&#x2F;p&gt;
 &lt;p&gt;I spent almost two years on it. Two years of trial and error iterations in code, UI, product orientation, business, and failing hard at all those things and so many others. &amp;quot;This time will be different.&amp;quot;&lt;&#x2F;p&gt;
@@ -206,14 +215,19 @@ Using these two WebGL graphics techniques allows for infinite grids of custom sh
   &lt;source src=&quot;&#x2F;videos&#x2F;tris.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>High-level WebGL. Low-level tags.</title>
-		<published>2021-03-03T00:00:00+00:00</published>
-		<updated>2021-03-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/high-level-webgl-low-level-tags/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/high-level-webgl-low-level-tags/</id>
-		<content type="html">&lt;p&gt;When people think about the WebGL API, they focus on one of the famous libraries
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>High-level WebGL. Low-level tags.</title>
+        <published>2021-03-03T00:00:00+00:00</published>
+        <updated>2021-03-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/high-level-webgl-low-level-tags/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/high-level-webgl-low-level-tags/</id>
+        
+        <content type="html">&lt;p&gt;When people think about the WebGL API, they focus on one of the famous libraries
 that use it. Typically &lt;a href=&quot;https:&#x2F;&#x2F;threejs.org&quot;&gt;&amp;quot;three.js&amp;quot;&lt;&#x2F;a&gt; or
 &lt;a href=&quot;https:&#x2F;&#x2F;www.babylonjs.com&quot;&gt;&amp;quot;Babylon&amp;quot;&lt;&#x2F;a&gt;. There&#x27;s barely any motivation
 to use the WebGL API directly. But the WebGL API is still just as important to
@@ -324,14 +338,19 @@ that I found myself writing over and over.&lt;&#x2F;p&gt;
 &lt;p&gt;Shader canvas is the product of Web Components explorations that I have been
 writting about. Check out &lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-series&#x2F;&quot;&gt;the whole series&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component</title>
-		<published>2021-03-02T00:00:00+00:00</published>
-		<updated>2021-03-02T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-series/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-series/</id>
-		<content type="html">&lt;h2 id=&quot;1-initialization&quot;&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;1 - Initialization&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component</title>
+        <published>2021-03-02T00:00:00+00:00</published>
+        <updated>2021-03-02T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component-series/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component-series/</id>
+        
+        <content type="html">&lt;h2 id=&quot;1-initialization&quot;&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component&#x2F;&quot;&gt;1 - Initialization&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;This post is the first in the series. It talks about avoiding the Web
 Components constructor, events and life-cycle methods while rolling your
 approach.&lt;&#x2F;p&gt;
@@ -354,14 +373,19 @@ best-practices. Just thoughts about trying it out and seeing where it goes.&lt;&
 &lt;p&gt;A graphics framework that makes use of the Web Component techniques in this
 series.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component - Getting Tested</title>
-		<published>2021-01-31T00:00:00+00:00</published>
-		<updated>2021-01-31T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-tests/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-tests/</id>
-		<content type="html">&lt;p&gt;In this post, I present what is by far the 2nd best way to test Web Components. I say this because there must be at least one way better than the one I am presenting. Also, I don&#x27;t know of any other way to test them since I have just started playing with Web Components. So yeah, 2nd best, by (infinitely) far.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component - Getting Tested</title>
+        <published>2021-01-31T00:00:00+00:00</published>
+        <updated>2021-01-31T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component-tests/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component-tests/</id>
+        
+        <content type="html">&lt;p&gt;In this post, I present what is by far the 2nd best way to test Web Components. I say this because there must be at least one way better than the one I am presenting. Also, I don&#x27;t know of any other way to test them since I have just started playing with Web Components. So yeah, 2nd best, by (infinitely) far.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-test-a-web-component&quot;&gt;Where to test a Web Component?&lt;&#x2F;h2&gt;
 &lt;p&gt;First, a starting note:&lt;&#x2F;p&gt;
 &lt;p&gt;The techniques I am going to show are not thought for &lt;abbr title=&quot;Command Line Interface&quot;&gt;CLI&lt;&#x2F;abbr&gt; usage. They are meant for the browser. Where Web Components run and are used.&lt;&#x2F;p&gt;
@@ -665,14 +689,19 @@ Hugo&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-state-in-shadow&#x2F;&quot;&gt;Part 4 - Declarative State&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component - Declarative State</title>
-		<published>2021-01-30T00:00:00+00:00</published>
-		<updated>2021-01-30T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/</id>
-		<content type="html">&lt;p&gt;What if custom tags could be used for the application state?&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component - Declarative State</title>
+        <published>2021-01-30T00:00:00+00:00</published>
+        <updated>2021-01-30T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component-state-in-shadow/</id>
+        
+        <content type="html">&lt;p&gt;What if custom tags could be used for the application state?&lt;&#x2F;p&gt;
 &lt;p&gt;For instance, consider a simple todo app that gets rendered like this:&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;HTML&quot; style=&quot;background-color:#151515;color:#e8e8d3;&quot; class=&quot;language-HTML &quot;&gt;&lt;code class=&quot;language-HTML&quot; data-lang=&quot;HTML&quot;&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
 &lt;&#x2F;span&gt;&lt;span&gt;
@@ -853,14 +882,19 @@ Hugo&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-tests&#x2F;&quot;&gt;Part 5 - Get Tested&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component - Reversing the Shadow DOM visibility</title>
-		<published>2021-01-29T00:00:00+00:00</published>
-		<updated>2021-01-29T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/</id>
-		<content type="html">&lt;p&gt;The other day I was thinking about what do HTML tags give us out of the box and made this list:&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component - Reversing the Shadow DOM visibility</title>
+        <published>2021-01-29T00:00:00+00:00</published>
+        <updated>2021-01-29T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component-reverse-shadow-dom/</id>
+        
+        <content type="html">&lt;p&gt;The other day I was thinking about what do HTML tags give us out of the box and made this list:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Hierarchy&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
@@ -1056,14 +1090,19 @@ Hugo&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-tests&#x2F;&quot;&gt;Part 5 - Get Tested&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component - as a variable bucket</title>
-		<published>2021-01-28T00:00:00+00:00</published>
-		<updated>2021-01-28T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/</id>
-		<content type="html">&lt;p&gt;JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of &lt;code&gt;class MyClass { ... }&lt;&#x2F;code&gt; write &lt;code&gt;class { ... },&lt;&#x2F;code&gt; and it will be created without a name. &lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component - as a variable bucket</title>
+        <published>2021-01-28T00:00:00+00:00</published>
+        <updated>2021-01-28T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component-as-var/</id>
+        
+        <content type="html">&lt;p&gt;JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of &lt;code&gt;class MyClass { ... }&lt;&#x2F;code&gt; write &lt;code&gt;class { ... },&lt;&#x2F;code&gt; and it will be created without a name. &lt;&#x2F;p&gt;
 &lt;p&gt;Likewise prefix a regular &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; object &lt;code&gt;{ ... }&lt;&#x2F;code&gt; with &lt;code&gt;class&lt;&#x2F;code&gt; and have an anonymous class defined.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;HTML5_badge_tag.png&quot; alt=&quot;Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation.&quot; title=&quot;Let those tags roll!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Nothing special here, classes are in fact normal &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; objects. The big extra is that anonymous classes, just like normal classes, can use the &lt;abbr title=&quot;JavaScript&quot;&gt;JS&lt;&#x2F;abbr&gt; &lt;code&gt;extends&lt;&#x2F;code&gt; syntax to easily carry other objects and acumulate them.&lt;&#x2F;p&gt;
@@ -1267,24 +1306,34 @@ Hugo&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-tests&#x2F;&quot;&gt;Part 5 - Get Tested&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Thank you!</title>
-		<published>2021-01-27T00:00:00+00:00</published>
-		<updated>2021-01-27T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/thank-you/" type="text/html"/>
-		<id>https://hugodaniel.com/thank-you/</id>
-		<content type="html">&lt;p&gt;:)&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Thank you!</title>
+        <published>2021-01-27T00:00:00+00:00</published>
+        <updated>2021-01-27T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/thank-you/" type="text/html"/>
+        <id>https://hugodaniel.com/thank-you/</id>
+        
+        <content type="html">&lt;p&gt;:)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;&#x2F;&quot;&gt;Go Home&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The life of a Web Component - Initialization</title>
-		<published>2021-01-26T00:00:00+00:00</published>
-		<updated>2021-01-26T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/the-life-of-a-web-component/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/the-life-of-a-web-component/</id>
-		<content type="html">&lt;p&gt;I&#x27;ve been playing around with Web Components lately. They are quite an exciting thing with a vast range of use cases and possibilities. Web Components provide a very flexible API to explore non-standard approaches and Frankenstein contraptions. I know I will :)&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The life of a Web Component - Initialization</title>
+        <published>2021-01-26T00:00:00+00:00</published>
+        <updated>2021-01-26T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/the-life-of-a-web-component/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/the-life-of-a-web-component/</id>
+        
+        <content type="html">&lt;p&gt;I&#x27;ve been playing around with Web Components lately. They are quite an exciting thing with a vast range of use cases and possibilities. Web Components provide a very flexible API to explore non-standard approaches and Frankenstein contraptions. I know I will :)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;Web_Components&quot;&gt;MDN has an excellent intro to Web Components&lt;&#x2F;a&gt;. It explains the three main parts of Web Components in some detail (custom tags, shadow root, and template slots). I recommend you start with MDN if you are looking to take your first steps into this tech.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;html5_components.png&quot; alt=&quot;Three HTML5 badges in a row. The first one has the normal orientation. The second one is upside down. The third one has a random orientation.&quot; title=&quot;They said it would be easy&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Here is a quick explanation if, like me, you are coming from a text-book framework (react, vue, svelte, etc…) and have not done anything too serious with them:&lt;&#x2F;p&gt;
@@ -1397,14 +1446,19 @@ Hugo&lt;&#x2F;p&gt;
 &lt;li&gt;&lt;a href=&quot;&#x2F;posts&#x2F;the-life-of-a-web-component-tests&#x2F;&quot;&gt;Part 5 - Get Tested&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Introducing the &lt;deno&gt; tag</title>
-		<published>2021-01-06T00:00:00+00:00</published>
-		<updated>2021-01-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/introducing-deno-tag/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/introducing-deno-tag/</id>
-		<content type="html">&lt;p&gt;Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the &amp;quot;new Node.js&amp;quot;. After trying it out, I feel that Deno is much more than that. &lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Introducing the &lt;deno&gt; tag</title>
+        <published>2021-01-06T00:00:00+00:00</published>
+        <updated>2021-01-06T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/introducing-deno-tag/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/introducing-deno-tag/</id>
+        
+        <content type="html">&lt;p&gt;Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the &amp;quot;new Node.js&amp;quot;. After trying it out, I feel that Deno is much more than that. &lt;&#x2F;p&gt;
 &lt;p&gt;Deno is a new thing. A new thing that gets it right and manages to improve even the few parts that were already top-notch in Node.js&#x2F;JS.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;deno_deal_with_it.png&quot; alt=&quot;Deno with the pixel sunglasses from the &amp;quot;Deal With It&amp;quot; meme&quot; title=&quot;Deal with it&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;how-cool-is-deno&quot;&gt;How cool is Deno?&lt;&#x2F;h2&gt;
@@ -1473,14 +1527,19 @@ Ping the coffee machine?&lt;&#x2F;p&gt;
 &lt;p&gt;This is also available as a &lt;em&gt;deno.land&#x2F;x&lt;&#x2F;em&gt; third-party module &lt;a href=&quot;https:&#x2F;&#x2F;deno.land&#x2F;x&#x2F;deno_tag&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;deno_tag_logo.png&quot; alt=&quot;Deno logo between two angle brackets&quot; title=&quot;deno_tag ftw!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Meet Evil Cliddy</title>
-		<published>2020-12-21T00:00:00+00:00</published>
-		<updated>2020-12-21T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/meet-evil-cliddy/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/meet-evil-cliddy/</id>
-		<content type="html">&lt;p&gt;Creating Cliddy has been a significant driver of my motivations and ideas. This simple character that will serve as the base for my next drawing app has been a source of fun in recent days.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Meet Evil Cliddy</title>
+        <published>2020-12-21T00:00:00+00:00</published>
+        <updated>2020-12-21T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/meet-evil-cliddy/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/meet-evil-cliddy/</id>
+        
+        <content type="html">&lt;p&gt;Creating Cliddy has been a significant driver of my motivations and ideas. This simple character that will serve as the base for my next drawing app has been a source of fun in recent days.&lt;&#x2F;p&gt;
 &lt;p&gt;It is a throwback to the days where virtual assistants were displayed with an avatar without &amp;quot;skills&amp;quot; or &amp;quot;actions&amp;quot; or whatever Siri now has. An agent to be used as a narrative controller of a story that I am not sure where will lead me.&lt;&#x2F;p&gt;
 &lt;p&gt;The more I work on it, the more the idea of making &amp;quot;products&amp;quot; on top of real characters grows in me, up to the point where I am starting to believe that Cliddy can not only be the main central point of the whole UI, but also the focus and target of the entire project.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clippy.png&quot; alt=&quot;Microsoft Clippy Assistant&quot; title=&quot;The pain.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
@@ -1511,14 +1570,19 @@ I don&#x27;t know the answers to these questions. I also don&#x27;t propose answ
 &lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;posts&#x2F;cleaning-up-for-shape-the-pixel&#x2F;&quot;&gt;Cleaning up for Shape The Pixel&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>The Zen of index.html</title>
-		<published>2020-12-15T00:00:00+00:00</published>
-		<updated>2020-12-15T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/</id>
-		<content type="html">&lt;p&gt;Using an &lt;code&gt;index.html&lt;&#x2F;code&gt; as the single management file for the app.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The Zen of index.html</title>
+        <published>2020-12-15T00:00:00+00:00</published>
+        <updated>2020-12-15T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/using-just-an-index-to-develop-a-web-app/</id>
+        
+        <content type="html">&lt;p&gt;Using an &lt;code&gt;index.html&lt;&#x2F;code&gt; as the single management file for the app.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;html5-hammer.png&quot; alt=&quot;HTML5 badge with a hammer, ready to do some damage&quot; title=&quot;That is one big hammer!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;&amp;quot;It might work for small things, but I wouldn&#x27;t use it for something big.&amp;quot;&lt;&#x2F;em&gt;
 Said someone about something.&lt;&#x2F;p&gt;
@@ -1644,14 +1708,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;It does not have TypeScript support and it also does not automatically resolve dependencies and bundles them.&lt;&#x2F;p&gt;
 &lt;p&gt;These are two open problems with this approach that I plan to show a possible solution that is on par in simplicity with this one. That will be the subject of my next technical post (likely to come out next week). Stay tuned.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Cleaning up for Shape The Pixel</title>
-		<published>2020-12-11T00:00:00+00:00</published>
-		<updated>2020-12-11T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/</id>
-		<content type="html">&lt;p&gt;Moving from Grid Generator into the first version of &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt; is going to involve the effort of cleaning and pruning the parts that are slightly outside of its intended focus of drawing shapes.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Cleaning up for Shape The Pixel</title>
+        <published>2020-12-11T00:00:00+00:00</published>
+        <updated>2020-12-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/cleaning-up-for-shape-the-pixel/</id>
+        
+        <content type="html">&lt;p&gt;Moving from Grid Generator into the first version of &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt; is going to involve the effort of cleaning and pruning the parts that are slightly outside of its intended focus of drawing shapes.&lt;&#x2F;p&gt;
 &lt;p&gt;This implies product changes that will propagate into technical decisions.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;what-is-going-away&quot;&gt;What is going away?&lt;&#x2F;h2&gt;
 &lt;p&gt;Things that were done in Grid Generator and that are going to be removed in &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
@@ -1688,14 +1757,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;p&gt;This is part of a new approach to a drawing tool that is going to be called &lt;em&gt;Shape The Pixel&lt;&#x2F;em&gt;. Read more about its initial creation ideas &lt;a href=&quot;&#x2F;posts&#x2F;from-gridgenerator-to-shape-the-pixel&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;. Send me an e-mail if you liked what you read or have any questions&#x2F;suggestions 🤓&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>From Grid Generator to Shape The Pixel</title>
-		<published>2020-12-04T00:00:00+00:00</published>
-		<updated>2020-12-04T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/</id>
-		<content type="html">&lt;p&gt;More than two years ago I was releasing my bootstrapped drawing application into the world, the &amp;quot;Grid Generator&amp;quot; web app. It was the labor of love and the search for a creative project where I could eventually dedicate a big part of my future life. However, a trip to the Web Summit in 2017 and countless books of lean&#x2F;market-first approaches were not enough to save it from its fate. It was not a product or service that the market wanted. This did not surprised me, but yet it still consumed a lot of my energy and was a point stronger than my personal project vision for the most part. &lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>From Grid Generator to Shape The Pixel</title>
+        <published>2020-12-04T00:00:00+00:00</published>
+        <updated>2020-12-04T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/from-gridgenerator-to-shape-the-pixel/</id>
+        
+        <content type="html">&lt;p&gt;More than two years ago I was releasing my bootstrapped drawing application into the world, the &amp;quot;Grid Generator&amp;quot; web app. It was the labor of love and the search for a creative project where I could eventually dedicate a big part of my future life. However, a trip to the Web Summit in 2017 and countless books of lean&#x2F;market-first approaches were not enough to save it from its fate. It was not a product or service that the market wanted. This did not surprised me, but yet it still consumed a lot of my energy and was a point stronger than my personal project vision for the most part. &lt;&#x2F;p&gt;
 &lt;p&gt;Circumstances have taken me to a path where I can work on the drawing app again. Now I am going to give it a twist and turn it into something different. Just for fun.&lt;&#x2F;p&gt;
 &lt;p&gt;The main idea will be the same: a geometric drawing tool. The objective and approach however will be very different. This time the driver points for the app development are going to be:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -1717,14 +1791,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;p&gt;It is time to Shape The Pixel.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>From Rust to Svelte, what tech stack will I use</title>
-		<published>2020-06-07T00:00:00+00:00</published>
-		<updated>2020-06-07T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/browser-tech-stack-2020/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/browser-tech-stack-2020/</id>
-		<content type="html">&lt;p&gt;&lt;strong&gt;TL;DR&lt;&#x2F;strong&gt; Here is a template for your new web app project: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;svelte-template&quot;&gt;Svelte + TypeScript + Parcel + Rust&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>From Rust to Svelte, what tech stack will I use</title>
+        <published>2020-06-07T00:00:00+00:00</published>
+        <updated>2020-06-07T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/browser-tech-stack-2020/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/browser-tech-stack-2020/</id>
+        
+        <content type="html">&lt;p&gt;&lt;strong&gt;TL;DR&lt;&#x2F;strong&gt; Here is a template for your new web app project: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;svelte-template&quot;&gt;Svelte + TypeScript + Parcel + Rust&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The web is a big open platform that keeps evolving with the URL at its core.&lt;&#x2F;p&gt;
 &lt;p&gt;We have a lot of tech and frameworks at our disposal to chose when starting a new web app in 2020.&lt;&#x2F;p&gt;
 &lt;p&gt;There certainly is a lot of mud to crawl into, from an all-in vanilla JS approach up until an all-out React with a 100+ dependencies approach.&lt;&#x2F;p&gt;
@@ -1770,26 +1849,36 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;I have fetched some ideas from a few repos and forked them into a ready to use template you can start your projects with.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;svelte-template&quot;&gt;Check it out.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Keeping track of memory allocations in JS</title>
-		<published>2018-07-06T00:00:00+00:00</published>
-		<updated>2018-07-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/" type="text/html"/>
-		<id>https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/</id>
-		<content type="html">&lt;p&gt;Memory is cheap. It is not uncommon for smartphones to carry 2GB or more to play around.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Keeping track of memory allocations in JS</title>
+        <published>2018-07-06T00:00:00+00:00</published>
+        <updated>2018-07-06T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/" type="text/html"/>
+        <id>https://hugodaniel.com/drafts/keeping-track-of-memory-allocations-in-js/</id>
+        
+        <content type="html">&lt;p&gt;Memory is cheap. It is not uncommon for smartphones to carry 2GB or more to play around.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;interact-to-allocate-new-memory&quot;&gt;Interact to allocate new memory&lt;&#x2F;h2&gt;
 &lt;h2 id=&quot;animate-memory-allocations&quot;&gt;Animate memory allocations&lt;&#x2F;h2&gt;
 &lt;h2 id=&quot;&quot;&gt;&lt;&#x2F;h2&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Introducing Grid Generator Version 0</title>
-		<published>2018-07-05T00:00:00+00:00</published>
-		<updated>2018-07-05T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/grid-generator-v0/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/grid-generator-v0/</id>
-		<content type="html">&lt;p&gt;The purpose of this post is to introduce my personal project: Grid Generator. This is the first post about it since it went online on the 1st of July 2018.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Introducing Grid Generator Version 0</title>
+        <published>2018-07-05T00:00:00+00:00</published>
+        <updated>2018-07-05T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/grid-generator-v0/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/grid-generator-v0/</id>
+        
+        <content type="html">&lt;p&gt;The purpose of this post is to introduce my personal project: Grid Generator. This is the first post about it since it went online on the 1st of July 2018.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;what-problem-does-it-solve&quot;&gt;What problem does it solve?&lt;&#x2F;h2&gt;
 &lt;p&gt;I have always struggled with design tools. In particular those that came to see the light of the day during the 90&#x27;s (Adobe I am looking at you).&lt;&#x2F;p&gt;
 &lt;p&gt;These design tools are clearly targeted at &amp;quot;pros&amp;quot; and &amp;quot;specialists&amp;quot; (like most of the computer &amp;quot;stuff&amp;quot; from&#x2F;during the 90&#x27;s). You are not expected to be able to work with them if you are not a specialist or if you did not take at least a course on these tools.&lt;&#x2F;p&gt;
@@ -1854,14 +1943,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;In its current state Grid Generator is very raw. I did a lot of compromises to get here but the idea is very close to its initial inception in my head from a couple of years ago. Along the way I had the help and feedback of amazing people. I have some upcoming posts planned on them. They helped a lot of this feel way less lonely and in some points I think they believed more in it than me :)&lt;&#x2F;p&gt;
 &lt;p&gt;Alas &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;gridgenerator&quot;&gt;everything is open source&lt;&#x2F;a&gt; and I am going to start using GitHub bells and whistles in its further development.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Eviction and Debt</title>
-		<published>2018-07-04T00:00:00+00:00</published>
-		<updated>2018-07-04T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/eviction-and-debt/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/eviction-and-debt/</id>
-		<content type="html">&lt;p&gt;The last 6 months?&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Eviction and Debt</title>
+        <published>2018-07-04T00:00:00+00:00</published>
+        <updated>2018-07-04T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/eviction-and-debt/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/eviction-and-debt/</id>
+        
+        <content type="html">&lt;p&gt;The last 6 months?&lt;&#x2F;p&gt;
 &lt;p&gt;Rents rising, IRS, grants and the version 0 of my personal project&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;a-lisbon-story-part-i-eviction&quot;&gt;A Lisbon Story (part I - eviction)&lt;&#x2F;h2&gt;
 &lt;p&gt;Renting cycles have always happened. In certain cities you can even map whole migrations as they trend and landlords surf the wave of higher rent prices for at least the same level of preocupations.&lt;&#x2F;p&gt;
@@ -1895,14 +1989,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;I am also going to invest into propaganda now and try to walk the thin line of project promotion and SPAM.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;PATTERN.png&quot; alt=&quot;A Pattern made with Grid Generator&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>WebSummit opening night. Sharing the stage with Paddy Cosgrave</title>
-		<published>2017-11-06T00:00:00+00:00</published>
-		<updated>2017-11-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/websummit-opening-night/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/websummit-opening-night/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;abertura02.jpg&quot; alt=&quot;Paddy Cosgrave taking a selfie on the Center Stage during the opening night&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>WebSummit opening night. Sharing the stage with Paddy Cosgrave</title>
+        <published>2017-11-06T00:00:00+00:00</published>
+        <updated>2017-11-06T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/websummit-opening-night/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/websummit-opening-night/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;abertura02.jpg&quot; alt=&quot;Paddy Cosgrave taking a selfie on the Center Stage during the opening night&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;WebSummit first day came with a mix of up and downs sprinkled with the duality of having the desire to scream with euphoria versus admiting that the event is nothing special to avoid stressing about it.&lt;&#x2F;p&gt;
 &lt;p&gt;This week I was contacted by their team to go up on the main stage with some of the startups that were present in last week event with the President Marcelo Rebelo de Sousa. That gave me cold sweats even though I knew it was nothing special. The idea was just to go on stage when they called for us and be there representing our startup scene.&lt;&#x2F;p&gt;
 &lt;p&gt;Early in the morning, I went to the venue with high hopes of doing my registration and never think about WebSummit until the main stage opening night thing. Unfortunately they told me that registration would only happen after 12h, which made me go back home to spend the rest of the day printing and cutting flyers and cards to hopefully distribute to people at the event.&lt;&#x2F;p&gt;
@@ -1912,14 +2011,19 @@ Said someone about something.&lt;&#x2F;p&gt;
 &lt;p&gt;The cerimony was closed with the current prime-minister of Portugal, António Costa, and the mayor of Lisbon, Fernando Medina, who both pressed in a button that made a lot of confettis cannons explode. Before that they invited the portuguese startups the stage, where I was included. I used the chance to take a few pictures and wave at Guterres and Margrethe when by chance they looked at me.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;abertura03.jpg&quot; alt=&quot;WebSummit starting&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Grid Generator First Stand</title>
-		<published>2017-11-03T00:00:00+00:00</published>
-		<updated>2017-11-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/gridgenerator-first-stand/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/gridgenerator-first-stand/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;beato1.jpg&quot; alt=&quot;Beato Creative Hub&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Grid Generator First Stand</title>
+        <published>2017-11-03T00:00:00+00:00</published>
+        <updated>2017-11-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/gridgenerator-first-stand/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/gridgenerator-first-stand/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;beato1.jpg&quot; alt=&quot;Beato Creative Hub&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;About a month ago I was planning my WebSummit approach when I realized that I had never been to such an event. Much less have a stand of my project there.&lt;&#x2F;p&gt;
 &lt;p&gt;That was when I started searching for opportunities to be at events. To train and prepare for the WebSummit.&lt;&#x2F;p&gt;
 &lt;p&gt;Back then I got an invitation to participate in the first aniversary of StartUp Portugal, the portuguese state entity that acts upon the development of our entrepreneurial ecosystem.&lt;&#x2F;p&gt;
@@ -1964,14 +2068,19 @@ It happenened. She talked to them, took some photos, and promptly decided to ign
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Hope this helps and see you at the WebSummit next week &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;in Lisbon&lt;&#x2F;a&gt;, also take a look at some cool &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;places to eat in the touristic area of Lisbon&lt;&#x2F;a&gt; :)&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Meeting the President</title>
-		<published>2017-11-02T00:00:00+00:00</published>
-		<updated>2017-11-02T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/meeting-the-president/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/meeting-the-president/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;inside_coches2.jpg&quot; alt=&quot;He talked to us in the old coach museum&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Meeting the President</title>
+        <published>2017-11-02T00:00:00+00:00</published>
+        <updated>2017-11-02T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/meeting-the-president/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/meeting-the-president/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;inside_coches2.jpg&quot; alt=&quot;He talked to us in the old coach museum&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;A few days ago I got an e-mail from the presidency inviting me to go to an event with the president of Portugal, Marcelo Rebelo de Sousa. This came within the WebSummit context, he wanted to be personally with some of the portuguese startups that are going to attend the WebSummit next week.&lt;&#x2F;p&gt;
 &lt;p&gt;This event would take place in the old National Coach Museum in the near future: today.&lt;&#x2F;p&gt;
 &lt;p&gt;I guess that I got it because of my participation on the &amp;quot;Road2WebSummit&amp;quot; series of events that I was selected to be part of. Road2WebSummit is focused in coaching (pun intended) startups so they can be well prepared for the WebSummit. It tries to fill the gap of our lack of an official &amp;quot;entrepreneur&amp;quot; culture, although we do have a lot of background at being unofficially entrepreneurs as it comes attached to being a poor country in a rich continent. Now we just need to know how to capitalize on that and channel it through proper &amp;quot;startupian&amp;quot; gymnastics.&lt;&#x2F;p&gt;
@@ -1992,14 +2101,19 @@ It happenened. She talked to them, took some photos, and promptly decided to ign
 &lt;p&gt;I hope another opportunity like this happens soon, maybe then I can also take a selfie with the Prez. :D&lt;&#x2F;p&gt;
 &lt;p&gt;Meanwhile checkout how &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;first-funding-as-a-bootstrapper-in-portugal&#x2F;&quot;&gt;I got to participate&lt;&#x2F;a&gt; in the StartUp Portugal events. If you are here for the WebSummit don&#x27;t be fooled and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;where-do-local-hackers-eat-in-lisbon&#x2F;&quot;&gt;read my recommendations for places to eat&lt;&#x2F;a&gt; in the touristic area.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Where do local hackers eat in Lisbon</title>
-		<published>2017-11-01T00:00:00+00:00</published>
-		<updated>2017-11-01T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;kid.jpg&quot; alt=&quot;Picture of a kid in the dark looking for a friend to pass the ball while playing football&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Where do local hackers eat in Lisbon</title>
+        <published>2017-11-01T00:00:00+00:00</published>
+        <updated>2017-11-01T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/where-do-local-hackers-eat-in-lisbon/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;kid.jpg&quot; alt=&quot;Picture of a kid in the dark looking for a friend to pass the ball while playing football&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;I don&#x27;t know where hackers (as in infosec wizards) eat in Lisbon. We do have a strong background of using things beyond their intended purpose (we call it &amp;quot;desenrascanço&amp;quot; and it is a basic trait of being born in the culture that has sprung here for centuries).&lt;&#x2F;p&gt;
 &lt;p&gt;As is this post is intended for tourists looking for a typical experience.&lt;&#x2F;p&gt;
 &lt;p&gt;If you are visiting Lisbon chances are that you will spend your time around the most touristic areas of the city. In this post I want to share with you some places and dishes that we love and are generally ignored by tourists. I don&#x27;t pretend to be Anthony Bourdain or any of those youtubers that don&#x27;t respect what they are eating and only go to fancy restaurants to say in the end that it is cheap and good.
@@ -2078,14 +2192,19 @@ We have mostly french influences and also things from all over the world but to 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;Explore Lisbon, it has many secrets and hidden gems. Our ways might seem a bit strange, clumsy and hard to get into at first, but peeking through the sweet spots can reveal a humble, seasoned and balanced culture (with earned scars of fighting hard against slavery, discrimination, inequality and dictatorship&#x2F;power surges). If you are here next week for the WebSummit lets hang out and have a drink :) &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;about&#x2F;&quot;&gt;Here is my contact at the bottom&lt;&#x2F;a&gt;. Take a look at why I think &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon is an inspiration&lt;&#x2F;a&gt; for my project.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>My first funding as a bootstrapper in Portugal</title>
-		<published>2017-10-31T00:00:00+00:00</published>
-		<updated>2017-10-31T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;startupvoucher.jpg&quot; alt=&quot;StartUp Voucher ad, it reads: &amp;quot;What if your idea could turn into a company ?&amp;quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>My first funding as a bootstrapper in Portugal</title>
+        <published>2017-10-31T00:00:00+00:00</published>
+        <updated>2017-10-31T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/first-funding-as-a-bootstrapper-in-portugal/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;startupvoucher.jpg&quot; alt=&quot;StartUp Voucher ad, it reads: &amp;quot;What if your idea could turn into a company ?&amp;quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;In April 2016 I quit from the startup I was working to finally do a personal project. Back then the questions everyone asked me were mostly about money &lt;em&gt;&amp;quot;How are you going to live ?&amp;quot;&lt;&#x2F;em&gt;.
 Even though rent prices in Lisbon have been skyrocketing due to tourism increase and the coming of WebSummit I always had a frugal economical lifestyle. I don&#x27;t have loans, I don&#x27;t have &amp;quot;luxuries&amp;quot; and I can keep my monthly spendings to what some people view as an heroically low value.
 Looking back it was somewhat natural that when a set of conditions met I thought: &amp;quot;it&#x27;s now or never&amp;quot;.&lt;&#x2F;p&gt;
@@ -2100,14 +2219,19 @@ That made me start looking around for investment, preferably some that did not i
 &lt;p&gt;Right now I have a working demo that have been using with some friends and potential users and I am planning to start looking for partnerships in early 2018.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;In this link&lt;&#x2F;a&gt; I explain why I decided to go to the WebSummit this year.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>How useful is the JavaScript Set</title>
-		<published>2017-10-25T00:00:00+00:00</published>
-		<updated>2017-10-25T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/how-useful-is-the-javascript-set/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/how-useful-is-the-javascript-set/</id>
-		<content type="html">&lt;p&gt;In most languages Set&#x27;s have a clear strong use case: fast union, intersection and difference operations; unfortunately in JavaScript these operations are not readily defined so as an exercise I am going to raise some questions and try to answer them in this post.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>How useful is the JavaScript Set</title>
+        <published>2017-10-25T00:00:00+00:00</published>
+        <updated>2017-10-25T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/how-useful-is-the-javascript-set/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/how-useful-is-the-javascript-set/</id>
+        
+        <content type="html">&lt;p&gt;In most languages Set&#x27;s have a clear strong use case: fast union, intersection and difference operations; unfortunately in JavaScript these operations are not readily defined so as an exercise I am going to raise some questions and try to answer them in this post.&lt;&#x2F;p&gt;
 &lt;p&gt;All code is run on Firefox Developer Edition 57.0b11 (64-bit) in macOS.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;initialization&quot;&gt;Initialization&lt;&#x2F;h2&gt;
 &lt;p&gt;Most of this post will be used to compare &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Global_Objects&#x2F;Set&quot;&gt;Set()&lt;&#x2F;a&gt; with &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Global_Objects&#x2F;Array&quot;&gt;Array()&lt;&#x2F;a&gt; for some common operations. To initialize a Set() I will be constructing it with an Array.&lt;&#x2F;p&gt;
@@ -2339,14 +2463,19 @@ Converting the Set to an Array is not going to help here because &lt;a href=&quo
 &lt;p&gt;Set&#x27;s are a big part of my project &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;Grid Generator&lt;&#x2F;a&gt;. Keeping these small concepts close to the heart can help you leverage Sets to achieve very good performance even in mobile devices.&lt;&#x2F;p&gt;
 &lt;p&gt;I hope this post was valuable in any way to you. If you are interested &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;here is my take on console.log()&lt;&#x2F;a&gt; and also a &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;look into Immutable&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Lisbon as an inspiration for my project</title>
-		<published>2017-10-25T00:00:00+00:00</published>
-		<updated>2017-10-25T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;Lisbon_gridgenerator1.jpg&quot; alt=&quot;Diptych of Lisbon graffitti in portuguese tiles together with the downtown Lisbon ground&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Lisbon as an inspiration for my project</title>
+        <published>2017-10-25T00:00:00+00:00</published>
+        <updated>2017-10-25T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/lisbon-as-an-inspiration-for-my-project/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;Lisbon_gridgenerator1.jpg&quot; alt=&quot;Diptych of Lisbon graffitti in portuguese tiles together with the downtown Lisbon ground&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Recently I was somewhat &amp;quot;forced&amp;quot; to think about the story behind the idea I am working on. If you go to these startup and entrepreneurship events you will see that most projects have some kind of a story behind them.
 Either they start up in a garage (Apple), or they decided to improve their hobbyist girl discrimination app (facebook), or they just somehow were blessed by some mystical event that got their idea and team together to disrupt the universe.&lt;&#x2F;p&gt;
 &lt;p&gt;When my reality clashed with that one I realized that I did not have a special motivation to do a &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;pattern and shapes app&lt;&#x2F;a&gt; besides my desire to make a cool project come to life.
@@ -2372,14 +2501,19 @@ They are a source of inspiration.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;Lisbon_gridgenerator4.jpg&quot; alt=&quot;Diptych of a messed up sidewalk diagonal grid and the door detail of a church in &amp;quot;Martim Moniz&amp;quot; where the frontage is entirely rendered on the ground sidewalk&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;If you liked this post &lt;a href=&quot;https:&#x2F;&#x2F;gridgenerator.com&quot;&gt;check out my project&lt;&#x2F;a&gt; and the reason why &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;why-i-decided-to-go-to-the-websummit&#x2F;&quot;&gt;I am going to the WebSummit&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Why I decided to go to the WebSummit?</title>
-		<published>2017-10-24T00:00:00+00:00</published>
-		<updated>2017-10-24T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/</id>
-		<content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;websummit1_tagusriver.jpg&quot; alt=&quot;Tagus river by sunset in Lisbon, with a background bridge that shares some similarities with the Golden Gate in San Francisco&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Why I decided to go to the WebSummit?</title>
+        <published>2017-10-24T00:00:00+00:00</published>
+        <updated>2017-10-24T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/why-i-decided-to-go-to-the-websummit/</id>
+        
+        <content type="html">&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;websummit1_tagusriver.jpg&quot; alt=&quot;Tagus river by sunset in Lisbon, with a background bridge that shares some similarities with the Golden Gate in San Francisco&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Personally I find it impossible to answer this question. I feel that it was not me who actually took the decision to go to the WebSummit. Even though I did.&lt;&#x2F;p&gt;
 &lt;p&gt;It all hapened through a sequence of chained events that led me to have to decide to buy a discounted alpha ticket to go there.&lt;&#x2F;p&gt;
 &lt;p&gt;At first the WebSummit has two big &amp;quot;no&amp;quot;&#x27;s: the price and if you can actually get something useful from it. I can argue that there is some pressure to go when you have the whole city talking about this conference and you know quite a few people that are going there. How can you miss the even where supposedly everything is hapenning ?&lt;&#x2F;p&gt;
@@ -2395,14 +2529,19 @@ I then changed my mind into going to the WebSummit because he convinced me that 
 Right now I know that at least I get the chance to be in the same place as Al Gore and other great thinkers...&lt;&#x2F;p&gt;
 &lt;p&gt;If you liked this post check out &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;lisbon-as-an-inspiration-for-my-project&#x2F;&quot;&gt;Lisbon as an inspiration for my project&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>In loving memory of Immutable.js</title>
-		<published>2017-10-03T00:00:00+00:00</published>
-		<updated>2017-10-03T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/in-loving-memory-of-immutable/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/in-loving-memory-of-immutable/</id>
-		<content type="html">&lt;p&gt;Any JavaScript spaghetti worth its salt won&#x27;t keep track of its objects references or their updates.
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>In loving memory of Immutable.js</title>
+        <published>2017-10-03T00:00:00+00:00</published>
+        <updated>2017-10-03T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/in-loving-memory-of-immutable/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/in-loving-memory-of-immutable/</id>
+        
+        <content type="html">&lt;p&gt;Any JavaScript spaghetti worth its salt won&#x27;t keep track of its objects references or their updates.
 These are things that happen between the mind of a chef and the ether of a planned portion with lots of defensive copying.
 &lt;a href=&quot;https:&#x2F;&#x2F;facebook.github.io&#x2F;immutable-js&#x2F;&quot;&gt;Immutable.js&lt;&#x2F;a&gt; aims to reduce these portion sizes to match the ones in fancy restaurants while avoiding ingredients like:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#151515;color:#e8e8d3;&quot;&gt;&lt;code&gt;&lt;span&gt;JSON.parse(JSON.stringify(obj))
@@ -2571,14 +2710,19 @@ copy the first list up to the needed value, if the copying is done but the inten
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;immigrant.jpeg&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;I hope this post was in any way useful to you. Immutable sure is a fun library to get to know and work with. &lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>vi is not vim</title>
-		<published>2017-08-12T00:00:00+00:00</published>
-		<updated>2017-08-12T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/vi-is-not-vim/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/vi-is-not-vim/</id>
-		<content type="html">&lt;p&gt;When dinossaurs ruled the earth there was a young kid that had just installed Red Hat Linux 5 on his computer.&lt;br&#x2F;&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>vi is not vim</title>
+        <published>2017-08-12T00:00:00+00:00</published>
+        <updated>2017-08-12T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/vi-is-not-vim/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/vi-is-not-vim/</id>
+        
+        <content type="html">&lt;p&gt;When dinossaurs ruled the earth there was a young kid that had just installed Red Hat Linux 5 on his computer.&lt;br&#x2F;&gt;
 Fascinated with the &amp;quot;OS for the elite&amp;quot; he was about to experience a devouring frustration.
 The kind that gives rise to dark divinities that come to haunt you in your sleep for years to come:&lt;&#x2F;p&gt;
 &lt;p&gt;Trying to exit vim.&lt;&#x2F;p&gt;
@@ -2695,14 +2839,19 @@ To do that use the &lt;em&gt;t&lt;&#x2F;em&gt; or &lt;em&gt;f&lt;&#x2F;em&gt; co
 &lt;p&gt;I hope this post to be used as a initial reference and motivation to those that are looking for a more minimalistic way of doing things. I don&#x27;t intend it to start flame wars.&lt;&#x2F;p&gt;
 &lt;p&gt;You know all of these are just my opinions :)&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Mastering console.log()</title>
-		<published>2017-08-11T00:00:00+00:00</published>
-		<updated>2017-08-11T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/mastering-console-log/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/mastering-console-log/</id>
-		<content type="html">&lt;p&gt;Using &lt;code&gt;console.log()&lt;&#x2F;code&gt; to debug JavaScript, a dynamic weakly-typed interpreted language, feels like drinking beers on a lazy summer sunday afternoon.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Mastering console.log()</title>
+        <published>2017-08-11T00:00:00+00:00</published>
+        <updated>2017-08-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/mastering-console-log/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/mastering-console-log/</id>
+        
+        <content type="html">&lt;p&gt;Using &lt;code&gt;console.log()&lt;&#x2F;code&gt; to debug JavaScript, a dynamic weakly-typed interpreted language, feels like drinking beers on a lazy summer sunday afternoon.&lt;&#x2F;p&gt;
 &lt;p&gt;It is easy and you do it without thinking too much on how you could probably be more productive doing something else.&lt;&#x2F;p&gt;
 &lt;p&gt;Truth is that in all the other days of the week you don&#x27;t avoid spraying your code with the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Statements&#x2F;debugger&quot;&gt;&lt;code&gt;debugger&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; keyword and let the developer tools stop and show you the execution context at that exact location.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#151515;color:#e8e8d3;&quot;&gt;&lt;code&gt;&lt;span&gt;function yourCodeThatCouldBeWorking() {
@@ -2848,14 +2997,19 @@ Suppose you are logging messages that can have a varying number of attributes:&l
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;That should save you some performance complaints. I hope it helps :)&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Bootstrapping rain</title>
-		<published>2017-08-08T00:00:00+00:00</published>
-		<updated>2017-08-08T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/bootstrapping-rain/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/bootstrapping-rain/</id>
-		<content type="html">&lt;p&gt;It has passed a year and a couple of months since I started bootstrapping &amp;quot;a painting web app&amp;quot;. A lot has happened since that time, here is a quick TL;DR:&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bootstrapping rain</title>
+        <published>2017-08-08T00:00:00+00:00</published>
+        <updated>2017-08-08T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/bootstrapping-rain/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/bootstrapping-rain/</id>
+        
+        <content type="html">&lt;p&gt;It has passed a year and a couple of months since I started bootstrapping &amp;quot;a painting web app&amp;quot;. A lot has happened since that time, here is a quick TL;DR:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;I am still living off my savings (with a bit of help explained bellow)&lt;&#x2F;li&gt;
 &lt;li&gt;Increase in frequency and amplitude of the emotional roller-coaster highs and lows&lt;&#x2F;li&gt;
@@ -2888,14 +3042,19 @@ Another cold winter morning in Lisbon enhanced by the summer optimized windows a
 &lt;p&gt;I have since done the first prototype of the landing page for the graphic design web app &lt;a href=&quot;https:&#x2F;&#x2F;www.pixnit.com&quot;&gt;https:&#x2F;&#x2F;www.pixnit.com&lt;&#x2F;a&gt; and we have been focusing on applying this work on colors, grids and patterns on the ceramics industry (for a different, but related, product).&lt;&#x2F;p&gt;
 &lt;p&gt;In september I will add a promotional video for the graphic design app and an open demo.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Palettes 0xF Fun</title>
-		<published>2017-03-01T00:00:00+00:00</published>
-		<updated>2017-03-01T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/16-palettes-of-fun/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/16-palettes-of-fun/</id>
-		<content type="html">&lt;p&gt;Like most of the country in the 80&#x27;s, Alenquer, the village where I was born, was trying to modernize itself in what can be considered an insurgence against its rural past.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Palettes 0xF Fun</title>
+        <published>2017-03-01T00:00:00+00:00</published>
+        <updated>2017-03-01T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/16-palettes-of-fun/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/16-palettes-of-fun/</id>
+        
+        <content type="html">&lt;p&gt;Like most of the country in the 80&#x27;s, Alenquer, the village where I was born, was trying to modernize itself in what can be considered an insurgence against its rural past.&lt;&#x2F;p&gt;
 &lt;p&gt;The context of coming out from a strong harsh dictatorship and having recently joined the european comunity automatically made everyone who did not work a lazy person. Opportunities were everywhere. In fact this was so intense for the newer generations that working was not enough for them to avoid the &amp;quot;lazy stigma&amp;quot;. You had to explore, experiment, live and enjoy the &amp;quot;new&amp;quot;.&lt;&#x2F;p&gt;
 &lt;p&gt;I was 6 years old when my parents made their after dinner routine visit to a friends house with the usual purpose of drinking and talking about stuff that seemed to matter. What was supposed to be just another day in the company of friends changed my life forever.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;&amp;quot;I have finally bought the computer&amp;quot;&lt;&#x2F;strong&gt;
@@ -2939,14 +3098,19 @@ He turned it on, typed some words on the keys and started a game. The first comp
 &lt;img src=&quot;&#x2F;images&#x2F;palette2.png&quot; alt=&quot;&quot; &#x2F;&gt;
 &lt;img src=&quot;&#x2F;images&#x2F;palette3.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>A new name to surf 2017</title>
-		<published>2017-01-18T00:00:00+00:00</published>
-		<updated>2017-01-18T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/surfing-2017/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/surfing-2017/</id>
-		<content type="html">&lt;p&gt;2016 was a year of change. I stopped working full-time as a programmer and decided to dedicate some of that time to personal projects. I made plans.
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A new name to surf 2017</title>
+        <published>2017-01-18T00:00:00+00:00</published>
+        <updated>2017-01-18T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/surfing-2017/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/surfing-2017/</id>
+        
+        <content type="html">&lt;p&gt;2016 was a year of change. I stopped working full-time as a programmer and decided to dedicate some of that time to personal projects. I made plans.
 During the course of the year most of those plans got changed, a lot. My intention was to build &amp;quot;paint.pt&amp;quot;, a online painting tool, while supporting myself with some savings and with the money i could make by training people in programming skills.&lt;&#x2F;p&gt;
 &lt;p&gt;I took teacher training and got a teacher certificate with the highest possible grade as i was full time on it.
 Then got a few schools contacts that needed trainers for specific modules of some courses.&lt;&#x2F;p&gt;
@@ -2989,14 +3153,19 @@ The result of it was the realisation that ~10EUR&#x2F;hour isn&#x27;t enough for
 &lt;&#x2F;ol&gt;
 &lt;p&gt;Lets see where this goes. So no more trainings, no more certifications, no more noise. Just pixnit.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>How fast is nothing at all ?</title>
-		<published>2016-09-23T00:00:00+00:00</published>
-		<updated>2016-09-23T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/how-fast-is-nothing/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/how-fast-is-nothing/</id>
-		<content type="html">&lt;p&gt;One of the fastest functions that can be run inside &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;window&#x2F;requestAnimationFrame&quot;&gt;requestAnimationFrame&lt;&#x2F;a&gt; goes something like this:&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>How fast is nothing at all ?</title>
+        <published>2016-09-23T00:00:00+00:00</published>
+        <updated>2016-09-23T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/how-fast-is-nothing/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/how-fast-is-nothing/</id>
+        
+        <content type="html">&lt;p&gt;One of the fastest functions that can be run inside &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;window&#x2F;requestAnimationFrame&quot;&gt;requestAnimationFrame&lt;&#x2F;a&gt; goes something like this:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#151515;color:#e8e8d3;&quot;&gt;&lt;code&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;function fastest() {
 &lt;&#x2F;span&gt;&lt;span&gt;  window.requestAnimationFrame(fastest);
@@ -3098,14 +3267,19 @@ This means we need to remove all the strings (&amp;quot;120&amp;quot; is an obje
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;intel.png&quot; alt=&quot;Screenshot of the chrome:&#x2F;&#x2F;gpu page list of problems. Currently chrome does not support WebGL in Intel HD3000 cards on OSX.&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Thanks &lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;rqleve&quot;&gt;Raquel Foster&lt;&#x2F;a&gt; for reading this blog and motivating me to write this follow-up on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;react-redux-canvas&#x2F;&quot;&gt;React-Redux-Canvas&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Bootstrapping - getting some boots to strap</title>
-		<published>2016-08-11T00:00:00+00:00</published>
-		<updated>2016-08-11T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/bootstrapping4/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/bootstrapping4/</id>
-		<content type="html">&lt;p&gt;A lot has happened since the last post on this series. Against all odds the portuguese football team won the Euro2016, their first international cup! Summer also hit us hard shortly after that, heavy migrations towards the south (algarve) and the &amp;quot;fire season&amp;quot; started, consuming the green portions of this rectangular land.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bootstrapping - getting some boots to strap</title>
+        <published>2016-08-11T00:00:00+00:00</published>
+        <updated>2016-08-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/bootstrapping4/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/bootstrapping4/</id>
+        
+        <content type="html">&lt;p&gt;A lot has happened since the last post on this series. Against all odds the portuguese football team won the Euro2016, their first international cup! Summer also hit us hard shortly after that, heavy migrations towards the south (algarve) and the &amp;quot;fire season&amp;quot; started, consuming the green portions of this rectangular land.&lt;&#x2F;p&gt;
 &lt;p&gt;Amidst all of these events it became clear to me that i needed a backup plan in order to extend my window of development time for the paint.pt project.&lt;&#x2F;p&gt;
 &lt;p&gt;So during the month of July i took a one month course in how to teach and give formation and got a &amp;quot;certification of pedagogical competences&amp;quot; (aka teaching certification). This was a great time, i learned a lot, practiced a lot and read a lot about teaching and group interactions.&lt;&#x2F;p&gt;
 &lt;p&gt;Now i only need to start practicing it in a way that does not harm the time I have to work on paint.pt. Are you in need of some coding lessons ? :)&lt;&#x2F;p&gt;
@@ -3116,14 +3290,19 @@ This means we need to remove all the strings (&amp;quot;120&amp;quot; is an obje
 &lt;p&gt;If you enjoy reading this please consider subscribing with your e-mail so we can stay in contact.&lt;&#x2F;p&gt;
 &lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Bootstrapping - week 3</title>
-		<published>2016-06-24T00:00:00+00:00</published>
-		<updated>2016-06-24T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/bootstrapping3/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/bootstrapping3/</id>
-		<content type="html">&lt;p&gt;This week was a blast! I took 3 days off and only worked thursday and friday.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bootstrapping - week 3</title>
+        <published>2016-06-24T00:00:00+00:00</published>
+        <updated>2016-06-24T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/bootstrapping3/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/bootstrapping3/</id>
+        
+        <content type="html">&lt;p&gt;This week was a blast! I took 3 days off and only worked thursday and friday.&lt;&#x2F;p&gt;
 &lt;p&gt;This wasn&#x27;t entirely on purpose, my intention was not to have real &amp;quot;vacations&amp;quot;, but to enjoy the overall Lisbon party mood. Tuesday was also the first game of the portuguese football team in euro 2016.&lt;&#x2F;p&gt;
 &lt;p&gt;Though i am not a football fan, i do like to watch the portuguese team play with the eventuality of seeing some magical moves by Cristiano Ronaldo.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;ronaldo.jpg&quot; alt=&quot;Cristiano Ronaldo 2012&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
@@ -3136,14 +3315,19 @@ This means we need to remove all the strings (&amp;quot;120&amp;quot; is an obje
 &lt;p&gt;And it was it. If you enjoy reading this please consider subscribing with your e-mail so we can stay in contact (i will personally send you an e-mail).&lt;&#x2F;p&gt;
 &lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>React - Redux - Canvas</title>
-		<published>2016-06-17T00:00:00+00:00</published>
-		<updated>2016-06-17T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/react-redux-canvas/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/react-redux-canvas/</id>
-		<content type="html">&lt;p&gt;Painting stuff on a &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;&#x2F;code&gt; is easy, call &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;HTMLCanvasElement&#x2F;getContext&quot;&gt;HTMLCanvasElement.getContext()&lt;&#x2F;a&gt; to get the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CanvasRenderingContext2D&quot;&gt;CanvasRenderingContext&lt;&#x2F;a&gt; and then use its functions to express yourself.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>React - Redux - Canvas</title>
+        <published>2016-06-17T00:00:00+00:00</published>
+        <updated>2016-06-17T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/react-redux-canvas/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/react-redux-canvas/</id>
+        
+        <content type="html">&lt;p&gt;Painting stuff on a &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;&#x2F;code&gt; is easy, call &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;HTMLCanvasElement&#x2F;getContext&quot;&gt;HTMLCanvasElement.getContext()&lt;&#x2F;a&gt; to get the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CanvasRenderingContext2D&quot;&gt;CanvasRenderingContext&lt;&#x2F;a&gt; and then use its functions to express yourself.&lt;&#x2F;p&gt;
 &lt;p&gt;Doing an animation is also easy, call &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;window&#x2F;requestAnimationFrame&quot;&gt;window.requestAnimationFrame()&lt;&#x2F;a&gt; to tell the browser that you want to do an animation, and on it use the &lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;API&#x2F;CanvasRenderingContext2D&quot;&gt;CanvasRenderingContext&lt;&#x2F;a&gt; to animate as you see fit (tipically clearing the part of the drawing that changed and painting the new version of it).&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#151515;color:#e8e8d3;&quot;&gt;&lt;code&gt;&lt;span&gt;var canvasElem = document.getElementById(&amp;quot;canvas&amp;quot;);
 &lt;&#x2F;span&gt;&lt;span&gt;var w = window.innerWidth;
@@ -3315,14 +3499,19 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;In the next post I will write some usage examples with animations and also create a few helper functions to ease the usage of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;HugoDaniel&#x2F;redux-canvas&quot;&gt;redux-canvas&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Meanwhile checkout my take on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;mastering-console-log&#x2F;&quot;&gt;console.log()&lt;&#x2F;a&gt;, a quick look into &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;in-loving-memory-of-immutable&#x2F;&quot;&gt;ImmutableJS&lt;&#x2F;a&gt; and my performance measurements on &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;how-useful-is-the-javascript-set&#x2F;&quot;&gt;JavaScript Set&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Bootstrapping - week 2</title>
-		<published>2016-06-16T00:00:00+00:00</published>
-		<updated>2016-06-16T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/bootstrapping2/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/bootstrapping2/</id>
-		<content type="html">&lt;p&gt;Lisbon is in party, this year the anual city holiday is happening in sync with a national holiday.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bootstrapping - week 2</title>
+        <published>2016-06-16T00:00:00+00:00</published>
+        <updated>2016-06-16T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/bootstrapping2/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/bootstrapping2/</id>
+        
+        <content type="html">&lt;p&gt;Lisbon is in party, this year the anual city holiday is happening in sync with a national holiday.&lt;&#x2F;p&gt;
 &lt;p&gt;This means the common Lisbon worker will get 4 days of paid holiday for free :)&lt;&#x2F;p&gt;
 &lt;p&gt;The Lisbon party actually lasts for 2 whole weeks, where you can dance and sing a blend of new-age cheesy pop music. Most of the fun happens during the night.&lt;&#x2F;p&gt;
 &lt;p&gt;In order to carry 3 extra days of holidays for the next week (this way i would be able to recover from sunday night) i decided to work for 7 days on my 2nd week (through the weekend).&lt;&#x2F;p&gt;
@@ -3336,14 +3525,19 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;By the end of the week (sunday, 12) i did not yet had it finished or published, but stay tuned (subscribe please) because a more thorough blog post about all of this is on the way.&lt;&#x2F;p&gt;
 &lt;p&gt;Don&#x27;t forget to subscribe and checkout the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping1&#x2F;&quot;&gt;Bootstrapping 1&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Boostrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>Bootstrapping - week 1</title>
-		<published>2016-06-06T00:00:00+00:00</published>
-		<updated>2016-06-06T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/bootstrapping1/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/bootstrapping1/</id>
-		<content type="html">&lt;p&gt;Two months have passed since i quit my job with the plan of taking some time to develop a few ideas that have outgrown me enough to earn the respect of a full-time dedication.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bootstrapping - week 1</title>
+        <published>2016-06-06T00:00:00+00:00</published>
+        <updated>2016-06-06T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/bootstrapping1/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/bootstrapping1/</id>
+        
+        <content type="html">&lt;p&gt;Two months have passed since i quit my job with the plan of taking some time to develop a few ideas that have outgrown me enough to earn the respect of a full-time dedication.&lt;&#x2F;p&gt;
 &lt;p&gt;This &amp;quot;Bootstrapping&amp;quot; post is the first in a series of posts about a quest to a sustainable monthly income.&lt;&#x2F;p&gt;
 &lt;p&gt;To start i am going to do a painting web application. A simple web app to paint points in a canvas. I call it &amp;quot;paint.pt&amp;quot;.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;1st-week&quot;&gt;1st Week&lt;&#x2F;h2&gt;
@@ -3354,14 +3548,19 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;p&gt;That was it.&lt;&#x2F;p&gt;
 &lt;p&gt;Check out the other &amp;quot;bootstrapping&amp;quot; posts: &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping2&#x2F;&quot;&gt;Bootstrapping 2&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping3&#x2F;&quot;&gt;Bootstrapping 3&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;bootstrapping4&#x2F;&quot;&gt;Bootstrapping 4&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 </content>
-	</entry>
-	<entry xml:lang="en">
-		<title>about me</title>
-		<published>2016-04-09T00:00:00+00:00</published>
-		<updated>2016-04-09T00:00:00+00:00</updated>
-		<link href="https://hugodaniel.com/posts/about/" type="text/html"/>
-		<id>https://hugodaniel.com/posts/about/</id>
-		<content type="html">&lt;p&gt;Hi, I am Hugo, from the ancient end of the world.&lt;&#x2F;p&gt;
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>about me</title>
+        <published>2016-04-09T00:00:00+00:00</published>
+        <updated>2016-04-09T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/about/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/about/</id>
+        
+        <content type="html">&lt;p&gt;Hi, I am Hugo, from the ancient end of the world.&lt;&#x2F;p&gt;
 &lt;p&gt;Nowdays it is still the end of the world but everybody just calls it Portugal.&lt;&#x2F;p&gt;
 &lt;p&gt;I was born in Alenquer, a village near Lisbon.&lt;&#x2F;p&gt;
 &lt;p&gt;I love poetry and most likely this blog will turn to be a poetry blog about my ramblings.&lt;&#x2F;p&gt;
@@ -3374,5 +3573,6 @@ These functions are called within a requestAnimationFrame().&lt;&#x2F;p&gt;
 &lt;a href=&quot;http:&#x2F;&#x2F;www.hugodaniel.pt&#x2F;atom.xml&quot;&gt;rss&lt;&#x2F;a&gt;
 e-mail: mail [[at]] hugodaniel.pt&lt;&#x2F;p&gt;
 </content>
-	</entry>
+        
+    </entry>
 </feed>
