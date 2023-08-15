@@ -33,7 +33,7 @@ Within this, thinking of pixels as integers feels "right". After all, they are s
 
 ### NP-Hard (P is for Pixel) 
 
-My best take on this is that "it depends". Pixels can be thought more or less as we want deciding on how low-level or high-level in the hardware/software abstraction we want to be.
+My best take on this is that "it depends". Pixels can be thought more or less as we want depending on how low-level or high-level in the hardware/software abstraction we want to be.
 
 As a web developer, the lowest I go typically starts at the graphics backend in use (HTML5 Canvas? WebGL? SVG? regular ImageData bitmap?), and then goes all the way up to the app requirements. It depends.
 

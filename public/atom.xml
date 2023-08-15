@@ -30,7 +30,7 @@
 &lt;p&gt;Even in a language like JavaScript, where standard numbers are all 64-bit floats, it is not uncommon to resort to flooring and multiplying&#x2F;dividing with a fixed 10-based power to provide a fixed resolution—peace in a world of eventual chaos.&lt;&#x2F;p&gt;
 &lt;p&gt;Within this, thinking of pixels as integers feels &amp;quot;right&amp;quot;. After all, they are squares with colors. A shape can be positioned in either one pixel or the other. Right?&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;np-hard-p-is-for-pixel&quot;&gt;NP-Hard (P is for Pixel)&lt;&#x2F;h3&gt;
-&lt;p&gt;My best take on this is that &amp;quot;it depends&amp;quot;. Pixels can be thought more or less as we want deciding on how low-level or high-level in the hardware&#x2F;software abstraction we want to be.&lt;&#x2F;p&gt;
+&lt;p&gt;My best take on this is that &amp;quot;it depends&amp;quot;. Pixels can be thought more or less as we want depending on how low-level or high-level in the hardware&#x2F;software abstraction we want to be.&lt;&#x2F;p&gt;
 &lt;p&gt;As a web developer, the lowest I go typically starts at the graphics backend in use (HTML5 Canvas? WebGL? SVG? regular ImageData bitmap?), and then goes all the way up to the app requirements. It depends.&lt;&#x2F;p&gt;
 &lt;p&gt;If we take something low-level, like WebGL, there is no actual &amp;quot;square pixel&amp;quot; for a developer to directly manipulate.
 WebGL cares about clip-space coordinates, which are just a square with dimensions ranging from -1.0 to 1.0. A notion of pixels then can be mapped here, but from a programmer&#x27;s perspective, they are on top of floating point square dimensions. &lt;&#x2F;p&gt;
