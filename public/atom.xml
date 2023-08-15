@@ -4,8 +4,87 @@
     <link href="https://hugodaniel.com/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://hugodaniel.com"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2022-02-03T00:00:00+00:00</updated>
+    <updated>2023-08-15T00:00:00+00:00</updated>
     <id>https://hugodaniel.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>The art of the (sub-)pixel</title>
+        <published>2023-08-15T00:00:00+00:00</published>
+        <updated>2023-08-15T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://hugodaniel.com/posts/sub-problems-sub-pixels/" type="text/html"/>
+        <id>https://hugodaniel.com/posts/sub-problems-sub-pixels/</id>
+        
+        <content type="html">&lt;p&gt;This post is the first in a series of posts about some challenges to think about when developing a motion design app.&lt;&#x2F;p&gt;
+&lt;p&gt;It is meant to think a bit about pixel representations in drawing&#x2F;animation apps, or just bring some insights if you are not into that.&lt;&#x2F;p&gt;
+&lt;p&gt;Although not related, this post also coincides with the release of LottieLab, the motion app I have been working on, please support us &lt;a href=&quot;https:&#x2F;&#x2F;www.producthunt.com&#x2F;posts&#x2F;lottielab&quot;&gt;on ProductHunt&lt;&#x2F;a&gt;. Check it out.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-art-of-the-pixel&quot;&gt;The art of the pixel&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;pixel_family.png&quot; alt=&quot;Four squares, that represent a family of pixels&quot; title=&quot;Support this (sub)pixel family!&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Imagine doing a drawing web app and thinking about how to represent pixels in it.&lt;&#x2F;p&gt;
+&lt;p&gt;Implementing pixels as integers can be tempting when doing a design animation tool. After all, most creators avoid partial pixels with a fractional value, often called sub-pixel values, and generally consider it a good practice to prevent sub-pixels overall. &lt;&#x2F;p&gt;
+&lt;p&gt;On top of this, our screens have a fixed integer resolution. Full HD is 1920 pixels wide per 1080 pixels tall. It is not 1920.7 per 1080.3333 or any other decimal limit.&lt;&#x2F;p&gt;
+&lt;p&gt;Then, in the pixel abstraction stack we tend to generally think of pixels as square entities that live on our screens and can have color.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;geometry_pixel.jpg&quot; alt=&quot;Four images, each representing the hardware RGB pixels of four kinds of displays (TV CRT, PC CRT, XO-1 LCD and LCD). None of them have square pixel geometry.&quot; title=&quot;Pixel geometry at some point&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Integers are easy to work with and reason, especially when compared with floating point values, where &lt;a href=&quot;https:&#x2F;&#x2F;0.30000000000000004.com&quot;&gt;&lt;code&gt;0.1 + 0.2 != 0.3&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;, and &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Double-precision_floating-point_format#Precision_limitations_on_integer_values&quot;&gt;precision&lt;&#x2F;a&gt; can be a problem in some edge cases here and there.&lt;&#x2F;p&gt;
+&lt;p&gt;Even in a language like JavaScript, where standard numbers are all 64-bit floats, it is not uncommon to resort to flooring and multiplying&#x2F;dividing with a fixed 10-based power to provide a fixed resolution—peace in a world of eventual chaos.&lt;&#x2F;p&gt;
+&lt;p&gt;Within this, thinking of pixels as integers feels &amp;quot;right&amp;quot;. After all, they are squares with colors. A shape can be positioned in either one pixel or the other. Right?&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;np-hard-p-is-for-pixel&quot;&gt;NP-Hard (P is for Pixel)&lt;&#x2F;h3&gt;
+&lt;p&gt;My best take on this is that &amp;quot;it depends&amp;quot;. Pixels can be thought more or less as we want deciding on how low-level or high-level in the hardware&#x2F;software abstraction we want to be.&lt;&#x2F;p&gt;
+&lt;p&gt;As a web developer, the lowest I go typically starts at the graphics backend in use (HTML5 Canvas? WebGL? SVG? regular ImageData bitmap?), and then goes all the way up to the app requirements. It depends.&lt;&#x2F;p&gt;
+&lt;p&gt;If we take something low-level, like WebGL, there is no actual &amp;quot;square pixel&amp;quot; for a developer to directly manipulate.
+WebGL cares about clip-space coordinates, which are just a square with dimensions ranging from -1.0 to 1.0. A notion of pixels then can be mapped here, but from a programmer&#x27;s perspective, they are on top of floating point square dimensions. &lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clipspace.png&quot; alt=&quot;&quot; title=&quot;Clipspace coordinates&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Besides not caring about resolutions, clipspace doesn&#x27;t care about aspect ratio or the end device they are at.&lt;&#x2F;p&gt;
+&lt;p&gt;Our main problem is how to place stuff from -1.0 to 1.0, because that is what we have available as coordinates.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clipspace_monitor.png&quot; alt=&quot;&quot; title=&quot;Clipspace coordinates in a monitor&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;For WebGL the task of going from clipspace to hardware colors is an implementation problem, us users don&#x27;t have to deal with it too much.&lt;&#x2F;p&gt;
+&lt;p&gt;We only have to think about how we are going to place stuff from -1.0 to 1.0.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clipspace_phone.png&quot; alt=&quot;&quot; title=&quot;Clipspace coordinates in a phone&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then it is up to the developer to define an abstraction that works on top of clipspace and can represent pixels as close as possible (or not, if we so want to).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;empty-the-clip&quot;&gt;Empty the clip&lt;&#x2F;h3&gt;
+&lt;p&gt;For instance, imagine an 8x8 pixel screen. The clip-space naive representation of pixels would be something like this:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clipspace_pixel.png&quot; alt=&quot;Clipspace coordinates square, split in 8x8 grid of smaller squares, with the top left square marked in red&quot; title=&quot;A pixel in clipspace coordinates&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It would start at the left-most x position (-1.0) and since there are 8 pixels, it would extend 0.25 to the left (up to x=-0.75).&lt;&#x2F;p&gt;
+&lt;p&gt;All good, but all good the same if in this representation we want to have a pixel somewhere in between:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;clipspace_pixel2.png&quot; alt=&quot;Clipspace coordinates square, split in 8x8 grid of smaller squares, but the top left square is misplaced between the first and second position&quot; title=&quot;A misplaced pixel in clipspace coordinates&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It is easily possible to define other positions, it is up to us. Sub-pixels? all good here. They just start in a different floating point position.&lt;&#x2F;p&gt;
+&lt;p&gt;Then all of this, at some point, raises the question of pixel centers and offset starting positions, and pixel snapping, etc. For another post, maybe.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;but-my-motion-design-app-is-so-special-that-it-will-only-have-integer-pixels&quot;&gt;But my motion design app is so special that it will only have integer pixels&lt;&#x2F;h3&gt;
+&lt;p&gt;Going with only integer pixels is fine, especially for apps with more of a pixel-art vibe or geometric approach with hard grids. &lt;&#x2F;p&gt;
+&lt;p&gt;If not, be prepared to find workarounds for a few situations.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are a couple of situations that sub-pixels can be a super useful representation to have at hand:&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;rotate-a-square-and-snap-another-into-it&quot;&gt;Rotate a square, and snap another into it&lt;&#x2F;h4&gt;
+&lt;p&gt;When snapping to a rotated shape, the position of the snapped shape can be more precise when put in a sub-pixel.&lt;&#x2F;p&gt;
+&lt;video controls muted loop preload width=&quot;100%&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;snap_square.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;snap_square.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;small&gt;Video taken from Lottielab web app&lt;&#x2F;small&gt;
+&lt;p&gt;Sub-pixel precision is also a good thing to have when doing transformation stack operations, like scaling a group, etc.&lt;&#x2F;p&gt;
+&lt;video controls muted loop preload width=&quot;100%&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;scale_group.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;scale_group.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;small&gt;Video taken from Lottielab web app&lt;&#x2F;small&gt;
+&lt;p&gt;When doing smooth animations, like tweening the shape from one position to another, using sub-pixel floating values can make 
+super smooth animations.&lt;&#x2F;p&gt;
+&lt;video controls muted loop preload width=&quot;100%&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;tweening.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
+  &lt;source src=&quot;&#x2F;videos&#x2F;tweening.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;small&gt;Video taken from Lottielab web app&lt;&#x2F;small&gt;
+&lt;p&gt;In the end, it all goes to the screen, and...&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;wear-sunscreen&quot;&gt;Wear sunscreen&lt;&#x2F;h3&gt;
+&lt;p&gt;Screens can implement the notion of a pixel in many different ways, and if we look close enough, they are rarely &amp;quot;square&amp;quot; per se. While true that they end up mapped as square &amp;quot;device pixels&amp;quot;, they might also not correspond to the actual pixels your code is manipulating (because of hardware to software nuances like the device pixel ratio or so many other weird things like the Apple notch rounded edges abstraction, etc).&lt;&#x2F;p&gt;
+&lt;p&gt;If we go high-level enough, the pixel representation can get weird quickly. CSS defines a pixel as a &lt;a href=&quot;https:&#x2F;&#x2F;drafts.csswg.org&#x2F;css-values&#x2F;#absolute-lengths&quot;&gt;&amp;quot;visual angle unit&amp;quot;&lt;&#x2F;a&gt; and CSS pixels are described as an &lt;a href=&quot;https:&#x2F;&#x2F;drafts.csswg.org&#x2F;css-values&#x2F;#reference-pixel&quot;&gt;angular measure.&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;drafts.csswg.org&#x2F;css-values&#x2F;images&#x2F;pixel1.png&quot; alt=&quot;CSS Pixel changes with distance&quot; title=&quot;In CSS pixels must become larger if the viewing distance increases&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;final-words&quot;&gt;Final words&lt;&#x2F;h2&gt;
+&lt;p&gt;I like to keep things &amp;quot;simple&amp;quot; and stick to floating point pixel values and then provide some usability aid to ensure that shapes get placed in integers most of the time while helping out creators work in these muddy waters.&lt;&#x2F;p&gt;
+&lt;p&gt;Be wild and free those pixels!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Minimal Color Swatches</title>
         <published>2022-02-03T00:00:00+00:00</published>
