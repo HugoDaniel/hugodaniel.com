@@ -76,8 +76,8 @@
 			</nav>
 		</header>
 		<p>When people think about the WebGL API, they focus on one of the famous libraries
-that use it. Typically <a href="https://threejs.org">&quot;three.js&quot;</a> or
-<a href="https://www.babylonjs.com">&quot;Babylon&quot;</a>. There's barely any motivation
+that use it. Typically <a href="https://threejs.org">"three.js"</a> or
+<a href="https://www.babylonjs.com">"Babylon"</a>. There's barely any motivation
 to use the WebGL API directly. But the WebGL API is still just as important to
 know as it provides creative ways to place colors in browser pages.</p>
 <p>The <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#1">WebGL spec</a> even starts by saying:</p>
@@ -98,12 +98,12 @@ those strange byte arguments.</p>
 <p>Fortunately, there are a lot of frameworks that simplify our life when dealing
 with the WebGL API. The most recent web-trend of these use threejs and tries to
 bring back some helpful <a href="https://en.wikipedia.org/wiki/VRML">VRML</a>-like concepts through tags/components. For React,
-there is <a href="https://github.com/pmndrs/react-three-fiber">&quot;react-three-fiber&quot;</a>.
-For Web Components, the <a href="https://aframe.io">&quot;a-frame&quot;</a>, and recently
-<a href="https://troisjs.github.io">&quot;troisjs&quot;</a> for Vue, among many others.</p>
+there is <a href="https://github.com/pmndrs/react-three-fiber">"react-three-fiber"</a>.
+For Web Components, the <a href="https://aframe.io">"a-frame"</a>, and recently
+<a href="https://troisjs.github.io">"troisjs"</a> for Vue, among many others.</p>
 <p>These frameworks provide the same sort of standard graphical decomposition.
-They use <em>&quot;cameras&quot;</em> pointed into a <em>&quot;scene&quot;</em> of <em>&quot;objects&quot;</em> with <em>&quot;materials&quot;</em>
-and <em>&quot;transformations&quot;</em> applied to them.</p>
+They use <em>"cameras"</em> pointed into a <em>"scene"</em> of <em>"objects"</em> with <em>"materials"</em>
+and <em>"transformations"</em> applied to them.</p>
 <h2 id="why-use-webgl-directly">Why use WebGL directly?</h2>
 <p>Using the WebGL API directly, at the very least, helps you understand how it
 works and consequently how those trendy high-level graphics frameworks get to
@@ -114,8 +114,8 @@ inheriting a lot from the 90s. Oh, the 90s, the dark ages of API design.</p>
 enthusiastic programmer:</p>
 <ul>
 <li><strong>Learn an abstraction of GPU graphics and primitives:</strong> in WebGL, there are
-no <em>&quot;cameras&quot;</em> or even a <em>&quot;scene&quot;</em> with <em>&quot;materials&quot;</em>. Instead, you get to use
-<em>&quot;buffers&quot;</em> and <em>&quot;programs&quot;</em>, and <em>&quot;vertex array objects&quot;</em> in <em>&quot;shader&quot;</em> code
+no <em>"cameras"</em> or even a <em>"scene"</em> with <em>"materials"</em>. Instead, you get to use
+<em>"buffers"</em> and <em>"programs"</em>, and <em>"vertex array objects"</em> in <em>"shader"</em> code
 written with a specific syntax.</li>
 <li><strong>Focus on shaders:</strong> WebGL is all about the code that runs ultra fast in the
 GPU, using specific techniques to leverage high-performance parallel runs.</li>
@@ -127,7 +127,7 @@ to reduce the draw calls that get executed at runtime.</li>
 and proceed with the excellent <a href="https://webgl2fundamentals.org">WebGL 2 Fundamentals</a>.</p>
 <h2 id="abstract-the-frustration-away">Abstract the frustration away</h2>
 <p>With WebGL, even simple things take quite a bit of code. A simple image is
-never &quot;simple&quot;. It can require pages of code in setup and initialization and a
+never "simple". It can require pages of code in setup and initialization and a
 whole WebGL global state system that needs to be maintained.</p>
 <p><img src="/images/masksontree.png" alt="A tree with COVID masks as leafs" /></p>
 <p>As a result, 10 years ago, back in the early days of WebGL (which today has
@@ -151,7 +151,7 @@ it.</p>
 domain primitives instead of the typical camera/scene graph representation?</p>
 <h2 id="meet-shader-canvas">Meet <a href="/projects/shader-canvas"><code>&lt;shader-canvas&gt;</code></a></h2>
 <p>In my life quest of making different drawing tools and apps, I find myself
-leaning more towards using buffers and GLSL programs than with &quot;cameras&quot; and
+leaning more towards using buffers and GLSL programs than with "cameras" and
 nodes.</p>
 <p>I am not a graphics programmer by trade and tend to start thinking about
 shader code and how data will flow with it before any other graphical

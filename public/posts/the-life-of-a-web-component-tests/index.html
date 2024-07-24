@@ -202,7 +202,7 @@ Hugo</p>
 <p>I will break the Web Component tests into three parts that build on each other by adding extra complexity.</p>
 <p>You decide if a given test needs all of these three features or just the first one.</p>
 <p>The following code runs in its own dedicated test file, say an <code>i-should-go-out-more-web-component.test.js</code> with the Web Component tests with that name.</p>
-<p><img src="/images/bug_target.png" alt="A worm bug emoji in the middle of a target." title="Please don't kill me!" /></p>
+<p><img src="/images/bug_target.png" alt="A worm bug emoji in the middle of a target." title="Please don&#39;t kill me!" /></p>
 <h3 id="1-place-the-tags-in-domtestarea-and-get-the-class">1 - Place the tags in #domTestArea and get the class</h3>
 <p>The basic test template to run the Web Component tests in the <code>#domTestArea</code> can be something like this:</p>
 <pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#fad07a;">describe</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">&lt;i-should-go-out-more&gt;</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">function </span><span>() {
@@ -370,7 +370,7 @@ Hugo</p>
 <p>Testing Web Components is not fun. There is also not that much space to be creative here. Web Components have a lot of particularities that need to be considered. In this post, I presented three techniques to handle Web Component tests and their eventual awkward flow.</p>
 <p>Having a commonplace (<code>#domTestArea</code>) to dump Web Components during testing and using some sort of <code>async waitFor()</code> inside a Mutation Observer on the <code>#shadow-root</code> looks like too much hassle. It feels that all of this should not be needed. I found that these three techniques solve most problems I often encountered when testing Web Components. I don't like these hacks but <em>they work</em> in general. Generally.</p>
 <hr>
-<p>This post is Part 5 of a series I am writing called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
+<p>This post is Part 5 of a series I am writing called <cite>"The Life of a Web Component"</cite>.</p>
 <p>The previous parts are:</p>
 <ul>
 <li><a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</li>

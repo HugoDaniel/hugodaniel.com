@@ -75,7 +75,7 @@
 				</span>
 			</nav>
 		</header>
-		<p>JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of <code>class MyClass { ... }</code> write <code>class { ... },</code> and it will be created without a name. </p>
+		<p>JavaScript(JS) allows object classes to be anonymous. No need to name them and bind your class to an identifier. Instead of <code>class MyClass { ... }</code> write <code>class { ... },</code> and it will be created without a name.</p>
 <p>Likewise prefix a regular <abbr title="JavaScript">JS</abbr> object <code>{ ... }</code> with <code>class</code> and have an anonymous class defined.</p>
 <p><img src="/images/HTML5_badge_tag.png" alt="Three HTML5 badges in a row inside angle brackets like an html tag name. The first one has the normal orientation. The second one is upside down. The third one has a random orientation." title="Let those tags roll!" /></p>
 <p>Nothing special here, classes are in fact normal <abbr title="JavaScript">JS</abbr> objects. The big extra is that anonymous classes, just like normal classes, can use the <abbr title="JavaScript">JS</abbr> <code>extends</code> syntax to easily carry other objects and acumulate them.</p>
@@ -123,7 +123,7 @@
 </span><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#fad07a;">define</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">i-want-to-be-awesome-too</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#ffb964;">Awesomeness</span><span>);
 </span><span style="color:#888888;">// ^ No, you don&#39;t. This will throw an error.
 </span></code></pre>
-<p><img src="/images/customElementsError.png" alt="The error text: &quot;Uncaught DOMException: CustomElementRegistry.define: 'i-want-to-be-awesome-too' and 'awesome-tag' have the same constructor&quot;" title="Nope" /></p>
+<p><img src="/images/customElementsError.png" alt="The error text: &quot;Uncaught DOMException: CustomElementRegistry.define: &#39;i-want-to-be-awesome-too&#39; and &#39;awesome-tag&#39; have the same constructor&quot;" title="Nope" /></p>
 <p>Anonymous classes provide a simple way to avoid this limitation. By extending the Web Component class and using the unique copy of its declaration as a different tag-name. Like so:</p>
 <pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">class </span><span style="color:#ffb964;">Awesomeness </span><span style="color:#8fbfdc;">extends </span><span style="color:#ffb964;">HTMLElement </span><span>{}
 </span><span>
@@ -188,7 +188,7 @@
 <p><em>What does this do?</em></p>
 <p>It reads the children's tag names (whatever they are) and turns them into a Web Component (provided they are <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">valid Web Component tag names</a>).</p>
 <p><em>Does it even work?</em></p>
-<p>Yes! <cite>Because element definition can occur at any time, a non-custom element could be created, and then later become a custom element after an appropriate definition is registered. We call this process &quot;upgrading&quot; the element, from a normal element into a custom element.</cite> (says the spec)</p>
+<p>Yes! <cite>Because element definition can occur at any time, a non-custom element could be created, and then later become a custom element after an appropriate definition is registered. We call this process "upgrading" the element, from a normal element into a custom element.</cite> (says the spec)</p>
 <p><em>But I mean, what? Why? WTF?</em></p>
 <p>Yeah, I don't know, but it gets better.</p>
 <h3 id="style-container-1"><code>&lt;style-container&gt;</code></h3>
@@ -214,9 +214,9 @@
 </span><span>	&lt;/</span><span style="color:#ffb964;">style-container</span><span>&gt;
 </span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;
 </span></code></pre>
-<p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>&quot;style-container&quot;</code> tag name), the above code run its logic. It looks for the children and creates the tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
+<p>When the <code>StyleContainer</code> gets <code>define</code>d at the <code>customElements</code> registry (with the <code>"style-container"</code> tag name), the above code run its logic. It looks for the children and creates the tags <code>&lt;super-border&gt;</code>, <code>&lt;fancy-background&gt;</code> and <code>&lt;a-cool-font&gt;</code>.</p>
 <p>These tag names can have the semantic value of a variable. <abbr title="HyperText Markup Language">HTML</abbr> variables. Or any other semantic value or purpose that might be fit. Anonymous classes create dynamic tag names, where you place whatever name you want in the HTML. After that, it is up to the intended implementation/framework/idea to give them meaning and flow.</p>
-<h3 id="references-said-the-referee">&quot;References&quot; said the referee</h3>
+<h3 id="references-said-the-referee">"References" said the referee</h3>
 <p>The HTML code can then reference these dynamic tags.</p>
 <p>They can be used to compose more complex styles. With a composer Web Component, lets say... the <code>&lt;import-style&gt;</code> Web Component (not yet defined):</p>
 <pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
@@ -256,13 +256,13 @@
 </span><span>...
 </span></code></pre>
 <ol>
-<li>Where the <code>StyleContainer</code> would do something like: </li>
+<li>Where the <code>StyleContainer</code> would do something like:</li>
 </ol>
 <pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>document.querySelectorAll(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">[styled-by~=&#39;magic-button&#39;]</span><span style="color:#556633;">&quot;</span><span>)
 </span></code></pre>
 <p>And apply the contents of the <code>magic-button</code> tag to the inline <code>style</code> attribute to the nodes found.</p>
 <p><em>How does this differ from plain HTML?</em></p>
-<p>It is another way to write it. Maybe it is better than placing &quot;id&quot;'s in common tags, perhaps it goes against the pure HTML semantic values, or perhaps it is just a shitty idea. I have no strong opinion. It is just an idea.</p>
+<p>It is another way to write it. Maybe it is better than placing "id"'s in common tags, perhaps it goes against the pure HTML semantic values, or perhaps it is just a shitty idea. I have no strong opinion. It is just an idea.</p>
 <p><em>Couldn't I just use CSS?</em></p>
 <p>Yes.</p>
 <p><em>Why all of this, then?</em></p>
@@ -270,7 +270,7 @@
 <h2 id="conclusion">Conclusion</h2>
 <p>I presented a small example of using Web Components to create dynamic tag names. I think that having the possibility to declare a new tag name under a given parent and automatically create it can have some cool opportunities. I don't know the extent of what can be possible or what this might entail, but still, it is something that we can do with Web Components and maybe use to break logic into easily identifiable small parts.</p>
 <hr>
-<p>This post is Part 2 of a series I am writting called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
+<p>This post is Part 2 of a series I am writting called <cite>"The Life of a Web Component"</cite>.</p>
 <p>The other parts are:</p>
 <ul>
 <li><a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</li>

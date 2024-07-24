@@ -106,12 +106,12 @@ A request for nothing that hopefully matches the speed of your monitor v-sync to
 </span><span>}, 3000);
 </span><span>
 </span></code></pre>
-<p>At 60fps we get around 16.7ms per frame, 120 frames should run in ~2000ms. Yet after 3 seconds this code prints &quot;120 frames in: 2148.415&quot; in the console.
+<p>At 60fps we get around 16.7ms per frame, 120 frames should run in ~2000ms. Yet after 3 seconds this code prints "120 frames in: 2148.415" in the console.
 This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
-<p>If you thrive in the eccentricities of speed then those 1.5ms are simply unacceptable, lets try to understand what is happening by opening the &quot;Performance&quot; tab in the developer tools.</p>
+<p>If you thrive in the eccentricities of speed then those 1.5ms are simply unacceptable, lets try to understand what is happening by opening the "Performance" tab in the developer tools.</p>
 <h2 id="the-eyes-are-the-window-of-the-soul-and-all-i-see-is-garbage">The eyes are the window of the soul. And all i see is garbage.</h2>
 <p><img src="/images/measure1.png" alt="Screenshot of the performance monitor of Firefox developer tools, it shows a maximum of 60 frames-per-second, a minimum 5.41 frames-per-second, and an average of 55.85 frames-per-second." /></p>
-<p>Those big drops in performance are related to the red dots of the Garbage Collector (from here on, just &quot;GC&quot;). They mark the time where GC woke up and run through the nursery of temporary objects to clean them.</p>
+<p>Those big drops in performance are related to the red dots of the Garbage Collector (from here on, just "GC"). They mark the time where GC woke up and run through the nursery of temporary objects to clean them.</p>
 <p>These GC actions happen at the rate that the code fills the nursery heap with temporary objects. The browser then performs a small cleanup on the nursery heap and checks if some of those temporary objects can be promoted to the tenured heap.</p>
 <p>The Tenured heap fills at a much lower rate than the Nursery and consequently the browser does not check it as often as the Nursery.</p>
 <p>Lets try to promote all our short lived objects into something that might be selected to be tenured by the browser, thus reducing the time that the GC spends analyzing our running code and the nursery heap.</p>
@@ -134,7 +134,7 @@ This is 8% slower, making it closer to 55fps (18.2ms) than to 60fps(16.7ms).</p>
 </span></code></pre>
 <p>The idea here is to make the reference to the fastest() function explicitly last for the whole execution of the animation loop by wrapping it in a closure context that is immediatly called.</p>
 <p>The next step is to remove all obvious objects allocations that happen inside our loop.
-This means we need to remove all the strings (&quot;120&quot; is an object allocation) and all the numbers.</p>
+This means we need to remove all the strings ("120" is an object allocation) and all the numbers.</p>
 <p>One of the great things about closures is that their execution context is available in their children, this means we can place the strings and numbers of our loop in vars in the long-lived closure context instead, making them live between our loop function calls.</p>
 <pre style="background-color:#151515;color:#e8e8d3;"><code><span>(function () {
 </span><span>  let count = 0;
@@ -162,10 +162,10 @@ This means we need to remove all the strings (&quot;120&quot; is an object alloc
 </span><span>}, 3000);
 </span></code></pre>
 <h2 id="a-speed-freak-nighmare-is-a-control-junkie-best-dream">A speed-freak nighmare is a control-junkie best dream</h2>
-<p>That code above produces the string &quot;120 frames in: 1990.69&quot;. This is great, it says that our measures were taken before the 16.7ms frame time has passed.</p>
+<p>That code above produces the string "120 frames in: 1990.69". This is great, it says that our measures were taken before the 16.7ms frame time has passed.</p>
 <p>Lets look at the performance tab:</p>
 <p><img src="/images/measure2.png" alt="Screenshot of the performance monitor of Firefox developer tools, it shows a maximum of 60 frames-per-second, a minimum 38.98 frames-per-second, and an average of 57.66 frames-per-second." /></p>
-<p>Note that the Nursery is completely gone from our call-stack. There are still some red dots that mostly refer to the Cycle Collector (from here on, just &quot;CC&quot;) taking control of the code.</p>
+<p>Note that the Nursery is completely gone from our call-stack. There are still some red dots that mostly refer to the Cycle Collector (from here on, just "CC") taking control of the code.</p>
 <p>The CC does a simple job: it tracks cycles in the code.</p>
 <p>A cycle happens when objects refer to each other in a way that their reference count never becomes zero. This can trick the GC to never collect them and forces the need to have a cycle counter running through the code once in a while.</p>
 <p>The CC is a tricky beast, it does not allow anything else to run while it is running. Our JavaScript stops executing (you can validate this by increasing the zoom on the developer tools waterfall when a CC action occurs).</p>

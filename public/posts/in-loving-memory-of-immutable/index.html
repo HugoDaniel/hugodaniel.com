@@ -127,7 +127,7 @@ These are things that happen between the mind of a chef and the ether of a plann
 <p>Lets keep this value as a reference in further tests. I am keeping these memory snapshots also for further reference.</p>
 <p>How can we leverage the juice from these 0.4MB into our secret sauce ?</p>
 <h2 id="a-list-of-many-secrets">A list of many secrets</h2>
-<p>Immutable allows the discerning chef to cook with well defined ingredients. You can define your own data types and use them as immutable everywhere you want to. To do that the Immutable.Record is their provided interface. </p>
+<p>Immutable allows the discerning chef to cook with well defined ingredients. You can define your own data types and use them as immutable everywhere you want to. To do that the Immutable.Record is their provided interface.</p>
 <p>The following code uses it to define a data type for a 2D point, with X and Y coordinates, and then create some points with it.</p>
 <pre style="background-color:#151515;color:#e8e8d3;"><code><span>const Pt = Immutable.Record( { x: 0, y: 0} );
 </span><span>
@@ -145,7 +145,7 @@ These are things that happen between the mind of a chef and the ether of a plann
 </span><span>let jspt2 = new PtJS(0, 123);
 </span><span>let jspt3 = new PtJS(123, 321);
 </span></code></pre>
-<p>Some might even argue that they are not wasting the memory that Immutable is. Master chefs are always looking for opportunities to learn, to study and to teach. </p>
+<p>Some might even argue that they are not wasting the memory that Immutable is. Master chefs are always looking for opportunities to learn, to study and to teach.</p>
 <p>Now for a simple test, create a list with 10000 of those 2D points and compare memory readings of the Immutable approach with the plain JS approach.</p>
 <p>First the plain JS approach (lets assume the constructor is already created as above).</p>
 <pre style="background-color:#151515;color:#e8e8d3;"><code><span>
@@ -190,28 +190,28 @@ These are things that happen between the mind of a chef and the ether of a plann
 <p>Here it is in pictures:</p>
 <p><img src="/images/immutable_two_lists.png" alt="Joining these two lists" /></p>
 <p><img src="/images/immutable_two_lists_2.png" alt="We need to make the last item point to the first item of the second list" /></p>
-<p><img src="/images/immutable_two_lists_3.png" alt="A copy of this element is necessary because we can't just change it to point to the first item of lst2" /></p>
+<p><img src="/images/immutable_two_lists_3.png" alt="A copy of this element is necessary because we can&#39;t just change it to point to the first item of lst2" /></p>
 <p><img src="/images/immutable_two_lists_4.png" alt="But now we need to make the previous item point to the newly created copy. So a copy of it will also be necessary." /></p>
 <p><img src="/images/immutable_two_lists_final.png" alt="That is why to concat two lists a new list is made with a copy of the elements in the first list" /></p>
 <p>Concat is a heavy operation, it mostly depends on the size of the first list. There are a few tricks to make it faster.</p>
 <p>To keep it simple I am not going to go much more into this and move to the point.</p>
 <h2 id="the-best-recipe-is-made-of-many-subrecipes">The best recipe is made of many subrecipes</h2>
 <p>The list holds data. That's why it's called a <em>data</em> structure. Now what if instead of directly putting our data in each list item we could instead just point to the data ? Like this:</p>
-<p><img src="/images/immutable_lazy1.png" alt="List doesn't directly hold the data anymore" /></p>
+<p><img src="/images/immutable_lazy1.png" alt="List doesn&#39;t directly hold the data anymore" /></p>
 <p>The list effectively now holds <strong>a way to reach</strong> each value instead of the real values. We can get more generic and greatly simplify it by saying that in each list item there is a recipe to reach each value. In the above picture this <em>recipe</em> generalization is represented by the red arrows.</p>
 <p>Let me try to simplify it with the hope that it might stand out the intended purpose.</p>
 <p><img src="/images/immutable_lazy2.png" alt="A list of recipes can be a list of values" /></p>
 <p>The term <em>recipe</em> is not chosen by chance: it represents something that must be done to produce the value that the list item holds.</p>
 <p>If we follow the <em>recipe</em> in each item we can get to the intended values. For instance, suppose that this is a list of JS Number's, a good recipe to produce the value would be to just call Number() on the data. If it was a list of String's, a good recipe would be to call String() on the data. This also holds for very complex values, say this is a list of balanced tree's, or your favourite custom complex data type, <strong>a recipe is the way to construct the value</strong>, could just be following a pointer but perhaps that would not be a very useful constructor due to being too general.</p>
 <h3 id="lazy-concat">Lazy concat</h3>
-<p>In our previous look into <em>concat</em> we noticed that it was a heavy operation, requiring a full copy of the first list that we want to join. When working with immutable data there are only a few of these &quot;heavy&quot; operations that do need a full copy.</p>
+<p>In our previous look into <em>concat</em> we noticed that it was a heavy operation, requiring a full copy of the first list that we want to join. When working with immutable data there are only a few of these "heavy" operations that do need a full copy.</p>
 <p>Now that we are taking quality steps as chefs how about we use a <em>recipe</em> for concat ?</p>
 <p>Instead of doing a full copy of the first list, just copy the first element and make it point to a recipe. That way, no matter the size of the lists, concat would be done in a single operation (the first item). Here it is in a picture:</p>
-<p><img src="/images/immutable_concat_lazy.png" alt="Why copy the whole first list if we don't know if it will be needed ?" /></p>
+<p><img src="/images/immutable_concat_lazy.png" alt="Why copy the whole first list if we don&#39;t know if it will be needed ?" /></p>
 <p>Now if we need the second element of the list the recipe will be followed to get it.</p>
 <p>That is a simple recipe:
 copy the first list up to the needed value, if the copying is done but the intended value is not yet reached then start going through the second list values (without copying them). In the case we want the 2nd value of a concat'ed list a single copy will happen because we already copied the first item when concat was called. This is a case where the recipe is itself the whole concat operation, meaning that it will only copy until the end of the first list and after it will use the reference of the second list.</p>
-<p>This <a href="https://en.wikipedia.org/wiki/Thunk"><em>recipe</em></a> approach is usually known as laziness and typically enhanced with a cache of results to avoid copying and constructing the same values over again (this caching approach is known as &quot;memoization&quot;).</p>
+<p>This <a href="https://en.wikipedia.org/wiki/Thunk"><em>recipe</em></a> approach is usually known as laziness and typically enhanced with a cache of results to avoid copying and constructing the same values over again (this caching approach is known as "memoization").</p>
 <h2 id="cuisine-du-monde">Cuisine du monde</h2>
 <p>Immutable.js makes good use of these techniques to avoid doing work when necessary and unnecessary copies. Their approach is lean and well thought, clearly separating the values from the way they are traversed.</p>
 <p>Lets look at our Immutable approach again:</p>
@@ -239,7 +239,7 @@ copy the first list up to the needed value, if the copying is done but the inten
 <h2 id="conclusion">Conclusion</h2>
 <p>Immutable is certainly a different way of doing JS. Given the normal tendency JS coders have to lean more towards object oriented concepts, immutable feels like the schrodinger's immigrant in a foreign land.</p>
 <p><img src="/images/immigrant.jpeg" alt="" /></p>
-<p>I hope this post was in any way useful to you. Immutable sure is a fun library to get to know and work with. </p>
+<p>I hope this post was in any way useful to you. Immutable sure is a fun library to get to know and work with.</p>
 
       <!--
     <p>Did you enjoy what you read? Was it inspiring or compelling in any way?

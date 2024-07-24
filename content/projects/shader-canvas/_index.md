@@ -2,7 +2,7 @@
 title = "Shader Canvas"
 description = "A graphics framework for specialists"
 template = "project.html"
-date = 2021-03-03
+#date = 2021-03-03
 extra = { github = "https://github.com/HugoDaniel/shader_canvas", intro = "/projects/shader-canvas", docs = "/projects/shader-canvas/documentation", author = "Hugo Daniel", social_img = "/images/shader-canvas-logo.png", class="introduction center-images with-lists" }
 +++
 

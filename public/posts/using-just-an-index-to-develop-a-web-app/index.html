@@ -77,7 +77,7 @@
 		</header>
 		<p>Using an <code>index.html</code> as the single management file for the app.</p>
 <p><img src="/images/html5-hammer.png" alt="HTML5 badge with a hammer, ready to do some damage" title="That is one big hammer!" /></p>
-<p><em>&quot;It might work for small things, but I wouldn't use it for something big.&quot;</em>
+<p><em>"It might work for small things, but I wouldn't use it for something big."</em>
 Said someone about something.</p>
 <p>These are some of the things that an <code>index.html</code> typically does:</p>
 <ul>
@@ -98,8 +98,8 @@ Said someone about something.</p>
 <p>In fact, everything that any modern complex Web App does can be fit into a single <code>index.html</code> file.</p>
 <p>It is mostly a matter of managing the complexity and growth of files, assets, components, etc...</p>
 <p>We have developed a wide range of very complex tools to help us with that. Front-end development has become so complex that it is hard for any single person to master it.</p>
-<p>How much harder would life be if a single <code>index.html</code> was used to drive all of the development instead of all those Create-React-App/Babel/WebPack/npm/yarn/d/sass/styled-components/optimizers? </p>
-<p>I don't know how to answer this but will try to shed some light on a simpler, more &quot;naked&quot; approach for web app development.</p>
+<p>How much harder would life be if a single <code>index.html</code> was used to drive all of the development instead of all those Create-React-App/Babel/WebPack/npm/yarn/d/sass/styled-components/optimizers?</p>
+<p>I don't know how to answer this but will try to shed some light on a simpler, more "naked" approach for web app development.</p>
 <p>To start <strong>there are at least two problems</strong> with using a single <code>index.html</code> as the only management file for the app:</p>
 <ul>
 <li>No TypeScript support (or any other transpiler language, only JS, GLSL, and WebASM supported)</li>
@@ -164,7 +164,7 @@ Said someone about something.</p>
 <h2 id="html-templating">HTML Templating</h2>
 <p>Stamping and repeating a common HTML structure in a couple of places is a frequent routine that most web apps do. Be it for menu entries, list items, or even whole parts like sidebars or modal and toast elements. Finding a common HTML structure and repeat it when needed with small adjustments is a stapled practice.</p>
 <p>HTML templating has many technicalities and possibilities. Most JS frameworks commonly solve it in their own way with different degrees of justifiable complexity.</p>
-<p>Web browsers already provide a very flexible and complex way to do templating through the Web Components suite of technologies. For most of my cases plain HTML will be prefered and written directly at that <code>index.html</code>. For the other cases where DRY speaks louder a simple static &quot;copy/paste&quot; tag will suffice, a small prototype of this could be something like:</p>
+<p>Web browsers already provide a very flexible and complex way to do templating through the Web Components suite of technologies. For most of my cases plain HTML will be prefered and written directly at that <code>index.html</code>. For the other cases where DRY speaks louder a simple static "copy/paste" tag will suffice, a small prototype of this could be something like:</p>
 <pre data-lang="js" style="background-color:#151515;color:#e8e8d3;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#ffb964;">customElements</span><span>.</span><span style="color:#fad07a;">define</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">template-content</span><span style="color:#556633;">&quot;</span><span>, </span><span style="color:#8fbfdc;">class extends </span><span style="color:#ffb964;">HTMLElement </span><span>{
 </span><span>  </span><span style="color:#8fbfdc;">constructor</span><span>() {
 </span><span>    </span><span style="color:#ffb964;">super</span><span>();

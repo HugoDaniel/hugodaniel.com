@@ -101,10 +101,10 @@
 </ul>
 <p>This is on top of what HTML already elegantly declares:</p>
 <ul>
-<li>Item content (&quot;Replace a tire&quot; etc.)</li>
+<li>Item content ("Replace a tire" etc.)</li>
 <li>Item order (what is the sequence of items)</li>
 </ul>
-<p>It would be cool if they could be referenced by some id as well. In HTML, this &quot;id&quot; is just their node element. It is unique from the moment it exists in the DOM (but there is also the &quot;id&quot; attribute only in case a human readable id is needed). </p>
+<p>It would be cool if they could be referenced by some id as well. In HTML, this "id" is just their node element. It is unique from the moment it exists in the DOM (but there is also the "id" attribute only in case a human readable id is needed).</p>
 <p>One possible state representation for the Todo Item could be done in JS using a normal object:</p>
 <pre data-lang="javascript" style="background-color:#151515;color:#e8e8d3;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fbfdc;">function </span><span style="color:#fad07a;">createItemState</span><span>(</span><span style="color:#ffb964;">creationDate</span><span>, </span><span style="color:#ffb964;">categories</span><span>, </span><span style="color:#ffb964;">cost</span><span>) {
 </span><span>    </span><span style="color:#8fbfdc;">return </span><span>(
@@ -129,8 +129,8 @@
 </span><span>};
 </span></code></pre>
 <p>There are infinite other ways to map this state in JS. This is just to lay out the mapping to HTML.</p>
-<p><img src="/images/js_logo_with_html.jpg" alt="The yellow JavaScript logo, with HTML5 badges masking the letters J and S" title="On the internet nobody knows you're an HTML!" /></p>
-<p>Bringing the above examples from JavaScript into HTML can be done by using a custom element for each state &quot;unit&quot;. Something like this:</p>
+<p><img src="/images/js_logo_with_html.jpg" alt="The yellow JavaScript logo, with HTML5 badges masking the letters J and S" title="On the internet nobody knows you&#39;re an HTML!" /></p>
+<p>Bringing the above examples from JavaScript into HTML can be done by using a custom element for each state "unit". Something like this:</p>
 <pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">todo-app-state</span><span>&gt;
 </span><span>    &lt;</span><span style="color:#ffb964;">todo-items</span><span>&gt;
 </span><span>        &lt;</span><span style="color:#ffb964;">item-state</span><span>&gt;
@@ -230,24 +230,24 @@
 <h2 id="big-conclusion-that-is-more-like-a-rant-than-a-conclusion">Big conclusion that is more like a rant than a conclusion</h2>
 <p>Thinking about the state is paramount when building a complex app. It is an effort particularly hard for me because I do not like to think that much and prefer to just chill. Functional programming intellectuals have long been shouting that state management is actually a somewhat solved problem.</p>
 <p>They argue that it is much better to have no state and just bounce a couple of vars around, transforming them with a sequence of actions. I think that is what they mean with their jargon.</p>
-<p>The Lisps yoga gurus shove their variables with a bunch of parentheses, define's and recursive logic. Haskell Scientologists are a bit more refined and seem to prefer &quot;Monads&quot; with &quot;syntactic sugar&quot; or whatever.</p>
+<p>The Lisps yoga gurus shove their variables with a bunch of parentheses, define's and recursive logic. Haskell Scientologists are a bit more refined and seem to prefer "Monads" with "syntactic sugar" or whatever.</p>
 <p><img src="/images/eat_haskell.png" alt="An image of a UFO in the sky beaming lambdas. Bellow the image the letters &quot;Eat Haskell Motherfuckers&quot;." title="Healthy alien diet" /></p>
-<p>When considering state management techniques, we front-end devs are clearly the peasants. The low-life form resigned to pick up the elite's crumbs and glue them together with spit in a global variable with a name that looks like it is something serious and functional, say &quot;redux&quot;.</p>
+<p>When considering state management techniques, we front-end devs are clearly the peasants. The low-life form resigned to pick up the elite's crumbs and glue them together with spit in a global variable with a name that looks like it is something serious and functional, say "redux".</p>
 <p>The story doesn't end there because even within the front-end mambo, there are differences. In particular, the vanilla crowd is the underrepresented minority. Why use plain HTML and CSS when you can throw a ton of JS and do all of it with the latest cool frameworks? In fact, forget JS, lets use <s>Haxe</s>, <s>CoffeScript</s>, <s>Flow</s>, <s>Babel</s>, TypeScript.</p>
 <h3 id="nobody-ever-made-it-to-fortune-500-with-that-tech">Nobody ever made it to Fortune 500 with that tech.</h3>
 <p>HTML deserves a bit more attention. It has to be possible to define a complex app state with something that gives us a declarative hierarchy with an exact sequence that binds semantics with functionality.</p>
 <p>When breaking complicated things into manageable parts, I typically think about the following questions:</p>
 <ol>
-<li>What kind of &quot;buckets&quot; can the information be split into?</li>
+<li>What kind of "buckets" can the information be split into?</li>
 <li>How are the items in those buckets going to be referenced in the app?</li>
-<li>Will those &quot;buckets&quot; work for 0, 1, and n items? (sometimes n<em>n</em>n*...*n?)</li>
+<li>Will those "buckets" work for 0, 1, and n items? (sometimes n<em>n</em>n*...*n?)</li>
 <li>How is information going to flow into them and out of them?</li>
 <li>Why are all the hipsters, brogrammers, and rockstars moving from JS into Swift?</li>
 </ol>
 <p>Can HTML custom tags provide an acceptable abstraction to those questions? I don't know. I don't even want to have to think about a complex app. Complexity is just simplicity waiting to be born.</p>
 <p>However, Web Components can provide a way to declare a state that can easily be removed after. Which is more than good enough for me :)</p>
 <hr>
-<p>This post is Part 4 of a series I am writing called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
+<p>This post is Part 4 of a series I am writing called <cite>"The Life of a Web Component"</cite>.</p>
 <p>The previous parts are:</p>
 <ul>
 <li><a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</li>

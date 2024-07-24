@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Color picker as a trusty rebound hobby project">
+		
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>Color picker</title>
+			<meta name="twitter:title" content="Color picker">
+			<meta property="og:title" content="Color picker">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="Color picker as a trusty rebound hobby project">
+			<meta property="og:description" content="Color picker as a trusty rebound hobby project">
+		
+		
+			<meta property="og:article:published_time" content="2024-07-21">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;color-picker&#x2F;">
+		
+			<meta property="og:image" content="https://hugodaniel.com/images/allcolorpickers.webp" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/allcolorpickers.webp" >
+		
+		
+		
+		<!-- Matomo -->
+		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> Color picker </h1>
+			<p> Color picker as a trusty rebound hobby project </p>
+			<nav>
+				<time datetime="2024-07-21">21-Jul-2024</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p>Between my day job and countless mundane affairs I have been slowly developing another color picker widget as a hobby.</p>
+<p>All together this must be my 6th non-professional one. Unfortunately I only have the code for the last 3, the others are now likely in the Elysium of color pickers (or some old laptop hard drive in my basement).</p>
+<p><img src="/images/allcolorpickers.webp" alt="color pickers ive done" /></p>
+<p>Color pickers have been my testbed of some ideas and concepts, not necessarily directly related to the act of color picking per se. Colors pickers act kind of like my todo apps or hello world.
+Shreds of a multidisciplinary learning process loitering erratically for purpose. Calculated efforts with messed up cost-benefit evaluations.</p>
+<h3 id="i-m-looking-for-a-rebound-project-can-you-be-it">I'm looking for a rebound project, can you be it?</h3>
+<p>There are plenty of reasons not to implement a color picker. Not only they barely have any commercial value nowadays, but they are also not very suitable standalone apps without having a lot of extra differentiating features.
+Even if you are targeting the creative tools market there are arguably other low hanging fruit that you can go with a much higher wow factor.</p>
+<p>There is really not much to be done. <a href="https://react-spectrum.adobe.com/react-spectrum/ColorPicker.html">Every</a> <a href="https://ant.design/components/color-picker">mature</a> <a href="https://developer.microsoft.com/en-us/fluentui#/controls/web/colorpicker">component</a> <a href="https://react-bootstrap.netlify.app/docs/forms/form-control/#color">library</a> <a href="https://mui.com/material-ui/customization/color/#picking-colors">has</a> <a href="https://mantine.dev/core/color-picker/">one</a>. The device you are reading this has one (try it out, click here: <input type="color" value="#E67E22" />). All design tools ship with very good color pickers packed with features.
+More color oriented niche designers and illustrators have a wide range of plugins available that cover more advanced scenarios (accessibility concerns, contrast, harmony, related palettes, color spaces that no one can name, etc..).</p>
+<p>To top this, color pickers are not a particularly fun thing to do, and kinda annoying to do well. They are even frustrating if you want to make them generic enough so that they work and fit with whatever framework your potential users might be using.</p>
+<p>In the end, colors pickers exist as forgetful side-kick widgets in someone elses grand plan. They are not meant to be the hero of the story and you have to scrap for reasons to invest time in them.</p>
+<p>But that never stopped no one.</p>
+<h3 id="the-color-picker-hello-world">The color picker "hello world"</h3>
+<p>The original, traditional, color picker is the one with the wheel and the triangle invented by <a href="https://www.pixlart.com/pixlart/2018/12/11/color-wheel-keeps-on-turnin">John Derry</a>.</p>
+<p><img src="/images/fractal_design_painter_software.png" alt="The original color wheel." title="Fractal Design Painter 3.0. Image from https://winworldpc.com/product/fractal-design-painter/30" /></p>
+<p>Despite being the first one, imo it has a lot of cool things that sometimes are not found in more modern color pickers.</p>
+<p>Here is a commonly modern color picker, to contrast with the one above. A slight variation of this can be found in a lot of modern design tools:</p>
+<p><img src="/images/colorpicker1.png" alt="A modern color picker, with the square." /></p>
+<p>I find that original ideas are often the most elegant.</p>
+<h3 id="simplicity-is-the-ultimate-sophistication">"Simplicity is the ultimate sophistication"</h3>
+<p>There are many good reasons to choose a more modern color picker (one with the square and the sliders) however for the purpose of suiting my narrative I am going to squeeze a few reasons why the original triangle color wheel is better.</p>
+<p>Let me start by dissing the modern common color picker that uses a square/rectangle.</p>
+<h4 id="modern-square-has-a-disproportion-of-shades">Modern square has a disproportion of shades</h4>
+<p>Take a look at a variation of the common modern color picker, and focus on the square/rectangle it presents.</p>
+<p><img src="/images/colorpicker2.png" alt="Another common color picker" /></p>
+<p>How many 100% black pixels do we have to choose the black color in a modern color picker? We have a whole row of 100% black at the bottom.</p>
+<p><img src="/images/colorpicker2a.png" alt="Amount of repeated black colors" /></p>
+<p>Now contrast this with the number of 100% white pixels you have to chose the white color. It is just one at the top left corner.</p>
+<p>If you don't have a strong formation in choosing colors (like me) then there might be a good chance that a darker color will be chosen with this kind of color square layout.</p>
+<h4 id="modern-square-has-a-weird-slope-for-tones">Modern square has a weird slope for tones</h4>
+<p>Lets pick two colors and draw a line between them.</p>
+<p>First: pick the intermediate gray (50% gray), this sits in the middle of the leftmost edge (1).</p>
+<p>Second: Color tones are interpolated from this position up to the top right corner where the highest saturation color is at (2).</p>
+<p>If we draw a line between them, from 50% gray to 100% color, we have this:</p>
+<p><img src="/images/colorpicker2b.png" alt="Line between intermediate gray and most saturated color" /></p>
+<p>This split has a big bias to it. The amount of darker colors below the line is way bigger than the clearer tones above the line.</p>
+<h3 id="the-triangle-equilateral-movements">The triangle equilateral movements</h3>
+<p>Now that we know some not so good things about rectangular color pickers, lets continue this demagogy by pointing why the original triangle is still the superior color picker for shades, tones and tints.</p>
+<p>Here is my approach on it:</p>
+<p><img src="/images/mycolorpicker1.png" alt="Color picker I did" /></p>
+<h4 id="tones-are-set-along-a-horizontal-line">Tones are set along a horizontal line</h4>
+<p>In the original triangle representation if we pick the intermediate 50% gray (1) and draw an horizontal line to the strongest color (2).</p>
+<p>IMAGEM triangulo, linha com (1) e (1)</p>
+<p><img src="/images/mycolorpicker1a.png" alt="Color picker I did" /></p>
+<p>We get an horizontal line, fewer repeated colors and a more equalitarian distribution of clearer tints (above the line) vs darker shades (below the line).</p>
+<h4 id="shades-and-tints-are-spaced-through-the-edges">Shades and tints are spaced through the edges</h4>
+<p>In the triangle the 100% chroma is always located in a very easy to pin position:</p>
+<p><img src="/images/mycolorpicker2.png" alt="Color picker I did" /></p>
+<p>If we start from it it is easy to add more white, or more black to the color, just by moving the thumb along the edges of the triangle.</p>
+<video autoplay="autoplay" muted loop preload width="55%" playsinline>
+  <source src="/videos/shadestints.webm" type="video/webm">
+  <source src="/videos/shadestints.mp4" type="video/mp4">
+</video>
+<h3 id="the-wheel-and-the-slider">The wheel and the slider</h3>
+<p>Hues are typically set in degrees from 0 to 360, where 180 marks the split between the commonly known "warm" and "cold" colors (I think warm and cold are just another fuzzy human thing without much connection to temperature).</p>
+<p>In the original color picker wheel, this would mean warmer colors at the top of the wheel, and colder at the bottom.</p>
+<p><img src="/images/originalcolorpicker.png" alt="original color picker with the wheel split horizontally" /></p>
+<h3 id="a-list-to-follow-through">A list to follow through</h3>
+<p>In the presence of a color picker, be on the lookout for the following:</p>
+<ul>
+<li>How are hues organized? Can you tell how the "warm" and "cold" colors are split ?</li>
+<li>Given a hue, does it allow to chose a similar amount of shades and tints within it ?</li>
+<li>Is the highest saturated color in an easy to pick location throughout the hues ?</li>
+<li>Are there repeated colors ? Where are they ?</li>
+</ul>
+<p>Or any other signs that there is a bias towards certain colors, shades or tints.</p>
+<h3 id="my-attempt">My attempt</h3>
+<p>The most recent color picker I did was along the lines of the original color wheel triangle.</p>
+<p>The biggest difference might be that I added the possibility to interact with the wheel by dragging it to chose a Hue. The original color picker used two thumbs, one for the wheel and one for the triangle.</p>
+<p>It also took me about 20x more time to "design" this than it would a beginner designer.</p>
+<p><img src="/images/mycolorpickerfull.png" alt="My current approach" /></p>
+<p>You can play with it <a href="/pages/color-picker-pro/color-picker.html">here</a> or as a <a href="https://www.figma.com/community/plugin/1382041838227127919/color-picker-pro">Figma plugin</a>.</p>
+<h2 id="final-words">Final words</h2>
+<p>I did this mostly to try out Svelte 5.</p>
+
+      <!--
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+-->
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a target="_blank" href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a target="_blank" href="https://twitter.com/mr_hugo" rel="external">Twitter</a>
+			<a target="_blank" href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>

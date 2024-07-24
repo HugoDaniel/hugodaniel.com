@@ -125,7 +125,7 @@
 </span><span>
 </span><span>&lt;/</span><span style="color:#ffb964;">nevermind-the-backend-this-is-where-the-dragons-are</span><span>&gt;
 </span></code></pre>
-<p>This DOM root inception made me wonder: <em>&quot;What is the default visibility behavior of the Shadow DOM? could it be reversed?&quot;</em></p>
+<p>This DOM root inception made me wonder: <em>"What is the default visibility behavior of the Shadow DOM? could it be reversed?"</em></p>
 <p><img src="/images/html5_mask.png" alt="The HTML5 badge with an amazing purple eye mask" title="Shadow DOM is such a cool name, but wait until you see its fabulous mask!" /></p>
 <h2 id="hmm-that-sounds-stupid-but-how-would-it-work">Hmm, that sounds stupid, but how would it work?</h2>
 <p>When a Web Component has no shadow root, it will happily render all its children:</p>
@@ -193,7 +193,7 @@
 <h3 id="i-m-such-a-slot">I'm such a <code>&lt;slot&gt;</code></h3>
 <p>This tag is used mainly in HTML <code>&lt;template&gt;</code>'s. It is the way that <code>&lt;template&gt;</code>'s have to tell which parts can be set by outsiders. Typically <code>&lt;slot&gt;</code>'s have a name attribute to be used as the reference to where the content will go. (You can see an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot#attributes">example of it here</a>, but it is not necessary, I won't be using it.)</p>
 <p>The cool thing is that if there is no <code>name</code> specified on the <code>&lt;slot&gt;</code>, then it becomes the default <code>&lt;slot&gt;</code> where all unspecified content will go in.</p>
-<p>This is perfect. It means that if a <code>&lt;slot&gt;</code> is placed inside the shadow root (without a <code>name=&quot;...&quot;</code> attribute), then all of the custom element children will automatically be copied into it.</p>
+<p>This is perfect. It means that if a <code>&lt;slot&gt;</code> is placed inside the shadow root (without a <code>name="..."</code> attribute), then all of the custom element children will automatically be copied into it.</p>
 <pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
 </span><span>
 </span><span>&lt;</span><span style="color:#ffb964;">simple-web-component</span><span>&gt;
@@ -255,14 +255,14 @@
 </span></code></pre>
 <p>And just like that, the actual behavior of the Shadow DOM is reversed. The Shadow DOM contents are hidden by default, while the original custom tag children get rendered by default.</p>
 <p><img src="/images/reversed-shadow-dom.png" alt="A portion of a browser window, showing one line of text with the phrase &quot;Hello world! I am not inside the shadow root.&quot;. This text line has black letters on a white background." title="Only the child paragraph is visible" /></p>
-<p>No &quot;In the shadow!&quot; text is visible.</p>
+<p>No "In the shadow!" text is visible.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>It is possible to sweep all kinds of useless trash under the Shadow DOM.</p>
 <p>However, it might require reversing the Shadow DOM's visibility (which is rendered by default).</p>
 <p>To achieve it, a full copy of the custom element original children is made into the Shadow DOM (through the default <code>&lt;slot&gt;</code> tag). The next step is to hide everything inside the Shadow DOM that does not belong to the original children.</p>
 <p>With these two moves, the element's original children become visible while leaving all the other shadow DOM contents invisible.</p>
 <hr>
-<p>This post is Part 3 of a series I am writing called <cite>&quot;The Life of a Web Component&quot;</cite>.</p>
+<p>This post is Part 3 of a series I am writing called <cite>"The Life of a Web Component"</cite>.</p>
 <p>The previous parts are:</p>
 <ul>
 <li><a href="/posts/the-life-of-a-web-component/">Part 1 - Initialization</a>.</li>

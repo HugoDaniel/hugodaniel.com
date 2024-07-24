@@ -76,13 +76,13 @@
 			</nav>
 		</header>
 		<p>Recently I gained a boost of motivation that made me want to look into colors and drawing tools again.</p>
-<p>I hate choosing colors, and it is tough for me to find good mixes of related colors that look well together and have multiple use cases. </p>
+<p>I hate choosing colors, and it is tough for me to find good mixes of related colors that look well together and have multiple use cases.</p>
 <p>For this reason, I have long been cultivating an attraction towards color pickers, the idea that software can help me choose colors and give me good working sets of matching colors.</p>
 <p><a href="https://twitter.com/ndchristie">Naomi Danielle</a> gave an <a href="https://twitter.com/ndchristie/status/1382134093731794948">excellent explanation</a> of making minimal and exciting color palettes a while back. At that time, I had not enough energy or motivation to pursue this idea, so it went into the bucket list until now.</p>
 <p>This blog post explains my rudimentary interpretation of the idea behind it and provides simple examples of its inner workings. The final objective is the implementation of it all as a simple color palette generator, which is <a href="https://svelte.dev/repl/d92223f84088414da98cce78f3ab382a?version=3.46.3">available here</a>.</p>
 <p><img src="/images/final_palette.png" alt="13 color diamonds displayed in a grid. All the colors are related to the one present in the central diamond " /></p>
 <h2 id="don-t-pick-me">Don't pick me.</h2>
-<p>Pick a color. This color will be the root color for a minimal palette of 12 other colors. </p>
+<p>Pick a color. This color will be the root color for a minimal palette of 12 other colors.</p>
 <p>For example purposes, I am going to roll with #69b9d9.</p>
 <p><img src="/images/color_picked.png" alt="A square with a blue color" title="#69b9d9" /></p>
 <p>To ease the creation of the 12 variations, I will use HSL (Hue, Saturation, Lightness), a common RGB alternative that allows varying the color lightness and saturation directly.</p>
@@ -94,12 +94,12 @@
   <source src="/videos/gradient_light.webm" type="video/webm">
   <source src="/videos/gradient_light.mp4" type="video/mp4">
 </video>
-<p>Now create a relationship between these color variations by zig-zagging them and filling the two missing spots of the final palette layout. </p>
+<p>Now create a relationship between these color variations by zig-zagging them and filling the two missing spots of the final palette layout.</p>
 <video controls muted loop preload width="100%">
   <source src="/videos/zig_zag_light.webm" type="video/webm">
   <source src="/videos/zig_zag_light.mp4" type="video/mp4">
 </video>
-<p>Zig-zagging the lightness creates visual ways to establish relations between them. </p>
+<p>Zig-zagging the lightness creates visual ways to establish relations between them.</p>
 <h2 id="no-more-can-be-absorbed">No more can be absorbed</h2>
 <p>As with lightness, the palette must provide an excellent range of color saturation. I replicated the lightness logic to get the color saturation range as an initial approach.</p>
 <p>Using the same Zig Zag logic for saturation produces the following effect.</p>

@@ -75,23 +75,23 @@
 				</span>
 			</nav>
 		</header>
-		<p>Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the &quot;new Node.js&quot;. After trying it out, I feel that Deno is much more than that. </p>
+		<p>Deno is gaining traction. A TypeScript runtime based on the Rust language and the V8 engine commonly associated with Node.js, or seen as the "new Node.js". After trying it out, I feel that Deno is much more than that.</p>
 <p>Deno is a new thing. A new thing that gets it right and manages to improve even the few parts that were already top-notch in Node.js/JS.</p>
 <p><img src="/images/deno_deal_with_it.png" alt="Deno with the pixel sunglasses from the &quot;Deal With It&quot; meme" title="Deal with it" /></p>
 <h2 id="how-cool-is-deno">How cool is Deno?</h2>
 <p>Technicalities apart, the heart of Deno resides in the URL. It is how modules get referenced, and your work gets exposed to the world—giving you the flexibility to distribute it as you please (in your super-private VPN org, maybe?).</p>
 <p>Having the URL as the core is a driving force for a few base design decisions.
-Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules. </p>
-<p>This means that <code>import Rabbit from &quot;magic&quot;</code> no longer works: where is &quot;magic&quot; located? is it a <code>.js</code> ? a <code>.ts</code>? a folder with a default <code>index.js</code> export? Some 3rd party &quot;package&quot; in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?</p>
+Naming things as closely as possible to what they are is a very nice improvement to the already great JavaScript module system. No more extension assumptions when importing modules.</p>
+<p>This means that <code>import Rabbit from "magic"</code> no longer works: where is "magic" located? is it a <code>.js</code> ? a <code>.ts</code>? a folder with a default <code>index.js</code> export? Some 3rd party "package" in your packages cache? Which version? or is it any other kind of file that your chosen bundler decides to import for you?</p>
 <p>Deno also carefully shares a set of API's with the browser, allowing lazy devs like me to compound the knowledge of <a href="https://deno.land/manual/runtime/web_platform_apis">standard JavaScript browser API's</a>, bringing it to places outside the browser.</p>
 <p>The <a href="https://deno.land/manual@v1.6.3/runtime/permission_apis#permission-descriptors">security model</a> granularity resembles the <a href="https://man.openbsd.org/man2/pledge.2">OpenBSD pledge</a> approach. It forces the module execution into a restricted-service operating mode set by each permission specific flag and allowances. If your module tries to do something that was not whitelisted, it will throw an exception.</p>
 <p>The Deno <a href="https://deno.land/manual/contributing/style_guide">style guide for contributors</a> is a great read and can serve as a base for the code style guide in companies that lack it. The included linter rules (<code>deno lint</code>) already do a great job at enforcing a part of these guidelines.</p>
 <p>If you are now starting a new project or trying to refresh some old codebase, then Deno might give you that fresh edge that your project needs.</p>
 <h2 id="deno-as-a-preprocessor-of-html">Deno as a preprocessor of HTML</h2>
-<p>One of the things that attracted me initially to Deno was that it includes with its single binary <code>deno</code> the ability to bundle dependencies and run tests. No more Webpack. No more Jest. Think of it as TypeScript with batteries included - btw, why doesn't <code>tsc</code> resolve imports and outputs bundles? Because it's a &quot;compiler&quot; and not a &quot;linker&quot;... yeah, whatever.</p>
+<p>One of the things that attracted me initially to Deno was that it includes with its single binary <code>deno</code> the ability to bundle dependencies and run tests. No more Webpack. No more Jest. Think of it as TypeScript with batteries included - btw, why doesn't <code>tsc</code> resolve imports and outputs bundles? Because it's a "compiler" and not a "linker"... yeah, whatever.</p>
 <p>With Deno, I get in its single binary, a simple API, and a set of tools to use from the Command Line Interface.</p>
 <p>Now, what if it would be possible to run Deno from within an HTML file?</p>
-<p>Yes, like PHP but with Deno munching TypeScript. </p>
+<p>Yes, like PHP but with Deno munching TypeScript.</p>
 <p><img src="/images/deno_spectrum.png" alt="Deno logo next to the PHP logo with a rainbow heart in between" title="Its a spectrum..." /></p>
 <h2 id="nevermind-the-php-here-s-the-deno-tag">Nevermind the <code>&lt;?php&gt;</code> here's the <code>&lt;deno&gt;</code> tag</h2>
 <p>The <a href="https://github.com/HugoDaniel/deno_tag/">deno_tag</a> is my first Deno module. I have been using it in the simple drawing web app I am building (Shape The Pixel).</p>
@@ -117,8 +117,8 @@ Naming things as closely as possible to what they are is a very nice improvement
 </span><span>&lt;/</span><span style="color:#ffb964;">body</span><span>&gt;
 </span><span>&lt;/</span><span style="color:#ffb964;">html</span><span>&gt;
 </span></code></pre>
-<p>It runs something similar to <code>deno run advanced_logic.ts</code> and pipes the execution's output directly into the location of the <code>&lt;deno&gt;</code> tags. </p>
-<p>The tag can handle other attributes besides <code>run</code>. It can also bundle your modules with <code>&lt;deno bundle=&quot;my_app.ts&quot; /&gt;</code>. Perfect for including within <code>&lt;script&gt;</code> tags and having the HTML file include a bundle of your code and its imports.</p>
+<p>It runs something similar to <code>deno run advanced_logic.ts</code> and pipes the execution's output directly into the location of the <code>&lt;deno&gt;</code> tags.</p>
+<p>The tag can handle other attributes besides <code>run</code>. It can also bundle your modules with <code>&lt;deno bundle="my_app.ts" /&gt;</code>. Perfect for including within <code>&lt;script&gt;</code> tags and having the HTML file include a bundle of your code and its imports.</p>
 <pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">html</span><span>&gt;
 </span><span>&lt;</span><span style="color:#ffb964;">head</span><span>&gt;&lt;</span><span style="color:#ffb964;">title</span><span>&gt;Super Advanced Concepts Inc. Like Alien Magic Actually.&lt;/</span><span style="color:#ffb964;">title</span><span>&gt;&lt;/</span><span style="color:#ffb964;">head</span><span>&gt;
 </span><span>&lt;</span><span style="color:#ffb964;">body</span><span>&gt;
@@ -136,7 +136,7 @@ Call mom?
 Ping the coffee machine?</p>
 <p>The <code>&lt;deno&gt;</code> tag is here for the rescue!</p>
 <p><em>Why not use PHP?</em></p>
-<p>I love PHP and use it whenever appropriate. It is my favorite backend language for the web. The <a href="https://www.php.net/manual/en/function.include.php">PHP &quot;include&quot;</a> logic is great and resembles this somehow (<code>&lt;?PHP include &quot;something.php&quot;; ?&gt;</code>). However, I tend to like to work closer to front-end development, and keeping these HTML/Web parts in TypeScript is the wave to surf these days 🏄‍♂️.</p>
+<p>I love PHP and use it whenever appropriate. It is my favorite backend language for the web. The <a href="https://www.php.net/manual/en/function.include.php">PHP "include"</a> logic is great and resembles this somehow (<code>&lt;?PHP include "something.php"; ?&gt;</code>). However, I tend to like to work closer to front-end development, and keeping these HTML/Web parts in TypeScript is the wave to surf these days 🏄‍♂️.</p>
 <p><em>Why not use /bin/sh?</em></p>
 <p>I don't know why 🤷‍♂️.</p>
 <h2 id="conclusion">Conclusion</h2>

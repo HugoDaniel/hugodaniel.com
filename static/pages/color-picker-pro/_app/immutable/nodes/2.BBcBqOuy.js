@@ -1,0 +1,1 @@
+import{a as e,t as p}from"../chunks/disclose-version.wQ3dIjQK.js";var t=p('<main class="svelte-x2qpxv"><div><p>Projects</p></div></main>');function s(a){console.log("yay");var o=t();e(a,o)}export{s as component};

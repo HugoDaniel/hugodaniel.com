@@ -194,7 +194,7 @@
 </span><span style="color:#888888;">// SET:  19.770000000004075 ARRAY:  3779.524999999994
 </span></code></pre>
 <p><code>Set.has()</code> execution time doesn't seem to differ with the set size. The JS spec tells us why:</p>
-<p><em>&quot;Set objects must be implemented using either hash tables or other mechanisms that, on average, provide access times that are sublinear on the number of elements in the collection.&quot;</em> <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-set-objects">[*]</a></p>
+<p><em>"Set objects must be implemented using either hash tables or other mechanisms that, on average, provide access times that are sublinear on the number of elements in the collection."</em> <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-set-objects">[*]</a></p>
 <p>It does not even bother heating your CPU as my browser probably implements this to be O(shiznit(n)) for a large enough n (I will not go into detail here so I will leave the measurement as an exercise for you as it is always important/necessary to measure Big-O behaviours).</p>
 <h2 id="insertion-speed">Insertion speed</h2>
 <p>Right now Sets seem really cool, how about we check how fast is the add() method in comparison to an array push(), like we did in the <a href="https://hugodaniel.com/posts/in-loving-memory-of-immutable/">Immutable.List vs Array article</a> ?</p>
