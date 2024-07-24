@@ -17,10 +17,9 @@ Shreds of a multidisciplinary learning process loitering erratically for purpose
 ### I'm looking for a rebound project, can you be it? 
 
 There are plenty of reasons not to implement a color picker. Not only they barely have any commercial value nowadays, but they are also not very suitable standalone apps without having a lot of extra differentiating features.
-Even if you are targeting the creative tools market there are arguably other low hanging fruit that you can go with a much higher wow factor.
 
 There is really not much to be done. [Every](https://react-spectrum.adobe.com/react-spectrum/ColorPicker.html) [mature](https://ant.design/components/color-picker) [component](https://developer.microsoft.com/en-us/fluentui#/controls/web/colorpicker) [library](https://react-bootstrap.netlify.app/docs/forms/form-control/#color) [has](https://mui.com/material-ui/customization/color/#picking-colors) [one](https://mantine.dev/core/color-picker/). The device you are reading this has one (try it out, click here: <input type="color" value="#E67E22" />). All design tools ship with very good color pickers packed with features.
-More color oriented niche designers and illustrators have a wide range of plugins available that cover more advanced scenarios (accessibility concerns, contrast, harmony, related palettes, color spaces that no one can name, etc..).
+More color oriented niche designers and illustrators have at their disposal a wide range of color plugins available. These plugins can cover all advanced scenarios: accessibility concerns, contrast, harmony, related palettes, color spaces that no one can name, etc...
 
 To top this, color pickers are not a particularly fun thing to do, and kinda annoying to do well. They are even frustrating if you want to make them generic enough so that they work and fit with whatever framework your potential users might be using.
 
@@ -40,7 +39,7 @@ Here is a commonly modern color picker, to contrast with the one above. A slight
 
 ![A modern color picker, with the square.](/images/colorpicker1.png)  
 
-I find that original ideas are often the most elegant.
+I find that original ideas are often the most elegant, and like Leonardo Da Vinci said:
 
 ### "Simplicity is the ultimate sophistication" 
 
@@ -54,13 +53,13 @@ Take a look at a variation of the common modern color picker, and focus on the s
 
 ![Another common color picker](/images/colorpicker2.png)  
 
-How many 100% black pixels do we have to choose the black color in a modern color picker? We have a whole row of 100% black at the bottom. 
+In that image, we have a huge area of 100% black pixels. A whole row of 100% black at the bottom. 
 
 ![Amount of repeated black colors](/images/colorpicker2a.png)
 
-Now contrast this with the number of 100% white pixels you have to chose the white color. It is just one at the top left corner.
+Now contrast this with the single 100% white pixel you have to chose the white color. Just one at the top left corner.
 
-If you don't have a strong formation in choosing colors (like me) then there might be a good chance that a darker color will be chosen with this kind of color square layout.  
+If you don't have a strong education in choosing colors (like me) then there might be a good chance that a darker color will be chosen with this kind of color square layout.  
 
 #### Modern square has a weird slope for tones
 
@@ -68,17 +67,17 @@ Lets pick two colors and draw a line between them.
 
 First: pick the intermediate gray (50% gray), this sits in the middle of the leftmost edge (1).
 
-Second: Color tones are interpolated from this position up to the top right corner where the highest saturation color is at (2).
+Second: pick the highest saturation color in to the top right corner (2).
 
 If we draw a line between them, from 50% gray to 100% color, we have this:
 
 ![Line between intermediate gray and most saturated color](/images/colorpicker2b.png)
 
-This split has a big bias to it. The amount of darker colors below the line is way bigger than the clearer tones above the line.
+This split has a big bias to it. The amount of darker colors below the line is way bigger than the whiter tones above the line.
 
 ### The triangle equilateral movements
 
-Now that we know some not so good things about rectangular color pickers, lets continue this demagogy by pointing why the original triangle is still the superior color picker for shades, tones and tints. 
+Lets move to the triangle now, and explore by pointing why the original triangle is still the superior color picker for shades, tones and tints. 
 
 Here is my approach on it:
 
@@ -86,11 +85,11 @@ Here is my approach on it:
 
 #### Tones are set along a horizontal line
 
-In the original triangle representation if we pick the intermediate 50% gray (1) and draw an horizontal line to the strongest color (2). 
-
-IMAGEM triangulo, linha com (1) e (1) 
+An horizontal line:
 
 ![Color picker I did](/images/mycolorpicker1a.png)
+
+In the original triangle representation if we pick the intermediate 50% gray (1) and like before draw a line to the strongest color (2). 
 
 We get an horizontal line, fewer repeated colors and a more equalitarian distribution of clearer tints (above the line) vs darker shades (below the line).
 
@@ -100,7 +99,7 @@ In the triangle the 100% chroma is always located in a very easy to pin position
 
 ![Color picker I did](/images/mycolorpicker2.png)
 
-If we start from it it is easy to add more white, or more black to the color, just by moving the thumb along the edges of the triangle.
+If we start from this position, it becomes easy to add more white, or more black to the color. This can be achievied by moving the thumb along the edges of the triangle like in the video below:
 
 <video autoplay="autoplay" muted loop preload width="55%" playsinline>
   <source src="/videos/shadestints.webm" type="video/webm">
