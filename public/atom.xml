@@ -79,15 +79,6 @@ More color oriented niche designers and illustrators have at their disposal a wi
 &lt;p&gt;Hues are typically set in degrees from 0 to 360, where 180 marks the split between the commonly known &quot;warm&quot; and &quot;cold&quot; colors (I think warm and cold are just another fuzzy human thing without much connection to temperature).&lt;&#x2F;p&gt;
 &lt;p&gt;In the original color picker wheel, this would mean warmer colors at the top of the wheel, and colder at the bottom.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;originalcolorpicker.png&quot; alt=&quot;original color picker with the wheel split horizontally&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;a-list-to-follow-through&quot;&gt;A list to follow through&lt;&#x2F;h3&gt;
-&lt;p&gt;In the presence of a color picker, be on the lookout for the following:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;How are hues organized? Can you tell how the &quot;warm&quot; and &quot;cold&quot; colors are split ?&lt;&#x2F;li&gt;
-&lt;li&gt;Given a hue, does it allow to chose a similar amount of shades and tints within it ?&lt;&#x2F;li&gt;
-&lt;li&gt;Is the highest saturated color in an easy to pick location throughout the hues ?&lt;&#x2F;li&gt;
-&lt;li&gt;Are there repeated colors ? Where are they ?&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;Or any other signs that there is a bias towards certain colors, shades or tints.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;my-attempt&quot;&gt;My attempt&lt;&#x2F;h3&gt;
 &lt;p&gt;The most recent color picker I did was along the lines of the original color wheel triangle.&lt;&#x2F;p&gt;
 &lt;p&gt;The biggest difference might be that I added the possibility to interact with the wheel by dragging it to chose a Hue. The original color picker used two thumbs, one for the wheel and one for the triangle.&lt;&#x2F;p&gt;

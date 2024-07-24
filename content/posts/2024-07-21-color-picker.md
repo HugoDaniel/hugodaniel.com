@@ -114,17 +114,6 @@ In the original color picker wheel, this would mean warmer colors at the top of 
 
 ![original color picker with the wheel split horizontally](/images/originalcolorpicker.png)
 
-### A list to follow through
-
-In the presence of a color picker, be on the lookout for the following:
-
-- How are hues organized? Can you tell how the "warm" and "cold" colors are split ?
-- Given a hue, does it allow to chose a similar amount of shades and tints within it ?
-- Is the highest saturated color in an easy to pick location throughout the hues ?
-- Are there repeated colors ? Where are they ?
-
-Or any other signs that there is a bias towards certain colors, shades or tints.
-
 ### My attempt
 
 The most recent color picker I did was along the lines of the original color wheel triangle.
