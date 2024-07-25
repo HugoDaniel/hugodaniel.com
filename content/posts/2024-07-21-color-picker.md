@@ -23,7 +23,7 @@ More color oriented niche designers and illustrators have at their disposal a wi
 
 To top this, color pickers are not a particularly fun thing to do, and kinda annoying to do well. They are even frustrating if you want to make them generic enough so that they work and fit with whatever framework your potential users might be using.
 
-In the end, colors pickers exist as forgetful side-kick widgets in someone elses grand plan. They are not meant to be the hero of the story and you have to scrap for reasons to invest time in them. 
+In the end, colors pickers exist as forgetful side-kick widgets in someone else's grand plan. They are not meant to be the hero of the story and you have to scrap for reasons to invest time in them. 
 
 But that never stopped no one.
 
@@ -77,7 +77,7 @@ This split has a big bias to it. The amount of darker colors below the line is w
 
 ### The triangle equilateral movements
 
-Lets move to the triangle now, and explore by pointing why the original triangle is still the superior color picker for shades, tones and tints. 
+Lets move to the triangle now, and explore by pointing out why the original triangle is still the superior color picker for shades, tones and tints. 
 
 Here is my approach on it:
 
