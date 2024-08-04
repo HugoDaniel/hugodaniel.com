@@ -5,13 +5,15 @@ date = 2024-07-21
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/allcolorpickers.webp", class="center-images with-lists" }
 +++
 
-Between my day job and countless mundane affairs I have been slowly developing another color picker widget as a hobby.
+I made my first color picker almost ten years ago, in 2015. Since then, my passion about color pickers grew a little more than expected and this month I finished my 6th one. I only have the code for the last 3, the others are now likely in the Elysium of color pickers (or some old laptop hard drive in my basement).
 
-All together this must be my 6th non-professional one. Unfortunately I only have the code for the last 3, the others are now likely in the Elysium of color pickers (or some old laptop hard drive in my basement).
+### What's so special about color pickers?
+
+They have graphic and visual usage patterns that are uncommon in UI widgets. Most widgets are drop-down boxes, sliders, etc., and then there are color pickers. Besides, choosing colors has always been a challenge for me as a developer with little aesthetic sense. During college, I made some websites to earn some extra money, and when it came time to choose colors, it was a headache.
 
 ![color pickers ive done](/images/allcolorpickers.webp)
 
-Color pickers have been my testbed of some ideas and concepts, not necessarily directly related to the act of color picking per se. Colors pickers act kind of like my todo apps or hello world.
+Also, color pickers have been my testbed of some ideas and concepts, not necessarily directly related to the act of color picking per se. Color pickers also act kind of like my todo apps or hello world.
 Shreds of a multidisciplinary learning process loitering erratically for purpose. Calculated efforts with messed up cost-benefit evaluations.
 
 ### I'm looking for a rebound project, can you be it? 
@@ -128,5 +130,6 @@ You can play with it [here](/pages/color-picker-pro/color-picker.html) or as a [
 
 ## Final words
 
-I did this mostly to try out Svelte 5.
+I keep going back to color pickers. Driven by the somewhat unique place that they hold in the world of UI widgets. Driven by my lack of aesthetics and passion for stuff that is slightly out of my comfort zone.
 
+The intention of this post is that it can be inspiring to you. I hope to have shared enough of the passion I find in color pickers, so that you can find extra shine the next time you find yourself staring at a color picker.
