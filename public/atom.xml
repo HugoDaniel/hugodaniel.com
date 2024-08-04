@@ -25,7 +25,8 @@
         <content type="html" xml:base="https://hugodaniel.com/posts/color-picker/">&lt;p&gt;I made my first color picker almost ten years ago, in 2015. Since then, my passion about color pickers grew a little more than expected and this month I finished my 6th one. I only have the code for the last 3, the others are now likely in the Elysium of color pickers (or some old laptop hard drive in my basement).&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;what-s-so-special-about-color-pickers&quot;&gt;What&#x27;s so special about color pickers?&lt;&#x2F;h3&gt;
 &lt;p&gt;They have graphic and visual usage patterns that are uncommon in UI widgets. Most widgets are drop-down boxes, sliders, etc., and then there are color pickers. Besides, choosing colors has always been a challenge for me as a developer with little aesthetic sense. During college, I made some websites to earn some extra money, and when it came time to choose colors, it was a headache.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;allcolorpickers.webp&quot; alt=&quot;color pickers ive done&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;allcolorpickers.webp&quot; alt=&quot;color pickers ive done&quot; title=&quot;Some color pickers i&amp;#39;ve done&quot; &#x2F;&gt;
+&lt;sub&gt;Image: Some color pickers I&#x27;ve done&lt;&#x2F;sub&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Also, color pickers have been my testbed of some ideas and concepts, not necessarily directly related to the act of color picking per se. Color pickers also act kind of like my todo apps or hello world.
 Shreds of a multidisciplinary learning process loitering erratically for purpose. Calculated efforts with messed up cost-benefit evaluations.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;i-m-looking-for-a-rebound-project-can-you-be-it&quot;&gt;I&#x27;m looking for a rebound project, can you be it?&lt;&#x2F;h3&gt;

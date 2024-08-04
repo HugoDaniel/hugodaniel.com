@@ -11,7 +11,8 @@ I made my first color picker almost ten years ago, in 2015. Since then, my passi
 
 They have graphic and visual usage patterns that are uncommon in UI widgets. Most widgets are drop-down boxes, sliders, etc., and then there are color pickers. Besides, choosing colors has always been a challenge for me as a developer with little aesthetic sense. During college, I made some websites to earn some extra money, and when it came time to choose colors, it was a headache.
 
-![color pickers ive done](/images/allcolorpickers.webp)
+![color pickers ive done](/images/allcolorpickers.webp "Some color pickers i've done")
+<sub>Image: Some color pickers I've done</sub>
 
 Also, color pickers have been my testbed of some ideas and concepts, not necessarily directly related to the act of color picking per se. Color pickers also act kind of like my todo apps or hello world.
 Shreds of a multidisciplinary learning process loitering erratically for purpose. Calculated efforts with messed up cost-benefit evaluations.
