@@ -22,5 +22,9 @@ main article h5,
 h1,h2,h3,h4,h5 {
 	color: var(--dark-title-color);
 }
+
+main article header {
+  background-color: var(--dark-background-color);
+}
 }
 

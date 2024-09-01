@@ -3,7 +3,7 @@
 	--dark-link-color: rgb(113, 183, 225);
 	--dark-text-color: rgb(200,200,200);
 	--dark-title-color: rgb(215, 215, 215);
-	--dark-background-color: rgb(74,74,77);
+	--dark-background-color: rgb(34,34,37);
 	--sans-serif: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
 	--avenir: avenir next,avenir,sans-serif;
 	--baskerville: baskerville,serif;
@@ -306,6 +306,9 @@ main article header {
 	margin-bottom: 3rem;
 	border-bottom: 1px solid #777;
   overflow: visible;
+	position: sticky;
+	top: -10rem;
+  background-color: white;
 }
 
 main.project article header {
