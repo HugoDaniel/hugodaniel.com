@@ -84,7 +84,7 @@
 <p>I guess that increased portability is eventually a motivation, like at the end of this road if things go well, but not the goal.</p>
 <h3 id="ecs-entity-component-system">ECS - Entity Component System</h3>
 <p>This is a simple idea that reeks detachment and embraces sparse relationships. The <a href="https://en.wikipedia.org/wiki/Entity_component_system">wikipedia page</a> explains it much better than I can, and <a href="https://www.youtube.com/results?search_query=entity+component+system+explained">there are a lot of youtube videos</a> that provide comprehensive angles into this subject.</p>
-<p>In an Entity Component System (ECS), Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.</p>
+<p>In an Entity Component System, Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.</p>
 <p>Imagine three arrays: one for entities, one for components, and one for systems. Each element exists in its own space, connected only through explicit references.</p>
 <p><img src="/images/ecs_carro.png" alt="A car and a cat driving it, a list of wheels and a list of positions, cat and car share some of these attributes" title="A cat and car go somewhere, they share the same position, but not the same wheels" /></p>
 <p>So, ideally Entities and Components and Systems don't know much about each other:</p>
@@ -97,12 +97,12 @@
 <h3 id="bringing-ecs-to-the-gpu">Bringing ECS to the GPU</h3>
 <p>Despite ECS being a very niche solution with short advantages to app and game state representation, for the purpose of bringing it to the GPU, I'm going to make it even simpler and reduce even more its advantages by removing the ability to update the relationships in runtime.</p>
 <p>In WGSL you send a shader code string to the graphics api (WebGPU) which then compiles it into the GPU processor code that gets run with whatever settings you have set.</p>
-<p>My idea is to exploit this shader code string creation, and use JS/TS to create a massive string with const arrays and lookups already baked in.</p>
+<p>My idea is to exploit this shader code string creation, and use JS/TS to create a massive string with const arrays and lookups already baked-in.</p>
 <p>These arrays and lookups would represent the entities and components relationships that were set through JS/TS. It's like using JS/TS as a precompilation language with its Maps and Sets to perform the queries and dump the results in a WGSL string.</p>
 <p>The key difference here is that I'll define the relationships between entities and components upfront, in JS/TS, before sending anything to the GPU. This way, the GPU only has to execute the pre-determined logic defined by CPU code (JS/TS).</p>
 <p>Ideally in the future someone could minimax this out to produce a highly optimized string ready to run on the GPU.</p>
 <h3 id="attractiveness-is-sweet">Attractiveness is sweet</h3>
-<p>WebGPU and WGSL are attractive because they have compute shaders, which are simpler versions of shaders that are focused in computing whatever you want.</p>
+<p>WebGPU and WGSL are attractive because they have compute shaders, which are simpler versions of shaders for whatever you want.</p>
 <p>Not only that, but unlike WebGL/GLSL, the new WGSL also brings support for pointers and compile time const arrays.</p>
 <p>In WebGPU we can create our own pipeline, and dispatch a given entrypoint function of the shader with very specific parallel execution scenarios. I find this a cool thing and wanted to explore it a bit and see how it can be used to implement an ECS.</p>
 <h3 id="compute-shaders-dispatches">Compute shaders dispatches</h3>
@@ -203,7 +203,7 @@
   <source src="/videos/wgsl_ecs_circles.webm" type="video/webm">
   <source src="/videos/wgsl_ecs_circles.mp4" type="video/mp4">
 </video>
-<p>I did a quick rough sketch of this in compute.toys, their single string allows to specify multiple dispatch entry points.</p>
+<p>I did a quick rough sketch of this in compute.toys. You can use the arrow keys to move the circles around.</p>
 <p>In the end I intend to have a WGSL string somewhat like this: <a href="https://compute.toys/view/1377">https://compute.toys/view/1377</a>.</p>
 <p>Outlining it:</p>
 <ul>
@@ -217,7 +217,7 @@
 <p>No dynamic updates. A dynamic update of a relationship would imply a string rewrite and WGSL shader recompilation.</p>
 </li>
 </ul>
-<p>I hope that this can be ok for scenarios where the entity-component relationships are relatively static or the performance overhead of dynamic updates is acceptable.</p>
+<p>I hope that this can be ok for scenarios where the entity component relationships are relatively static or the performance overhead of dynamic updates is acceptable.</p>
 <h3 id="pros-and-cons">Pros and Cons</h3>
 <p>There might be some advantages that I cannot exactly measure at this idea stage but only guess:</p>
 <ul>

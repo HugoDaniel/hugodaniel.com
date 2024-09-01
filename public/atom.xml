@@ -31,7 +31,7 @@
 &lt;p&gt;I guess that increased portability is eventually a motivation, like at the end of this road if things go well, but not the goal.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;ecs-entity-component-system&quot;&gt;ECS - Entity Component System&lt;&#x2F;h3&gt;
 &lt;p&gt;This is a simple idea that reeks detachment and embraces sparse relationships. The &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Entity_component_system&quot;&gt;wikipedia page&lt;&#x2F;a&gt; explains it much better than I can, and &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;results?search_query=entity+component+system+explained&quot;&gt;there are a lot of youtube videos&lt;&#x2F;a&gt; that provide comprehensive angles into this subject.&lt;&#x2F;p&gt;
-&lt;p&gt;In an Entity Component System (ECS), Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.&lt;&#x2F;p&gt;
+&lt;p&gt;In an Entity Component System, Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.&lt;&#x2F;p&gt;
 &lt;p&gt;Imagine three arrays: one for entities, one for components, and one for systems. Each element exists in its own space, connected only through explicit references.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;ecs_carro.png&quot; alt=&quot;A car and a cat driving it, a list of wheels and a list of positions, cat and car share some of these attributes&quot; title=&quot;A cat and car go somewhere, they share the same position, but not the same wheels&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;So, ideally Entities and Components and Systems don&#x27;t know much about each other:&lt;&#x2F;p&gt;
@@ -44,12 +44,12 @@
 &lt;h3 id=&quot;bringing-ecs-to-the-gpu&quot;&gt;Bringing ECS to the GPU&lt;&#x2F;h3&gt;
 &lt;p&gt;Despite ECS being a very niche solution with short advantages to app and game state representation, for the purpose of bringing it to the GPU, I&#x27;m going to make it even simpler and reduce even more its advantages by removing the ability to update the relationships in runtime.&lt;&#x2F;p&gt;
 &lt;p&gt;In WGSL you send a shader code string to the graphics api (WebGPU) which then compiles it into the GPU processor code that gets run with whatever settings you have set.&lt;&#x2F;p&gt;
-&lt;p&gt;My idea is to exploit this shader code string creation, and use JS&#x2F;TS to create a massive string with const arrays and lookups already baked in.&lt;&#x2F;p&gt;
+&lt;p&gt;My idea is to exploit this shader code string creation, and use JS&#x2F;TS to create a massive string with const arrays and lookups already baked-in.&lt;&#x2F;p&gt;
 &lt;p&gt;These arrays and lookups would represent the entities and components relationships that were set through JS&#x2F;TS. It&#x27;s like using JS&#x2F;TS as a precompilation language with its Maps and Sets to perform the queries and dump the results in a WGSL string.&lt;&#x2F;p&gt;
 &lt;p&gt;The key difference here is that I&#x27;ll define the relationships between entities and components upfront, in JS&#x2F;TS, before sending anything to the GPU. This way, the GPU only has to execute the pre-determined logic defined by CPU code (JS&#x2F;TS).&lt;&#x2F;p&gt;
 &lt;p&gt;Ideally in the future someone could minimax this out to produce a highly optimized string ready to run on the GPU.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attractiveness-is-sweet&quot;&gt;Attractiveness is sweet&lt;&#x2F;h3&gt;
-&lt;p&gt;WebGPU and WGSL are attractive because they have compute shaders, which are simpler versions of shaders that are focused in computing whatever you want.&lt;&#x2F;p&gt;
+&lt;p&gt;WebGPU and WGSL are attractive because they have compute shaders, which are simpler versions of shaders for whatever you want.&lt;&#x2F;p&gt;
 &lt;p&gt;Not only that, but unlike WebGL&#x2F;GLSL, the new WGSL also brings support for pointers and compile time const arrays.&lt;&#x2F;p&gt;
 &lt;p&gt;In WebGPU we can create our own pipeline, and dispatch a given entrypoint function of the shader with very specific parallel execution scenarios. I find this a cool thing and wanted to explore it a bit and see how it can be used to implement an ECS.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;compute-shaders-dispatches&quot;&gt;Compute shaders dispatches&lt;&#x2F;h3&gt;
@@ -150,7 +150,7 @@
   &lt;source src=&quot;&#x2F;videos&#x2F;wgsl_ecs_circles.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;wgsl_ecs_circles.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
-&lt;p&gt;I did a quick rough sketch of this in compute.toys, their single string allows to specify multiple dispatch entry points.&lt;&#x2F;p&gt;
+&lt;p&gt;I did a quick rough sketch of this in compute.toys. You can use the arrow keys to move the circles around.&lt;&#x2F;p&gt;
 &lt;p&gt;In the end I intend to have a WGSL string somewhat like this: &lt;a href=&quot;https:&#x2F;&#x2F;compute.toys&#x2F;view&#x2F;1377&quot;&gt;https:&#x2F;&#x2F;compute.toys&#x2F;view&#x2F;1377&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Outlining it:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -164,7 +164,7 @@
 &lt;p&gt;No dynamic updates. A dynamic update of a relationship would imply a string rewrite and WGSL shader recompilation.&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;I hope that this can be ok for scenarios where the entity-component relationships are relatively static or the performance overhead of dynamic updates is acceptable.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope that this can be ok for scenarios where the entity component relationships are relatively static or the performance overhead of dynamic updates is acceptable.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;pros-and-cons&quot;&gt;Pros and Cons&lt;&#x2F;h3&gt;
 &lt;p&gt;There might be some advantages that I cannot exactly measure at this idea stage but only guess:&lt;&#x2F;p&gt;
 &lt;ul&gt;
