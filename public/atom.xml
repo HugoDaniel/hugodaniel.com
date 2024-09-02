@@ -23,15 +23,14 @@
         <id>https://hugodaniel.com/posts/ecs-wgsl/</id>
         
         <content type="html" xml:base="https://hugodaniel.com/posts/ecs-wgsl/">&lt;p&gt;I&#x27;ll explore a simple way to bring the Entity Component System (ECS) pattern into the world of WGSL shaders.&lt;&#x2F;p&gt;
-&lt;p&gt;This is just an idea outline, I currently have no implementation for this, and I strongly doubt about it being a good idea that can produce useful results.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;then-why-are-you-writing-about-it&quot;&gt;Then why are you writing about it?&lt;&#x2F;h3&gt;
+&lt;p&gt;This is still in idea stage, an idea that i&#x27;ll explore in this post without providing a real implementation, just the API for it.&lt;&#x2F;p&gt;
+&lt;p&gt;While I have no particular goal in mind with this I enjoy exploring new technology (WGSL) and discover what it can do for me. I&#x27;m writing this post to share my findings.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;ecs_socials.png&quot; alt=&quot;&amp;quot;A cat with two wheels on his eyes&amp;quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Can we leverage the GPU&#x27;s parallel processing power for more than just visuals? Is it feasable to bring traditional game state management techniques to the GPU?&lt;&#x2F;p&gt;
-&lt;p&gt;There are a lot of tradeoffs being taken which I&#x27;ll try to address at the end.&lt;&#x2F;p&gt;
-&lt;p&gt;I guess that increased portability is eventually a motivation, like at the end of this road if things go well, but not the goal.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;can-we-leverage-the-gpu-for-more-than-visuals&quot;&gt;Can we leverage the GPU for more than visuals?&lt;&#x2F;h3&gt;
+&lt;p&gt;This is not a new concept, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;danilw&quot;&gt;Danil&lt;&#x2F;a&gt; has made a &lt;a href=&quot;https:&#x2F;&#x2F;arugl.medium.com&#x2F;games-in-the-gpu-shaders-a912414b1894&quot;&gt;cool exposition and demo&lt;&#x2F;a&gt; of his approach, with a &lt;a href=&quot;https:&#x2F;&#x2F;www.shadertoy.com&#x2F;view&#x2F;wdS3D3&quot;&gt;shadertoy demo&lt;&#x2F;a&gt; of it.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;ecs-entity-component-system&quot;&gt;ECS - Entity Component System&lt;&#x2F;h3&gt;
-&lt;p&gt;This is a simple idea that reeks detachment and embraces sparse relationships. The &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Entity_component_system&quot;&gt;wikipedia page&lt;&#x2F;a&gt; explains it much better than I can, and &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;results?search_query=entity+component+system+explained&quot;&gt;there are a lot of youtube videos&lt;&#x2F;a&gt; that provide comprehensive angles into this subject.&lt;&#x2F;p&gt;
-&lt;p&gt;In an Entity Component System, Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.&lt;&#x2F;p&gt;
+&lt;p&gt;ECS is a simple idea that brings detachment to the app state and embraces sparse relationships. It&#x27;s not my purpose to give an intro to ECS in this article, if you want to learn more about ECS check this &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Entity_component_system&quot;&gt;wikipedia page&lt;&#x2F;a&gt; and the many yt videos about it.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;The TLDR of an Entity Component System, is that Entities, Components and Systems are concepts that you as a programmer define, but in a way that by default they are unrelated to each other.&lt;&#x2F;p&gt;
 &lt;p&gt;Imagine three arrays: one for entities, one for components, and one for systems. Each element exists in its own space, connected only through explicit references.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;ecs_carro.png&quot; alt=&quot;A car and a cat driving it, a list of wheels and a list of positions, cat and car share some of these attributes&quot; title=&quot;A cat and car go somewhere, they share the same position, but not the same wheels&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;So, ideally Entities and Components and Systems don&#x27;t know much about each other:&lt;&#x2F;p&gt;
@@ -42,28 +41,28 @@
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The key is that systems work with any entity that has the right components, hopefully making it easy to add or change behavior without messing up the whole codebase.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;bringing-ecs-to-the-gpu&quot;&gt;Bringing ECS to the GPU&lt;&#x2F;h3&gt;
-&lt;p&gt;Despite ECS being a very niche solution with short advantages to app and game state representation, for the purpose of bringing it to the GPU, I&#x27;m going to make it even simpler and reduce even more its advantages by removing the ability to update the relationships in runtime.&lt;&#x2F;p&gt;
 &lt;p&gt;In WGSL you send a shader code string to the graphics api (WebGPU) which then compiles it into the GPU processor code that gets run with whatever settings you have set.&lt;&#x2F;p&gt;
-&lt;p&gt;My idea is to exploit this shader code string creation, and use JS&#x2F;TS to create a massive string with const arrays and lookups already baked-in.&lt;&#x2F;p&gt;
-&lt;p&gt;These arrays and lookups would represent the entities and components relationships that were set through JS&#x2F;TS. It&#x27;s like using JS&#x2F;TS as a precompilation language with its Maps and Sets to perform the queries and dump the results in a WGSL string.&lt;&#x2F;p&gt;
-&lt;p&gt;The key difference here is that I&#x27;ll define the relationships between entities and components upfront, in JS&#x2F;TS, before sending anything to the GPU. This way, the GPU only has to execute the pre-determined logic defined by CPU code (JS&#x2F;TS).&lt;&#x2F;p&gt;
+&lt;p&gt;My idea is to make use of the shader code string creation and with JavaScript (JS) create hardcoded const arrays for the lookups and queries needed for each system.&lt;&#x2F;p&gt;
+&lt;p&gt;i.e. If a system works on all entities that have a &lt;code&gt;Moveable&lt;&#x2F;code&gt; component and a &lt;code&gt;Position&lt;&#x2F;code&gt; component, then when creating the WGSL string two const arrays of numbers with the exact same size would be written in the string. These arrays are to be iterated sequentially in the system, and hold the index of the Position component and the index of the Moveable component in their respected storage buffers.&lt;&#x2F;p&gt;
+&lt;p&gt;These static arrays represent the entities and components relationships and are set through JS, tailored each System needs. It&#x27;s like using JS as a precompilation language with its Maps and Sets to perform the queries and dump the results in a WGSL string.&lt;&#x2F;p&gt;
+&lt;p&gt;The key here is that the relationships between entities and components are defined upfront, in JS, before sending anything to the GPU. This way, the GPU only has to execute the pre-determined logic defined by CPU code (JS).&lt;&#x2F;p&gt;
 &lt;p&gt;Ideally in the future someone could minimax this out to produce a highly optimized string ready to run on the GPU.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;attractiveness-is-sweet&quot;&gt;Attractiveness is sweet&lt;&#x2F;h3&gt;
 &lt;p&gt;WebGPU and WGSL are attractive because they have compute shaders, which are simpler versions of shaders for whatever you want.&lt;&#x2F;p&gt;
-&lt;p&gt;Not only that, but unlike WebGL&#x2F;GLSL, the new WGSL also brings support for pointers and compile time const arrays.&lt;&#x2F;p&gt;
+&lt;p&gt;Not only that, but unlike WebGL&#x2F;GLSL, the new WGSL also brings support for pointers and compile time arrays (&quot;const&quot; arrays).&lt;&#x2F;p&gt;
 &lt;p&gt;In WebGPU we can create our own pipeline, and dispatch a given entrypoint function of the shader with very specific parallel execution scenarios. I find this a cool thing and wanted to explore it a bit and see how it can be used to implement an ECS.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;compute-shaders-dispatches&quot;&gt;Compute shaders dispatches&lt;&#x2F;h3&gt;
 &lt;p&gt;The rough outline of the simplified ECS for WGSL is this:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Components are defined as WGSL structs&#x2F;types.&lt;&#x2F;li&gt;
-&lt;li&gt;JS&#x2F;TS is used to create the relationships between entities and components&lt;&#x2F;li&gt;
+&lt;li&gt;JS is used to create the relationships between entities and components&lt;&#x2F;li&gt;
 &lt;li&gt;Systems are defined as WGSL functions that read&#x2F;update components&lt;&#x2F;li&gt;
 &lt;li&gt;Systems function arguments define the components query they use&lt;&#x2F;li&gt;
-&lt;li&gt;JS&#x2F;TS parses this system function and performs the queries.&lt;&#x2F;li&gt;
+&lt;li&gt;JS parses this system function and performs the queries.&lt;&#x2F;li&gt;
 &lt;li&gt;The final WGSL string dispatches each system function once for each query result&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;the-code-outline&quot;&gt;The code outline&lt;&#x2F;h3&gt;
-&lt;p&gt;My objective is that in the end I can do something like this in JS&#x2F;TS and have a final WGSL shader string created:&lt;&#x2F;p&gt;
+&lt;p&gt;My objective is that in the end I can do something like this in JS and have a final WGSL shader string created:&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;typescript&quot; style=&quot;background-color:#151515;color:#e8e8d3;&quot; class=&quot;language-typescript &quot;&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;world &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fad07a;&quot;&gt;createWorld&lt;&#x2F;span&gt;&lt;span&gt;();
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#888888;&quot;&gt;&#x2F;&#x2F; Create an entity
@@ -144,14 +143,14 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#888888;&quot;&gt;&#x2F;&#x2F; The shader string to send to the GPU
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbfdc;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;shader &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb964;&quot;&gt;world&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fad07a;&quot;&gt;generateWGSL&lt;&#x2F;span&gt;&lt;span&gt;();
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Thats the idea for the API, maybe I&#x27;ll add a few other small utilitarian functions as needed here and there.&lt;&#x2F;p&gt;
+&lt;p&gt;This is a rough idea for the API for now. It will evolve based on new findings and learnings I&#x27;ll get along the way.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;the-output-outline&quot;&gt;The output outline&lt;&#x2F;h3&gt;
+&lt;p&gt;I created this &lt;a href=&quot;https:&#x2F;&#x2F;compute.toys&#x2F;view&#x2F;1377&quot;&gt;shader&lt;&#x2F;a&gt; in compute.toys, as an example of code that I intend to implement as a WGSL string in this new API.&lt;&#x2F;p&gt;
+&lt;p&gt;You can also play this video to see the shader in action.&lt;&#x2F;p&gt;
 &lt;video controls muted loop preload width=&quot;100%&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;wgsl_ecs_circles.webm&quot; type=&quot;video&#x2F;webm&quot;&gt;
   &lt;source src=&quot;&#x2F;videos&#x2F;wgsl_ecs_circles.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
 &lt;&#x2F;video&gt;
-&lt;p&gt;I did a quick rough sketch of this in compute.toys. You can use the arrow keys to move the circles around.&lt;&#x2F;p&gt;
-&lt;p&gt;In the end I intend to have a WGSL string somewhat like this: &lt;a href=&quot;https:&#x2F;&#x2F;compute.toys&#x2F;view&#x2F;1377&quot;&gt;https:&#x2F;&#x2F;compute.toys&#x2F;view&#x2F;1377&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Outlining it:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -161,12 +160,13 @@
 &lt;p&gt;Initialization is done inline as much as possible.&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;No dynamic updates. A dynamic update of a relationship would imply a string rewrite and WGSL shader recompilation.&lt;&#x2F;p&gt;
+&lt;p&gt;Static component relationships. A dynamic update of a relationship would imply a string rewrite and WGSL shader recompilation.&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;I hope that this can be ok for scenarios where the entity component relationships are relatively static or the performance overhead of dynamic updates is acceptable.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;pros-and-cons&quot;&gt;Pros and Cons&lt;&#x2F;h3&gt;
-&lt;p&gt;There might be some advantages that I cannot exactly measure at this idea stage but only guess:&lt;&#x2F;p&gt;
+&lt;p&gt;The usecase for this API are shaders with entity component relationships that are mostly static. The bottleneck here comes from recompilation which is what I want to avoid in the first place.&lt;&#x2F;p&gt;
+&lt;p&gt;Since WGSL recompilation is required whenever there&#x27;s a dynamic update, this API is targetting shaders with static entity component relationships. Not to say that it can&#x27;t handle dynamic updates but it will be at the cost of performance. For now my focus is on static relationships.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;open-questions-and-next-steps&quot;&gt;Open questions and next steps&lt;&#x2F;h3&gt;
+&lt;p&gt;I haven&#x27;t measured the performance of the API so I can&#x27;t list what are the pros and cons yet. However, I delined a few questions that will be my guide to substantiate a proper list of the cons and pros of this novel approach.&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Is there some usefulness in having the state management done in the same language as the graphics?
 &lt;ul&gt;
@@ -187,7 +187,8 @@
 &lt;li&gt;Performance? I doubt there will be any performance gains at all immediately and I&#x27;m not sure I can produce good enough data points to conclude anything on this.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
-&lt;p&gt;This post is just the first step in exploring this idea. I have no polished library or API to showcase yet – just a conceptual sketch done quickly.&lt;&#x2F;p&gt;
+&lt;p&gt;This post is just the first step in exploring this idea. I have no polished library or API to showcase yet – just the shader and API presented here at this stage.&lt;&#x2F;p&gt;
+&lt;p&gt;My next step is to implement the API based on the example code and showcase its pros and cons.&lt;&#x2F;p&gt;
 &lt;p&gt;In the next post, I&#x27;ll attempt to bring this to life with a more concrete example, hopefully I&#x27;ll have a bit more clarification on the potential benefits and drawbacks of it.&lt;&#x2F;p&gt;
 &lt;p&gt;I&#x27;m both excited and apprehensive. Will this experiment crash and burn, or is there a hidden gem here somewhere?&lt;&#x2F;p&gt;
 &lt;p&gt;Join me on this journey into the uncharted territory (for me at least) of ECS in WGSL!&lt;&#x2F;p&gt;
