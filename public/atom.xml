@@ -164,10 +164,6 @@ makes it hard to have a bundler or anything non-standard at that point. If you
 need to make use of such tech and&#x2F;or import packages that are not immediately
 available through a valid standard URL then it is best to make us of it before
 laying the UI components.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;roadmap&quot;&gt;Roadmap&lt;&#x2F;h3&gt;
-&lt;p&gt;I have no roadmap for this, just playing with it as it goes and as I am feeling
-more or less bored. Maybe in the future provide a CLI that can create reusable
-bundles.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
 &lt;p&gt;If you find any of this useful at all drop me note, I&#x27;ll be super happy that
 this is found in any way useful by anyone other than me. There is a somewhat

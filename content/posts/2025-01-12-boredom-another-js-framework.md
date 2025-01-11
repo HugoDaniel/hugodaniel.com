@@ -181,12 +181,6 @@ need to make use of such tech and/or import packages that are not immediately
 available through a valid standard URL then it is best to make us of it before
 laying the UI components.
 
-### Roadmap
-
-I have no roadmap for this, just playing with it as it goes and as I am feeling
-more or less bored. Maybe in the future provide a CLI that can create reusable
-bundles.
-
 ### Conclusion
 
 If you find any of this useful at all drop me note, I'll be super happy that
