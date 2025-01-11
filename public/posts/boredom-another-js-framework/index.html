@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<meta name="description" content="Everything you never needed.">
+		
+		<link rel="stylesheet" href="https://hugodaniel.com/css/base.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/html-system.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/dark-mode.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/desktop.css">
+		<link rel="stylesheet" href="https://hugodaniel.com/css/submit-form.css">
+		
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="https://hugodaniel.com/atom.xml">
+		
+		
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mr_hugo">
+		<meta name="twitter:creator" content="@mr_hugo">
+		
+			<title>boreDOM another boring JS framework</title>
+			<meta name="twitter:title" content="boreDOM another boring JS framework">
+			<meta property="og:title" content="boreDOM another boring JS framework">
+			<meta property="og:type" content="article" >
+		
+		
+			<meta name="twitter:description" content="Everything you never needed.">
+			<meta property="og:description" content="Everything you never needed.">
+		
+		
+			<meta property="og:article:published_time" content="2025-01-12">
+		
+		<meta property="og:url" content="https:&#x2F;&#x2F;hugodaniel.com&#x2F;posts&#x2F;boredom-another-js-framework&#x2F;">
+		
+			<meta property="og:image" content="https://hugodaniel.com/images/bored1.png" >
+			<meta name="twitter:image" content="https://hugodaniel.com/images/bored1.png" >
+		
+		
+		
+		<!-- Matomo 		<script type="text/javascript">
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//vistas.hugodaniel.pt/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//vistas.hugodaniel.pt/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+-->
+		<!-- End Matomo Code -->
+	</head>
+	<body>
+		
+<main role="main">
+
+
+	<article class="center-images with-lists">
+
+		<header>
+			<h1> boreDOM another boring JS framework </h1>
+			<p> Everything you never needed. </p>
+			<nav>
+				<time datetime="2025-01-12">12-Jan-2025</time>
+				<span>
+					<a id="back" href="/">About me</a>
+					<a href="/posts">All posts</a>
+					<a href="/atom.xml">Feed</a>
+				</span>
+			</nav>
+		</header>
+		<p>Being bored can drive you crazy. In my case it took me on a trip to create
+another JS framework. As if the world even needed more of that. In this post I
+present the thought process behind "boreDOM" a novel JS framework for everyone.</p>
+<p>The main motivator was to have a simple framework to manipulate the DOM which
+could naturally fit the scenario where the HTML is defined in .html files, CSS
+in .css files and JS in .js files.</p>
+<p>This way most HTML for a given app would already exist and would not need to be
+created through JS. In most common JS frameworks the HTML is typically created
+through JS. I wanted to avoid that and reuse as much existing html nodes as
+possible with a small JS footprint.</p>
+<h3 id="the-idea">The idea</h3>
+<p>The main idea is to use <code>&lt;template&gt;</code> elements whose content could then be
+stamped all over the place as needed. In order to do that each <code>boreDOM</code>
+template element registers a custom element tag.</p>
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">template data-component</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">stamp-this</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">p</span><span>&gt;yay&lt;/</span><span style="color:#ffb964;">p</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">template</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">stamp-this</span><span>&gt;&lt;/</span><span style="color:#ffb964;">stamp-this</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">stamp-this</span><span>&gt;&lt;/</span><span style="color:#ffb964;">stamp-this</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">stamp-this</span><span>&gt;&lt;/</span><span style="color:#ffb964;">stamp-this</span><span>&gt;
+</span></code></pre>
+<p>The framework reads the <code>data-component</code> attribute and registers the associated
+tag. Then it is up to the regular browser mechanics when we use it in places.</p>
+<h3 id="the-logic">The logic</h3>
+<p>To provide some logic to the components, a matching .js file can be set with a
+<code>&lt;script&gt;</code> tag:</p>
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">template data-component</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic-button</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">button</span><span>&gt;Press for magic&lt;/</span><span style="color:#ffb964;">button</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">template</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic-button.js</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">type</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">module</span><span style="color:#556633;">&quot;</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span></code></pre>
+<p>This file is a regular .js file that is going to be imported dynamically and
+associated with the corresponding component. It should export a function that is
+run when the component is connected to the DOM, and return a function that is
+called when the component is to be rendered/updated.</p>
+<pre data-lang="js" style="background-color:#151515;color:#e8e8d3;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#888888;">// In magic-button.js
+</span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">webComponent </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./boreDOM.min.js</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span style="color:#8fbfdc;">export const </span><span style="color:#ffb964;">MagicButton </span><span>= </span><span style="color:#fad07a;">webComponent</span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  </span><span style="color:#888888;">// on connect
+</span><span>
+</span><span>  </span><span style="color:#8fbfdc;">return </span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#888888;">// on render
+</span><span>  });
+</span><span>});
+</span></code></pre>
+<p>There are some helper attributes that these functions receive. Here is <code>on</code> for
+handling custom events:</p>
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">magic-button</span><span>&gt;&lt;/</span><span style="color:#ffb964;">magic-button</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">template data-component</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic-button</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">button onclick</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#ffb964;">dispatch</span><span>(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">magic</span><span style="color:#556633;">&#39;</span><span>)</span><span style="color:#556633;">&quot;</span><span>&gt;Press for magic&lt;/</span><span style="color:#ffb964;">button</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">template</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic-button.js</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">type</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">module</span><span style="color:#556633;">&quot;</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span></code></pre>
+<pre data-lang="js" style="background-color:#151515;color:#e8e8d3;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#888888;">// In magic-button.js
+</span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">webComponent </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./boreDOM.min.js</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span style="color:#8fbfdc;">export const </span><span style="color:#ffb964;">MagicButton </span><span>= </span><span style="color:#fad07a;">webComponent</span><span>(({ </span><span style="color:#ffb964;">on </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">magic</span><span style="color:#556633;">&quot;</span><span>, () </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    document.body.style.background = </span><span style="color:#99ad6a;">`#${Math.random().toString(</span><span style="color:#cf6a4c;">16</span><span style="color:#99ad6a;">).slice(-</span><span style="color:#cf6a4c;">6</span><span style="color:#99ad6a;">)}`</span><span>;
+</span><span>  });
+</span><span>
+</span><span>  </span><span style="color:#8fbfdc;">return </span><span>(() </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#888888;">// on render
+</span><span>  });
+</span><span>});
+</span></code></pre>
+<h3 id="a-simple-counter">A simple counter</h3>
+<p>Slots are also supported and are available through the <code>.slots</code> attribute in
+each registered tag Element, as well as passed as an option in the init and
+render functions. Here is a simple counter:</p>
+<pre data-lang="html" style="background-color:#151515;color:#e8e8d3;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#ffb964;">h1</span><span>&gt;Simple counter&lt;/</span><span style="color:#ffb964;">h1</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">simple-counter</span><span>&gt;&lt;/</span><span style="color:#ffb964;">simple-counter</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#ffb964;">template data-component</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">simple-counter</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#ffb964;">slot name</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">counter</span><span style="color:#556633;">&quot;</span><span>&gt;Some value&lt;/</span><span style="color:#ffb964;">slot</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#ffb964;">button onclick</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#ffb964;">dispatch</span><span>(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">increase</span><span style="color:#556633;">&#39;</span><span>)</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>    Increase
+</span><span>  &lt;/</span><span style="color:#ffb964;">button</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#ffb964;">button onclick</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#ffb964;">dispatch</span><span>(</span><span style="color:#556633;">&#39;</span><span style="color:#99ad6a;">decrease</span><span style="color:#556633;">&#39;</span><span>)</span><span style="color:#556633;">&quot;</span><span>&gt;
+</span><span>    Decrease
+</span><span>  &lt;/</span><span style="color:#ffb964;">button</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#ffb964;">template</span><span>&gt;
+</span><span>&lt;</span><span style="color:#ffb964;">script src</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./simple-counter.js</span><span style="color:#556633;">&quot; </span><span style="color:#ffb964;">type</span><span>=</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">module</span><span style="color:#556633;">&quot;</span><span>&gt;&lt;/</span><span style="color:#ffb964;">script</span><span>&gt;
+</span></code></pre>
+<pre data-lang="js" style="background-color:#151515;color:#e8e8d3;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#888888;">// in simple-counter.js
+</span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">webComponent </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./boreDOM.min.js</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span style="color:#8fbfdc;">export const </span><span style="color:#ffb964;">SimpleCounter </span><span>= </span><span style="color:#fad07a;">webComponent</span><span>(({ </span><span style="color:#ffb964;">on </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">increase</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">mutableState</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#ffb964;">mutableState</span><span>.value += </span><span style="color:#cf6a4c;">1</span><span>;
+</span><span>  });
+</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">decrease</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">mutableState</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#ffb964;">mutableState</span><span>.value -= </span><span style="color:#cf6a4c;">1</span><span>;
+</span><span>  });
+</span><span>
+</span><span>  </span><span style="color:#8fbfdc;">return </span><span>(({ </span><span style="color:#ffb964;">state</span><span>, </span><span style="color:#ffb964;">self </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#888888;">// Set the value of the slot:
+</span><span>    </span><span style="color:#ffb964;">self</span><span>.</span><span style="color:#ffb964;">slots</span><span>.</span><span style="color:#ffb964;">counter </span><span>= </span><span style="color:#99ad6a;">`${</span><span style="color:#ffb964;">state</span><span style="color:#99ad6a;">.value}`</span><span>;
+</span><span>  });
+</span><span>});
+</span></code></pre>
+<p>Finally it all starts with the app state, which is passed to the starting
+boreDOM function, in main.js:</p>
+<pre data-lang="js" style="background-color:#151515;color:#e8e8d3;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#888888;">// in main.js
+</span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">inflictBoreDOM </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./boreDOM.min.js</span><span style="color:#556633;">&quot;</span><span>;
+</span><span>
+</span><span style="color:#fad07a;">inflictBoreDOM</span><span>({ value: </span><span style="color:#cf6a4c;">0 </span><span>});
+</span></code></pre>
+<p>This ensures that the render function is fine-grained and called whenever the
+corresponding state that it needs is updated.</p>
+<h3 id="some-particularities">Some particularities</h3>
+<p>There are a few other things it brings as well:</p>
+<ul>
+<li>References to elements (through <code>data-ref=""</code> attributes).</li>
+<li>Shadow-dom support (through the <code>shadowrootmode="open/closed"</code> attribute in
+the <code>&lt;template&gt;</code>).</li>
+<li><code>aria-*</code> attributes that you set in the <code>&lt;template&gt;</code> are passed down to the
+tag.</li>
+<li>Same for <code>role=*</code>.</li>
+<li>Dynamically create components in JS through <code>makeComponent</code> in the init/render
+function argument object.</li>
+<li>Batches renders in a <code>requestAnimationFrame()</code>.</li>
+<li>Components are JS by default, types are provided and can be used with JSDoc to
+type-check.</li>
+<li>Small but comprehensive
+<a href="https://github.com/HugoDaniel/boreDOM/blob/main/tests/dom.test.ts">test suit</a>.</li>
+</ul>
+<p>Nothing here is ground-breaking, but make up for a small and versatile framework
+that fit my needs for the future. I'll be adapting and bringing in further
+projects with this little toy.</p>
+<p><img src="/images/bored1.png" alt="&quot;A bored square&quot;" /></p>
+<p>A small caveat about component JS code being imported dynamically is that it
+makes it hard to have a bundler or anything non-standard at that point. If you
+need to make use of such tech and/or import packages that are not immediately
+available through a valid standard URL then it is best to make us of it before
+laying the UI components.</p>
+<h3 id="roadmap">Roadmap</h3>
+<p>I have no roadmap for this, just playing with it as it goes and as I am feeling
+more or less bored. Maybe in the future provide a CLI that can create reusable
+bundles.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>If you find any of this useful at all drop me note, I'll be super happy that
+this is found in any way useful by anyone other than me. There is a somewhat
+ranty webpage for this framework that you can check out too:</p>
+<p><a href="/pages/boreDOM">boreDOM</a>.</p>
+
+      <!--
+    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
+    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
+    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
+-->
+	</article>
+	<hr>
+	<footer>
+		<nav>
+			<a href="https://github.com/HugoDaniel" rel="external">GitHub</a>
+			<a href="https://bsky.app/profile/hugodan.bsky.social" rel="external">bsky</a>
+			<a href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>
+			<a href="mailto:hello@hugodaniel.com">e-mail</a>
+		</nav>
+	</footer>
+</main>
+<script type="module">
+  const hideForm = () => {
+    document.body.removeChild(
+      document.querySelector(".formContainer")
+    );
+    document.querySelector("main").classList.remove("blur");
+  }
+  const showForm = () => {
+    let formDiv = document.createElement("div");
+    formDiv.setAttribute("class", "formContainer")
+    formDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      hideForm();
+    })
+    formDiv.innerHTML = `
+  <section id="imediatos">
+    <form class="objetos" method="POST" action="https://hugodaniel.pt/subs.php">
+      <h3>You will receive <br>the list of articles I have written<br>in one e-mail per month</h3>
+    <div class="Input">
+      <input id="inputName" type=text placeholder="Hugo" name="Name">
+      <label>Name</label>
+    </div>
+    <div class="Input">
+      <input type=email name="Email">
+      <label>E-Mail</label>
+    </div>
+    <div class="Submit">
+      <button id="formSubmit" type="submit">Subscribe</button>
+    </div>
+    </form>
+  </section>
+    `
+    document.body.appendChild(formDiv);
+    document.querySelector("main").classList.add("blur");
+    requestAnimationFrame(() => { 
+      document.getElementById("imediatos")
+              .addEventListener("click", (e) => e.stopPropagation())
+      document.getElementById("formSubmit")
+              .addEventListener("click", (e) => {
+        requestAnimationFrame(() => document.getElementById("formSubmit").setAttribute("disabled", "")
+        );
+      })
+      document.getElementById("inputName").focus(); 
+    });
+  }
+  document.querySelector(".subscribe").addEventListener("click",
+  (e) => {
+    e.preventDefault();
+    showForm();
+  })
+</script>
+
+	</body>
+</html>
