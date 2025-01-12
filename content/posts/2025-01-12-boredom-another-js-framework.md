@@ -178,7 +178,7 @@ projects with this little toy.
 A small caveat about component JS code being imported dynamically is that it
 makes it hard to have a bundler or anything non-standard at that point. If you
 need to make use of such tech and/or import packages that are not immediately
-available through a valid standard URL then it is best to make us of it before
+available through a valid standard URL then it is best to make use of it before
 laying the UI components.
 
 ### Conclusion
