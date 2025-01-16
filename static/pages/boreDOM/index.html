@@ -91,8 +91,8 @@ import { webComponent } from "boreDOM.js";
 
 export const AnotherBoringCounter = webComponent(({ on }) => {
   // This is the initialization function (called on component mount)
-  on(<mark>"increase"</mark>, (state) => state.count++);
-  on(<mark>"decrease"</mark>, (state) => state.count--);
+  on(<mark>"increase"</mark>, ({ state }) => state.count++);
+  on(<mark>"decrease"</mark>, ({ state }) => state.count--);
 
   return ({ state, refs }) => {
     // This is the rendering function (called on state update)

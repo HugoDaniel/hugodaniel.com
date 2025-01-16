@@ -169,10 +169,10 @@ render functions. Here is a simple counter:</p>
 </span><span style="color:#8fbfdc;">import </span><span>{ </span><span style="color:#ffb964;">webComponent </span><span>} </span><span style="color:#8fbfdc;">from </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">./boreDOM.min.js</span><span style="color:#556633;">&quot;</span><span>;
 </span><span>
 </span><span style="color:#8fbfdc;">export const </span><span style="color:#ffb964;">SimpleCounter </span><span>= </span><span style="color:#fad07a;">webComponent</span><span>(({ </span><span style="color:#ffb964;">on </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
-</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">increase</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">mutableState</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">increase</span><span style="color:#556633;">&quot;</span><span>, ({ </span><span style="color:#ffb964;">state</span><span>: </span><span style="color:#ffb964;">mutableState </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
 </span><span>    </span><span style="color:#ffb964;">mutableState</span><span>.value += </span><span style="color:#cf6a4c;">1</span><span>;
 </span><span>  });
-</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">decrease</span><span style="color:#556633;">&quot;</span><span>, (</span><span style="color:#ffb964;">mutableState</span><span>) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
+</span><span>  </span><span style="color:#fad07a;">on</span><span>(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">decrease</span><span style="color:#556633;">&quot;</span><span>, ({ </span><span style="color:#ffb964;">state</span><span>: </span><span style="color:#ffb964;">mutableState </span><span>}) </span><span style="color:#8fbfdc;">=&gt; </span><span>{
 </span><span>    </span><span style="color:#ffb964;">mutableState</span><span>.value -= </span><span style="color:#cf6a4c;">1</span><span>;
 </span><span>  });
 </span><span>

@@ -124,10 +124,10 @@ render functions. Here is a simple counter:
 import { webComponent } from "./boreDOM.min.js";
 
 export const SimpleCounter = webComponent(({ on }) => {
-  on("increase", (mutableState) => {
+  on("increase", ({ state: mutableState }) => {
     mutableState.value += 1;
   });
-  on("decrease", (mutableState) => {
+  on("decrease", ({ state: mutableState }) => {
     mutableState.value -= 1;
   });
 
