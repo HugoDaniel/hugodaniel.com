@@ -169,6 +169,8 @@ laying the UI components.&lt;&#x2F;p&gt;
 this is found in any way useful by anyone other than me. There is a somewhat
 ranty webpage for this framework that you can check out too:&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;&#x2F;pages&#x2F;boreDOM&quot;&gt;boreDOM&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Or just run:
+&lt;code&gt;pnpm create boredom@latest my-project&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>

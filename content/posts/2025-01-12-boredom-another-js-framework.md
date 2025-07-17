@@ -188,3 +188,6 @@ this is found in any way useful by anyone other than me. There is a somewhat
 ranty webpage for this framework that you can check out too:
 
 [boreDOM](/pages/boreDOM).
+
+Or just run:
+<code>pnpm create boredom@latest my-project</code>
