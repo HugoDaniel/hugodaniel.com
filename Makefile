@@ -6,7 +6,8 @@ build: documentation
 
 publish: build
 	cp -r public /tmp/public-copy
-	git checkout --orphan gh-pages
+	# git checkout --orphan gh-pages
+	git checkout gh-pages
 	git rm -rf .
 	cp -r /tmp/public-copy/* .
 	git add .
