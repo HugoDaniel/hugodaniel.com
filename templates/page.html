@@ -1,4 +1,32 @@
 {% extends "index.html" %}
+{% block extra_head %}
+<script type="application/ld+json">
+{% set social = page.extra.social_img | default(value="images/hugo03-normal.jpg") %}
+{% set image_url = get_url(path=social, trailing_slash=false) %}
+{% set description = page.description | default(value="Hugo Daniel's site about ideas and software experimentations") %}
+{% set published = page.date | date(format="%Y-%m-%d") %}
+{% set modified = page.updated | default(value=page.date) | date(format="%Y-%m-%d") %}
+{% set author_name = page.extra.author | default(value="Hugo Daniel") %}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | json_encode() }},
+  "description": {{ description | json_encode() }},
+  "datePublished": {{ published | json_encode() }},
+  "dateModified": {{ modified | json_encode() }},
+  "url": {{ current_url | json_encode() }},
+  "image": {{ image_url | json_encode() }},
+  "author": {
+    "@type": "Person",
+    "name": {{ author_name | json_encode() }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ current_url | json_encode() }}
+  }
+}
+</script>
+{% endblock extra_head %}
 {% block content %}
 <main role="main">
 
