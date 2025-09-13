@@ -19,6 +19,7 @@ body {
 	color: var(--main-text-color);
 	width: 100%;
 	touch-action: manipulation;
+	text-wrap: pretty;
 }
 
 h1 {
