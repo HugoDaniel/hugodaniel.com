@@ -120,6 +120,26 @@ footer nav h4 {
 	font-weight: 500;
 }
 
+table { 
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: .5rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+thead th {
+  background: #f8fafc;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+tbody tr:hover { background: #f9fafb; }
+caption { caption-side: bottom; padding-top: .5rem; color: #6b7280; font-size: .875rem; }
+
 .logo {
 	margin: auto;
 	color: var(--main-text-color);
