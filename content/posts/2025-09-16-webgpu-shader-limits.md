@@ -2,8 +2,22 @@
 title = "WebGPU shader limits"
 description = "The only limits are the ones you set yourself (or so they said)."
 date = 2025-09-16
-extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/bored1.png", class="center-images with-lists" }
+extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/cryingwebgpu.webp", class="center-images with-lists" }
 +++
+
+<style>
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0 16px}
+  .result-card{border:1px solid var(--border,rgba(0,0,0,.12));border-radius:12px;padding:12px;background:var(--elev,#fff);
+    box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .result-card h4{margin:0 0 6px;font-size:1rem;line-height:1.2}
+  .kv{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+  .badge{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.82em;font-weight:600;border:1px solid transparent}
+  .ok{background:#e6ffed;color:#0f6b2b;border-color:#b6efc5}
+  .err{background:#ffe8e8;color:#9b1c1c;border-color:#f3b0b0}
+  .na{background:#f1f5f9;color:#334155;border-color:#cbd5e1}
+  .limit{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; margin-top: 1rem;}
+  .msg{margin-top:6px;font-style:italic;opacity:.9}
+</style>
 
 Limits can be a fun thing to look out for when exploring unconventional ways to
 use something in a safe, consensual, way.
@@ -27,9 +41,9 @@ enough to be worth of your attention. All code is WGSL shader code.
 ### By the book limits
 
 Querying the WebGPU device is the regular way to know about some of the limits
-the shader language might have. It gives developers the device reported maximum
-values for certain things like the maximum storage buffer binding size and
-maximum invocations per workgroup etc.
+of the adapter/device we have running. It gives developers the device reported
+maximum values for certain things like the maximum storage buffer binding size
+and maximum invocations per workgroup etc.
 
 These queried limits are the ones that change between devices, and naturally do
 not cover all the limits that we are bound to. For instance a lot of the limits
@@ -106,6 +120,18 @@ The idea is to do this in three steps:
 3. Go to 1. but increase the number up until a value is found that breaks
    either 1. or 2.
 
+#### Create shader and pipeline
+
+I am testing both the `createShaderModule()` and the pipeline creation, since
+some things are only checked when the pipeline is created
+(binding layout, workgroup effective storage limits, etc).
+
+I am expecting that the `createShaderModule()` compilation info is more about
+syntax and tipification. While pipeline creation more about storage or byte limit
+errors.
+
+#### Setup
+
 All values provided are for my machine, which is an intel macos with an Intel
 and AMD gpu. The reported adapter vendor is _"Intel"_ and architecture is
 _"gen-9"_.
@@ -114,12 +140,36 @@ All code is run in a webworker in an offline canvas.
 
 Lets go bottom up through the WGSL table limits and do this!
 
-#### Maximum number of elements in value constructor expression of array
+### Maximum number of elements in value constructor expression of array
 
 The table says it WGSL should support at least 2047 elements.
 
 Using the code above and recipe I get the following in my intel apple macbook:
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error at 2048</span>
+      <span class="badge na">Pipeline: —</span>
+    </div>
+    <div class="msg">“constant array cannot have more than 2047 elements”</div>
+    <div class="limit"><strong>Limit hit:</strong> 2047 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge ok">Compile: OK until 2047</span>
+      <span class="badge err">Pipeline: error at 2048</span>
+    </div>
+    <div class="msg">Stalls for about 10 seconds and then pipeline throws with a long
+    message with C++ code. Browser is irresponsive with much bigger limits.</div>
+    <div class="limit"><strong>Limit hit:</strong> 2047 (WGSL floor)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: green;">Yes</span> | Pipeline error:
     <span style="color: green;">Yes</span>
@@ -130,8 +180,9 @@ Using the code above and recipe I get the following in my intel apple macbook:
   - Message: Stalls for about 10 seconds and then pipeline throws with a long
     message with C++ code. Browser is irresponsive with much bigger limits.
   - Limit before error: 2047 (same as the minimum in the WGSL table).
+-->
 
-#### Maximum combined byte-size of all variables instantiated in the workgroup address...
+### Maximum combined byte-size of all variables instantiated in the workgroup address...
 
 The WGSL table says we should be able to have at least 16384 bytes.
 
@@ -173,6 +224,33 @@ fn computeMain(@builtin(local_invocation_id) localId: vec3<u32>) {
 }
 ```
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge err">Pipeline: error above 16384</span>
+    </div>
+    <div class="msg">“The combined byte size of all variables in the workgroup address
+    space exceeds 16384 bytes”</div>
+    <div class="limit"><strong>Limit hit:</strong> 16384 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge err">Pipeline: error at 2048</span>
+    </div>
+    <div class="msg">“The total use of workgroup storage (16400 bytes) is larger than
+    the maximum allowed (16384 bytes). This adapter supports a higher
+    maxComputeWorkgroupStorageSize of 32768, which can be specified in
+    requiredLimits when calling requestDevice(). Limits differ by hardware, so
+    always check the adapter limits prior to requesting a higher limit.”</div>
+    <div class="limit"><strong>Limit hit:</strong> 16384 (WGSL floor)</div>
+  </div>
+</div>
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: brown;">No</span> | Pipeline error:
     <span style="color: green;">Yes</span>
@@ -185,8 +263,9 @@ fn computeMain(@builtin(local_invocation_id) localId: vec3<u32>) {
     the maximum allowed (16384 bytes). This adapter supports a higher
     maxComputeWorkgroupStorageSize of 32768, which can be specified in
     requiredLimits when calling requestDevice(). Limits differ by hardware, so
-    always check the adapter limits prior to requesting a higher limit."
+    always check the adapter limits prior to requesting a higher limit."_
   - Limit before error: 16384 (same as the minimum in the WGSL table).
+-->
 
 We could try to increase the hardware limits by requesting a bit more from the
 device, but I am just looking at what happens at the limit for creative
@@ -194,7 +273,7 @@ purposes.
 
 Lets move on to the next row of the WGSL spec limits table.
 
-#### Maximum combined byte-size of all variables instantiated in the function address...
+### Maximum combined byte-size of all variables instantiated in the function address...
 
 The spec says that we should have 8192 bytes. The thing here is that function
 space variables are unique to each invocation, they are not shared, so no need
@@ -230,6 +309,32 @@ fn computeMain() {
 }
 ```
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge err">Pipeline: error above 8192</span>
+    </div>
+    <div class="msg">“The combined byte size of all variables in this function exceeds
+    8192 bytes”</div>
+    <div class="limit"><strong>Limit hit:</strong> 8192 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge ok">Pipeline: no error</span>
+    </div>
+    <div class="msg">No message, the limit is never reached, at 262144bytes the
+    compilation fails with the message _“array count (65536) must be less than
+    65536”_, which is not a limit I could find in the spec.</div>
+    <div class="limit"><strong>Limit hit:</strong> 262145 - Array count got to 65536 and I was using f32 (4 bytes)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: red;">No</span> | Pipeline error:
     <span style="color: green;">Yes</span>
@@ -245,7 +350,13 @@ fn computeMain() {
   - Limit before error: 262144, because array count got to 65536 and I was using
     elements with 4 bytes (f32).
 
-#### Maximum combined byte-size of all variables instantiated in the _private_ address space
+-->
+
+This ceiling of 65536 elements seems to be a practical limit of the toolchain
+(Chrome, or maybe even driver). This is ok since the groundfloor established by
+the spec is way below it.
+
+### Maximum combined byte-size of all variables instantiated in the _private_ address space
 
 The private address space is cool for module-scope variables that are unique for
 each invocation but persist accross function calls within it.
@@ -280,6 +391,32 @@ fn computeMain() {
 }
 ```
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge err">Pipeline: error above 8192</span>
+    </div>
+    <div class="msg">“The combined byte size of all variables in the private address
+    space exceeds 8192 bytes”</div>
+    <div class="limit"><strong>Limit hit:</strong> 8192 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge na">Compile: -</span>
+      <span class="badge ok">Pipeline: no error</span>
+    </div>
+    <div class="msg">Same as previous test. This specific limit is never reached, however at 262144bytes the
+    compilation fails with the message _“array count (65536) must be less than
+    65536”_.</div>
+    <div class="limit"><strong>Limit hit:</strong> 262145 - Array count got to 65536 and I was using f32 (4 bytes)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: red;">No</span> | Pipeline error:
     <span style="color: green;">Yes</span>
@@ -294,18 +431,18 @@ fn computeMain() {
     (65536) must be less than 65536"_.
   - Limit before error: 262144, because array count got to 65536 and I was using
     elements with 4 bytes (f32).
+-->
 
 And lets move on to the next one.
 
-#### Maximum number of case selector values in a switch statement
+### Maximum number of case selector values in a switch statement
 
 This is an interesting one, it certainly did not cross my mind to explore the
-amount of case selector values. I am just going to do a quick test here and not
-go into the very specifics of it, a few questions pop up in my mind like _"do
-empty case blocks count?"_, or _"what if I group cases together, do they add up
-to this limit?"_.
+amount of case selector values. WGSL switch's must always carry a default case,
+which always counts as 1 regardless if it is empty or not.
 
-Im going with just single values per case:
+Im going with just single values per case, since my purpose is to hit my
+desired limit and not so much to test the switch case implementation nuances:
 
 ```wgsl
 @group(0) @binding(0) var<storage, read_write> output: array<f32>;
@@ -326,6 +463,30 @@ ${cases.join("\n")}
 }
 ```
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 1023</span>
+      <span class="badge na">Pipeline -</span>
+    </div>
+    <div class="msg">“switch statement cannot have more than 1023 case selector
+    values”</div>
+    <div class="limit"><strong>Limit hit:</strong> 1023 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 16383</span>
+      <span class="badge na">Pipeline: -</span>
+    </div>
+    <div class="msg">“switch statement has 16384 case selectors, max is 16383”</div>
+    <div class="limit"><strong>Limit hit:</strong> 16383 </div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
     <span style="color: green;">YES</span>
@@ -337,8 +498,9 @@ ${cases.join("\n")}
     <span style="color: green;">YES</span>
   - Message: _"switch statement has 16384 case selectors, max is 16383"_
   - Limit before error: 16383.
+-->
 
-#### Maximum number of parameters for a function
+### Maximum number of parameters for a function
 
 This is a cool way for a preprocessor to pass down extra data in the shader
 string code. The spec says that we have at least 255 arguments for each
@@ -368,6 +530,29 @@ fn main() {
     }
 ```
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 255</span>
+      <span class="badge na">Pipeline -</span>
+    </div>
+    <div class="msg">“function cannot have more than 255 parameters”</div>
+    <div class="limit"><strong>Limit hit:</strong> 255 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 255</span>
+      <span class="badge na">Pipeline: -</span>
+    </div>
+    <div class="msg">“function declares 256 parameters, maximum is 255”</div>
+    <div class="limit"><strong>Limit hit:</strong> 255 (WGSL floor)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
     <span style="color: green;">YES</span>
@@ -378,13 +563,14 @@ fn main() {
     <span style="color: green;">YES</span>
   - Message: _"function declares 256 parameters, maximum is 255"_
   - Limit before error: 255 (same as the minimum in the WGSL table).
+-->
 
 This limit seems to be per function, and structs are treated as just another
 param. It could maybe be used creatively as a way to dump extra data into a
 shader code string when other limits are reached. Though I imagine the
 compilation time would become a factor at some point.
 
-#### Maximum nesting depth of brace-enclosed statements in a function
+### Maximum nesting depth of brace-enclosed statements in a function
 
 To test this limit I want to dump a lot of nested if's in the shader string
 code. Specs says we can have at least 127 nested block statements.
@@ -442,6 +628,29 @@ engine I'm working at.)
 
 The results are in:
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 127</span>
+      <span class="badge na">Pipeline -</span>
+    </div>
+    <div class="msg">“maximum parser recursive depth reached”</div>
+    <div class="limit"><strong>Limit hit:</strong> 127 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 63</span>
+      <span class="badge na">Pipeline: -</span>
+    </div>
+    <div class="msg">“statement nesting depth / chaining length exceeds limit of 127”</div>
+    <div class="limit"><strong>Limit hit:</strong> 64 (below the WGSL floor)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
     <span style="color: green;">YES</span>
@@ -453,6 +662,7 @@ The results are in:
   - Message: _"statement nesting depth / chaining length exceeds limit of 127"_
   - Limit before error: 63 (**LESS** as the minimum in the WGSL table, which is
     127).
+-->
 
 Now this is strange. Safari is doing the right thing, _"brace-enclosed
 statements"_ include the function block and beyond. However Chrome appears to be
@@ -462,7 +672,7 @@ really sure what is happening here.
 This got me wondering about the behaviour of nested composite types, which is
 coming right next.
 
-#### Maximum nesting depth of a composite type
+### Maximum nesting depth of a composite type
 
 Spec says the limit is 15. I am going to generate a big nested array like this:
 
@@ -470,8 +680,34 @@ Spec says the limit is 15. I am going to generate a big nested array like this:
 array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<f32, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>
 ```
 
+My idea here is to push the nesting limit of a composite type in a single expression.
+
 These are the results:
 
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 15</span>
+      <span class="badge na">Pipeline -</span>
+    </div>
+    <div class="msg">“composite type may not be nested more than 15 levels”</div>
+    <div class="limit"><strong>Limit hit:</strong> 15 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 29</span>
+      <span class="badge na">Pipeline: -</span>
+    </div>
+    <div class="msg">Chrome lets it go big until it hits another limits such as: “array
+    byte size (0x100000000) must not exceed 0xffffffff bytes”</div>
+    <div class="limit"><strong>Limit hit:</strong> 29 for f32 (above WGSL floor)</div>
+  </div>
+</div>
+
+<!--
 - Safari Tech Preview (227)
   - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
     <span style="color: green;">YES</span>
@@ -483,12 +719,14 @@ These are the results:
   - Message: Chrome lets it go big until it hits another limits such as: _"array
     byte size (0x100000000) must not exceed 0xffffffff bytes"_
   - Limit before error: 29 for f32.
+-->
 
 This suggests that Chrome maybeeee is not be explicitly checking nesting depth
 at all (just maybe) and just letting us hit whatever other limit might be in
-their parsing stack.
+their parsing stack. This is again ok because the groundfloor established by the
+spec is also fullfilled.
 
-#### Maximum number of members in a structure type
+### Maximum number of members in a structure type
 
 The final limit that I think might be potentially interesting to test as a
 shader developer is the maximum number of members in a struct.
@@ -513,16 +751,28 @@ fn computeMain() {
 }
 ```
 
-- Safari Tech Preview (227)
-  - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
-    <span style="color: green;">YES</span>
-  - Message: _"struct cannot have more than 1023 members"_
-  - Limit before error: 1023(same as the minimum in the WGSL table).
-- Google Chrome (140.0.7339.133)
-  - Compilation error: <span style="color: green;">YES</span> | Pipeline error:
-    <span style="color: green;">YES</span>
-  - Message: _"'struct BigStruct' has 16384 members, maximum is 16383"_
-  - Limit before error: 16383
+<div class="result-grid">
+  <div class="result-card">
+    <h4>Safari Technology Preview 227</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 1023</span>
+      <span class="badge na">Pipeline -</span>
+    </div>
+    <div class="msg">“struct cannot have more than 1023 members”</div>
+    <div class="limit"><strong>Limit hit:</strong> 1023 (WGSL floor)</div>
+  </div>
+
+  <div class="result-card">
+    <h4>Chrome 140.0.7339.133</h4>
+    <div class="kv">
+      <span class="badge err">Compile: error above 16383</span>
+      <span class="badge na">Pipeline: -</span>
+    </div>
+    <div class="msg">“'struct BigStruct' has 16384 members, maximum is 16383”</div>
+    <div class="limit"><strong>Limit hit:</strong> 16383 (above WGSL floor)</div>
+  </div>
+</div>
+
 
 Chrome is generous here and goes well beyond the minimum provided.
 
@@ -549,7 +799,7 @@ sometimes having a less polished failure mode.
 I think that there are at least two takeaways I can safely make from poking at
 WGSL spec limits:
 
-1. **The spec minimums are real guardrails**. Safari Technology Preview enforces
+1. **The spec minimums are good guidelines**. Safari Technology Preview enforces
    them very strictly, which makes it great to validate what the _portable
    floor_ actually is.
 
@@ -563,11 +813,11 @@ preprocessing reasons my advice so far would be:
 
 - **Treat spec minimums as the baseline**, and friendlier ceilins as mere
   nice-to-haves.
-- **Probe limits programmatically**, one approach could be to probe ceilings on
+- **Probe limits first**, one approach could be to probe ceilings on
   startup and cache these results.
 - **Standard data paths are the way to go**, storage buffers and textures are
-  our friends, this approach of code-embedded payloads are a fun technique, but
-  they’re not a substitute for stable I/O.
+  our friends, this approach of code-embedded payloads is a fun technique, but
+  not a substitute for stable I/O.
 
 All of these were run with a preprocessor demo player that I am working on for
 fun, if you are curious I'll share a follow-up shortly and ideally a WebGPU demo
