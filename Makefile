@@ -14,12 +14,12 @@ publish: build
 	git checkout gh-pages
 	if [ -f CNAME ]; then cp CNAME /tmp/CNAME-backup; fi
 	git rm -rf .
-	cp -r /tmp/public-copy/public* .
+	cp -r /tmp/public-copy/* .
 	if [ -f /tmp/CNAME-backup ]; then cp /tmp/CNAME-backup CNAME; fi
 	git add .
-	git commit -m "Deploy to gh-pages"
-	git push origin gh-pages --force
-	git checkout main
-	rm -rf /tmp/public-copy
-	rm -f /tmp/CNAME-backup
+	# git commit -m "Deploy to gh-pages"
+	# git push origin gh-pages --force
+	# git checkout main
+	# rm -rf /tmp/public-copy
+	# rm -f /tmp/CNAME-backup
 
