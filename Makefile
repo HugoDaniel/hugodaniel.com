@@ -9,7 +9,7 @@ publish: build
 		echo "Error: You have uncommitted changes. Please commit or stash them first."; \
 		exit 1; \
 	fi
-	cp -r public /tmp/public-copy
+	cp -r public/* /tmp/public-copy
 	# git checkout --orphan gh-pages
 	git checkout gh-pages
 	if [ -f CNAME ]; then cp CNAME /tmp/CNAME-backup; fi
