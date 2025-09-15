@@ -9,7 +9,7 @@ publish: build
 		echo "Error: You have uncommitted changes. Please commit or stash them first."; \
 		exit 1; \
 	fi
-	cp -r public/* /tmp/public-copy
+	mv public /tmp/public-copy
 	# git checkout --orphan gh-pages
 	git checkout gh-pages
 	if [ -f CNAME ]; then cp CNAME /tmp/CNAME-backup; fi
@@ -20,6 +20,6 @@ publish: build
 	# git commit -m "Deploy to gh-pages"
 	# git push origin gh-pages --force
 	# git checkout main
-	# rm -rf /tmp/public-copy
+	mv /tmp/public-copy public
 	# rm -f /tmp/CNAME-backup
 
