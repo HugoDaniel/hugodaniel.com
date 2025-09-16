@@ -4,7 +4,7 @@ documentation:
 build: documentation
 	zola build
 
-publish: build
+publish: 
 	@if [ -n "$$(git status --porcelain)" ]; then \
 		echo "Error: You have uncommitted changes. Please commit or stash them first."; \
 		exit 1; \
