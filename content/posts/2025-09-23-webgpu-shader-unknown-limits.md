@@ -2,7 +2,7 @@
 title = "WGSL limits you won't find in the spec"
 description = "Hunting for the unknown WebGPU shader limits"
 date = 2025-09-23
-extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/cryingwebgpu.webp", class="center-images with-lists" }
+extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/crossedwebgpu.webp", class="center-images with-lists" }
 +++
 
 <style>
@@ -23,29 +23,36 @@ Welcome back, in my [last post](/posts/webgpu-shader-limits/) I did an
 evaluation of the WebGPU shader limits that we are told about in the
 [WGSL spec](https://www.w3.org/TR/WGSL/#limits).
 
+Having tested only the known shader limits in the spec in that previous post,
+this time I want to go a bit away from it.
+
 For this post I want to take a look at the limits we have when writing a WGSL
 shader that cannot be found in the spec.
 
-Some of this stuff I have been playing around for no reason besides maybe
-eventually finding a creative angle for them or not. While some of it are just
-new findings.
+Some of these experiments I tried purely for fun, hoping to stumble on a
+creative angle. Others are just fresh findings.
 
-In retrospective this feels a bit like off-road terrain that nobody cares about,
-these are limits after all, so fasten the seatbelt and lets take a ride.
+In retrospect this feels a bit like off-road terrain that nobody cares about,
+these are limits after all, so fasten the seatbelt and let's take a ride.
 
 ### Setup
 
-I'm running macOS 15.6.1 in an intel mac. with an Intel and AMD gpu. The
-reported adapter vendor is _"Intel"_ and architecture is _"gen-9"_.
+Tests were run on macOS 15.6.1 on an Intel Mac equipped with both Intel and AMD
+GPUs. The reported adapter vendor is _"Intel"_ and architecture is _"gen-9"_.
 
 All code is run in a webworker in an offline canvas, with a WebGPU DSL that I
-have been cooking that allows macros to define all parts of the WebGPU plumbing
+have been cooking as a creative tool to maybe produce something in time for
+[Inércia Demoparty 2025](https://2025.inercia.pt/en/).
+
+This home-made DSL allows macros to define all parts of the WebGPU plumbing
 (more on that in the next posts).
+
+![A bench with a nice view](/images/bench.webp)
 
 ### 1 - The main unknown practical limit
 
-When composing a big WGSL shader the main limit we have to consider is _how big
-can a JS string be?_
+When composing a big WGSL shader the main limit we have to consider is _How big
+can a JS string actually get?_
 
 After all, WebGPU is somewhat tied to JS from a portability angle. The
 [string length section of MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length)
@@ -70,18 +77,18 @@ That MDN article is very interesting, with theory and code examples on how to
 get to these limits. For my purposes I am going to assume that we are dealing
 with a safe limit of `512MiB`.
 
-Thats a big shader!
+That's a big shader!
 
 I don't expect to hit this limit on my tests because I am using `JSON.stringify`
 on the shader string to send it together with metadata to my DSL engine WebGPU
-player. That `stringify()` function alone will act as a memory barrier for such
-mega large strings in some scenarios.
+player. The `stringify()` function itself acts as a memory barrier for such huge
+strings.
 
 Within this constraint, what other limits are waiting for us?
 
 ### 2 - Express your self syntax errors
 
-How big can an expression be in WGSL? lets find out:
+How big can an expression be in WGSL? let's find out:
 
 ```wgsl
 // How big can we make this turn out to be?
@@ -123,7 +130,7 @@ Surprisingly consistent, even the error message is almost exactly the same.
 What if we create the expression like this instead:
 
 ```wgsl
-// How many parenthesis can we push here?
+// How many parentheses can we push here?
 
 var result: f32 = 0.0 + (1.0 + (2.0 + (3.0 + (4.0 + ... + ??? )))))...);
 ```
@@ -156,7 +163,7 @@ This time even the error message is exactly the same.
 
 ### 4 - Brackets? what brackets?
 
-Now that we know these limits, lets try to create two of these, but chained
+Now that we know these limits, let's try to create two of these, but chained
 together, what could possibly go wrong?
 
 ```wgsl
@@ -175,7 +182,7 @@ The results are surprising, but on the other end of the surprise:
       <span class="badge na">Compile: -</span>
       <span class="badge na">Pipeline: -</span>
     </div>
-    <div class="msg">No message, it seems to hang the tab, things stop responding. </div>
+    <div class="msg">No message, the tab becomes unresponsive. </div>
     <div class="limit"><strong>Limit hit:</strong> None, a timeout of 5 minutes was reached.</div>
   </div>
 
@@ -194,7 +201,7 @@ Chrome error message is intriguing. You can see it all if you want by clicking
 down below.
 
 <details>
-  <summary>View Detailed Chrome Error Message</summary>
+  <summary>Full Chrome Error Message (very long)</summary>
   <code class="error-content">
     ShaderModuleMTL: Unable to create library object: program_source:33:271: fatal error: bracket nesting level exceeded maximum of 256
 program_source:33:271: note: use -fbracket-depth=N to increase maximum nesting level
@@ -308,15 +315,15 @@ My take on this is that since WebGPU is running on top of Metal (my case, i'm on
 a mac), WGSL gets compiled to the Metal Shading Language (MSL), and the MSL
 compiler has a bracket issue.
 
-The bracket issue seems to be happening because the compiler is stuffing
-parenthesis in the second expression. It seems smart enough to recognize that
-the first expression can be calculated in compile time, and dumps the result of
-it instantly in `v_1`. However the second expression is crippled by parenthesis
-way beyond its limit to process them (maybe to guarantee some execution order
-when transpiling? why wasn't it smart enough to go full compile time here as
-well?).
+The bracket issue seems to be happening because the compiler is inserting
+excessive parentheses in the second expression. It seems smart enough to
+recognize that the first expression can be calculated in compile time, and dumps
+the result of it instantly in `v_1`. However the second expression is crippled
+by parenthesis way beyond its limit to process them (maybe to guarantee some
+execution order when transpiling? why wasn't it smart enough to go full compile
+time here as well?).
 
-And Safari oh well, better luck next time I guess.
+Safari simply failed to compile in this case.
 
 ### 5 - Still expressions
 
@@ -343,7 +350,7 @@ tmp += 0.0 + 1.0 + 2.0 + 3.0 + 4.0 + ... + 511.0;
       <span class="badge na">Compile: -</span>
       <span class="badge na">Pipeline: -</span>
     </div>
-    <div class="msg">No message, it seems to hang the tab, things stop responding.</div>
+    <div class="msg">No message, the tab becomes unresponsive.</div>
     <div class="limit"><strong>Limit hit:</strong> Just having a big expression, even if not used, makes the timeout of 5 minutes be reached.</div>
   </div>
 
@@ -384,6 +391,10 @@ For Safari if you are interested here is the minimal shader that breaks it.
 </code>
 </details>
 
+Maybe Safari is trying to perform some expensive optimizations in this massive
+expression that Chrome skips. These two browsers seem to have different
+implementation strategies in the WGSL compilers.
+
 ### 6 - Amount of functions possible
 
 Now what about the amount of functions we can have in a module (private space)?
@@ -397,7 +408,7 @@ for (let i = 0; i < n; i++) {
 }
 ```
 
-It will produce a bunch of cuntions with a single argument `a` just for the
+It will produce a bunch of functions with a single argument `a` just for the
 purpose of them doing something on something.
 
 <div class="result-grid">
@@ -426,7 +437,7 @@ Safari is impressive here. Crunching through millions of these without a
 problem. Chrome tab crashes at much lower values than this (probably due to the
 `stringify` function, but just assuming here).
 
-### 6 - Function call depth
+### 7 - Function call depth
 
 How many functions can we call inside each other in WGSL?
 
@@ -467,7 +478,7 @@ fn levelN_minus${n - 1}() -> f32 { return 1337.0; }
 Chrome supports a much higher function call depth than Safari. But a 1159 call
 depth seems a very reasonable limit to play with.
 
-### 7 - Function statements limit
+### 8 - Function statements limit
 
 How many statements can a function have? Lets find out:
 
@@ -499,10 +510,53 @@ fn massiveFunction() -> f32 {
       <span class="badge na">Compile: -</span>
       <span class="badge err">Pipeline: Error above 49767</span>
     </div>
-    <div class="msg">“Instance dropped error in getCompilationInfo”</div>
+    <div class="msg">“OperationError: Instance dropped error in getCompilationInfo”</div>
     <div class="limit"><strong>Limit hit:</strong> 49767 </div>
   </div>
 </div>
 
+Safari again goes to crazy limits. I would love to be able to see the generated
+MSL shader.
+
 Chrome feels somewhat flaky here, this limit is the lowest I got it to break,
-but sometimes it got higher values without a stress.
+but sometimes it got higher values without a stress up until ~52000.
+
+### A table of it all
+
+| Limit Type                              | Safari Result    | Chrome Result              | Spec |
+| --------------------------------------- | ---------------- | -------------------------- | ---- |
+| **JS String length**                    | ~4 GiB           | ~1 GiB                     | —    |
+| **Expression depth**                    | **512**          | **512**                    | —    |
+| **Parentheses nesting**                 | **127**          | **127**                    | —    |
+| **Chained expressions** (bracket depth) | Hangs tab        | ~256 (Metal bracket limit) | —    |
+| **Multiple maxed expressions**          | Hangs tab        | ~3019 (compile fail)       | —    |
+| **Max function declarations**           | **> 5 million**  | ~55719 (compile fail)      | —    |
+| **Function call depth**                 | **1159**         | **4100**                   | —    |
+| **Max statements in a function**        | **> 16 million** | **49767**                  | —    |
+
+### Conclusion
+
+These tests show that real-world WGSL limits often stem from underlying
+compilers and drivers rather than the spec itself.
+
+For developers pushing creative or extreme workloads, these practical ceilings
+are just as important as the spec minimums, and in some cases can be far more
+restrictive.
+
+In particular, hitting the Metal bracket nesting limit (256), is a clear example
+on how the underlying graphics API can impose additional constraints beyond what
+WGSL itself enforces.
+
+There are also dramatic differences between Safari and Chrome in the way they
+handle large expressions. Which suggests very different optimization strategies
+in their compilers.
+
+I think it would be cool to be able to see the underlying shader being compiled.
+Maybe the spec could mention groundfloor values for these scenarios, but I am
+not sure about the implications of it in the grand scheme of WebGPU things.
+
+Ultimately, the spec gives you the floor, but browsers and drivers define the
+ceiling. If you're pushing WebGPU to its limits, test on real hardware because
+real bottlenecks exist beyond the spec.
+
+Stay tuned, next post I will try to make a small demo of these limits.
