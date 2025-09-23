@@ -123,12 +123,12 @@ The idea is to do this in three steps:
 #### Create shader and pipeline
 
 I am testing both the `createShaderModule()` and the pipeline creation, since
-some things are only checked when the pipeline is created
-(binding layout, workgroup effective storage limits, etc).
+some things are only checked when the pipeline is created (binding layout,
+workgroup effective storage limits, etc).
 
 I am expecting that the `createShaderModule()` compilation info is more about
-syntax and tipification. While pipeline creation more about storage or byte limit
-errors.
+syntax and tipification. While pipeline creation more about storage or byte
+limit errors.
 
 #### Setup
 
@@ -157,7 +157,7 @@ Using the code above and recipe I get the following in my intel apple macbook:
     <div class="limit"><strong>Limit hit:</strong> 2047 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge ok">Compile: OK until 2047</span>
@@ -236,7 +236,7 @@ fn computeMain(@builtin(local_invocation_id) localId: vec3<u32>) {
     <div class="limit"><strong>Limit hit:</strong> 16384 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge na">Compile: -</span>
@@ -321,7 +321,7 @@ fn computeMain() {
     <div class="limit"><strong>Limit hit:</strong> 8192 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge na">Compile: -</span>
@@ -403,7 +403,7 @@ fn computeMain() {
     <div class="limit"><strong>Limit hit:</strong> 8192 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge na">Compile: -</span>
@@ -441,8 +441,8 @@ This is an interesting one, it certainly did not cross my mind to explore the
 amount of case selector values. WGSL switch's must always carry a default case,
 which always counts as 1 regardless if it is empty or not.
 
-Im going with just single values per case, since my purpose is to hit my
-desired limit and not so much to test the switch case implementation nuances:
+Im going with just single values per case, since my purpose is to hit my desired
+limit and not so much to test the switch case implementation nuances:
 
 ```wgsl
 @group(0) @binding(0) var<storage, read_write> output: array<f32>;
@@ -475,7 +475,7 @@ ${cases.join("\n")}
     <div class="limit"><strong>Limit hit:</strong> 1023 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge err">Compile: error above 16383</span>
@@ -541,7 +541,7 @@ fn main() {
     <div class="limit"><strong>Limit hit:</strong> 255 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge err">Compile: error above 255</span>
@@ -639,7 +639,7 @@ The results are in:
     <div class="limit"><strong>Limit hit:</strong> 127 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge err">Compile: error above 63</span>
@@ -680,7 +680,8 @@ Spec says the limit is 15. I am going to generate a big nested array like this:
 array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<array<f32, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>, 2>
 ```
 
-My idea here is to push the nesting limit of a composite type in a single expression.
+My idea here is to push the nesting limit of a composite type in a single
+expression.
 
 These are the results:
 
@@ -695,7 +696,7 @@ These are the results:
     <div class="limit"><strong>Limit hit:</strong> 15 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge err">Compile: error above 29</span>
@@ -762,7 +763,7 @@ fn computeMain() {
     <div class="limit"><strong>Limit hit:</strong> 1023 (WGSL floor)</div>
   </div>
 
-  <div class="result-card">
+<div class="result-card">
     <h4>Chrome 140.0.7339.133</h4>
     <div class="kv">
       <span class="badge err">Compile: error above 16383</span>
@@ -772,7 +773,6 @@ fn computeMain() {
     <div class="limit"><strong>Limit hit:</strong> 16383 (above WGSL floor)</div>
   </div>
 </div>
-
 
 Chrome is generous here and goes well beyond the minimum provided.
 
@@ -813,8 +813,8 @@ preprocessing reasons my advice so far would be:
 
 - **Treat spec minimums as the baseline**, and friendlier ceilins as mere
   nice-to-haves.
-- **Probe limits first**, one approach could be to probe ceilings on
-  startup and cache these results.
+- **Probe limits first**, one approach could be to probe ceilings on startup and
+  cache these results.
 - **Standard data paths are the way to go**, storage buffers and textures are
   our friends, this approach of code-embedded payloads is a fun technique, but
   not a substitute for stable I/O.
@@ -822,3 +822,6 @@ preprocessing reasons my advice so far would be:
 All of these were run with a preprocessor demo player that I am working on for
 fun, if you are curious I'll share a follow-up shortly and ideally a WebGPU demo
 at [Inercia 2025](https://2025.inercia.pt/en/).
+
+There is a
+[follow-up post to this one here](/posts/webgpu-shader-unknown-limits/).

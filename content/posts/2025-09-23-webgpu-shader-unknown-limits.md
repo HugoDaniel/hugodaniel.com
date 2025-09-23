@@ -1,7 +1,7 @@
 +++
 title = "WGSL limits you won't find in the spec"
 description = "Hunting for the unknown WebGPU shader limits"
-date = 2025-09-23
+date = 2025-09-21
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/crossedwebgpu.webp", class="center-images with-lists" }
 +++
 
