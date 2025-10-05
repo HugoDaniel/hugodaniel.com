@@ -223,6 +223,7 @@ caption { caption-side: bottom; padding-top: .5rem; color: #6b7280; font-size: .
   justify-content: start;
   align-items: center;
   position: sticky;
+  z-index: 10;
   top: 0;
   width: calc(100vw - 1rem);
   height: 3rem;
@@ -328,6 +329,7 @@ main article header {
 	border-bottom: 1px solid #777;
   overflow: visible;
 	position: sticky;
+	z-index: 10;
 	top: -8rem;
   background-color: white;
 }

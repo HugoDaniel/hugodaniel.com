@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="importmap">{ "imports": {      "@mr_hugo/boredom/dist/boreDOM.full.js": "./boreDOM.js",
+       "boredom": "./boreDOM.js"
+     } }</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebGPU Diagnostics</title>
+
+  <link rel="stylesheet" type="text/css" href="root.css">
+  <!-- The main entry point of the web app JS code -->
+  <script src="./main.js" type="module"></script>
+  <style>
+    .wrap {
+      max-width: 1000px;
+      margin-inline: auto;
+      padding: 16px clamp(14px, 2vw, 24px);
+    }
+
+
+    a {
+      outline-color: transparent;
+    }
+
+    a:link {
+      color: #6900ff;
+    }
+
+    a:visited {
+      color: #a5c300;
+    }
+
+    a:focus {
+      text-decoration: none;
+      background: #bae498;
+    }
+
+    a:hover {
+      text-decoration: none;
+      background: #cdfeaa;
+    }
+
+    a:active {
+      background: #6900ff;
+      color: #cdfeaa;
+    }
+
+    main {
+      margin-bottom: 32px;
+    }
+
+    footer {
+      display: flex;
+      font-size: 0.8rem;
+      padding-bottom: 32px;
+      justify-content: center;
+    }
+  </style>
+
+  <link rel="stylesheet" href="./components/sliders-panel/sliders-panel.css">
+  <link rel="stylesheet" href="./components/shader-config/shader-config.css">
+  <link rel="stylesheet" href="./components/diagnostics-panel-canvas/diagnostics-panel-canvas.css">
+  <link rel="stylesheet" href="./components/diagnostics-header/diagnostics-header.css">
+  <link rel="stylesheet" href="./components/diagnostics-grid/diagnostics-grid.css">
+</head>
+
+<body>
+  <diagnostics-header></diagnostics-header>
+  <main class="wrap">
+    <diagnostics-panel-canvas></diagnostics-panel-canvas>
+
+    <diagnostics-grid></diagnostics-grid>
+  </main>
+  <footer>
+    <p>Made with <a href="https://hugodaniel.com/pages/boreDOM/">boreDOM</a></p>
+  </footer>
+
+  <!-- <color-panel></color-panel> -->
+
+
+
+
+  <template data-component="sliders-panel">
+    <label for="functions">Number of functions<span>
+        <slot name="functions">-</slot>
+      </span></label>
+    <input type="range" name="functions" min="0" max="512" step="8" oninput="['numberOfFunctions']" value="0">
+    <label for="functions">Statements per function<span>
+        <slot name="statements">-</slot>
+      </span></label>
+    <input type="range" name="functions" min="0" max="512" step="8" oninput="['statementsPerFunction']" value="0">
+    <label for="functions">Statement expression size<span>
+        <slot name="expressionDepth">-</slot>
+      </span></label>
+    <input type="range" name="functions" min="0" max="512" step="8" oninput="['expressionDepthPerStatement']" value="0">
+  </template>
+  <template data-component="shader-config">
+    <div class="tab-container">
+      <!-- Radio buttons for tab state -->
+      <input type="radio" id="tab1" name="tabs" checked="" onchange="['tab1Change']">
+      <label for="tab1">Compute</label>
+
+      <input type="radio" id="tab2" name="tabs" onchange="['tab2Change']">
+      <label for="tab2">Vertex</label>
+
+      <input type="radio" id="tab3" name="tabs" onchange="['tab3Change']">
+      <label for="tab3">Fragment</label>
+
+      <!-- Tab labels wrapper -->
+      <div class="tab-labels">
+      </div>
+
+      <!-- Tab panels -->
+      <slot class="tab-panels" name="panels">
+        <!-- Here goes: <sliders-panel></sliders-panel > -->
+      </slot>
+    </div>
+
+
+    <nav>
+      <button data-ref="recompileButton" onclick="['recompile']">
+        Compile All
+      </button>
+
+      <slot name="shaderSize">0 KB</slot>
+
+      <button data-ref="codeToggle" onclick="['showCode']">
+        View Code
+      </button>
+    </nav>
+
+    <pre class="code-block" data-ref="codeBlock" hidden=""></pre>
+
+  </template>
+  <template data-component="diagnostics-panel-canvas">
+    <section class="panel canvas-card">
+      <div class="canvas-head">
+        <strong>Preview</strong>
+        <span id="canvasInfo" class="muted">
+          <slot name="info"></slot>
+        </span>
+      </div>
+      <div class="pad">
+        <diagnostics-core></diagnostics-core>
+      </div>
+    </section>
+  </template>
+  <template data-component="diagnostics-header">
+    <div class="wrap titlebar">
+      <h1>WebGPU Diagnostics</h1>
+      <div id="status" class="badge" data-ref="badge">
+        <span class="dot"></span>
+        <slot name="statusText">
+          Initializing...
+        </slot>
+      </div>
+    </div>
+  </template>
+  <template data-component="diagnostics-grid">
+    <section class="grid mt">
+      <article class="panel card" data-ref="timingsCard">
+        <h3 data-ref="timingsTitle">Timings</h3>
+        <ul class="list">
+          <li class="row">
+            <span>Adapter request</span>
+            <slot name="adapterRequest" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Device request</span>
+            <slot name="deviceRequest" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Compute Pipeline creation</span>
+            <slot name="computePipelineCreation" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Render Pipeline creation</span>
+            <slot name="renderPipelineCreation" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Compute Shader compilation</span>
+            <slot name="computeShaderCompilation" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Vertex Shader compilation</span>
+            <slot name="vertexShaderCompilation" class="val"></slot>
+          </li>
+          <li class="row">
+            <span>Fragment Shader compilation</span>
+            <slot name="fragmentShaderCompilation" class="val"></slot>
+          </li>
+        </ul>
+      </article>
+
+      <article class="panel card" data-ref="featuresCard">
+        <h3>Features available</h3>
+        <slot class="tags" name="features">
+        </slot>
+      </article>
+
+      <article class="panel card" data-ref="adapterInfoCard">
+        <h3>Shader Config</h3>
+        <shader-config></shader-config>
+      </article>
+
+      <article class="panel card" data-ref="warningsCard" hidden="">
+        <h3>Warnings</h3>
+        <div class="list" data-ref="warnings"></div>
+      </article>
+
+      <article class="panel card" data-ref="errorsCard" hidden="">
+        <h3>Errors</h3>
+        <div class="list" data-ref="errors"></div>
+      </article>
+
+      <article class="panel card" data-ref="adapterCard" style="grid-column:1 / -1">
+        <div class="adapter-head">
+          <h3>Adapter Limits</h3>
+          <span class="muted">
+            <slot name="adapterInfo">Yay</slot>
+          </span>
+        </div>
+
+        <slot class="limits" name="adapterLimits"></slot>
+      </article>
+
+      <article class="panel card" data-ref="deviceCard" style="grid-column:1 / -1">
+        <h3>Device Limits</h3>
+        <slot class="limits" name="deviceLimits"></slot>
+      </article>
+    </section>
+  </template>
+  <template data-component="diagnostics-core" data-role="section">
+    <canvas data-ref="canvas"> </canvas>
+
+    <slot name="diagnostics-core-footer">
+      <!--
+      <core-item>s are going to be added here dynamically,
+      see the diagnostics-core.js `updateFooter()` method.
+     -->
+    </slot>
+  </template>
+  <script src="boreDOM.js" type="module"></script>
+  <script src="./components/sliders-panel/sliders-panel.js" type="module"></script>
+  <script src="./components/shader-config/shader-config.js" type="module"></script>
+  <script src="./components/diagnostics-panel-canvas/diagnostics-panel-canvas.js" type="module"></script>
+  <script src="./components/diagnostics-header/diagnostics-header.js" type="module"></script>
+  <script src="./components/diagnostics-grid/diagnostics-grid.js" type="module"></script>
+  <script src="./components/diagnostics-core/diagnostics-core.js" type="module"></script>
+</body>
+
+</html>
