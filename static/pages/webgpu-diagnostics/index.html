@@ -8,6 +8,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebGPU Diagnostics</title>
+  <meta name="description" content="Inspect WebGPU adapter details, device limits, and shader timings directly in your browser.">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WebGPU Diagnostics">
+  <meta property="og:description" content="Inspect WebGPU adapter details, device limits, and shader timings directly in your browser.">
+  <meta property="og:image" content="https://hugodaniel.com/pages/webgpu-diagnostics/assets/webgpudiagnostics.webp">
+  <meta property="og:url" content="https://hugodaniel.com/pages/webgpu-diagnostics/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebGPU Diagnostics">
+  <meta name="twitter:description" content="Inspect WebGPU adapter details, device limits, and shader timings directly in your browser.">
+  <meta name="twitter:image" content="https://hugodaniel.com/pages/webgpu-diagnostics/assets/webgpudiagnostics.webp">
 
   <link rel="stylesheet" type="text/css" href="root.css">
   <!-- The main entry point of the web app JS code -->
@@ -21,30 +32,21 @@
 
 
     a {
-      outline-color: transparent;
-    }
-
-    a:link {
-      color: #6900ff;
+      outline: none;
+      color: var(--brand);
+      transition: color 0.2s ease, background 0.2s ease;
     }
 
     a:visited {
-      color: #a5c300;
+      color: color-mix(in oklab, var(--brand) 70%, var(--text) 30%);
     }
 
-    a:focus {
-      text-decoration: none;
-      background: #bae498;
-    }
-
-    a:hover {
-      text-decoration: none;
-      background: #cdfeaa;
-    }
-
+    a:focus,
+    a:hover,
     a:active {
-      background: #6900ff;
-      color: #cdfeaa;
+      text-decoration: none;
+      background: color-mix(in oklab, var(--brand) 12%, transparent);
+      color: var(--brand);
     }
 
     main {
@@ -56,6 +58,21 @@
       font-size: 0.8rem;
       padding-bottom: 32px;
       justify-content: center;
+      align-items: center;
+
+      p {
+        display: flex;
+        align-items: center;
+      }
+
+      a,
+      span {
+        margin-right: 4px;
+      }
+
+      .sleepy {
+        font-size: 1.5rem;
+      }
     }
   </style>
 
@@ -64,6 +81,7 @@
   <link rel="stylesheet" href="./components/diagnostics-panel-canvas/diagnostics-panel-canvas.css">
   <link rel="stylesheet" href="./components/diagnostics-header/diagnostics-header.css">
   <link rel="stylesheet" href="./components/diagnostics-grid/diagnostics-grid.css">
+  <link rel="stylesheet" href="./components/diagnostics-core/diagnostics-core.css">
 </head>
 
 <body>
@@ -74,7 +92,7 @@
     <diagnostics-grid></diagnostics-grid>
   </main>
   <footer>
-    <p>Made with <a href="https://hugodaniel.com/pages/boreDOM/">boreDOM</a></p>
+    <p><span>Made with </span><a href="https://hugodaniel.com/pages/boreDOM/">boreDOM</a> <span class="sleepy"> 🥱 </span></p>
   </footer>
 
   <!-- <color-panel></color-panel> -->
@@ -150,11 +168,19 @@
   <template data-component="diagnostics-header">
     <div class="wrap titlebar">
       <h1>WebGPU Diagnostics</h1>
-      <div id="status" class="badge" data-ref="badge">
-        <span class="dot"></span>
-        <slot name="statusText">
-          Initializing...
-        </slot>
+      <div class="webgpu-info">
+        <div id="status" class="badge" data-ref="badge">
+          <span class="dot"></span>
+          <slot name="statusText">
+            Initializing...
+          </slot>
+        </div>
+        <div class="stars">
+          <a href="https://github.com/HugoDaniel/webgpu-diagnostics">
+            GitHub
+            <!-- <img src="https://img.shields.io/github/stars/HugoDaniel/webgpu-diagnostics?style=social" alt="GitHub stars"> -->
+          </a>
+        </div>
       </div>
     </div>
   </template>
@@ -201,7 +227,7 @@
       </article>
 
       <article class="panel card" data-ref="adapterInfoCard">
-        <h3>Shader Config</h3>
+        <h3>Shader Benchmark <small>(see timings)</small></h3>
         <shader-config></shader-config>
       </article>
 
@@ -233,7 +259,22 @@
     </section>
   </template>
   <template data-component="diagnostics-core" data-role="section">
-    <canvas data-ref="canvas"> </canvas>
+    <div class="diagnostics-preview" data-ref="preview">
+      <canvas data-ref="canvas" hidden=""></canvas>
+      <div data-ref="unsupported" class="webgpu-unsupported" hidden="">
+        <h3>WebGPU isn't enabled</h3>
+        <p>
+          This browser currently doesn't expose WebGPU. To continue you can try one of the following options:
+        </p>
+        <ol>
+          <li>Use a Chromium-based browser (Chrome, Edge) version 113 or newer.</li>
+          <li>In Chrome/Edge, open <code>chrome://flags</code> and enable <em>Unsafe WebGPU</em>; restart the browser.</li>
+          <li>For Firefox Nightly, set <code>dom.webgpu.enabled</code> and <code>gfx.webgpu.dx12</code> (Windows) or <code>gfx.webgpu.mps</code> (macOS) to true in <code>about:config</code>, then restart.</li>
+          <li>On Linux ensure you launch Chrome/Edge with <code>--enable-features=Vulkan,UseSkiaRenderer</code>.</li>
+          <li>In <strong>iOS Safari</strong> go to your iPhone <code>Settings &gt; Apps &gt; Safari &gt; Advanced &gt; Feature Flags</code> and enable WebGPU</li>
+        </ol>
+      </div>
+    </div>
 
     <slot name="diagnostics-core-footer">
       <!--

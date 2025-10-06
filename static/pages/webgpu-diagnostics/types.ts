@@ -38,10 +38,11 @@ export type UIState = {
   selectedShader: "compute" | "vertex" | "fragment";
   showShaderCode: boolean;
   [runtimeAttribute]: {
-    adapter: GPUAdapter;
-    device: GPUDevice;
-    context: GPUCanvasContext;
-    canvas: HTMLCanvasElement;
+    adapter?: GPUAdapter;
+    device?: GPUDevice;
+    context?: GPUCanvasContext;
+    canvas?: HTMLCanvasElement;
+    animationFrameId?: number;
   };
   features: {
     available: string[];
@@ -58,10 +59,12 @@ export type UIState = {
   warnings: {
     compilation: string[];
   };
+  updateTmpShaders: (all: boolean, shaderOverride?: "compute" | "vertex" | "fragment") => Promise<void>;
 };
 
-type ShaderConfig = {
+export type ShaderConfig = {
   numberOfFunctions: number;
   statementsPerFunction: number;
   expressionDepthPerStatement: number;
+  size?: number;
 };

@@ -1,7 +1,7 @@
 // @ts-check
 /** @typedef {import("../../types").UIState} UIState */
 /** @typedef {import("boredom").InitFunction<UIState | undefined>} InitFunction */
-/** @typedef {import("boredom").WebComponentRenderParams<UIState>} WebComponentRenderParams */
+/** @typedef {import("boredom").WebComponentRenderParams<UIState | undefined>} WebComponentRenderParams */
 import { webComponent } from "boredom";
 import { runtimeAttribute } from "../../runtimeAttribute.js";
 import { createWebGPU } from "../../createWebGPU.js";
@@ -19,17 +19,55 @@ export const DiagnosticsCore = webComponent(
 
       // Set the canvas information string:
       const canvas = refs.canvas;
-      if (!(canvas instanceof HTMLCanvasElement)) {
-        console.warn("Canvas reference must be a valid HTMLCanvasElement");
+      const preview = refs.preview;
+      const unsupported = refs.unsupported;
+      if (!(canvas instanceof HTMLCanvasElement) ||
+        !(preview instanceof HTMLElement) ||
+        !(unsupported instanceof HTMLElement)) {
+        console.warn("Canvas preview elements are missing or invalid");
+        mutable.isWebGPUSupported = false;
         return;
       }
 
+      /**
+       * @param {boolean} flag
+       */
+      const setUnsupported = (flag) => {
+        unsupported.hidden = !flag;
+        unsupported.style.display = flag ? "flex" : "none";
+        canvas.hidden = flag;
+        canvas.style.display = flag ? "none" : "block";
+        preview.classList.toggle("is-unsupported", flag);
+      };
+
+      if (!navigator.gpu) {
+        mutable.isWebGPUSupported = false;
+        setUnsupported(true);
+        return;
+      }
+
+      setUnsupported(false);
       if (!mutable.isCompiling) {
         mutable.isCompiling = true;
       }
 
       const rect = canvas.getBoundingClientRect();
-      const dpr = window.devicePixelRatio;
+      const dpr = window.devicePixelRatio || 1;
+      const cssWidth = Math.max(1, Math.round(rect.width));
+      const cssHeight = Math.max(1, Math.round(rect.height));
+      const targetWidth = Math.max(1, cssWidth * dpr);
+      const targetHeight = Math.max(1, cssHeight * dpr);
+
+      if (canvas.width !== targetWidth) {
+        canvas.width = targetWidth;
+      }
+      if (canvas.height !== targetHeight) {
+        canvas.height = targetHeight;
+      }
+
+      canvas.style.width = `${cssWidth}px`;
+      canvas.style.height = `${cssHeight}px`;
+
       const w = canvas.width;
       const h = canvas.height;
       const info = `CSS: ${Math.floor(rect.width)}×${
@@ -37,15 +75,28 @@ export const DiagnosticsCore = webComponent(
       }px | Canvas: ${w}×${h}px | DPR: ${dpr}`;
 
       mutable.canvasInfo = info;
-      mutable[runtimeAttribute].canvas = canvas;
+      const runtimeState = mutable[runtimeAttribute];
+      runtimeState.canvas = canvas;
 
       try {
         await createWebGPU(mutable, canvas);
+      } catch (error) {
+        mutable.isWebGPUSupported = false;
+        setUnsupported(true);
+        console.error("Failed to initialise WebGPU", error);
+        return;
       } finally {
         mutable.isCompiling = false;
       }
 
-      const adapter = mutable[runtimeAttribute].adapter;
+      mutable.isWebGPUSupported = true;
+      setUnsupported(false);
+
+      const adapter = runtimeState.adapter;
+      if (!adapter) {
+        console.warn("GPU adapter is not available after initialization");
+        return;
+      }
       const adapterLimits = extractLimits(adapter.limits);
       const adapterLimitsState = mutable.limits.adapter;
       for (const key of Object.keys(adapterLimitsState)) {
@@ -75,13 +126,14 @@ export const DiagnosticsCore = webComponent(
 function renderCore(params) {
   const { state, self } = params;
 
-  if (
-    state[runtimeAttribute].adapter === undefined ||
-    state[runtimeAttribute].device === undefined
-  ) {
+  if (!state) return;
+
+  const runtimeState = state[runtimeAttribute];
+  if (!runtimeState.adapter || !runtimeState.device) {
     // Send the "canvasReady" event to start initialization
-    if (!self.__canvasInitQueued) {
-      /** @type {any} */ (self).__canvasInitQueued = true;
+    const extendedSelf = /** @type {{ __canvasInitQueued?: boolean }} */ (self);
+    if (!extendedSelf.__canvasInitQueued) {
+      extendedSelf.__canvasInitQueued = true;
       queueMicrotask(() => {
         dispatchEvent(
           new CustomEvent("canvasReady", {
@@ -92,23 +144,20 @@ function renderCore(params) {
     }
   }
 
+  const unsupported = /** @type {HTMLElement | null} */ (self.querySelector('[data-ref="unsupported"]'));
+  const canvas = /** @type {HTMLElement | null} */ (self.querySelector('[data-ref="canvas"]'));
+  const preview = /** @type {HTMLElement | null} */ (self.querySelector('[data-ref="preview"]'));
+  const isUnsupported = state.isWebGPUSupported === false;
+  if (unsupported) {
+    unsupported.hidden = !isUnsupported;
+    unsupported.style.display = isUnsupported ? "flex" : "none";
+  }
+  if (canvas) {
+    canvas.hidden = isUnsupported;
+    canvas.style.display = isUnsupported ? "none" : "block";
+  }
+  preview?.classList.toggle("is-unsupported", isUnsupported);
+
   // Update the slots:
   // updatePanelFooterSlot(params);
-}
-
-/**
- * @param {WebComponentRenderParams} params
- */
-function updatePanelFooterSlot({ state, makeComponent, slots }) {
-  const list = document.createElement("ol");
-  state.colors.map((c, i) => {
-    list.appendChild(
-      makeComponent(`fill-item`, {
-        // Detail is passed to the render function of the component (as .detail)
-        detail: { data: c, index: i, name: "fill-item" },
-      }),
-    );
-  });
-
-  slots["panel-footer"] = list;
 }

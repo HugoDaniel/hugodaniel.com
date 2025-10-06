@@ -1,4 +1,19 @@
 // @ts-check
+/** @typedef {import("./types").UIState} UIState */
+/**
+ * @typedef {Object} PipelineResult
+ * @property {() => void} render
+ * @property {GPUDevice} device
+ * @property {GPUCanvasContext} context
+ * @property {GPUComputePipeline} computePipeline
+ * @property {GPURenderPipeline} renderPipeline
+ * @property {GPUBuffer} vertexBuffer
+ * @property {GPUBindGroup} computeBindGroup
+ * @property {GPUBindGroup} renderBindGroup
+ * @property {Record<keyof UIState["timings"], number>} timings
+ * @property {{ compilation: Record<string, { errors: string[]; warnings: string[] }> }} diagnostics
+ */
+
 /**
  * @param {GPUDevice} device
  * @param {GPUCanvasContext} context
@@ -6,7 +21,8 @@
  * @param {string} computeShaderCode
  * @param {string} vertexShaderCode
  * @param {string} fragmentShaderCode
- */
+ * @returns {Promise<PipelineResult>}
+*/
 export async function createComputeAndRenderPipeline(
   device,
   context,
@@ -15,13 +31,13 @@ export async function createComputeAndRenderPipeline(
   vertexShaderCode,
   fragmentShaderCode,
 ) {
-  const timings = {
+  const timings = /** @type {Record<keyof UIState["timings"], number>} */ ({
     renderPipelineCreation: 0,
     computePipelineCreation: 0,
     computeShaderCompilation: 0,
     vertexShaderCompilation: 0,
     fragmentShaderCompilation: 0,
-  };
+  });
   // ============================================
   // 1. Create shader modules
   // ============================================
@@ -66,6 +82,12 @@ export async function createComputeAndRenderPipeline(
     usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC,
   });
 
+  const rotationUniformBuffer = device.createBuffer({
+    label: "Rotation uniform buffer",
+    size: 16,
+    usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+  });
+
   // ============================================
   // 3. Create SEPARATE bind group layouts
   // ============================================
@@ -78,6 +100,12 @@ export async function createComputeAndRenderPipeline(
       visibility: GPUShaderStage.COMPUTE,
       buffer: {
         type: "storage", // read-write storage buffer for compute
+      },
+    }, {
+      binding: 1,
+      visibility: GPUShaderStage.COMPUTE,
+      buffer: {
+        type: "uniform",
       },
     }],
   });
@@ -105,6 +133,11 @@ export async function createComputeAndRenderPipeline(
       binding: 0,
       resource: {
         buffer: vertexBuffer,
+      },
+    }, {
+      binding: 1,
+      resource: {
+        buffer: rotationUniformBuffer,
       },
     }],
   });
@@ -215,29 +248,37 @@ export async function createComputeAndRenderPipeline(
   timings.renderPipelineCreation = performance.now() - renderPipelineStart;
 
   // ============================================
-  // 7. Create render pass descriptor
-  // ============================================
-
-  const renderPassDescriptor = {
-    label: "Main render pass",
-    colorAttachments: [{
-      view: null, // Will be set each frame
-      clearValue: { r: 0.9, g: 0.8, b: 0.7, a: 1.0 },
-      loadOp: "clear",
-      storeOp: "store",
-    }],
-  };
-
-  // ============================================
   // 8. Render function
   // ============================================
 
+  const rotationData = new Float32Array(4);
+  const rotationSpeed = Math.PI / 12; // radians per second (slow clockwise)
+  const rotationStart = performance.now();
+
   function render() {
+    const elapsed = (performance.now() - rotationStart) / 1000;
+    const angle = -rotationSpeed * elapsed;
+    rotationData[0] = angle;
+    device.queue.writeBuffer(
+      rotationUniformBuffer,
+      0,
+      rotationData.buffer,
+      rotationData.byteOffset,
+      rotationData.byteLength,
+    );
+
     // Get the current texture from the canvas context
     const currentTexture = context.getCurrentTexture();
 
-    // Update the render pass descriptor with the current texture view
-    renderPassDescriptor.colorAttachments[0].view = currentTexture.createView();
+    const renderPassDescriptor = /** @type {GPURenderPassDescriptor} */ ({
+      label: "Main render pass",
+      colorAttachments: [/** @type {GPURenderPassColorAttachment} */ ({
+        view: currentTexture.createView(),
+        clearValue: { r: 0.9, g: 0.8, b: 0.7, a: 1.0 },
+        loadOp: "clear",
+        storeOp: "store",
+      })],
+    });
 
     // Create command encoder
     const commandEncoder = device.createCommandEncoder({
@@ -291,10 +332,13 @@ export async function createComputeAndRenderPipeline(
   };
 }
 
+/**
+ * @param {GPUCompilationInfo | undefined} info
+ */
 function normaliseCompilationInfo(info) {
-  const result = { errors: [], warnings: [] };
+  const result = { errors: /** @type {string[]} */ ([]), warnings: /** @type {string[]} */ ([]) };
   if (!info || !Array.isArray(info.messages)) return result;
-  for (const message of info.messages) {
+  for (const message of /** @type {readonly GPUCompilationMessage[]} */ (info.messages)) {
     const locationParts = [];
     if (typeof message.lineNum === "number") {
       const line = message.lineNum + 1;
