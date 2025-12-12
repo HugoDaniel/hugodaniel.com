@@ -1,14 +1,12 @@
 {% extends "index.html" %}
 {% block content %}
-<main class="all-posts" role="main">
+<main class="all-posts" role="main" id="main-content">
 	<h2>{{ section.title }}</h2>
 	<p>Here is a full list of articles that I have written</p>
 	<ol class="posts new">
 		{% for page in section.pages %}
-			{% if page.draft %}
-				<div />
-			{% else %}
-				{% if page.date | date(format="%s") | int > 1591488000 %}
+			{% if page.draft %}{% continue %}{% endif %}
+			{% if page.date | date(format="%s") | int > 1591488000 %}
 				<li>
 					<a href="{{ page.permalink }}">{{ page.title }}</a>
 					<span>
@@ -16,20 +14,17 @@
 						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
 					</span>
 				</li>
-				{% endif %}
 			{% endif %}
 		{% endfor %}
 	</ol>
 </main>
 
 <aside>
-	<h2>Some older posts</h3>
+	<h2>Some older posts</h2>
 	<ol class="posts old">
 		{% for page in section.pages %}
-			{% if page.draft %}
-				<div />
-			{% else %}
-				{% if page.date | date(format="%s") | int <= 1591488000 %}
+			{% if page.draft %}{% continue %}{% endif %}
+			{% if page.date | date(format="%s") | int <= 1591488000 %}
 				<li>
 					<a href="{{ page.permalink }}">{{ page.title }}</a>
 					<span>
@@ -37,7 +32,6 @@
 						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
 					</span>
 				</li>
-				{% endif %}
 			{% endif %}
 		{% endfor %}
 	</ol>

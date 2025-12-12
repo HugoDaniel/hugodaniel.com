@@ -43,8 +43,11 @@
 		{% endif %}
 		{% if page.date %}
 			<meta property="og:article:published_time" content="{{ page.date }}">
+			<meta property="article:author" content="Hugo Daniel">
 		{% endif %}
 		<meta property="og:url" content="{{ current_url }}">
+		<meta name="author" content="Hugo Daniel">
+		<link rel="author" href="https://hugodaniel.com">
 		{# Social image with sitewide fallback #}
         {% set default_img = get_url(path="images/hugo03-normal.jpg", trailing_slash=false) %}
         {% if page.extra.social_img %}
@@ -89,8 +92,9 @@
 		<!-- End Matomo Code -->
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 		{% block content %}
-		<section class="intro">
+		<section class="intro" id="main-content">
 			<article>
 				<figure>
 					<img src="/images/hugo03-normal.jpg" alt="Photo of me chilling.">
@@ -136,7 +140,7 @@
 				{% for basesub in section.subsections %}
 				{% set sub = get_section(path=basesub) %}
 				{% if sub.permalink is undefined %}{% continue %}{% endif %}
-				<nav>
+				<nav aria-label="{{ sub.title }}">
 					<h4><a href="{{sub.permalink | safe}}">{{ sub.title }}</a></h4>
 					<ol>
 					{% for subpage in sub.pages %}
@@ -151,7 +155,7 @@
 					</ol>
 				</nav>
 				{% endfor %}
-				<nav>
+				<nav aria-label="Tech that I love">
 					<h4>Tech that I love</h4>
 					<ol>
 						<li><a href="https://inercia.party/" rel="external nofollow">Inércia demoparty</a></li>

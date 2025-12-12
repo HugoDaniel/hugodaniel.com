@@ -1,0 +1,47 @@
+# Hugo Daniel's Blog
+
+> Personal blog about web development, WebGPU, creative coding, and design tools.
+
+This is the personal website of Hugo Daniel, a Portuguese software developer making tools for creative code.
+
+## Site Structure
+
+- `/` - Homepage with author bio and recent posts
+- `/posts/` - Blog articles about web development, WebGPU, shaders, and creative coding
+- `/projects/` - Project showcases (e.g., Shader Canvas)
+- `/pages/` - Interactive web applications and tools
+
+## Main Topics
+
+- WebGPU and WGSL shaders
+- Web Components and JavaScript frameworks
+- Creative coding and graphics programming
+- Design tools (color pickers, pixel art generators)
+- Browser technologies and performance
+
+## Author
+
+Hugo Daniel
+- Email: hello@hugodaniel.com
+- GitHub: https://github.com/HugoDaniel
+- Bluesky: https://bsky.app/profile/hugodan.bsky.social
+- LinkedIn: https://www.linkedin.com/in/mrhugogomes/
+
+## Projects
+
+- **boreDOM** - A minimal JavaScript framework (no bundling, no compilation)
+- **Grid Generator** - A design tool for pixel art and azulejo-inspired patterns
+- **Color Picker Pro** - A Figma plugin for color selection
+- **WebGPU Diagnostics** - A WebGPU info and shader compilation benchmark tool
+- **Shader Canvas** - A graphics framework for creative coding
+
+## Technical Details
+
+- Static site built with Zola
+- RSS/Atom feed available at /atom.xml
+- Search index available for client-side search
+- All content is in English
+
+## License
+
+Content is published under EUPL 1.2 license.

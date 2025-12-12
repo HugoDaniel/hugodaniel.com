@@ -10,25 +10,31 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ page.title | json_encode() }},
-  "description": {{ description | json_encode() }},
-  "datePublished": {{ published | json_encode() }},
-  "dateModified": {{ modified | json_encode() }},
-  "url": {{ current_url | json_encode() }},
-  "image": {{ image_url | json_encode() }},
+  "headline": {{ page.title | json_encode() | safe }},
+  "description": {{ description | json_encode() | safe }},
+  "datePublished": {{ published | json_encode() | safe }},
+  "dateModified": {{ modified | json_encode() | safe }},
+  "url": {{ current_url | json_encode() | safe }},
+  "image": {{ image_url | json_encode() | safe }},
   "author": {
     "@type": "Person",
-    "name": {{ author_name | json_encode() }}
+    "name": {{ author_name | json_encode() | safe }},
+    "url": "https://hugodaniel.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ author_name | json_encode() | safe }},
+    "url": "https://hugodaniel.com"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ current_url | json_encode() }}
+    "@id": {{ current_url | json_encode() | safe }}
   }
 }
 </script>
 {% endblock extra_head %}
 {% block content %}
-<main role="main">
+<main role="main" id="main-content">
 
 {% if page.extra.class %}
 	<article class="{{ page.extra.class }}">
@@ -56,7 +62,7 @@
 	</article>
 	<hr>
 	<footer>
-		<nav>
+		<nav aria-label="Social links">
 			<a href="https://github.com/HugoDaniel" rel="external">GitHub</a>
 			<a href="https://bsky.app/profile/hugodan.bsky.social" rel="external">bsky</a>
 			<a href="https://www.linkedin.com/in/mrhugogomes/" rel="external">LinkedIN</a>

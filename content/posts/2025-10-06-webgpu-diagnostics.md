@@ -1,7 +1,7 @@
 +++
 title = "WebGPU and the price of compiling WGSL"
 description = "Introducing a WebGPU info and timing tool"
-date = 2025-10-07
+date = 2025-10-06
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/webgpudiagnostics.webp", class="center-images with-lists" }
 +++
 
