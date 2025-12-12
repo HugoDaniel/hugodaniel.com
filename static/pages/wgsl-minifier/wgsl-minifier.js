@@ -3,7 +3,7 @@
 /** @typedef {import("boredom").InitFunction<AppState | undefined>} InitFunction */
 /** @typedef {import("boredom").RenderFunction<AppState | undefined>} RenderFunction */
 import { webComponent } from "boredom"
-import { minifyShader, presets } from "../../main.js"
+import { minifyShader, presets } from "./main.js"
 
 const DEBOUNCE_MS = 300
 let debounceTimer
@@ -78,6 +78,13 @@ export const WgslMinifier = webComponent(
         }
       } catch (err) {
         console.error("Failed to copy:", err)
+      }
+    })
+
+    on("selectOutput", ({ e }) => {
+      const target = e.event.target
+      if (target instanceof HTMLTextAreaElement) {
+        target.select()
       }
     })
 

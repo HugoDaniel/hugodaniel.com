@@ -4,6 +4,7 @@ documentation:
 build: documentation
 	zola build
 
-publish: 
-	rsync -rlptzO --delete --no-perms --progress ./public/ \
+publish:
+	chmod -R a+rX ./public/
+	rsync -rltzO --delete --no-perms --progress ./public/ \
 	example.com:/var/www/htdocs/hugodaniel.com/
