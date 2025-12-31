@@ -1,7 +1,9 @@
 documentation:
 	cp ../shader_canvas/docs/documentation.md content/projects/shader-canvas
+miniray:
+	cp -R ../miniray/web/dist/* static/pages/miniray
 
-build: documentation
+build: miniray documentation
 	zola build
 
 publish:
