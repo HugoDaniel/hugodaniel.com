@@ -1,229 +1,376 @@
 +++
-title = "PNGine a WebGPU shader portability engine"
-description = "Introducing PNGine, the thing I've been working on for a while now."
-date = 2025-12-16
+title = "PNGine: a WebGPU shader portability engine"
+description = "Introducing PNGine, a minimal engine that bundles WebGPU shaders and pipelines into portable PNG files."
+date = 2025-12-31
 extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/pngine.webp", class="center-images with-lists" }
 draft = true
 +++
 
-I've been working in a minimal shader portable engine since mid-2024. It was
+I've been working on a minimal shader portability engine since mid-2024. It was
 used by me and my friend icid to create a demo for the Inércia demoparty 2025
 that happened in Almada in early December.
 
-### Target users
+The demo failed spectacularly.
 
-This is not a commercial project. It is licensed as Public Domain (CC0), and is
-intended to be useful to me, to allow me to code more of what I like (WGSL
-shaders and WebGPU pipelines) and less of other things. I am also exploring
-scenarios where I can use this to make mini creative tools in the pursuit of
-doing cool effects for further Inércia demos. Perhaps even try to resurrect old
-projects in this rendering approach.
+We couldn't show it during the competition because it crashed the browser tab on
+the machine running the demos. Shortly after, we found it also didn't work on
+most computers and devices. At one point it even stopped working on my own
+machine.
 
-If you like to do shaders, and are looking for fun creative ways to show and
-deliver them without big limitations in expressiveness, then maybe PNGine won't
-be a total waste of your time.
+After the party we spent a few days thinking over what went wrong. That led me
+to fix and redesign parts of the engine, optimize loose ends I'd left for
+"future me or some capable LLM," and finally write this post before the story
+repeats itself.
 
-### Motivation
+## What PNGine Is
 
-This year Inércia demo failed spectaculary. We were not able to show the demo
-during the competition because it crashed the browser tab in the machine being
-used to run the demos. Shortly after that we found that it also didn't work most
-computers and devices. Then at one point it even stopped working in my machine.
+Bundle WebGPU shaders and pipeline configuration into a single portable file.
+Run it anywhere with a small viewer.
 
-After the party we spent a few days thinking over what went wrong, which led me
-to fix and redesign some parts of the engine, and optimize a lot of loose ends
-that were left to be done by the future me or some capable LLM.
+That's it. One file containing your render passes, compute shaders, buffers,
+textures, bind groups, etc. Hand it to a viewer on any platform with WebGPU
+support, and it can be played.
 
-Now here I am presenting it before the story repeats all over again.
+The file can be a PNG. The PNG format allows custom binary chunks after the
+image data, working roughly like a .zip that holds things in it but in this case
+it shows a picture by default (the png image).
 
-### PNGine
+Embed your WebGPU bundle in the PNG, and suddenly images can move if you have a
+viewer that can look for the WebGPU bundle in them. It feels a bit like magic.
 
-Bundle WebGPU shaders and any kind of WebGPU setup in a single portable place.
+But PNGine also works with plain .zip files if you prefer. The PNG thing is just
+the flashy option.
 
-The goal: Be able to run any kind of WebGPU setup in any platform with a single
-file and a viewer.
+## What This Is Not
 
-This means, bundling pipeline configurations, buffers, render passes, textures,
-layouts, shader modules, everything you can do in WebGPU with any possible
-asset. In a single place that can then be read by a viewer in your preferred
-platform.
+**Not an animation format.** For that, use Rive or Lottie.
 
-Then came the png. The PNG file format allows for multiple binary chunks to be
-described after the image it holds. This is roughly like a .zip that shows an
-image by default.
+**Not a new vector format.** For that, use SVG or something like that.
 
-Having support for bundling in pngs brings its wow factor. Specially when
-dealing with shaders since you can effectively make the .png image move or
-interact with it. It feels a bit like magic that with a few instructions you can
-extract the extra binary chunks from the .png and declare and initialize the
-WebGPU plumbing in a way that it stars playing. Replace the image placeholder
-with an appropriately sized canvas and it is wow time.
+**Not a design tool.** For that, use Figma or Sketch.
 
-After playing with this with a few simple examples and seeing how friends
-reacted led me to pngine: an engine with PNG on the name.
+**Not a rendering engine.** You write the shaders. PNGine just packages and runs
+them. Maybe it should have been called DIYengine.
 
-### Inside the PNG
+**Not a way to make any PNG move.** The image is just a container. Most of my
+files are actually .zip.
 
-PNG files are typically images, they include the picture that you are seeing:
+## How Small?
 
-// TODO Imagem de uma foto
+Self-contained PNGs with embedded WebGPU information and executor:
 
-What most people don't know is that they can be extended with binary data, they
-are called "chunks":
+A triangle: **~13 KB** (500 bytes bytecode + tailored executor).
 
-// TODO Imagem de uma foto
+A rotating 3D cube with depth buffer: **~14 KB**.
 
-This is supported by PNG images, in fact a few supported formats do this to
-carry over extra information, such as the APNG format that does animations in a
-similar style to GIF.
+A full boids flocking simulation with compute shaders: **~20 KB**.
 
-PNGine uses this to carry over some shaders and webgpu information. It works
-with PNGs by looking for these extra WebGPU chunks but it can also work with ZIP
-files just fine.
+Embedding the WebGPU information and its executor in the .png guarantees that
+they are self contained. No need to be fighting mismatching players/viewers
+versions bugs that can only play certain payloads in certain ways.
 
-### What this is not
+A PNG holds everything that it needs to be played as it was intended when it got
+bundled by the creator of the visuals being shown. Everything except the tiny
+extractor you need to have to read these extra chunks.
 
-PNGine is not an animation format. For that use Rive, Lottie, etc. PNGine is
-also not a design tool. For that use Figma, Sketch, etc.
+## How?
 
-It is also not a rendering engine. That part you do it yourself. Maybe this
-should have been called DIYengine.
+From a design perspective, the WebGPU instructions got moved into a full
+declarative space. Things are described in a Domain Specific Language that
+follows the spec but declares the whole WebGPU non-iteratively, abstract enough
+so that it can be decomposed into a payload that can be run in the browser or in
+your favorite native WebGPU implementation (
+[dawn](https://github.com/google/dawn), [wgpu](https://github.com/gfx-rs/wgpu),
+any compatible web browser, etc...).
 
-It is also not a way to make PNG images move. That only happens in very specific
-conditions. PNG's are just used as containers here. I tend to prefer Zip files.
+The DSL compiles to a custom bytecode, which DEFLATE-compresses into the PNG.
+The compiler builds a tailored WASM executor containing only the parts your
+shader needs to run—typically 12-18 KB. Together they're small enough to inline
+in HTML or use as a favicon.
 
-### The DSL
+## The DSL
 
-PNGine is a textual description of the whole WebGPU canvas. A Domain Specific
-Language that brings WebGPU into a fully declarative space. Designed so that it
-can run seamlessly in multiple platforms and WebGPU backends. This DSL is
-intended to be human-readable and writable, but my initial idea is to have the
-DSL be machine generated in the near future by the use of an easier template
-system.
-
-The DSL goes like this: have a unique #macro for every function in the WebGPU
-Device.
-
-i.e. instead of `device.createBuffer(...)` you have `#buffer ref { ... }`
-
-The "create" goes away, and "#" shows in its place. So
-"device.createTexture(...)" becomes `#texture ref { ... }`, and
-"device.createRenderPipeline(...)" becomes `#renderPipeline ref {...}` and so
-on...
-
-The `ref` is used to reference that created item elsewhere when needed. What
-goes inside `{...}` is the arguments of that function. These are named, kinda
-like Swift, name=value. The `name` comes directly from the WebGPU spec argument
-name, I did not invent any names here (with very few exceptions).
-
-### The interpreter
-
-The DSL with the textual description is then compiled into a specific set of
-binary instructions. These instructions are then interpreted, by a small piece
-of code that just calls the respective WebGPU function with the arguments
-provided in the DSL.
-
-The instructions that the DSL compiler generates are intentionally made so that
-the interpreter can be really simple and stateless.
-
-This interpreter is bundled together with the instructions in the .png (or .zip
-if you prefer).
-
-Having the interpreter being bundled in the payload file is a trade-off.
-
-- The bad thing about it is that you don't share it if you have more than one
-  pngine canvas running on the same page, meaning that its size accumulates with
-  every simultaneous pngine file you might have at the same time being
-  displayed.
-- The ugly part about it is that if there is some fix for the runtime, the
-  pngine files need to be rebuilt, you can't just push the fix up and hope for
-  everybody to update. You have to also rebuild the pngine files with it.
-- The good thing is that if it works it works, future updates won't break it,
-  you test it where you need it to run and it will be bundled with the file.
-
-All of the above made the interpreter become a critical part of PNGine. It is
-very small, it is very fast, and runs a very specific set of instructions with
-no surprises. The heavy work is left for the DSL compiler. The compiler has all
-the muscle, it needs to figure out how to decompose a full WebGPU declaration
-into the very thin set of opcodes that the interpreter supports.
-
-Having the interpreter bundled with the payload in the same file also helps in
-having a very simple pngine viewer. There is no need to carry interpreter logic
-around, it comes with the payload of what you are viewing.
-
-### The viewer
-
-A small amount of code is needed to view pngine files. If you have a .png with
-those special pngine chunk along side the image, then you can pass it through
-the viewer and view what the WebGPU bundle has to show.
-
-The viewer is the pngine API you get to use. It is stateless. This means that
-the core is a stateless draw(), but convenience functions exist for common
-patterns, such as "play()", "stop()" or "pause()" functions. The main function
-is the "draw()". It draws the pngine payload being viewed. It does not animate
-it. It just draws it, with the specified inputs it needs.
+The user facing part of PNGine uses a domain-specific language that maps
+directly to WebGPU. The rule is simple: every `device.create*()` function
+becomes a `#macro`:
 
 ```
-const p = await pngine('shader.png', { canvas });
-draw(p, { time: 2.5 });
-// ^ draws the payload frame at time=2.5 seconds
+device.createBuffer(...)         →  #buffer name { ... }
+device.createTexture(...)        →  #texture name { ... }
+device.createRenderPipeline(...) →  #renderPipeline name { ... }
 ```
 
-You get to hook it with whatever animation system you use. That can be WebAudio
-clock, a webpage scroll, some microphone input, or just plain old
-requestAnimationFrame.
+The "create" disappears, "#" takes its place, and you give it a name to
+reference elsewhere. What goes inside `{ }` are the function arguments, written
+as `name=value`. The names come directly from the WebGPU spec—I didn't invent
+them.
 
-PNGine is a declarative, stateless way to bring your shaders to the world.
+Here's a minimal triangle:
 
-### The CLI
+```
+#shaderModule code {
+  code="
+    @vertex fn vs(@builtin(vertex_index) i: u32) -> @builtin(position) vec4f {
+      var pos = array<vec2f, 3>(
+        vec2f(0.0, 0.5),
+        vec2f(-0.5, -0.5),
+        vec2f(0.5, -0.5)
+      );
+      return vec4f(pos[i], 0.0, 1.0);
+    }
 
-PNGine main command line interface tool brings in a few useful subcommands to
-help inspect and create .png's from DSL files. It is used to develop and analyze
-png files and its shaders and instructions via the terminal.
+    @fragment fn fs() -> @location(0) vec4f {
+      return vec4f(1.0, 0.5, 0.0, 1.0);
+    }
+  "
+}
 
-### Example
+#renderPipeline pipeline {
+  layout=auto
+  vertex={ module=code entryPoint=vs }
+  fragment={ module=code entryPoint=fs targets=[{ format=preferredCanvasFormat }] }
+}
 
-Tangram example.
+#renderPass pass {
+  colorAttachments=[{
+    view=contextCurrentTexture
+    clearValue=[0 0 0 1]
+    loadOp=clear
+    storeOp=store
+  }]
+  pipeline=pipeline
+  draw=3
+}
 
-### How to use it?
+#frame main {
+  perform=[pass]
+}
+```
 
-Currently PNGine only supports the web viewer. Soon iOS will be added and
-shortly after that Android.
+Compile it: `pngine triangle.pngine -o triangle.png`
 
-If you have a web page and want to try out PNGine, then using (p)npm is all you
-need:
+That's your ~500 byte triangle, embedded in a PNG alongside a WASM executor
+ready to show it.
 
-`pnpm install pngine`
+## Shape Generators
 
-After that, do this `pnpm run pngine init`, it will create a simple example
-.pngine DSL file that you can use to create a demo .png.
+Writing vertex data by hand is tedious. So the compiler can generate it:
 
-Once you have the png, import the viewer in your code and load the png in it.
+```
+#data cubeVertices {
+  cube={ format=[position4 color4 uv2] }
+  // ^ a cube!
+}
 
-// TODO
+#buffer vertexBuffer {
+  size=cubeVertices
+  usage=[VERTEX]
+  mappedAtCreation=cubeVertices
+  // ^ names can be used as references to WebGPU parameters
+  // The compiler understands and takes care of everything beforehand
+}
+```
 
-## Conclusion
+This generates a unit cube with 36 vertices at compile time. The `format=`
+specifies what attributes each vertex has: position, color, normals, UVs. No
+more copying vertex arrays from tutorials.
 
-...
+Available shapes: `cube`, `plane`. More coming.
 
-Core API: Stateless draw(time)
+## Built-in Uniforms
 
-const player = await PNGine.load(canvas, 'shader.png');
+For animation, you need time and canvas dimensions. Instead of wiring that up
+yourself:
 
-// YOU control the loop - we just render player.draw(audioContext.currentTime);
-player.draw(videoElement.currentTime); player.draw(midiClock.time);
-player.draw(slider.value);
+```
+#buffer uniforms {
+  size=16
+  usage=[UNIFORM COPY_DST]
+}
 
-Convenience: play({ clock })
+#queue writeTime {
+  writeBuffer={
+    buffer=uniforms
+    bufferOffset=0
+    data=pngineInputs
+  }
+}
 
-// Simple case: RAF clock (default) player.play();
+#frame main {
+  perform=[writeTime renderPass]
+}
+```
 
-// Audio sync player.play({ clock: clocks.audio(audioElement) });
+The `pngineInputs` identifier gives you 16 bytes every frame: time (f32), width
+(f32), height (f32), aspect ratio (f32). Your shader just reads them.
 
-// Video sync player.play({ clock: clocks.video(videoElement) });
+This is the only builtin identifier of the engine. All custom uniforms can be
+set using your data as initialization and are available in the viewer API to be
+written to.
 
-// Manual (for scrubbing UI) const clock = clocks.manual(); player.play({ clock
-}); slider.oninput = () => clock.seek(slider.value);
+## The Architecture
 
-The PNG contains declarative animation data. Platforms implement imperative
-event handling using the pure DrawState return value.
+```
+┌─────────────────┐
+│  DSL Source     │  Human-readable .pngine file
+└────────┬────────┘
+         │ compile
+         ▼
+┌─────────────────┐
+│  PNGB Bytecode  │  ~500 bytes to ~8 KB
+└────────┬────────┘
+         │ embed
+         ▼
+┌─────────────────┐
+│  PNG File       │  Image + bytecode + tailored executor
+└────────┬────────┘
+         │ load
+         ▼
+┌─────────────────┐
+│  WASM Executor  │  ~15 KB, interprets bytecode
+└────────┬────────┘
+         │ calls
+         ▼
+┌─────────────────┐
+│  WebGPU         │  Your GPU does the work
+└─────────────────┘
+```
+
+The compiler does the heavy lifting. It parses the DSL, resolves references,
+validates everything, and emits compact bytecode. The executor is deliberately
+simple—it just reads opcodes and calls WebGPU functions. No surprises.
+
+## WGSL shader strings
+
+The shader strings are compressed in the PNG. They are validated and minified
+through [miniray](/posts/miniray/). Miniray also provides special reflection
+data on them which allows variables to be mapped before and after minification,
+and accessed in a natural way through the viewer API, with all the memory
+layouts and offsets already baked in.
+
+## The Interpreter Trade-off
+
+The WASM interpreter is bundled inside the PNG by default. The compiler analyzes
+your DSL and builds a tailored executor containing only the parts you need
+(render, compute, animation, etc.). This keeps each file self-contained—no
+external WASM file to host or fetch and no complex viewer.
+
+This has consequences:
+
+**The bad:** If you have multiple PNGine canvases on one page, each loads its
+own interpreter. The size accumulates, sure it's small, slowly but steadily.
+
+**The ugly:** If I fix a bug in the interpreter, you need to recompile your
+PNGine files. I can't just push a fix and have everyone benefit.
+
+**The good:** If it works, it works. Future updates won't break it. You test it
+where it needs to run, and that exact version ships with your file.
+
+This trade-off made the interpreter a critical piece. It has to be tiny, fast,
+and unsurprising. All complexity lives in the compiler, who does the heavy
+lifting.
+
+## The Viewer
+
+A small amount of JavaScript loads and runs PNGine files executors with their
+payloads:
+
+```javascript
+import { destroy, draw, play, pngine } from "pngine";
+
+// Load from PNG into a canvas
+const p = await pngine("shader.png", {
+  canvas: document.getElementById("canvas"),
+});
+
+// Option 1: Let it animate
+play(p);
+
+// Option 2: Control it yourself
+draw(p, { time: audioContext.currentTime });
+draw(p, { time: videoElement.currentTime });
+draw(p, { time: slider.value });
+
+// Cleanup when done
+destroy(p);
+```
+
+At its core, PNGine is stateless: `draw(p, { time })` renders one frame at a
+specific time. You control when frames render.
+
+But because "give me an animation loop" is so common, convenience functions
+exist: `play(p)`, `pause(p)`, `stop(p)`, `seek(p, time)`. Use them or don't.
+Hook it to WebAudio, a scroll position, a MIDI clock, or plain
+requestAnimationFrame. Your call.
+
+## The CLI
+
+The command-line tool compiles, validates, and inspects:
+
+```bash
+# Compile to PNG with embedded bytecode and executor (default)
+pngine shader.pngine -o shader.png
+
+# Smaller PNG without executor (needs shared pngine.wasm at runtime)
+pngine shader.pngine --no-executor -o shader.png
+
+# Render an actual frame (not just embed)
+pngine shader.pngine --frame -s 1920x1080 -o preview.png
+
+# Validate and see what GPU calls it makes
+pngine check shader.png --verbose
+```
+
+The `--verbose` flag on check shows every GPU call the bytecode will make. Good
+for debugging why your shader isn't doing what you expect.
+
+## How to Use It
+
+Currently PNGine only supports web browsers. iOS and Android viewers are coming
+soon™ (when we decide on making a demo for them and see if they crash ahah).
+
+```bash
+npm install pngine
+```
+
+Create a `.pngine` file with your shaders and pipeline setup. Compile it:
+
+```bash
+npx pngine myshader.pngine -o myshader.png
+```
+
+Load it in your page:
+
+```javascript
+import { play, pngine } from "pngine";
+
+const p = await pngine("myshader.png", {
+  canvas: document.getElementById("canvas"),
+});
+play(p);
+```
+
+That's it. Your shader is now a PNG that plays anywhere WebGPU runs.
+
+## Target Users
+
+Like all things I do for fun, this is a Public Domain (CC0) project.
+
+I built it for myself, to spend more time writing WGSL shaders and less time on
+boilerplate. I'm exploring scenarios where I can make mini creative tools for
+future Inércia demos, maybe resurrect old projects in this rendering approach.
+
+If you like shaders and want a fun way to package and share them without big
+limitations on expressiveness, maybe PNGine won't be a total waste of your time.
+
+## Next Inércia
+
+Will this crash the demoparty competition machine again? Probably. But at least
+now I can run `pngine check demo.png --verbose` and see exactly what GPU calls
+it makes before I embarrass myself.
+
+The full documentation is at [pngine.org](https://pngine.org). The source is on
+[GitHub](https://github.com/pngine/pngine). The Inércia demo that failed is
+somewhere in my shame folder.
+
+See you at the next demoparty.
