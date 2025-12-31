@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="importmap">{ "imports": { "boredom": "./boreDOM.js" } }</script>
+  <script type="module">
+    import { inflictBoreDOM, webComponent } from "boredom"
+
+    // Simple test component
+    const TestComponent = webComponent(({ on }) => {
+      on("increment", ({ state: mutable }) => {
+        if (mutable) {
+          console.log("Before increment:", mutable.count)
+          mutable.count++
+          console.log("After increment:", mutable.count)
+        }
+      })
+
+      return ({ state, refs }) => {
+        console.log("Render called, state:", state)
+        if (!state) return
+
+        const display = refs.display
+        if (display instanceof HTMLElement) {
+          display.textContent = `Count: ${state.count}`
+          console.log("Updated display to:", state.count)
+        }
+      }
+    })
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      console.log("DOMContentLoaded fired")
+
+      const state = await inflictBoreDOM({ count: 0 }, {
+        "test-counter": TestComponent
+      })
+
+      console.log("inflictBoreDOM completed, state:", state)
+
+      // Test mutation outside event handler
+      setTimeout(() => {
+        console.log("Mutating state.count to 42")
+        state.count = 42
+      }, 1000)
+    })
+  </script>
+</head>
+<body>
+  <h1>BoreDOM Reactivity Test</h1>
+  <test-counter></test-counter>
+  <template data-component="test-counter">
+    <div>
+      <span data-ref="display">Count: 0</span>
+      <button onclick="['increment']">Increment</button>
+    </div>
+  </template>
+</body>
+</html>

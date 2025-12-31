@@ -2,8 +2,7 @@
 title = "PNGine: a WebGPU shader portability engine"
 description = "Introducing PNGine, a minimal engine that bundles WebGPU shaders and pipelines into portable PNG files."
 date = 2025-12-31
-extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/pngine.webp", class="center-images with-lists" }
-draft = true
+extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/pngine.png", class="center-images with-lists", modules = ["modules/pngine-demo.js"] }
 +++
 
 I've been working on a minimal shader portability engine since mid-2024. It was
@@ -21,6 +20,11 @@ After the party we spent a few days thinking over what went wrong. That led me
 to fix and redesign parts of the engine, optimize loose ends I'd left for
 "future me or some capable LLM," and finally write this post before the story
 repeats itself.
+
+<video controls muted loop preload width="100%">
+  <source src="/videos/pngine.webm" type="video/webm">
+  <source src="/videos/pngine.mp4" type="video/mp4">
+</video>
 
 ## What PNGine Is
 
@@ -208,6 +212,11 @@ This is the only builtin identifier of the engine. All custom uniforms can be
 set using your data as initialization and are available in the viewer API to be
 written to.
 
+<video controls muted loop preload width="100%">
+  <source src="/videos/balls.webm" type="video/webm">
+  <source src="/videos/balls.mp4" type="video/mp4">
+</video>
+
 ## The Architecture
 
 ```
@@ -303,6 +312,51 @@ exist: `play(p)`, `pause(p)`, `stop(p)`, `seek(p, time)`. Use them or don't.
 Hook it to WebAudio, a scroll position, a MIDI clock, or plain
 requestAnimationFrame. Your call.
 
+## Try It Yourself
+
+<div class="pngine-demo">
+  <div class="pngine-source">
+    <img src="/images/pngine_logo.png" alt="PNGine Logo - a static PNG containing a shader">
+    <p>This PNG contains a WebGPU shader. It looks static, but inside there's bytecode waiting to run.</p>
+    <a href="/images/pngine_logo.png" download class="pngine-download">Download pngine_logo.png</a>
+  </div>
+
+<div id="pngine-drop-zone" class="pngine-drop-zone">
+    <canvas id="pngine-demo-canvas" width="400" height="400"></canvas>
+    <div class="pngine-drop-overlay">
+      <p>Drop the PNG here to see it animate</p>
+      <p class="hint">or click to select file</p>
+    </div>
+    <input type="file" id="pngine-file-input" accept=".png" hidden>
+  </div>
+
+<p id="pngine-demo-hint" class="pngine-hint">Drop the PNG above to watch it come to life.</p>
+</div>
+
+<style>
+.pngine-demo { margin: 2rem 0; }
+.pngine-source { text-align: center; margin-bottom: 1.5rem; }
+.pngine-source img { max-width: 200px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.pngine-source p { margin: 0.75rem 0; color: #666; }
+.pngine-download { display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: #C75D3A; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; }
+.pngine-download:hover { background: #a84d2f; }
+.pngine-drop-zone { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1; margin: 0 auto; border: 2px dashed #aaa; border-radius: 8px; overflow: hidden; background: #f9f9f9; }
+.pngine-drop-zone.dragover { border-color: #C75D3A; background: rgba(199,93,58,0.1); }
+.pngine-drop-zone canvas { width: 100%; height: 100%; display: block; }
+.pngine-drop-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.95); cursor: pointer; }
+.pngine-drop-overlay p { margin: 0.25rem 0; }
+.pngine-drop-overlay .hint { font-size: 0.85em; color: #666; }
+.pngine-hint { text-align: center; color: #666; margin-top: 1rem; font-style: italic; }
+@media (prefers-color-scheme: dark) {
+  .pngine-source p { color: #aaa; }
+  .pngine-drop-zone { background: #2a2a2a; border-color: #555; }
+  .pngine-drop-zone.dragover { background: rgba(199,93,58,0.2); }
+  .pngine-drop-overlay { background: rgba(30,30,30,0.95); }
+  .pngine-drop-overlay .hint { color: #888; }
+  .pngine-hint { color: #888; }
+}
+</style>
+
 ## The CLI
 
 The command-line tool compiles, validates, and inspects:
@@ -369,8 +423,8 @@ Will this crash the demoparty competition machine again? Probably. But at least
 now I can run `pngine check demo.png --verbose` and see exactly what GPU calls
 it makes before I embarrass myself.
 
-The full documentation is at [pngine.org](https://pngine.org). The source is on
-[GitHub](https://github.com/pngine/pngine). The Inércia demo that failed is
-somewhere in my shame folder.
+I am still working on the proper site for this with one of those fancy landing
+pages. The source is on [GitHub](https://github.com/HugoDaniel/pngine). The
+Inércia demo that failed is somewhere in my shame folder.
 
 See you at the next demoparty.

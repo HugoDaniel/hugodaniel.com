@@ -252,6 +252,6 @@ complex shaders by splitting them in many small pipelines (just a wild
 hypothesis at this point i guess).
 
 This post wraps the WGSL limits endeavour. For the next ones I might be
-introducing a rendering engine I am working that tries to perform with rendering
-the same spirit as boreDOM has to JS frameworks. Thanks for reading all of this
-and stay tuned!
+introducing a [rendering engine I am working](/posts/introducing-pngine/) that
+tries to perform with rendering the same spirit as boreDOM has to JS frameworks.
+Thanks for reading all of this and stay tuned!
