@@ -32,6 +32,7 @@ prod.sh
 decls/
 tmp/
 TODO
+PLAN.md
 .env
 .env_sandbox
 .env_production
