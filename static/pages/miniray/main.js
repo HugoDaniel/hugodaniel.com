@@ -30,14 +30,12 @@ export const presets = {
 /** @type {AppState} */
 const initialState = {
   input: `// Example WGSL shader
+@group(0) @binding(0) var<uniform> uniforms: Uniforms;
+
 struct Uniforms {
     resolution: vec2f,
     time: f32,
 }
-
-@group(0) @binding(0) var<uniform> uniforms: Uniforms;
-@group(0) @binding(1) var texSampler: sampler;
-@group(0) @binding(2) var texture: texture_2d<f32>;
 
 fn computeColor(uv: vec2f) -> vec4f {
     let color = vec3f(uv, sin(uniforms.time) * 0.5 + 0.5);
@@ -52,13 +50,8 @@ fn main(@builtin(position) pos: vec4f) -> @location(0) vec4f {
   output: "",
   isLoading: true,
   isMinifying: false,
-  validation: null,
+  error: null,
   stats: null,
-  reflect: null,
-  showReflection: false,
-  showErrorCodes: false,
-  diagnosticCodes: [],
-  highlightedCode: null,
   preset: "default",
   options: {
     minifyWhitespace: true,
@@ -111,23 +104,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     state[runtimeAttr].wasm = wasm
     state.isLoading = false
 
-    // Load diagnostic codes
-    try {
-      const codes = wasm.getDiagnosticCodes()
-      state.diagnosticCodes = codes || []
-    } catch {
-      state.diagnosticCodes = []
-    }
-
     // Initial minification
     minifyShader(state)
   } catch (err) {
-    state.validation = {
-      valid: false,
-      diagnostics: [{ severity: "error", message: `Failed to load WASM: ${err.message}`, line: 0, column: 0 }],
-      errorCount: 1,
-      warningCount: 0,
-    }
+    state.error = `Failed to load WASM: ${err.message}`
     state.isLoading = false
   }
 })
@@ -138,21 +118,17 @@ export function minifyShader(state) {
   if (!wasm || state.isMinifying) return
 
   state.isMinifying = true
+  state.error = null
 
   // Use setTimeout to avoid blocking the UI and allow state to update
   setTimeout(() => {
     try {
-      // Always run validation first
-      const validationResult = wasm.validate(state.input)
-      state.validation = validationResult
-
-      // Run minification
       const result = wasm.minify(state.input, state.options)
 
       if (result.errors && result.errors.length > 0) {
+        state.error = result.errors.map(e => e.message).join("\n")
         state.output = ""
         state.stats = null
-        state.reflect = null
       } else {
         state.output = result.code
         state.stats = {
@@ -160,29 +136,11 @@ export function minifyShader(state) {
           minified: result.minifiedSize,
           savings: Math.round((1 - result.minifiedSize / result.originalSize) * 100),
         }
-
-        // Also run reflection on the original source
-        try {
-          const reflectResult = wasm.reflect(state.input)
-          if (reflectResult.errors && reflectResult.errors.length > 0) {
-            state.reflect = null
-          } else {
-            state.reflect = reflectResult
-          }
-        } catch {
-          state.reflect = null
-        }
       }
     } catch (err) {
-      state.validation = {
-        valid: false,
-        diagnostics: [{ severity: "error", message: err.message || "Processing failed", line: 0, column: 0 }],
-        errorCount: 1,
-        warningCount: 0,
-      }
+      state.error = err.message || "Minification failed"
       state.output = ""
       state.stats = null
-      state.reflect = null
     }
 
     state.isMinifying = false
