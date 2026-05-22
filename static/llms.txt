@@ -25,7 +25,6 @@ Hugo Daniel
 - Email: hello@hugodaniel.com
 - GitHub: https://github.com/HugoDaniel
 - Bluesky: https://bsky.app/profile/hugodan.bsky.social
-- LinkedIn: https://www.linkedin.com/in/mrhugogomes/
 
 ## Projects
 
