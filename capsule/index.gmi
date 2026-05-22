@@ -1,8 +1,8 @@
 # Hugo Daniel
 
-Personal capsule of a Portuguese software developer making tools for creative code.
+Tools for creative code & thoughts on software.
 
-This is the gemini:// mirror of hugodaniel.com — a small, hand-curated slice of the same writing, served over a quieter protocol.
+This capsule is my quiet room in a loud world, I hand-curate a slice of my site (hugodaniel.com), and strip it of the web's noise over here.
 
 ## Latest posts
 
