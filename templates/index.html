@@ -13,13 +13,13 @@
 		{% else %}
 			<meta name="description" content="Hugo Daniel's site about ideas and software experimentations">
 		{% endif %}
-		<link rel="stylesheet" href="{{ get_url(path="css/base.css", trailing_slash=false) }}">
-		<link rel="stylesheet" href="{{ get_url(path="css/html-system.css", trailing_slash=false) }}">
-		<link rel="stylesheet" href="{{ get_url(path="css/dark-mode.css", trailing_slash=false) }}">
-		<link rel="stylesheet" href="{{ get_url(path="css/desktop.css", trailing_slash=false) }}">
-		<link rel="stylesheet" href="{{ get_url(path="css/submit-form.css", trailing_slash=false) }}">
+		<link rel="stylesheet" href="/css/base.css">
+		<link rel="stylesheet" href="/css/html-system.css">
+		<link rel="stylesheet" href="/css/dark-mode.css">
+		<link rel="stylesheet" href="/css/desktop.css">
+		<link rel="stylesheet" href="/css/submit-form.css">
 		{% block rss %}
-			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+			<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml">
 		{% endblock %}
         {% block extra_head %}
         {% endblock extra_head %}
@@ -108,7 +108,7 @@
 					</header>
 					<p>I’m a Portuguese developer making tools for creative code.</p>
 					<p>Right now: <a href="/pages/boreDOM/">my JS framework</a>, a <a href="https://www.figma.com/community/plugin/1382041838227127919/color-picker-pro">Figma color-picker</a>, and a renderer for demoscene experiments.
-					</p><p>In the past I’ve also built <a href="posts/color-picker/">more color pickers</a> and a <a href="/pages/gridgenerator/">design tool for pixel art and azulejo-inspired patterns</a>.
+					</p><p>In the past I’ve also built <a href="/posts/color-picker/">more color pickers</a> and a <a href="/pages/gridgenerator/">design tool for pixel art and azulejo-inspired patterns</a>.
           <!-- <br>In my spare time I am teaming with the amazing journalists from <a target="_blank" href="https://www.wilder.pt/">Wilder <img src="/images/wilder.jpg" width=24 alt="Wilder Magazine Logo" /></a>, a news website dedicated to nature and biodiversity related themes and stories. -->
 					<!-- <br>Previously at Lottielab, Sketch, Farfetch, startups, and projects for the Portuguese government. -->
 					<br> Previously at <a  href="https://www.lottielab.com/">Lottielab <!-- <img src="/images/lottielab.svg" width=24 alt="Logo of lottielab.com" /> --></a>, <a href="https://www.sketch.com/">Sketch<!-- <img src="/images/sketch.svg.png" width=24 alt="Logo of sketch.com" />--></a>, <a href="https://www.farfetch.com/">Farfetch<!--<img src="/images/farfetch.png" width=24 alt="Logo of farfetch.com" />--></a>, startups, and projects for the Portuguese government.
@@ -143,13 +143,13 @@
 				{% set sub = get_section(path=basesub) %}
 				{% if sub.permalink is undefined %}{% continue %}{% endif %}
 				<nav aria-label="{{ sub.title }}">
-					<h4><a href="{{sub.permalink | safe}}">{{ sub.title }}</a></h4>
+					<h4><a href="{{ sub.permalink | replace(from=config.base_url, to='') | safe }}">{{ sub.title }}</a></h4>
 					<ol>
 					{% for subpage in sub.pages %}
 						{% if loop.index0 < 5 %}
-							<li><a href="{{subpage.permalink | safe}}">{{ subpage.title }}</a></li>
+							<li><a href="{{ subpage.permalink | replace(from=config.base_url, to='') | safe }}">{{ subpage.title }}</a></li>
 						{% elif loop.index0 == 5 %}
-							<li><a href="{{sub.permalink | safe}}">See more...</a></li>
+							<li><a href="{{ sub.permalink | replace(from=config.base_url, to='') | safe }}">See more...</a></li>
 							{% else %}
 							{% break %}
 						{% endif %}
