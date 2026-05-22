@@ -1,0 +1,23 @@
+/* TEAM */
+    Maker:    Hugo Daniel
+    Site:     hugodaniel.com
+    Contact:  mail@hugodaniel.com
+    From:     Amadora, Portugal
+    GitHub:   github.com/HugoDaniel
+    Bluesky:  @hugodan.bsky.social
+
+/* IDENTITY */
+    PGP fingerprint: E49D 556A D099 3482 CA78 B6E8 C181 88F9 E2A4 C0AD
+    PGP key:         https://hugodaniel.com/pgp.asc
+    WKD:             gpg --locate-external-keys mail@hugodaniel.com
+    Onion mirror:    http://gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion/
+
+/* SITE */
+    Generator:   Zola (Rust)
+    Hosting:     OpenBSD + httpd + relayd
+    Front door:  TLS via Let's Encrypt
+    Feeds:       /atom.xml (signed at /atom.xml.asc)
+    License:     EUPL 1.2
+
+/* THANKS */
+    OpenBSD, GnuPG, Tor Project, Let's Encrypt, Mozilla

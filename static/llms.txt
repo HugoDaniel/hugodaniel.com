@@ -38,9 +38,23 @@ Hugo Daniel
 ## Technical Details
 
 - Static site built with Zola
-- RSS/Atom feed available at /atom.xml
+- RSS/Atom feed at /atom.xml (detached-signed at /atom.xml.asc)
 - Search index available for client-side search
 - All content is in English
+- Hosted on OpenBSD with httpd + relayd
+
+## Identity & Verification
+
+- PGP fingerprint: E49D 556A D099 3482 CA78 B6E8 C181 88F9 E2A4 C0AD
+- Public key: /pgp.asc
+- PGP info page: /pgp/
+- WKD discovery: `gpg --locate-external-keys mail@hugodaniel.com`
+- Security contact: /.well-known/security.txt
+
+## Alternate Access
+
+- Onion mirror (Tor v3): gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion
+- Tor Browser auto-redirects via the Onion-Location response header
 
 ## License
 
