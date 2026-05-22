@@ -17,6 +17,10 @@ This capsule is my quiet room in a loud world, I hand-curate a slice of my site 
 => /about.gmi About Hugo
 => /pgp.gmi PGP identity & verification
 
+## Subscribe
+
+=> /atom.gmi Capsule feed (Antenna / Lagrange / CAPCOM compatible)
+
 ## Elsewhere
 
 => https://hugodaniel.com Full site (HTTPS)
