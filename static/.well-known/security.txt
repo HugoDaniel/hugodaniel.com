@@ -1,0 +1,6 @@
+Contact: mailto:mail@hugodaniel.com
+Expires: 2027-05-22T00:00:00Z
+Encryption: https://hugodaniel.com/pgp.asc
+Preferred-Languages: en, pt
+Canonical: https://hugodaniel.com/.well-known/security.txt
+# Fingerprint: E49D 556A D099 3482 CA78  B6E8 C181 88F9 E2A4 C0AD
