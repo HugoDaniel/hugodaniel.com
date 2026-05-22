@@ -1,0 +1,20 @@
+# About
+
+Hugo Daniel. Software developer. Lisbon-ish.
+
+I write about WebGPU, web components, creative coding, and the strange new shape of working alongside language models. I build small tools that I want to exist.
+
+## Contact
+
+=> mailto:mail@hugodaniel.com mail@hugodaniel.com
+
+PGP-signed mail is welcome and preferred for anything sensitive.
+
+=> /pgp.gmi PGP key & fingerprint
+
+## Where to find me
+
+=> https://github.com/HugoDaniel GitHub
+=> https://bsky.app/profile/hugodan.bsky.social Bluesky
+
+=> / Back to index

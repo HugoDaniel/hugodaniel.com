@@ -54,6 +54,7 @@ Hugo Daniel
 
 - Onion mirror (Tor v3): gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion
 - Tor Browser auto-redirects via the Onion-Location response header
+- Gemini capsule: gemini://hugodaniel.com/ (latest 5 posts as gemtext)
 
 ## License
 

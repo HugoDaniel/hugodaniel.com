@@ -33,6 +33,7 @@ A small, opinionated stack. Mostly built from open-source pieces I trust and hav
 
 - Onion mirror (Tor v3): [gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion](http://gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion/)
 - If you visit the clearnet site in Tor Browser, the `Onion-Location` header should redirect you automatically.
+- Gemini capsule: `gemini://hugodaniel.com/` — a hand-curated slice, latest five posts converted to gemtext. Try [Lagrange](https://gmi.skyjake.fi/lagrange/) or [amfora](https://github.com/makew0rld/amfora).
 
 ## Things you can poke at
 

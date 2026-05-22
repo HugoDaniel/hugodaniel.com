@@ -1,0 +1,35 @@
+# PGP
+
+All outbound mail from me can be verified by a single key. Subkeys live on a YubiKey 5; signing requires a physical touch.
+
+## Fingerprint
+
+```
+E49D 556A D099 3482 CA78  B6E8 C181 88F9 E2A4 C0AD
+```
+
+## Get the key
+
+WKD discovery (recommended):
+
+```
+gpg --locate-external-keys mail@hugodaniel.com
+```
+
+Or from keys.openpgp.org:
+
+=> https://keys.openpgp.org/vks/v1/by-fingerprint/E49D556AD0993482CA78B6E8C18188F9E2A4C0AD Public key (Hagrid)
+=> https://hugodaniel.com/pgp.asc Public key (direct download)
+
+## Verifying the Atom feed
+
+The Atom feed at hugodaniel.com/atom.xml ships with a detached signature.
+
+```
+curl -O https://hugodaniel.com/atom.xml
+curl -O https://hugodaniel.com/atom.xml.asc
+gpg --verify atom.xml.asc atom.xml
+```
+
+=> /about.gmi About
+=> / Back to index
