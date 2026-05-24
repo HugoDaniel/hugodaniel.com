@@ -22,7 +22,7 @@ Identities (both verified):
 
 Pick whichever you trust most.
 
-**Direct download** — [pgp.asc](/pgp.asc)
+**Direct download** — [pgp.asc](/pgp.asc) — also reachable over Tor at [the onion mirror](http://gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion/pgp.asc).
 
 **Web Key Directory** — resolves straight from this domain:
 

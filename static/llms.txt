@@ -23,8 +23,8 @@ This is the personal website of Hugo Daniel, a Portuguese software developer mak
 
 Hugo Daniel
 - Email: hello@hugodaniel.com
-- GitHub: https://github.com/HugoDaniel
 - Bluesky: https://bsky.app/profile/hugodan.bsky.social
+- Gemini capsule: gemini://hugodaniel.com/
 
 ## Projects
 

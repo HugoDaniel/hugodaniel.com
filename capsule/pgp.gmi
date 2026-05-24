@@ -1,7 +1,5 @@
 # PGP
 
-All outbound mail from me can be verified by a single key. Subkeys live on a YubiKey 5; signing requires a physical touch.
-
 ## Fingerprint
 
 ```

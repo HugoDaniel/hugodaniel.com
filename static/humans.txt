@@ -3,8 +3,8 @@
     Site:     hugodaniel.com
     Contact:  mail@hugodaniel.com
     From:     Amadora, Portugal
-    GitHub:   github.com/HugoDaniel
     Bluesky:  @hugodan.bsky.social
+    Gemini:   gemini://hugodaniel.com/
 
 /* IDENTITY */
     PGP fingerprint: E49D 556A D099 3482 CA78 B6E8 C181 88F9 E2A4 C0AD
