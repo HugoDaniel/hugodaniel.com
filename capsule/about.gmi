@@ -14,7 +14,6 @@ PGP-signed mail is welcome and preferred for anything sensitive.
 
 ## Where to find me
 
-=> https://github.com/HugoDaniel GitHub
 => https://bsky.app/profile/hugodan.bsky.social Bluesky
 
 => / Back to index
