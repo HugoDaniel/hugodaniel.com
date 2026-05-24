@@ -2,6 +2,7 @@
 
 A subscribable index of posts on gemini://hugodaniel.com/. Compatible with Antenna, CAPCOM, Lagrange subscriptions, and any other aggregator that parses `=> URL YYYY-MM-DD - Title` lines.
 
+=> gemini://hugodaniel.com/posts/2026-05-24-lost-in-the-middle.gmi 2026-05-24 - Lost in the middle
 => gemini://hugodaniel.com/posts/2026-02-17-redesigning-boredom-for-lx.gmi 2026-02-17 - Redesigning boreDOM for LX
 => gemini://hugodaniel.com/posts/2026-02-16-rip-rest-in-prompt.gmi 2026-02-16 - R.I.P. Rest In Prompt
 => gemini://hugodaniel.com/posts/2026-01-22-claude-code-banned-me.gmi 2026-01-22 - Claude Code banned me

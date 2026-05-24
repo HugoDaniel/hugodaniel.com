@@ -6,6 +6,7 @@ This capsule is my quiet room in a loud world, I hand-curate a slice of my site 
 
 ## Latest posts
 
+=> /posts/2026-05-24-lost-in-the-middle.gmi Lost in the middle (2026-05-24)
 => /posts/2026-02-17-redesigning-boredom-for-lx.gmi Redesigning boreDOM for LX (2026-02-17)
 => /posts/2026-02-16-rip-rest-in-prompt.gmi R.I.P. Rest In Prompt (2026-02-16)
 => /posts/2026-01-22-claude-code-banned-me.gmi Claude Code banned me (2026-01-22)
@@ -26,6 +27,5 @@ This capsule is my quiet room in a loud world, I hand-curate a slice of my site 
 => https://hugodaniel.com Full site (HTTPS)
 => http://gbbodsjshg2lrktc3vpcobn5i3qcuhtab5nkzjxaiip3yj5s3rlws7ad.onion Onion mirror (Tor v3)
 => https://hugodaniel.com/atom.xml Atom feed
-=> https://github.com/HugoDaniel GitHub
 
 Content licensed under EUPL 1.2.

@@ -12,6 +12,7 @@ build: miniray boredom
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
+	2026-05-24-lost-in-the-middle \
 	2026-02-17-redesigning-boredom-for-lx \
 	2026-02-16-rip-rest-in-prompt \
 	2026-01-22-claude-code-banned-me \
