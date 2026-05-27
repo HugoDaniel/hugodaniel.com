@@ -5,13 +5,20 @@ miniray:
 boredom:
 	cp -R ../boreDOM/landing-page/* static/pages/boreDOM
 
-build: miniray boredom
+sjon:
+	pnpm --dir ../SJON/landing-page build
+	rm -rf static/pages/sjon
+	mkdir -p static/pages/sjon
+	cp -R ../SJON/landing-page/dist/* static/pages/sjon/
+
+build: miniray boredom sjon
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom
+.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
+	2026-05-25-s-rausch \
 	2026-05-24-lost-in-the-middle \
 	2026-02-17-redesigning-boredom-for-lx \
 	2026-02-16-rip-rest-in-prompt \
