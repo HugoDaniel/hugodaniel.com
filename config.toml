@@ -1,6 +1,10 @@
 # The URL the site will be built for
 base_url = "https://hugodaniel.com"
 
+# Site title — used for the page <title> fallback and the Atom feed <title>
+title = "Hugo Daniel"
+description = "Personal blog about web development, WebGPU, creative coding, and design tools."
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 

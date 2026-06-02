@@ -11,13 +11,17 @@ sjon:
 	mkdir -p static/pages/sjon
 	cp -R ../SJON/landing-page/dist/* static/pages/sjon/
 
-build: miniray boredom sjon
+llms:
+	bin/gen-llms.py
+
+build: miniray boredom sjon llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon
+.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon llms
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
+	2026-06-02-sjon \
 	2026-05-25-s-rausch \
 	2026-05-24-lost-in-the-middle \
 	2026-02-17-redesigning-boredom-for-lx \
