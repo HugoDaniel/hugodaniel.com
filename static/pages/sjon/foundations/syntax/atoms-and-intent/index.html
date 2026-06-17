@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Atoms and intent · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Foundations</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Syntax and Atoms</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 03</span> </p> <h1 data-astro-cid-fzx4jmue>Atoms and intent</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>SJON keeps value kinds distinct. A value does not forget whether you
+wrote it as a string, symbol, keyword, number, boolean, or nil.</p>
+<p>Use this authoring rule:</p>
+<ul>
+<li><strong>Keyword</strong> - names a slot or acts as a flag: <code>:name</code>, <code>:ortho</code>.</li>
+<li><strong>Symbol</strong> - names something the schema resolves: <code>ortho</code>, <code>mask</code>,
+<code>parent.transform</code>, <code>C#4</code>, <code>+</code>.</li>
+<li><strong>String</strong> - carries opaque text: <code>"intro"</code>, <code>"black"</code>,
+<code>"hello.wgsl"</code>.</li>
+<li><strong>Boolean</strong> - carries truth: <code>true</code>, <code>false</code>.</li>
+<li><strong>Nil</strong> - carries explicit absence: <code>nil</code>.</li>
+<li><strong>Number</strong> - carries numeric magnitude, optionally with a unit suffix.</li>
+</ul>
+<p>Identifiers are case-sensitive. <code>circle</code>, <code>Circle</code>, and <code>CIRCLE</code> are
+different heads or symbols.</p>
+<p>Identifiers can include letters, digits after the first character,
+operator characters, <code>_</code>, <code>-</code>, <code>.</code>, <code>/</code>, and a few other punctuation
+characters. <code>#</code> is allowed <strong>inside</strong> an identifier, but not as the
+first character. That makes natural sharp spellings such as <code>C#4</code> and
+<code>F#m</code> valid symbols for plugins that model musical note names. A token
+starting with <code>#</code> is reserved for block comments, so <code>#note</code> is not a
+symbol.</p>
+<h2 id="worked-example">Worked Example</h2>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">camera</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :ortho</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :projection</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> ortho</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :zoom</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "main camera"</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :enabled</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> true</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :debug</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> nil</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNhbWVyYQogIDpvcnRobwogIDpwcm9qZWN0aW9uIG9ydGhvCiAgOnpvb20gMgogIDpsYWJlbCAibWFpbiBjYW1lcmEiCiAgOmVuYWJsZWQgdHJ1ZQogIDpkZWJ1ZyBuaWwp">Open in playground →</a></p>
+<p>Read the intent:</p>
+<ul>
+<li><code>:ortho</code> is a positional flag.</li>
+<li><code>:projection ortho</code> uses a symbol value. A schema can constrain it to
+a member set such as <code>ortho | perspective</code>.</li>
+<li><code>:zoom 2</code> uses a number.</li>
+<li><code>:label "main camera"</code> uses a string because this is free text.</li>
+<li><code>:enabled true</code> uses a boolean.</li>
+<li><code>:debug nil</code> explicitly says the slot has no value.</li>
+</ul>
+<p>Do not write this when the slot expects a symbol:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">camera</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :projection</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :ortho</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNhbWVyYSA6cHJvamVjdGlvbiA6b3J0aG8p">Open in playground →</a></p>
+<p>That does not create <code>projection = :ortho</code>. The keyword pairing rule
+will treat both keywords as flags. Section 5 covers this in detail.</p>
+<h2 id="exercises">Exercises</h2>
+<p>Choose the intended value kind for each slot:</p>
+<ol>
+<li>A user-visible title: <code>"intro"</code> or <code>intro</code>?</li>
+<li>A closed projection mode: <code>"ortho"</code>, <code>ortho</code>, or <code>:ortho</code>?</li>
+<li>A boolean toggle: <code>"false"</code> or <code>false</code>?</li>
+<li>An absent optional value: <code>"nil"</code> or <code>nil</code>?</li>
+<li>A form flag with no payload: <code>:ortho</code> or <code>ortho</code>?</li>
+</ol>
+<p>Repair each broken example:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> intro)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHNjZW5lIDpuYW1lIGludHJvKQ">Open in playground →</a></p>
+<p>If <code>:name</code> is free-form text, repair with a string:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "intro"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHNjZW5lIDpuYW1lICJpbnRybyIp">Open in playground →</a></p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">camera</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :projection</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "ortho"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNhbWVyYSA6cHJvamVjdGlvbiAib3J0aG8iKQ">Open in playground →</a></p>
+<p>If <code>:projection</code> is a symbol member set, repair with a symbol:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">camera</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :projection</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> ortho)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNhbWVyYSA6cHJvamVjdGlvbiBvcnRobyk">Open in playground →</a></p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">placeholder</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :enabled</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "false"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :data</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "nil"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHBsYWNlaG9sZGVyIDplbmFibGVkICJmYWxzZSIgOmRhdGEgIm5pbCIp">Open in playground →</a></p>
+<p>If the slots expect a boolean and nil, repair the atoms:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">placeholder</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :enabled</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> false</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :data</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> nil</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHBsYWNlaG9sZGVyIDplbmFibGVkIGZhbHNlIDpkYXRhIG5pbCk">Open in playground →</a></p>
+<section class="mastery-quiz" data-lesson="atoms-and-intent">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Which value kind should you use for a filename?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-0" value="0"> <span>A symbol like <code>intro.sjon</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-0" value="1"> <span>A keyword like <code>:intro.sjon</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-0" value="2"> <span>A string like <code>"intro.sjon"</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Which value kind should you use for a closed enum-like option?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-1" value="0"> <span>A keyword like <code>:overlay</code>.</span></label>
+        <p class="mc-explanation" hidden>Keywords are slot labels or flags, never kvpair values. <code>:projection :overlay</code> parses as two adjacent positional flags, not <code>projection = :overlay</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-1" value="1"> <span>A string like <code>"overlay"</code>.</span></label>
+        <p class="mc-explanation" hidden>A string would work, but it tells the schema "free-form text," not "one of a closed set." Use strings for opaque labels, not enum members.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-1" value="2"> <span>A symbol like <code>overlay</code>.</span></label>
+        <p class="mc-explanation" hidden>Symbols carry author intent for <em>named choices in a closed vocabulary</em> — exactly what an enum is. The schema can validate the symbol against a member set.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why is <code>:projection :ortho</code> not a reliable way to write an option?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-2" value="0"> <span>Two consecutive keywords don't pair into a kvpair — <code>:ortho</code> becomes a separate flag, not the value of <code>:projection</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-2" value="1"> <span>SJON forbids two keywords in a row.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-2" value="2"> <span>It is reliable; both spellings are equivalent.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Are <code>:bpm</code> and <code>:BPM</code> the same keyword?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-3" value="0"> <span>Yes — keyword comparison is case-insensitive.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-3" value="1"> <span>Only if the schema says so.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-3" value="2"> <span>No — keywords compare byte-for-byte, so casing matters.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Is <code>C#4</code> a valid symbol? Is <code>#C4</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-4" value="0"> <span>Both are valid symbols.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-4" value="1"> <span><code>C#4</code> is a valid symbol; <code>#C4</code> is not, because symbols cannot start with <code>#</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-atoms-and-intent-4" value="2"> <span>Neither is a valid symbol.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Your first document</span> </a> <a class="next" href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Numbers, units, vectors</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 

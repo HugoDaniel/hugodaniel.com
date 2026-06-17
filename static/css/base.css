@@ -452,6 +452,16 @@ main article img {
 	object-fit: cover;
 }
 
+/* Opt-in via front matter `class = "narrow-media"` (it lands on <article>):
+   hold figures to a readable width and center them in the text column, instead
+   of letting them stretch to the column's full (fluid) width. */
+main article.narrow-media img,
+main article.narrow-media video {
+	display: block;
+	max-width: 28rem;
+	margin-inline: auto;
+}
+
 main article pre {
   line-height: 1.6;
   padding: 2rem 1rem;

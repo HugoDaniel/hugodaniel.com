@@ -11,16 +11,23 @@ sjon:
 	mkdir -p static/pages/sjon
 	cp -R ../SJON/landing-page/dist/* static/pages/sjon/
 
+colorpicker:
+	cd ../color-picker-pro && npm run build -- --base=./
+	rm -rf static/pages/color-picker-pro/app
+	mkdir -p static/pages/color-picker-pro/app
+	cp -R ../color-picker-pro/dist/. static/pages/color-picker-pro/app/
+
 llms:
 	bin/gen-llms.py
 
-build: miniray boredom sjon llms
+build: miniray boredom sjon colorpicker llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon llms
+.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon colorpicker llms
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
+	2026-06-14-color-picking-oklch \
 	2026-06-02-sjon \
 	2026-05-25-s-rausch \
 	2026-05-24-lost-in-the-middle \

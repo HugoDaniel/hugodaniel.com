@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Safe expressions · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Foundations</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Expressions and Bindings</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 07</span> </p> <h1 data-astro-cid-fzx4jmue>Safe expressions</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>An expression is a form whose head is declared as an expression function
+by the active schema:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">camera</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :zoom</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNhbWVyYSA6em9vbSAoKiAyIDQpKQ">Open in playground →</a></p>
+<p>The expression appears where a value would appear. It is pure and
+bounded: no I/O, no mutation, no recursion, and no side effects.</p>
+<p>Expression arguments are positional by default. Functions that declare
+parameter names also accept a Swift-style <strong>labeled call form</strong> — labels
+match the declared names and may appear in any order:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)              </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; positional</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :from</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :to</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :t</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; labeled — same call</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :t</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :from</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :to</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; labeled, reordered — same call</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGxlcnAgMCAxMCAwLjUpICAgICAgICAgICAgICA7IHBvc2l0aW9uYWwKKGxlcnAgOmZyb20gMCA6dG8gMTAgOnQgMC41KSA7IGxhYmVsZWQg4oCUIHNhbWUgY2FsbAoobGVycCA6dCAwLjUgOmZyb20gMCA6dG8gMTApIDsgbGFiZWxlZCwgcmVvcmRlcmVkIOKAlCBzYW1lIGNhbGw">Open in playground →</a></p>
+<p>A labeled call is all-or-nothing. Mixing positional and labeled
+arguments in the same call is a hard error:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :to</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; rejected — expr_mixed_args</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGxlcnAgMCA6dG8gMTAgMC41KSA7IHJlamVjdGVkIOKAlCBleHByX21peGVkX2FyZ3M">Open in playground →</a></p>
+<p>If a function does not declare labels (e.g. <code>+</code>, <code>*</code>, <code>&#x3C;</code>), kvpairs in
+the argument list keep being rejected — that vocabulary doesn’t have
+named slots:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :a</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :b</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; rejected — expr_kvpair_not_allowed</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KCsgOmEgMSA6YiAyKSA7IHJlamVjdGVkIOKAlCBleHByX2t2cGFpcl9ub3RfYWxsb3dlZA">Open in playground →</a></p>
+<p>For labeled functions, the validator catches the usual mistakes:
+unknown labels, duplicate labels, and missing labels each have their
+own diagnostic code.</p>
+<p>Some expression functions also declare typed signatures. The validator
+can catch obvious literal mistakes before evaluation:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; the string should be a number</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">&#x3C;</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> true</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)    </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ordering comparisons take numbers</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHZlYzMgMSAieCIgMykgIDsgdGhlIHN0cmluZyBzaG91bGQgYmUgYSBudW1iZXIKKDwgdHJ1ZSAieCIpICAgIDsgb3JkZXJpbmcgY29tcGFyaXNvbnMgdGFrZSBudW1iZXJz">Open in playground →</a></p>
+<p>Symbols defer to runtime because they may come from <code>let</code> bindings or
+host bindings. Nested forms are classified at validate-time: a nested
+expression with a declared <code>:result</code> gets that result compared to the
+slot’s expected type, so <code>(+ (vec3 1 2 3) 1)</code> flags the vector-result
+argument up front. Forms whose head is an opaque expression (<code>let</code>,
+<code>if</code>, …) — or whose declared result is too coarse to satisfy a refined
+named kind — still defer:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">let</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [r </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> r r r))         </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; `r` is opaque; validates clean.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)      </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; vec3 declares `:result vector`; `+` wants</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">                        ; a number → expr_type_mismatch at arg 0.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">let</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [r </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] r))     </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; `let` has no declared result → defers.</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGxldCBbciAwLjVdCiAgKHZlYzMgciByIHIpKSAgICAgICAgIDsgYHJgIGlzIG9wYXF1ZTsgdmFsaWRhdGVzIGNsZWFuLgoKKCsgKHZlYzMgMSAyIDMpIDEpICAgICAgOyB2ZWMzIGRlY2xhcmVzIGA6cmVzdWx0IHZlY3RvcmA7IGArYCB3YW50cwogICAgICAgICAgICAgICAgICAgICAgICA7IGEgbnVtYmVyIOKGkiBleHByX3R5cGVfbWlzbWF0Y2ggYXQgYXJnIDAuCgooKyAxIChsZXQgW3IgMV0gcikpICAgICA7IGBsZXRgIGhhcyBubyBkZWNsYXJlZCByZXN1bHQg4oaSIGRlZmVycy4">Open in playground →</a></p>
+<h2 id="worked-example">Worked Example</h2>
+<p>From <a href="https://github.com/hugodaniel/sjon/blob/main/examples/with-expressions.sjon"><code>../../examples/with-expressions.sjon</code></a>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)              </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; 6</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)              </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; 24</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.25</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)       </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; 2.5</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clamp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)        </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; 1</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dot</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 6</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; 32</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KCsgMSAyIDMpICAgICAgICAgICAgICA7IDYKKCogMiAzIDQpICAgICAgICAgICAgICA7IDI0CihsZXJwIDAgMTAgMC4yNSkgICAgICAgOyAyLjUKKGNsYW1wIDEuNSAwIDEpICAgICAgICA7IDEKKGRvdCAodmVjMyAxIDIgMykgKHZlYzMgNCA1IDYpKSA7IDMy">Open in playground →</a></p>
+<p>The core vocabulary includes:</p>
+<ul>
+<li>Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>mod</code>.</li>
+<li>Comparison: <code>&#x3C;</code>, <code>&#x3C;=</code>, <code>></code>, <code>>=</code>, <code>=</code>, <code>!=</code>.</li>
+<li>Logical: <code>and</code>, <code>or</code>, <code>not</code>.</li>
+<li>Vectors: <code>vec2</code>, <code>vec3</code>, <code>vec4</code>.</li>
+<li>Math: <code>lerp</code>, <code>clamp</code>, <code>min</code>, <code>max</code>, <code>dot</code>, <code>cross</code>, <code>length</code>,
+<code>abs</code>, <code>sign</code>, <code>floor</code>, <code>ceil</code>, <code>round</code>, <code>fract</code>, <code>sqrt</code>, <code>pow</code>,
+<code>sin</code>, <code>cos</code>, <code>tan</code>, <code>asin</code>, <code>acos</code>, <code>atan</code>, <code>atan2</code>, <code>radians</code>,
+<code>degrees</code>.</li>
+<li>Constants (0-arity): <code>pi</code>, <code>tau</code>. Call as <code>(pi)</code> and <code>(tau)</code>.</li>
+<li>Smoothing (WGSL): <code>saturate</code>, <code>step</code>, <code>smoothstep</code>.</li>
+<li>Vector ops: <code>normalize</code>, <code>distance</code>, <code>reflect</code>.</li>
+<li>List ops: <code>nth</code>, <code>count</code>.</li>
+<li>Seeded random: <code>hash</code>, <code>rand01</code>, <code>rand-range</code>, <code>rand-int</code>,
+<code>rand-bool</code>, <code>rand-choice</code>.</li>
+<li>Control: <code>let</code>, <code>if</code>, <code>cond</code>.</li>
+</ul>
+<p>Truthiness is simple: <code>false</code> and <code>nil</code> are falsy. Everything else,
+including <code>0</code>, <code>""</code>, and <code>[]</code>, is truthy.</p>
+<h3 id="domain-errors-propagate-as-nan">Domain errors propagate as NaN</h3>
+<p>Operations like <code>(sqrt -1)</code>, <code>(asin 2)</code>, or <code>(pow -1 0.5)</code> return
+IEEE 754 <code>NaN</code> rather than raising an error. This keeps
+cross-platform behaviour bit-faithful — every host produces the same
+NaN — and lets manifests carry NaN through nested expressions
+without special-casing. If you want strict input checks, guard with
+<code>(if (>= x 0) (sqrt x) ...)</code>.</p>
+<h3 id="reproducible-randomness">Reproducible randomness</h3>
+<p>The seeded random functions are pure, deterministic functions of
+their <code>seed</code> and <code>key</code> arguments. They use a fixed SplitMix64-based
+mixer, so the same <code>(seed, key)</code> pair produces the same value across
+runs, platforms, and Zig versions:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rand01</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)              </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; float in [0, 1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rand-range</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> -2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)     </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; float in [-2, 5)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rand-int</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">   1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 9</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)      </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; integer in [0, 9] inclusive</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rand-bool</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">  1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)      </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; true with probability 0.5</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rand-choice</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 20</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 30</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; pick an element</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHJhbmQwMSAxIDApICAgICAgICAgICAgICA7IGZsb2F0IGluIFswLCAxKQoocmFuZC1yYW5nZSAxIDAgLTIgNSkgICAgIDsgZmxvYXQgaW4gWy0yLCA1KQoocmFuZC1pbnQgICAxIDAgMCA5KSAgICAgIDsgaW50ZWdlciBpbiBbMCwgOV0gaW5jbHVzaXZlCihyYW5kLWJvb2wgIDEgMCAwLjUpICAgICAgOyB0cnVlIHdpdGggcHJvYmFiaWxpdHkgMC41CihyYW5kLWNob2ljZSAxIDAgWzEwIDIwIDMwXSkgIDsgcGljayBhbiBlbGVtZW50">Open in playground →</a></p>
+<p>Use <code>seed</code> for a stable per-document base (e.g. a scene id) and
+<code>key</code> to walk through a sequence of independent draws. Integer
+seeds are recommended; <code>(rand01 1 0)</code> and <code>(rand01 1.0 0.0)</code> are
+guaranteed to produce identical streams.</p>
+<p>Typed signatures do not turn SJON into a static programming language.
+They are a validator aid for expression heads that advertise their
+argument shapes. Opaque or polymorphic heads still check arity first and
+leave value-specific failures to evaluation.</p>
+<h2 id="exercises">Exercises</h2>
+<p>Evaluate by hand:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 100</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mod</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 17</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KCsgMSAyIDMpCigtIDEwIDMgMikKKCogMiAzIDQpCigvIDEwMCA1IDIpCihtb2QgMTcgNSk">Open in playground →</a></p>
+<p>Predict truthiness:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">and</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> true</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "ok"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">and</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> true</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> nil</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "never"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">or</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> false</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> nil</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">or</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> false</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> nil</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">not</span><span style="--shiki-light:#1976D2;--shiki-dark:#79B8FF"> false</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGFuZCB0cnVlIDEgIm9rIikKKGFuZCB0cnVlIG5pbCAibmV2ZXIiKQoob3IgZmFsc2UgbmlsIDApCihvciBmYWxzZSBuaWwpCihub3QgZmFsc2Up">Open in playground →</a></p>
+<p>Remember:</p>
+<ul>
+<li><code>and</code> returns the first falsy value, or the last value if all are
+truthy.</li>
+<li><code>or</code> returns the first truthy value, or <code>false</code> if none are truthy.</li>
+</ul>
+<p>Repair expression arity:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGxlcnAgMCAxMCk">Open in playground →</a></p>
+<p><code>lerp</code> needs three arguments:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGxlcnAgMCAxMCAwLjUp">Open in playground →</a></p>
+<p>Compare positional vs labeled — <code>clamp</code> declares <code>:x :lo :hi</code>, so both
+calls below are valid and produce the same value:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clamp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clamp</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :x</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lo</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :hi</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">clamp</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :hi</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :x</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lo</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KGNsYW1wIDEuNSAwIDEpCihjbGFtcCA6eCAxLjUgOmxvIDAgOmhpIDEpCihjbGFtcCA6aGkgMSA6eCAxLjUgOmxvIDAp">Open in playground →</a></p>
+<p>A function without declared labels (<code>+</code>, here variadic) continues to
+reject the kvpair form:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :a</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :b</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">) </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; rejected</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KCsgOmEgMSA6YiAyKSA7IHJlamVjdGVk">Open in playground →</a></p>
+<p>Repair typed expression arguments:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "two"</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHZlYzMgMSAidHdvIiAzKQ">Open in playground →</a></p>
+<p><code>vec3</code> takes three numbers:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><a href="/pages/sjon/playground#s=KHZlYzMgMSAyIDMp">Open in playground →</a></p>
+<section class="mastery-quiz" data-lesson="safe-expressions">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Can a safe expression appear as a vector element?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-safe-expressions-0" value="0"> <span>No — only literals are allowed inside vectors.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-0" value="1"> <span>Only if the vector is wrapped in <code>(expr ...)</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-0" value="2"> <span>Yes — a vector holds any value, so a form (expression) can sit alongside literals.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why is <code>(lerp 0 :to 10 0.5)</code> invalid?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-safe-expressions-1" value="0"> <span>A labeled call is all-or-nothing — mixing positional and labeled arguments produces <code>expr_mixed_args</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-1" value="1"> <span>The numbers are out of range.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-1" value="2"> <span><code>lerp</code> does not exist.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Why can <code>(vec3 1 "x" 3)</code> fail validation before evaluation?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-safe-expressions-2" value="0"> <span><code>vec3</code> only accepts symbols.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-2" value="1"> <span>The signature is typed — the validator catches the literal <code>"x"</code> where a number is required.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-2" value="2"> <span>Strings are illegal in expressions.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">What does <code>(or false nil)</code> return?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-safe-expressions-3" value="0"> <span><code>true</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-3" value="1"> <span>It raises an error.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-3" value="2"> <span><code>nil</code> — both branches are falsy, so <code>or</code> falls through and returns the last value.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">What values are falsy in safe expressions?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-safe-expressions-4" value="0"> <span>Only <code>nil</code> and <code>false</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-4" value="1"> <span><code>0</code>, <code>""</code>, <code>nil</code>, and <code>false</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-safe-expressions-4" value="2"> <span>Any value not equal to <code>true</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Comments and strings</span> </a> <a class="next" href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Bindings and control flow</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 

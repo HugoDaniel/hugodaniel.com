@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Value kinds: shapes, vectors, units, bounds, representation · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Schemas and Diagnostics</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Reading Schemas</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 11</span> </p> <h1 data-astro-cid-fzx4jmue>Value kinds: shapes, vectors, units, bounds, representation</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>The phrase “value kind” appears in two related places:</p>
+<ul>
+<li>The parser sees base value kinds: <code>number</code>, <code>string</code>, <code>symbol</code>,
+<code>vector</code>, <code>form</code>, and so on.</li>
+<li>A plugin can give a name to a narrower contract: <code>length</code>, <code>point</code>,
+<code>fill-rule</code>, <code>shape-form</code>, <code>duration</code>, <code>note-or-event</code>.</li>
+</ul>
+<p>The named kind is not new syntax. If a slot is typed <code>point</code>, you do not
+write <code>point(160 120)</code> or <code>:point [160 120]</code>. You write the value whose
+shape satisfies the kind:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Read a named kind in this order:</p>
+<ol>
+<li><strong>Underlying shape</strong> - should the value be a number, string, symbol,
+vector, form, or union?</li>
+<li><strong>Refinement</strong> - does the kind add a vector length, unit rule,
+representation tag, closed member list, allowed head list, or list
+of alternatives?</li>
+<li><strong>Surface value</strong> - what do you actually type in the document?</li>
+</ol>
+<p>You do not define value kinds while authoring a document. You read the
+plugin docs and write values that satisfy them.</p>
+<p>Cross-references are also implemented as value-kind refinements, but
+they deserve their own authoring model. Chapter 13 covers them.</p>
+<h2 id="worked-example">Worked Example</h2>
+<p>The reference shapes plugin can be summarized like this:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(circle ...)</span></span>
+<span class="line"><span>  :center point optional</span></span>
+<span class="line"><span>  :radius length optional</span></span>
+<span class="line"><span>  :fill fill-rule optional</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(badge ...)</span></span>
+<span class="line"><span>  :label string optional</span></span>
+<span class="line"><span>  :shape shape-form optional</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>length: number</span></span>
+<span class="line"><span>point: vector, length 2, element number</span></span>
+<span class="line"><span>fill-rule: symbol, members evenodd | nonzero</span></span>
+<span class="line"><span>shape-form: form, heads circle | rect</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Now write the source from the contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> evenodd)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "dot"</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Read the first form slowly:</p>
+<ul>
+<li><code>:center point</code> means “write a vector with two numeric elements.”</li>
+<li><code>:radius length</code> means “write a number.”</li>
+<li><code>:fill fill-rule</code> means “write one of the listed symbols.”</li>
+</ul>
+<p>Read the second form:</p>
+<ul>
+<li><code>:label string</code> means “write quoted text.”</li>
+<li><code>:shape shape-form</code> means “write a nested form, but only with an
+allowed head.”</li>
+</ul>
+<p>The important habit: start from the slot line, then jump to the named
+kind line. The slot tells you which kind applies; the kind tells you
+which value shape is accepted.</p>
+<h2 id="underlying-shape-first">Underlying Shape First</h2>
+<p>Before worrying about refinements, make the broad shape match.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "160,120"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>This fails before the validator even cares about length 2. <code>point</code> is
+vector-underlying, so a string is the wrong underlying shape. Repair by
+using brackets:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likewise:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "32"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><code>:radius</code> is <code>length</code>, and <code>length</code> is number-underlying. A string
+produces <code>wrong_underlying</code>. Repair with a number:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<h2 id="vector-shapes">Vector Shapes</h2>
+<p>A vector refinement usually answers two questions:</p>
+<ul>
+<li>How many elements?</li>
+<li>What kind should each element have?</li>
+</ul>
+<p>For <code>point</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>point: vector, length 2, element number</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>That accepts:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">[</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">[</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">[</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1.5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> -2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]</span></span>
+<span class="line"></span></code></pre>
+<p>It rejects a vector with too few or too many elements:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>vector_length_mismatch</code>. Repair by writing exactly
+two elements:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>It also rejects a vector whose element has the wrong kind:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "top"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>The second element is a string, but <code>point</code> needs numbers. Repair the
+element:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Nested vectors use the same idea. If a plugin documents
+<code>points: vector, element point</code>, then the outer value is a vector and
+each element must satisfy <code>point</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shape</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :points</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [[</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]])</span></span>
+<span class="line"></span></code></pre>
+<p>This is not the same shape:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shape</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :points</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>That is one flat vector of numbers, not a vector of points.</p>
+<h3 id="variable-length-vectors">Variable-Length Vectors</h3>
+<p>A vector kind does not have to fix an exact length. Instead of a single
+<code>length</code>, a plugin can set a minimum, a maximum, or both; the value is
+then any vector whose element count lands in that window. The examples
+here come from a GPU-oriented plugin, where a vertex attribute is two to
+four float components.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>attribute: vector, length 2-4, element number</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><code>attribute</code> accepts a vec2, vec3, or vec4:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Too few elements:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>vector_too_short</code>. Too many:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>vector_too_long</code>. Repair by writing a vector whose
+length lands in the documented range:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>This is a different contract from a fixed <code>length</code>. A fixed-length kind
+like <code>point</code> accepts exactly two elements and fires
+<code>vector_length_mismatch</code> for anything else; a variable-length kind
+accepts a range and fires <code>vector_too_short</code> or <code>vector_too_long</code> at the
+edges. Read the contract to know which rule applies.</p>
+<h2 id="unit-shapes">Unit Shapes</h2>
+<p>A unit refinement applies to a number-underlying kind. The plugin may
+allow unitless numbers, require a unit, or allow only specific suffixes.</p>
+<p>Example contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>duration: number, unit required, allowed s | ms | b</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Accepted values:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5s</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">250ms</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">4b</span></span>
+<span class="line"></span></code></pre>
+<p>Rejected because the unit is missing:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unit_required</code>. Repair with an allowed suffix:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Rejected because the suffix is not allowed:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 90deg</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unit_not_allowed</code>. Repair by using one of the
+suffixes in the kind contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 250ms</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Remember: SJON preserves unit suffixes but does not interpret them.
+The plugin decides whether <code>b</code>, <code>ms</code>, or <code>s</code> means anything useful.</p>
+<h3 id="rejecting-units">Rejecting Units</h3>
+<p>The opposite of requiring a unit is rejecting every unit. A kind that
+sets <code>unit rejected</code> accepts a bare number and nothing else.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>raw-uniform: number, unit rejected</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Accepted:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Rejected, because the value carries a suffix:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5f</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unit_forbidden</code>. Repair by dropping the suffix:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>This rule earns its place. The lexer reads the trailing <code>f</code> in <code>0.5f</code>
+as a unit suffix, so without a reject rule a value you meant as a plain
+float lands as a number-with-unit, and a consumer that ignores units
+could read it as <code>0</code>. A reject kind turns that into a diagnostic at the
+value site instead of a wrong number downstream.</p>
+<h2 id="numeric-bounds">Numeric Bounds</h2>
+<p>A numeric bound refinement applies to a number-underlying kind and
+constrains the value’s magnitude or integrality, orthogonal to any
+unit shape. The plugin may pin a minimum, maximum, either-exclusive,
+or require integer values.</p>
+<p>Example contracts:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>opacity:          number, range [0, 1]</span></span>
+<span class="line"><span>iteration-count:  number, min 1, integer</span></span>
+<span class="line"><span>duration-ms:      number, unit required ms, range [0ms, 10000ms]</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Accepted values for <code>opacity</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">1</span></span>
+<span class="line"></span></code></pre>
+<p>Rejected because below <code>:min</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">layer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :opacity</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> -0.1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>number_below_min</code>. Other diagnostics in this
+family:</p>
+<ul>
+<li><code>number_above_max</code>            — value greater than <code>:max</code>.</li>
+<li><code>number_at_or_below_exclusive_min</code> — <code>:exclusive-min true</code> and value ≤ <code>:min</code>.</li>
+<li><code>number_at_or_above_exclusive_max</code> — <code>:exclusive-max true</code> and value ≥ <code>:max</code>.</li>
+<li><code>number_not_integer</code>          — <code>:integer true</code> and value is fractional or non-finite.</li>
+<li><code>numeric_bound_unit_mismatch</code> — bound carries a unit but the value either has none or carries a different unit.</li>
+</ul>
+<p>Comparison preserves exact precision when both the bound and the
+value came from integer literals (<code>9007199254740993</code> vs a <code>:max</code>
+of <code>9007199254740992</code> correctly fires <code>number_above_max</code>, even
+though both round to the same f64). For everyday plugins this
+just works; the corner only matters when the bound itself
+approaches 2^53.</p>
+<h2 id="representation">Representation</h2>
+<p>A representation tag pins the machine type a downstream tool will encode
+a number as - <code>u16</code>, <code>u32</code>, <code>i32</code>, <code>f32</code>, or <code>f16</code>. The value you write
+is still an ordinary SJON number; the tag tells the validator to check
+that the number actually fits that type.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>channel:       number, repr u16</span></span>
+<span class="line"><span>scalar:        number, repr f32</span></span>
+<span class="line"><span>vertex-index:  number, repr u32</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Two things are checked, both at validate time:</p>
+<ul>
+<li><strong>Range</strong> - the number must fall inside the type’s span. <code>u16</code> is
+<code>[0, 65535]</code>, <code>u32</code> is <code>[0, 2^32)</code>, and <code>i32</code> is the signed 32-bit
+range.</li>
+<li><strong>Integrality</strong> - an integer type (<code>u16</code>, <code>u32</code>, <code>i32</code>) rejects a
+fractional value. A float type (<code>f32</code>, <code>f16</code>) carries no integrality
+rule; any finite number in range is accepted.</li>
+</ul>
+<p>Accepted:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 65535</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :line-width</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :base-vertex</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32768</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><code>65535</code> fits <code>u16</code>, <code>1.5</code> is a fine <code>f32</code>, and <code>32768</code> fits <code>u32</code>.</p>
+<p>Out of range:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 70000</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>repr_out_of_range</code> - <code>70000</code> is above the <code>u16</code>
+ceiling of <code>65535</code>. The same code covers a non-integral value under an
+integer type:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :base-vertex</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Here the message names the integrality failure rather than the range.
+Repair by writing a number that fits - in range and, for an integer
+type, whole:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 65535</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>One thing a repr tag does not do: it does not ask you to round for
+precision. An <code>f32</code> value that needs more than 32 bits of mantissa is
+still accepted - the precision narrowing is the downstream encoder’s
+step, not a validation error. The tag guards range and integrality,
+nothing more.</p>
+<h2 id="exercises">Exercises</h2>
+<p>For each exercise, read the contract first, then repair the source.</p>
+<h3 id="vector-shape">Vector Shape</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>point: vector, length 2, element number</span></span>
+<span class="line"><span>(circle ...)</span></span>
+<span class="line"><span>  :center point optional</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="vector-element-kind">Vector Element Kind</h3>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "top"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="unit-shape">Unit Shape</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>duration: number, unit required, allowed s | ms | b</span></span>
+<span class="line"><span>(delay ...)</span></span>
+<span class="line"><span>  :wait duration required</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="variable-length-vector">Variable-Length Vector</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>attribute: vector, length 2-4, element number</span></span>
+<span class="line"><span>(vertex ...)</span></span>
+<span class="line"><span>  :position attribute required</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<h3 id="unit-rejection">Unit Rejection</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>raw-uniform: number, unit rejected</span></span>
+<span class="line"><span>(draw ...)</span></span>
+<span class="line"><span>  :lod-bias raw-uniform optional</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5f</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="representation-1">Representation</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>channel: number, repr u16</span></span>
+<span class="line"><span>(vertex ...)</span></span>
+<span class="line"><span>  :tint channel optional</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 70000</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 65535</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<section class="mastery-quiz" data-lesson="value-kinds-shapes">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Is a plugin-declared value kind a new SJON syntax feature?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-0" value="0"> <span>Yes — each named kind adds new surface syntax.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-0" value="1"> <span>No — value kinds are contracts on existing shapes (number, string, symbol, vector, form, union).</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-0" value="2"> <span>Only when prefixed with the kind name.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">When reading a named kind, what should you check first?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-1" value="0"> <span>The error code list.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-1" value="1"> <span>The default value.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-1" value="2"> <span>The underlying shape — is the value a number, string, symbol, vector, form, or union?</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Which diagnostic points to a missing required unit suffix?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-2" value="0"> <span><code>unit_required</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-2" value="1"> <span><code>wrong_underlying</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-2" value="2"> <span><code>not_member</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Which diagnostic points to a vector with the wrong number of elements?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-3" value="0"> <span><code>number_above_max</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-3" value="1"> <span><code>vector_length_mismatch</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-3" value="2"> <span><code>string_too_short</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A slot is typed <code>attribute: vector, length 2-4, element number</code>. Which value is rejected?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-4" value="0"> <span><code>[0.0 1.0 0.5]</code> (three elements).</span></label>
+        <p class="mc-explanation" hidden>Three elements sits inside the 2-4 window, so this is accepted.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-4" value="1"> <span><code>[0.0]</code> (one element).</span></label>
+        <p class="mc-explanation" hidden>Correct. One element is below the minimum of 2, so it fires <code>vector_too_short</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-4" value="2"> <span><code>[0.0 1.0 0.5 1.0]</code> (four elements).</span></label>
+        <p class="mc-explanation" hidden>Four elements is the top of the 2-4 window, so this is accepted.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A number kind sets <code>unit rejected</code>. What does it accept?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-5" value="0"> <span>Only a bare number with no unit suffix.</span></label>
+        <p class="mc-explanation" hidden>Correct. A reject kind takes a bare number; any suffix fires <code>unit_forbidden</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-5" value="1"> <span>Any number, with or without a unit.</span></label>
+        <p class="mc-explanation" hidden>No - rejecting units is the opposite of allowing them, so a suffix is an error.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-5" value="2"> <span>Only a number with the <code>f</code> suffix.</span></label>
+        <p class="mc-explanation" hidden>No - <code>f</code> is itself a unit suffix, and a reject kind forbids every suffix.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A value typed <code>repr u16</code> is rejected. What should you check about the number?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-6" value="0"> <span>Whether it is a quoted string.</span></label>
+        <p class="mc-explanation" hidden>String-vs-number is a different failure (<code>wrong_underlying</code>); a repr tag is about the number itself.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-6" value="1"> <span>Whether it is in range <code>[0, 65535]</code> and a whole number.</span></label>
+        <p class="mc-explanation" hidden>Correct. A <code>u16</code> repr checks range (<code>[0, 65535]</code>) and, being an integer type, integrality - <code>repr_out_of_range</code> covers both.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-shapes-6" value="2"> <span>Whether it carries a unit suffix.</span></label>
+        <p class="mc-explanation" hidden>Units are a separate axis (<code>unit_*</code>); a repr failure is <code>repr_out_of_range</code>.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Discriminated and exclusive forms</span> </a> <a class="next" href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 

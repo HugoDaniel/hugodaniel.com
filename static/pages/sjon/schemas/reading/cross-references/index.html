@@ -1,0 +1,463 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cross-references · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Schemas and Diagnostics</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Reading Schemas</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 13</span> </p> <h1 data-astro-cid-fzx4jmue>Cross-references</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>A cross-reference is a symbol whose allowed values are discovered from
+the document being validated.</p>
+<p>Compare it with chapter 12:</p>
+<ul>
+<li>A <strong>member set</strong> like <code>fill-rule</code> gets its legal values from the
+plugin: <code>evenodd | nonzero</code>.</li>
+<li>A <strong>cross-reference</strong> like <code>phrase-name</code> gets its legal values from
+the document: every <code>(phrase :name ...)</code> form currently in scope.</li>
+</ul>
+<p>So a cross-reference has two sides:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)       </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; declaration: introduces the name p0</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; reference: uses the name p0</span></span>
+<span class="line"></span></code></pre>
+<p>The validator does two passes conceptually:</p>
+<ol>
+<li><strong>Build a registry.</strong> Walk the document and collect every target
+form’s name.</li>
+<li><strong>Check references.</strong> Every symbol in a cross-reference slot must be
+present in that registry.</li>
+</ol>
+<p>Order in the file does not matter. A reference may appear before the
+form it names, because the registry is built before references are
+checked:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"></span></code></pre>
+<p>The surface value is still just a symbol. You do not write <code>$p0</code>,
+<code>ref(p0)</code>, <code>"p0"</code>, or <code>:p0</code> unless the plugin’s docs explicitly say a
+different value kind is expected.</p>
+<h2 id="worked-example">Worked Example</h2>
+<p>You will not see the plugin DSL while authoring. You will see an
+author-facing summary like this:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(phrase ...)</span></span>
+<span class="line"><span>  :name   symbol required       ; declares a phrase name</span></span>
+<span class="line"><span>  :notes  vector optional</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(track ...)</span></span>
+<span class="line"><span>  :sequence vector&#x3C;phrase-name> required</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>phrase-name: symbol, cross-reference to (phrase :name ...)</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Read it line by line:</p>
+<ul>
+<li><code>(phrase ...) :name symbol</code> tells you how names are declared.</li>
+<li><code>(track ...) :sequence vector&#x3C;phrase-name></code> tells you where names are
+referenced.</li>
+<li><code>phrase-name: ... cross-reference to (phrase :name ...)</code> connects the
+reference kind to the declaration form.</li>
+</ul>
+<p>This source validates:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span>
+<span class="line"></span></code></pre>
+<p>Read it as a registry:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>declared phrase names: p0, p1</span></span>
+<span class="line"><span>track references:      p0, p1</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Both references resolve.</p>
+<p>This source does not validate:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p99])</span></span>
+<span class="line"></span></code></pre>
+<p>Registry:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>declared phrase names: p0</span></span>
+<span class="line"><span>track references:      p0, p99</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><code>p99</code> is missing, so the likely diagnostic is <code>not_cross_ref</code>. Repair
+by making the reference match a declaration:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Or repair by adding the missing declaration:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p99 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p99])</span></span>
+<span class="line"></span></code></pre>
+<h2 id="names-are-symbols">Names Are Symbols</h2>
+<p>Most cross-reference declarations use a symbol-valued name key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"></span></code></pre>
+<p>These are different values:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "p0"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; string</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :p0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; keyword, and also a keyword-pairing problem</span></span>
+<span class="line"></span></code></pre>
+<p>If the plugin says <code>:name symbol</code>, write a bare symbol. A quoted string
+does not declare the same name. A keyword does not become a normal value
+after <code>:name</code>; chapter 5’s pairing rule still applies.</p>
+<p>The same rule applies at the reference site:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])    </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; symbol reference</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"p0"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; string, wrong shape</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:p0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; keyword element, wrong shape</span></span>
+<span class="line"></span></code></pre>
+<h2 id="duplicate-declarations">Duplicate Declarations</h2>
+<p>A name should identify one target in its scope. If two declarations use
+the same name, the validator cannot choose which one the reference
+means.</p>
+<p>Broken:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Registry attempt:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>p0 -> first phrase</span></span>
+<span class="line"><span>p0 -> second phrase  ; duplicate</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Likely diagnostic: <code>duplicate_cross_ref_target</code>. Repair by renaming one
+declaration:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Then choose which one the track should reference:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span>
+<span class="line"></span></code></pre>
+<p>Duplicate checking happens inside the active scope. The next section
+explains what “scope” means for references.</p>
+<h2 id="scope">Scope</h2>
+<p>When a plugin declares a cross-reference, it also defines where the
+validator should look for names. The authoring question is:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>Which declarations are visible from this reference?</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>You will usually encounter two practical cases.</p>
+<h3 id="tree-scope">Tree Scope</h3>
+<p>Tree scope is the default authoring model: references resolve against
+names declared in the same parsed tree, usually one source document or
+file.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>This is the easiest case. If a reference fails, first look in the same
+document for a declaration with the exact same symbol spelling.</p>
+<p>When a host validates several roots as a forest, tooling may build one
+index for all of them, but ordinary cross-reference checks are still
+scoped by the rules the plugin and host document. Do not assume a name
+in another file is visible just because both files are open. For
+split-file authoring, check the host’s plugin docs.</p>
+<h3 id="lexical-scope">Lexical Scope</h3>
+<p>A plugin can make a cross-reference local to the nearest enclosing form.
+The docs might say:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>phrase-name: cross-reference to (phrase :name ...), scope piece</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Read that as: a <code>(piece ...)</code> form opens a local registry. References
+inside a piece can only see phrase names declared inside that same
+piece.</p>
+<p>This validates:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1]))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<p>The two <code>p0</code> declarations do not collide because they live in different
+piece scopes.</p>
+<p>This does not validate:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>If <code>phrase-name</code> is scoped to <code>piece</code>, the reference appears outside
+any enclosing <code>(piece ...)</code>. Likely diagnostic:
+<code>cross_ref_outside_scope</code>. Repair by moving the declaration and
+reference into the same scope:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<p>Another common scoped mistake is referencing a name from a sibling
+scope:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<p>The second piece has no local <code>p0</code>. Likely diagnostic:
+<code>not_cross_ref</code>. Repair by declaring <code>p0</code> in the same piece or moving
+the track into the piece where <code>p0</code> is declared.</p>
+<h2 id="acyclic-references">Acyclic References</h2>
+<p>Some cross-references describe parent chains or dependency chains. In
+those cases, the plugin may say the reference must be acyclic.</p>
+<p>Example contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(phrase ...)</span></span>
+<span class="line"><span>  :name   symbol required</span></span>
+<span class="line"><span>  :parent phrase-name optional</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>phrase-name: cross-reference to (phrase :name ...), acyclic</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>This chain is fine:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p2)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p2)</span></span>
+<span class="line"></span></code></pre>
+<p>Read the edges:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>p0 -> p1</span></span>
+<span class="line"><span>p1 -> p2</span></span>
+<span class="line"><span>p2 -> nothing</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>There is no loop.</p>
+<p>This chain is not fine:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"></span></code></pre>
+<p>Edges:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>p0 -> p1</span></span>
+<span class="line"><span>p1 -> p0</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The names form a cycle, so the likely diagnostic is
+<code>cyclic_cross_ref</code>. Repair by breaking the loop:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"></span></code></pre>
+<p>Most cross-references are not acyclic. This rule only matters when the
+plugin docs explicitly say the kind or key participates in acyclic
+checking.</p>
+<h2 id="diagnostic-cheat-sheet">Diagnostic Cheat Sheet</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Diagnostic</th><th>What it usually means</th><th>Repair</th></tr></thead><tbody><tr><td><code>not_cross_ref</code></td><td>The symbol is not in the visible registry.</td><td>Fix the spelling, add the declaration, or move the reference into the right scope.</td></tr><tr><td><code>duplicate_cross_ref_target</code></td><td>Two declarations use the same name in one scope.</td><td>Rename or remove one declaration.</td></tr><tr><td><code>cross_ref_outside_scope</code></td><td>A scoped reference appears outside its required enclosing form.</td><td>Put the declaration and reference inside that scope form.</td></tr><tr><td><code>cyclic_cross_ref</code></td><td>An acyclic reference chain loops back on itself.</td><td>Remove or change one edge in the cycle.</td></tr><tr><td><code>wrong_underlying</code></td><td>The declaration or reference is not the expected value shape, often string vs symbol.</td><td>Match the plugin’s declared type.</td></tr></tbody></table>
+<p>You may also see schema setup diagnostics such as
+<code>unknown_cross_ref_target</code>, <code>ambiguous_cross_ref_target</code>,
+<code>cross_ref_name_key_unknown</code>, <code>unknown_cross_ref_scope</code>, or
+<code>ambiguous_cross_ref_scope</code>. Those usually mean the plugin or manifest
+is misconfigured, not that an ordinary document reference is misspelled.</p>
+<h2 id="repair-workflow">Repair Workflow</h2>
+<p>When a cross-reference fails, do this mechanically:</p>
+<ol>
+<li>Find the reference slot in the diagnostic path.</li>
+<li>Read the slot’s value kind in the plugin docs.</li>
+<li>Find the target form and name key, such as <code>(phrase :name ...)</code>.</li>
+<li>List the declarations visible from the reference’s scope.</li>
+<li>Check exact symbol spelling and case.</li>
+<li>If the name exists twice, rename one declaration.</li>
+<li>If the kind is acyclic, draw the arrows and remove the loop.</li>
+</ol>
+<h2 id="exercises">Exercises</h2>
+<p>Predict the diagnostic, then repair.</p>
+<h3 id="unknown-reference">Unknown Reference</h3>
+<p>Assume only <code>p0</code> and <code>p1</code> are declared:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p99])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>not_cross_ref</code>. Repair by spelling the reference
+correctly:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span>
+<span class="line"></span></code></pre>
+<p>Or by adding the missing target:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p99 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [C5 B4 A4 G4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p99])</span></span>
+<span class="line"></span></code></pre>
+<h3 id="forward-reference">Forward Reference</h3>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"></span></code></pre>
+<p>This should validate. The reference appears first, but the registry is
+built from the whole document before references are checked.</p>
+<h3 id="string-instead-of-symbol">String Instead Of Symbol</h3>
+<p>Assume <code>:name</code> expects <code>symbol</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "p0"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostics: the declaration has the wrong underlying shape, and
+the reference may also fail because no symbol name <code>p0</code> was registered.
+Repair the declaration:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<h3 id="duplicate-target">Duplicate Target</h3>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>duplicate_cross_ref_target</code>. Repair by renaming one
+declaration:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<h3 id="outside-lexical-scope">Outside Lexical Scope</h3>
+<p>Assume <code>phrase-name</code> is scoped to <code>piece</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>cross_ref_outside_scope</code>. Repair by adding the
+scope form:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<h3 id="sibling-lexical-scope">Sibling Lexical Scope</h3>
+<p>Assume <code>phrase-name</code> is scoped to <code>piece</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>not_cross_ref</code>. The second piece has no visible
+<code>p0</code>. Repair by moving the track or declaring the phrase in the same
+piece:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">piece</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0]))</span></span>
+<span class="line"></span></code></pre>
+<h3 id="cycle">Cycle</h3>
+<p>Assume the plugin opts the <code>:parent</code> key into acyclic detection:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>cyclic_cross_ref</code>. Repair by breaking the loop:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"></span></code></pre>
+<section class="mastery-quiz" data-lesson="cross-references">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">What are the two sides of a cross-reference?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="0"> <span>Reader side and writer side.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="1"> <span>A declaration that introduces a name, and a reference that uses it.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="2"> <span>A schema side and a host side.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why can a reference appear before the form it names?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="0"> <span>The validator runs in two passes — it builds the registry first, then checks references.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="1"> <span>Order is enforced; the reference must follow the declaration.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="2"> <span>Only when the reference is a string.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Why does a typo on a phrase reference produce <code>not_cross_ref</code> instead of <code>not_member</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="0"> <span>They mean the same thing.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="1"> <span>Because the plugin author chose a different code.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="2"> <span>The legal values come from the document's declarations, not from a closed plugin set — the diagnostic distinguishes "no such reference" from "not in the member list".</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why is <code>"p0"</code> not the same declaration as <code>p0</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="0"> <span>Strings and symbols are different value kinds; cross-reference targets are symbols.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="1"> <span>They are the same — strings and symbols interchange.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="2"> <span>Only when wrapped in a form.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">What is the first repair to try for <code>cross_ref_outside_scope</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="0"> <span>Rename the declaration.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="1"> <span>Move the reference inside the enclosing scope form, or declare the name in the right scope.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="2"> <span>Quote the symbol.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> <a class="next" href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Diagnostics-driven repair</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 

@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Diagnostics-driven repair · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Schemas and Diagnostics</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Repair and Style</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 14</span> </p> <h1 data-astro-cid-fzx4jmue>Diagnostics-driven repair</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>Diagnostics are not just error messages. They tell you which layer of
+authoring went wrong:</p>
+<ul>
+<li>Unknown head or key, or a form head outside a slot’s local form
+set: vocabulary mismatch.</li>
+<li>Duplicate or missing key: form contract mismatch.</li>
+<li>Wrong underlying kind, or a vector with the wrong number of
+elements: value shape mismatch.</li>
+<li>Member, head, unit, bound, or representation error: value kind
+refinement mismatch.</li>
+<li>Union of alternatives, no match: the value didn’t fit any alternative
+the plugin declared for this slot.</li>
+<li>Expression arity, typed-argument, or kvpair error: expression contract
+mismatch.</li>
+<li>Positional error: child placement or keyword-pairing mismatch.</li>
+<li>Cross-reference resolution failure: name not declared, duplicated,
+cyclic, or outside its lexical scope.</li>
+<li>Exclusive-group cardinality error: the form declares an
+exactly-one-of (or at-most-one-of) rule and the source presents
+too many or too few alternatives.</li>
+</ul>
+<p>Work from the diagnostic code first, then from the prose message.</p>
+<p>Stable codes you are likely to see while authoring:</p>
+<div class="codes-sticky">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Code</th><th>Usual repair direction</th></tr></thead><tbody><tr><td><code>unknown_form</code> / <code>ambiguous_form</code> / <code>ambiguous_expr</code></td><td>Check the head spelling, loaded plugin set, or qualify with <code>plugin/head</code>.</td></tr><tr><td><code>unknown_key</code> / <code>duplicate_key</code> / <code>missing_required_key</code></td><td>Check the form’s key table.</td></tr><tr><td><code>positional_not_allowed</code></td><td>Move the child under a containing form or into a form-valued key.</td></tr><tr><td><code>wrong_underlying</code> / <code>vector_length_mismatch</code></td><td>Match the declared value shape.</td></tr><tr><td><code>vector_too_short</code> / <code>vector_too_long</code></td><td>Add or drop elements to land in the kind’s <code>:min-len</code>/<code>:max-len</code> window (distinct from a fixed <code>:len</code>).</td></tr><tr><td><code>repr_out_of_range</code></td><td>Bring the number into the <code>:repr</code> type’s range, and make it whole for an integer type (<code>u16</code>/<code>u32</code>/<code>i32</code>).</td></tr><tr><td><code>unit_required</code> / <code>unit_not_allowed</code></td><td>Add an allowed unit suffix.</td></tr><tr><td><code>unit_forbidden</code></td><td>Drop the unit suffix - the kind rejects every unit (distinct from a suffix outside an allowed list).</td></tr><tr><td><code>not_member</code> / <code>not_head_member</code></td><td>Use one of the plugin’s closed-set values or heads.</td></tr><tr><td><code>unknown_local_form</code></td><td>Use a head the slot accepts - a local form the message lists, or a known global head.</td></tr><tr><td><code>union_no_branch_matched</code></td><td>Read the listed alternatives - the message names every shape the slot accepts - and rewrite the value to fit one of them.</td></tr><tr><td><code>expr_kvpair_not_allowed</code> / <code>arity_mismatch</code> / <code>expr_type_mismatch</code></td><td>Rewrite the expression call shape.</td></tr><tr><td><code>not_cross_ref</code></td><td>Spell the referenced name correctly, or add the missing declaration.</td></tr><tr><td><code>duplicate_cross_ref_target</code></td><td>Rename one of the two declarations or remove the duplicate.</td></tr><tr><td><code>cyclic_cross_ref</code></td><td>Break the cycle in the chain (typically a <code>:parent</code>-style key).</td></tr><tr><td><code>cross_ref_outside_scope</code></td><td>Move the reference inside the enclosing scope form, or declare the name in the right scope.</td></tr><tr><td><code>missing_discriminant_key</code></td><td>Add the discriminant key (e.g. <code>:kind</code>) to the form.</td></tr><tr><td><code>unknown_key</code> (with discriminant-first hint)</td><td>Reorder so the discriminant key precedes any variant-only key.</td></tr><tr><td><code>mutually_exclusive_keys_present</code></td><td>Remove all but one alternative from the group the message names.</td></tr><tr><td><code>required_one_of_missing</code></td><td>Add exactly one of the alternatives the message names.</td></tr></tbody></table>
+</div>
+<h2 id="worked-example">Worked Example</h2>
+<p>Broken:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :evenodd</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely symptoms:</p>
+<ul>
+<li><code>:fill</code> does not pair with <code>:evenodd</code>.</li>
+<li>Both become positional flags.</li>
+<li><code>circle</code> does not accept positional children.</li>
+</ul>
+<p>The real mistake is not “fill rule unknown”; it is keyword pairing.
+Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> evenodd)</span></span>
+<span class="line"></span></code></pre>
+<p>Broken:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "oops"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>not_head_member</code>. The <code>:shape</code> slot accepts only
+specific form heads. Repair with an allowed form:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<h2 id="exercises">Exercises</h2>
+<p>Predict the diagnostic category and repair each example.</p>
+<p>Unknown form:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circl</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Unknown key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :width</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :height</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Duplicate key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "a"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "b"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair by choosing one value:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "b"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Missing required key. This one is a schema-reading drill: assume the
+plugin docs say <code>(circle ...)</code> requires both <code>:center</code> and <code>:radius</code>.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Wrong underlying kind:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "middle"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Arity mismatch:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shape</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sdf</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :radius</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shape</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sdf</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :radius</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lerp</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Typed expression mismatch:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "two"</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p><code>vec3</code> takes three numbers:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vec3</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>If you meant a scalar radius, use a scalar expression instead:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shape</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sdf</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :radius</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 16</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Member set mismatch:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> diagonal)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> nonzero)</span></span>
+<span class="line"></span></code></pre>
+<p>Unit mismatch. Assume <code>duration</code> allows <code>s | ms | b</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4px</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair with an allowed suffix:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">delay</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :wait</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Head set mismatch:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "oops"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "x"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))</span></span>
+<span class="line"></span></code></pre>
+<p>Variable-length vector. Assume <code>:position</code> is documented as
+<code>vector, length 2-4</code> - a range, not a fixed <code>:len</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>vector_too_short</code> (the floor is 2; a fixed-length
+kind fires <code>vector_length_mismatch</code> instead). Repair into range:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :position</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Representation out of range. Assume <code>:tint</code> is documented as
+<code>number, repr u16</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 70000</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>repr_out_of_range</code>. <code>u16</code> tops out at <code>65535</code>, and
+an integer type also rejects a fractional value. Repair into range:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :tint</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 65535</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Unit rejected. Assume <code>:lod-bias</code> is documented as
+<code>number, unit rejected</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5f</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unit_forbidden</code>. The slot takes bare numbers; the
+trailing <code>f</code> lexes as a unit suffix. Repair by dropping it:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">draw</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :lod-bias</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0.5</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Slot-local form. Assume <code>canvas</code>’s <code>:shape</code> slot defines local forms
+<code>circle | rect | group</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">triangle</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unknown_local_form</code>, listing the slot’s local
+heads - more specific than a top-level <code>unknown_form</code>. Repair with a
+head the slot accepts:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :r</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 12</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Union no-branch matched. Assume <code>:notes</code> is documented as
+<code>vector&#x3C;note-or-event></code> where <code>note-or-event = note-or-rest | event</code>
+and <code>event</code> is a form with head <code>n</code> or <code>rest</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">42</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>union_no_branch_matched</code> listing the alternatives
+(<code>note-or-rest</code>, <code>event</code>). The number <code>42</code> is neither a pitch symbol
+nor an event form. Repair with a value matching either alternative:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">n</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> G4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)])</span></span>
+<span class="line"></span></code></pre>
+<p>Union with <code>form</code> alternative - the wildcard pitfall. Assume the
+plugin documents <code>:value</code> as <code>number | vec4 | form</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">set</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :value</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">foo</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unknown_form</code> (not <code>union_no_branch_matched</code>).
+The <code>form</code> alternative still resolves the form’s head against the
+schema; “any form” is not the same as “any parens.” Repair by using
+a form whose head the schema knows:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">set</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :value</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">+</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Ambiguous form. Assume two loaded plugins both declare <code>circle</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair by qualifying the domain head:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shapes/circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Discriminant absent. Assume <code>(track ...)</code> is documented with
+<code>discriminant: kind</code> and variants <code>kick | groove | animation</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:from</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>missing_discriminant_key</code>. Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> kick </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:step</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :from</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Discriminant out of order. The variant key <code>:step</code> is written before
+<code>:kind</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:step</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> kick)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unknown_key</code> on <code>:step</code> with a hint that the
+discriminant must be set first. Repair by placing <code>:kind</code> before any
+variant-only key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> kick </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:step</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Cross-variant key. <code>:mesh</code> is an <code>animation</code>-variant key, but
+<code>:kind = kick</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> kick </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:mesh</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> logo)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>unknown_key</code> (no hint - discriminant is set, the
+key just isn’t valid under this variant). Repair by changing the
+discriminant or removing the wrong-variant key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> animation </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:mesh</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> logo)</span></span>
+<span class="line"></span></code></pre>
+<p>Exclusive-group violation. Assume <code>(phrase ...)</code> is documented with
+an <code>exactly-one</code> group over <code>:notes | :events</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:events</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">n</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> A4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>mutually_exclusive_keys_present</code> listing
+<code>:notes | :events</code>. Repair by keeping one alternative:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4])</span></span>
+<span class="line"></span></code></pre>
+<p>Required-one-of missing. Same <code>(phrase ...)</code> summary:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>required_one_of_missing</code>. Repair by adding one
+of the alternatives:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:events</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">n</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> A4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)])</span></span>
+<span class="line"></span></code></pre>
+<p>Cross-reference miss. Assume the plugin’s <code>:sequence</code> slot expects
+<code>vector&#x3C;phrase-name></code> and only <code>p0</code> is declared:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span>
+<span class="line"></span></code></pre>
+<p>Likely diagnostic: <code>not_cross_ref</code> at <code>[track sequence]</code>. Repair by
+adding the missing phrase or fixing the spelling:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 A4 G4])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span>
+<span class="line"></span></code></pre>
+<p>Chapter 13 covers cross-reference shapes in detail.</p>
+<h2 id="lsp-quickfixes">LSP Quickfixes</h2>
+<p>SJON’s language server offers single-step quickfixes for the
+diagnostics it can repair without guessing. The action title tells you
+what it will do; review before applying.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Diagnostic</th><th>Quickfix title</th><th>What it does</th></tr></thead><tbody><tr><td><code>unknown_form</code></td><td><code>Replace with </code>“</td><td>Substitute the typo with the closest known head (Levenshtein-bounded).</td></tr><tr><td><code>unknown_key</code></td><td><code>Replace with </code>:<key>“</key></td><td>Substitute the typo with the closest declared key on this form.</td></tr><tr><td><code>ambiguous_form</code></td><td><code>Qualify with </code><plugin>/“</plugin></td><td>One action per claimant plugin.</td></tr><tr><td><code>missing_required_key</code></td><td><code>Insert </code>:<key><code> with stub</code></key></td><td>Insert each missing required key with a typed placeholder value.</td></tr><tr><td><code>expr_kvpair_not_allowed</code></td><td><code>Drop </code>:<key><code> (keep value)</code></key></td><td>Strip the keyword tag, leave the value as a positional argument.</td></tr><tr><td><code>duplicate_key</code></td><td><code>Remove duplicate </code>:<key>“</key></td><td>Delete the later occurrence and its preceding whitespace.</td></tr><tr><td><code>not_cross_ref</code></td><td><code>Replace with </code><name>“</name></td><td>Replace the symbol with the closest in-scope registered name.</td></tr><tr><td><code>cross_ref_outside_scope</code></td><td><code>Replace with </code><name>“</name></td><td>Surfaces only when an in-scope alternative exists; otherwise no fix (move the reference instead).</td></tr><tr><td><code>not_member</code></td><td><code>Replace with </code><name>“</name></td><td>Replace the value with the closest non-deprecated member of the slot’s enum.</td></tr></tbody></table>
+<p>For typo-style fixes, only the single closest candidate within
+Levenshtein distance 3 is offered; farther typos return no action so
+the suggestion can’t mislead.</p>
+<section class="mastery-quiz" data-lesson="diagnostics-driven-repair">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Which diagnostic category usually means you misspelled a key?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-0" value="0"> <span><code>wrong_underlying</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-0" value="1"> <span><code>unknown_key</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-0" value="2"> <span><code>union_no_branch_matched</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Which category points to a closed enum-like value?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-1" value="0"> <span><code>not_member</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-1" value="1"> <span><code>expr_kvpair_not_allowed</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-1" value="2"> <span><code>positional_not_allowed</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Why should tooling match diagnostic codes rather than message prose?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-2" value="0"> <span>Codes are shorter to type.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-2" value="1"> <span>Prose is localized; codes are not.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-2" value="2"> <span>Codes are the stable contract - message prose may change between releases.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why can <code>positional_not_allowed</code> be caused by keyword pairing?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-3" value="0"> <span>When two keywords sit next to each other neither pairs into a kvpair, so they become positional flags - and a form that disallows positional children flags them.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-3" value="1"> <span>It can't - pairing always succeeds.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-3" value="2"> <span>Only when expressions are involved.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">For an <code>exactly-one</code> exclusive group, which two codes cover "too many" vs. "too few"?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-4" value="0"> <span><code>unknown_key</code> and <code>missing_required_key</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-4" value="1"> <span><code>mutually_exclusive_keys_present</code> (too many) and <code>required_one_of_missing</code> (too few).</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-4" value="2"> <span><code>duplicate_key</code> and <code>not_member</code>.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A vector value is rejected. Which diagnostic tells you the slot has a fixed length rather than a variable-length range?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-5" value="0"> <span><code>vector_length_mismatch</code> (fixed <code>:len</code>); a range fires <code>vector_too_short</code> / <code>vector_too_long</code>.</span></label>
+        <p class="mc-explanation" hidden>Correct. A fixed <code>:len</code> fires <code>vector_length_mismatch</code>; a <code>:min-len</code>/<code>:max-len</code> range fires <code>vector_too_short</code> or <code>vector_too_long</code> at the edges.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-5" value="1"> <span><code>vector_too_short</code> for both fixed and variable slots.</span></label>
+        <p class="mc-explanation" hidden><code>vector_too_short</code> is the variable-length floor only - a fixed-length slot reports <code>vector_length_mismatch</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-5" value="2"> <span><code>wrong_underlying</code> in every case.</span></label>
+        <p class="mc-explanation" hidden><code>wrong_underlying</code> means the value was not a vector at all; here the value is a vector of the wrong length.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">What separates <code>unit_not_allowed</code> from <code>unit_forbidden</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-6" value="0"> <span>They are the same code under two names.</span></label>
+        <p class="mc-explanation" hidden>They are distinct, wire-stable codes for distinct rules.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-6" value="1"> <span><code>unit_not_allowed</code> means the suffix is outside an allowed list; <code>unit_forbidden</code> means the kind rejects every unit.</span></label>
+        <p class="mc-explanation" hidden>Correct. An allowed list rejects an off-list suffix with <code>unit_not_allowed</code>; a reject kind takes bare numbers only and fires <code>unit_forbidden</code> for any suffix.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-6" value="2"> <span><code>unit_forbidden</code> is only for dates.</span></label>
+        <p class="mc-explanation" hidden>No - <code>unit_forbidden</code> fires on a number-underlying kind that rejects all unit suffixes, closing the <code>1.0f -> 0</code> trap.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Why does a bad form head inside a slot with local forms produce <code>unknown_local_form</code> rather than <code>unknown_form</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-7" value="0"> <span>The slot narrowed the choices, so the message can list the local heads it accepts.</span></label>
+        <p class="mc-explanation" hidden>Correct. The slot carries its own local form set, so the resolver reports <code>unknown_local_form</code> and names the local heads (the global fallback still applies).</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-7" value="1"> <span>It is a typo for <code>unknown_form</code>.</span></label>
+        <p class="mc-explanation" hidden>They are separate codes: <code>unknown_local_form</code> is the slot-scoped version, more specific than the top-level <code>unknown_form</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-diagnostics-driven-repair-7" value="2"> <span>Local forms disable the global vocabulary entirely.</span></label>
+        <p class="mc-explanation" hidden>Local forms are additive - a non-local head still falls back to the global vocabulary; only a head matching neither fails.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Cross-references</span> </a> <a class="next" href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Style, portability, capstone</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 

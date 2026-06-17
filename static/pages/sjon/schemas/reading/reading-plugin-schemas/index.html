@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-srewu4vx> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Reading plugin schemas · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v4.16.19"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/_slug_.7m2cEJ8d.css">
+<link rel="stylesheet" href="/pages/sjon/_astro/_slug_.KwiN-wPY.css"></head> <body data-astro-cid-srewu4vx> <a class="skip-link" href="#main-content" data-astro-cid-srewu4vx>Skip to content</a> <nav class="topbar" aria-label="Site" data-astro-cid-srewu4vx> <a class="brand" href="/pages/sjon" data-astro-cid-srewu4vx> <span class="brand-mark" aria-hidden="true" data-astro-cid-srewu4vx></span> <span class="brand-name" data-astro-cid-srewu4vx>sjon</span> </a> <ul class="nav" data-astro-cid-srewu4vx> <li data-astro-cid-srewu4vx> <a href="/pages/sjon/compare" data-astro-cid-srewu4vx> Compare </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/playground" data-astro-cid-srewu4vx> Playground </a> </li><li data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-srewu4vx> Tutorial </a> </li><li data-astro-cid-srewu4vx> <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx> Source </a> </li> </ul> <span class="version" aria-hidden="true" data-astro-cid-srewu4vx>v1.0.0</span> </nav> <div class="lesson-shell" data-astro-cid-srewu4vx> <div class="lesson-tools" data-astro-cid-srewu4vx> <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-srewu4vx> <span aria-hidden="true" data-astro-cid-srewu4vx>≡ </span>Lessons
+</button> </div> <aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-srewu4vx> <nav aria-label="Tutorial lessons" data-astro-cid-srewu4vx> <section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Foundations</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Syntax and Atoms</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>01</span> <span class="title" data-astro-cid-srewu4vx>Orientation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>02</span> <span class="title" data-astro-cid-srewu4vx>Your first document</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>03</span> <span class="title" data-astro-cid-srewu4vx>Atoms and intent</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>04</span> <span class="title" data-astro-cid-srewu4vx>Numbers, units, vectors</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>05</span> <span class="title" data-astro-cid-srewu4vx>Forms and keyword pairing</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>06</span> <span class="title" data-astro-cid-srewu4vx>Comments and strings</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Expressions and Bindings</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>07</span> <span class="title" data-astro-cid-srewu4vx>Safe expressions</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>08</span> <span class="title" data-astro-cid-srewu4vx>Bindings and control flow</span> </a> </li> </ol> </div> </section><section class="part" data-astro-cid-srewu4vx> <h2 data-astro-cid-srewu4vx>Schemas and Diagnostics</h2> <div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Reading Schemas</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link is-current" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/reading-plugin-schemas" aria-current="page" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>09</span> <span class="title" data-astro-cid-srewu4vx>Reading plugin schemas</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>10</span> <span class="title" data-astro-cid-srewu4vx>Discriminated and exclusive forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>11</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: shapes, vectors, units, bounds, representation</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>12</span> <span class="title" data-astro-cid-srewu4vx>Value kinds: strings, members, heads, unions, slot-local forms</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>13</span> <span class="title" data-astro-cid-srewu4vx>Cross-references</span> </a> </li> </ol> </div><div class="chapter" data-astro-cid-srewu4vx> <h3 data-astro-cid-srewu4vx>Repair and Style</h3> <ol data-astro-cid-srewu4vx> <li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>14</span> <span class="title" data-astro-cid-srewu4vx>Diagnostics-driven repair</span> </a> </li><li class="lesson-link" data-astro-cid-srewu4vx> <a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-srewu4vx> <span class="num" data-astro-cid-srewu4vx>15</span> <span class="title" data-astro-cid-srewu4vx>Style, portability, capstone</span> </a> </li> </ol> </div> </section> </nav> </aside> <main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-srewu4vx> <div class="card__deck" data-astro-cid-srewu4vx> <div class="card__panel lesson-panel" data-astro-cid-srewu4vx>  <article class="lesson-article" data-astro-cid-fzx4jmue> <header class="lesson-header" data-astro-cid-fzx4jmue> <p class="crumbs" data-astro-cid-fzx4jmue> <span data-astro-cid-fzx4jmue>Schemas and Diagnostics</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span data-astro-cid-fzx4jmue>Reading Schemas</span> <span class="sep" aria-hidden="true" data-astro-cid-fzx4jmue>·</span> <span class="num" data-astro-cid-fzx4jmue>Lesson 09</span> </p> <h1 data-astro-cid-fzx4jmue>Reading plugin schemas</h1> </header> <div class="lesson-body" data-astro-cid-fzx4jmue> <h2 id="mental-model">Mental Model</h2>
+<p>A plugin tells the host what forms and expression functions exist. As an
+author, you only need the author-facing shape:</p>
+<ul>
+<li><strong>Form name</strong> - the head you write: <code>(circle ...)</code>.</li>
+<li><strong>Keys</strong> - the <code>:key value</code> slots the form accepts.</li>
+<li><strong>Required or optional</strong> - whether omission is allowed.</li>
+<li><strong>Default</strong> - a literal value, or an expression form like <code>(pi)</code> /
+<code>(* 2 16)</code>, that the host materializes when the key is omitted.
+Expression defaults are type-checked at schema-build against the
+key’s type and can still fail at materialization time.</li>
+<li><strong>Value type</strong> - what kind of value each key expects.</li>
+<li><strong>Positional policy</strong> - whether nested positional children are allowed.</li>
+<li><strong>Open form</strong> - whether unknown keys are accepted.</li>
+<li><strong>Lowering metadata</strong> - whether a host-owned hook must lower the form
+before final validation.</li>
+</ul>
+<p>Ordinary <code>.sjon</code> files do not import plugins. The host loads the plugin
+set; you write source that matches it.</p>
+<h2 id="worked-example">Worked Example</h2>
+<p>The <a href="https://github.com/hugodaniel/sjon/blob/main/examples/plugins/README.md"><code>../../examples/plugins/README.md</code></a>
+file describes the reference <code>shapes</code> plugin. Its scene example lives in
+<a href="https://github.com/hugodaniel/sjon/blob/main/examples/plugins/shapes-scene.sjon"><code>../../examples/plugins/shapes-scene.sjon</code></a>.</p>
+<p>Author-facing summary:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(canvas ...)</span></span>
+<span class="line"><span>  :w length optional</span></span>
+<span class="line"><span>  :h length optional</span></span>
+<span class="line"><span>  :bg string optional</span></span>
+<span class="line"><span>  positional: any</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(circle ...)</span></span>
+<span class="line"><span>  :center point optional</span></span>
+<span class="line"><span>  :radius length optional</span></span>
+<span class="line"><span>  :fill fill-rule optional</span></span>
+<span class="line"><span>  positional: none</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(rect ...)</span></span>
+<span class="line"><span>  :origin point optional</span></span>
+<span class="line"><span>  :size vector optional</span></span>
+<span class="line"><span>  positional: none</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(group ...)</span></span>
+<span class="line"><span>  :name string optional</span></span>
+<span class="line"><span>  positional: any</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(scene ...)</span></span>
+<span class="line"><span>  :title string optional</span></span>
+<span class="line"><span>  positional: any</span></span>
+<span class="line"><span>  open: true</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(badge ...)</span></span>
+<span class="line"><span>  :label string optional</span></span>
+<span class="line"><span>  :shape shape-form optional</span></span>
+<span class="line"><span>  positional: none</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The reference plugin keeps these keys optional so small examples can be
+written incrementally. Other plugin docs may mark keys required; when
+they do, omission is a validation error unless the key declares a
+default. A default makes the key effectively optional for validation,
+but you should still read what the default means before relying on it.
+The table is still enough to author meaningful source:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "demo"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :author</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "ada"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bg</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "black"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "border"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">      (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">320</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))))</span></span>
+<span class="line"></span></code></pre>
+<p>Because <code>scene</code> is open, <code>:author "ada"</code> can be accepted as ad-hoc
+metadata. Because <code>circle</code> has positional <code>none</code>, a stray child under
+<code>circle</code> should be rejected.</p>
+<p>Open forms are not “anything goes” forms. Openness treats a form as an
+extensible bag: unknown keys are accepted, missing-required-key checks
+are skipped, and closed-shape sweeps such as <code>positional: none</code>,
+discriminants, and exclusive groups do not run. Declared key types,
+duplicate keys, and typed positional children still matter.</p>
+<h2 id="exercises">Exercises</h2>
+<p>Write one valid form for each shape:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bg</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "black"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">320</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "ui"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "demo"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "dot"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span>
+<span class="line"></span></code></pre>
+<p>Now nest the forms according to positional policy:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">scene</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :title</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "demo"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bg</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "black"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "marks"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">      (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">      (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">320</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))))</span></span>
+<span class="line"></span></code></pre>
+<p>Repair positional misuse:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))</span></span>
+<span class="line"></span></code></pre>
+<p>If <code>circle</code> accepts no positional children, move the peer forms under a
+container:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "marks"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">160</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 120</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 32</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))</span></span>
+<span class="line"></span></code></pre>
+<p>Repair unknown key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :width</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :height</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Use the schema’s declared key names:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">canvas</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Required-key reading drill:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(render-target ...)</span></span>
+<span class="line"><span>  :w length required</span></span>
+<span class="line"><span>  :h length required</span></span>
+<span class="line"><span>  :bg string optional</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>This source is missing a required key:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-target</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bg</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "black"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Repair by adding <code>:h</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-target</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bg</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "black"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Default reading drill:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(render-target ...)</span></span>
+<span class="line"><span>  :w length required</span></span>
+<span class="line"><span>  :h length required</span></span>
+<span class="line"><span>  :bg string default "black"</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>This source can validate because <code>:bg</code> has a default:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-target</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :w</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 320</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :h</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 240</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span></code></pre>
+<p>Defaults can be literals (<code>60</code>, <code>"red"</code>, <code>[0 0]</code>) or expression forms
+(<code>(pi)</code>, <code>(* 2 16)</code>, <code>(vec3 0 0 0)</code>). The validator checks that an
+expression default’s declared <code>:result</code> is compatible with the key’s
+<code>:type</code> at schema-build; opaque heads like <code>(let …)</code> defer to runtime.</p>
+<p>Three vocabulary words you need before reading a schema:</p>
+<ul>
+<li><strong>Author value</strong> — the kvpair the document explicitly writes.</li>
+<li><strong>Default value</strong> — the fallback the schema declares on the key.</li>
+<li><strong>Effective value</strong> — the author value if present, otherwise the
+materialized default.</li>
+</ul>
+<p>The host never rewrites the document to insert defaults. The author
+tree stays as you wrote it; the host computes effective values in a
+side-table overlay alongside the validation result. When you read a
+form, you walk the tree for author input and ask the overlay for the
+effective value of any omitted defaulted key. Two consequences worth
+internalising:</p>
+<ul>
+<li>Writing <code>:bg "navy"</code> always wins over the schema’s <code>:default "black"</code>, even if <code>"navy"</code> later fails a type check. The schema’s
+default never silently overrides an explicit author choice.</li>
+<li>An expression default can succeed at schema-build (its declared
+<code>:result</code> matches the key’s <code>:type</code>) and still fail at
+materialization time — for example, <code>(nope)</code> declared with
+<code>:result number</code> but no <code>:impl</code> clears the static check and then
+emits <code>default_eval_failed</code> when the host tries to evaluate it.
+Read the diagnostics, not just the schema, before assuming an
+omitted key has a usable effective value.</li>
+</ul>
+<p>Effective values also participate in production validation. A defaulted
+name can be indexed as a cross-reference target; a defaulted reference
+slot is checked like an authored reference; a defaulted discriminant can
+select a variant; and a defaulted exclusive-group alternative can
+satisfy the group when no sibling alternative was explicitly written.
+The important author rule stays simple: explicit values win. If you
+write one exclusive-group alternative, a sibling’s default does not
+silently fight it.</p>
+<p>Some schemas also declare lowering metadata for surface forms. Lowering
+is host-owned: the manifest names a hook contract, but does not contain
+rewrite code. When a host runs a lowering hook, that hook reads the same
+effective view you do — author values first, then materialized
+defaults — and the final lowered forms are validated like normal data.</p>
+<h2 id="section-7--exporting-schemas-for-external-tools">Section 7 — Exporting schemas for external tools</h2>
+<p>Reading a schema is one thing; handing it to a tool that doesn’t speak
+SJON is another. <code>sjon export-schema</code> converts a fully-resolved schema
+into JSON Schema 2020-12 + TypeScript <code>.d.ts</code> describing the canonical
+JSON shape of <code>sjon to-json</code> output. A one-liner:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>sjon export-schema mydoc.sjon --target=both --output=./gen</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Produces:</p>
+<ul>
+<li><code>./gen/schema.json</code> — feed into Ajv 2020 / <code>python-jsonschema</code> to
+validate <code>sjon to-json --canonical</code> output without involving the
+SJON validator.</li>
+<li><code>./gen/types.d.ts</code> — import into a TypeScript project that reads
+SJON-as-JSON to get autocomplete and basic structural checking.</li>
+</ul>
+<p>The exporter is <strong>lossy</strong> on constraints JSON Schema can’t enforce
+(cross-references, expression evaluation, source-order rules,
+multi-key exclusive bundles). Every loss is recorded as an
+<code>x-sjon-export-warnings</code> entry at the top of the schema and as a
+matching <code>// WARNING:</code> header in the <code>.d.ts</code>. Discriminated forms
+become <code>allOf</code> of <code>if/then</code> chains; head-sets become <code>oneOf</code> of
+<code>$ref</code>s; exclusive groups become <code>oneOf</code>/<code>not:{allOf}</code>. See
+<a href="https://github.com/hugodaniel/sjon/blob/main/docs/SCHEMA_EXPORT.md"><code>docs/SCHEMA_EXPORT.md</code></a> for the full mapping
+table, lossiness budget, and worked examples for the <code>kit</code>, <code>audio</code>,
+<code>enum-rich</code>, and <code>kit-xor</code> fixtures.</p>
+<p>You can call the exporter from a host too — useful when your tooling
+pipeline already lives in Node, Rust, or a TypeScript codebase:</p>
+<ul>
+<li><strong>Node</strong> (<code>hosts/web/SjonHost.exportSchema</code>) — wraps the WASM
+export; returns a parsed envelope with <code>aggregated.jsonSchema</code> /
+<code>tsTypes</code> / <code>intermediate</code> as strings.</li>
+<li><strong>Rust</strong> (<code>sjon_host::SjonHost::export_schema</code>) — wasmtime-backed
+binding; same envelope, serde-deserialized into
+<code>ExportSchemaResult</code> with typed <code>ExportTarget</code> /
+<code>ExportLayoutOption</code> knobs.</li>
+<li><strong>TypeScript-parity</strong> (<code>hosts/typescript-parity/src/Host.exportSchema</code>)
+— native TS port, no WASM. Same input shape, structurally
+equivalent output.</li>
+</ul>
+<p>See <a href="https://github.com/hugodaniel/sjon/blob/main/docs/SCHEMA_EXPORT.md#calling-the-exporter"><code>docs/SCHEMA_EXPORT.md</code> § Calling the
+exporter</a> for working code
+samples per host.</p>
+<section class="mastery-quiz" data-lesson="reading-plugin-schemas">
+  <h2>Mastery Check</h2>
+  <ol class="mc-list">
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">What does <code>positional: none</code> mean for authors?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-0" value="0"> <span>The form takes no kvpair children.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-0" value="1"> <span>The form does not accept positional (non-key) children — only <code>:key value</code> pairs.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-0" value="2"> <span>The form must be empty.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Does <code>open: true</code> silence duplicate-key or type errors?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-1" value="0"> <span>No — <code>open: true</code> only allows unknown keys; declared keys still enforce types and duplicate rules.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-1" value="1"> <span>Yes — open forms accept anything.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-1" value="2"> <span>Only on discriminated forms.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Does a <code>.sjon</code> file itself choose the plugin set?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-2" value="0"> <span>Yes — the file imports plugins explicitly.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-2" value="1"> <span>Only when a <code>(plugins ...)</code> form is present.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-reading-plugin-schemas-2" value="2"> <span>No — the host loads plugins; the file just uses their vocabulary.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+  </ol>
+  <div class="mc-controls">
+    <button type="button" class="mc-submit">Submit answers</button>
+    <button type="button" class="mc-reset" hidden>Reset</button>
+    <p class="mc-score" hidden></p>
+  </div>
+</section> </div> <nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-fzx4jmue> <a class="prev" href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>← Previous</span> <span class="title" data-astro-cid-fzx4jmue>Bindings and control flow</span> </a> <a class="next" href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-fzx4jmue> <span class="dir" data-astro-cid-fzx4jmue>Next →</span> <span class="title" data-astro-cid-fzx4jmue>Discriminated and exclusive forms</span> </a> </nav> </article>  </div> </div> </main> </div> <footer class="site-footer" data-astro-cid-srewu4vx> <p data-astro-cid-srewu4vx>SJON 1.0: stable language, documented plainly.</p> <p class="muted" data-astro-cid-srewu4vx>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-srewu4vx>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-srewu4vx>git.hugodaniel.com/releases/sjon</a></p> </footer> <script>
+        (function () {
+            const sideBtn = document.querySelector('.sidebar-toggle');
+            const aside = document.getElementById('lesson-sidebar');
+            if (sideBtn && aside) {
+                sideBtn.addEventListener('click', () => {
+                    const open = aside.classList.toggle('is-open');
+                    sideBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+        })();
+    </script> </body> </html>  <script src="/pages/sjon/mastery-quiz.js"></script> 
