@@ -23,7 +23,7 @@ llms:
 build: miniray boredom sjon colorpicker llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish documentation miniray boredom sjon colorpicker llms
+.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
@@ -57,4 +57,11 @@ sign-feed: build
 publish: sign-feed
 	chmod -R a+rX ./public/
 	rsync -rltzO --delete --no-perms --progress ./public/ \
+	example.com:/var/www/htdocs/hugodaniel.com/
+
+# Push local static/ to the server, overwriting matching files but keeping
+# anything already there that has no local counterpart (no --delete).
+refresh-static:
+	chmod -R a+rX ./static/
+	rsync -rltzO --no-perms --progress ./static/ \
 	example.com:/var/www/htdocs/hugodaniel.com/

@@ -77,7 +77,7 @@ a:focus-visible {
 hr {
 	height: 1px;
 	border: 0;
-	background-color: rgba(0,0,0,.1);
+	background-color: rgba(0,0,0,.22);
 }
 
 ol {
@@ -458,7 +458,10 @@ main article img {
 main article.narrow-media img,
 main article.narrow-media video {
 	display: block;
-	max-width: 28rem;
+	/* Cap at a readable width on desktop, but never exceed the available
+	   width on narrow (mobile) screens, where 28rem would overflow. */
+	max-width: min(28rem, 100%);
+	height: auto;
 	margin-inline: auto;
 }
 
@@ -479,7 +482,13 @@ main article pre code {
 }
 
 main hr {
-	margin-bottom: 0;
+	/* main is a grid on desktop; an hr's default auto side-margins collapse it
+	   to 0 width there. Give it an explicit width and centre it. 41rem matches
+	   the width of the header's bottom-border line (article content inset by its
+	   padding), so the end-of-post rule lines up with the header rule. */
+	width: 100%;
+	max-width: 41rem;
+	margin: 0.5em auto 0;
 	padding-bottom: 0;
 }
 

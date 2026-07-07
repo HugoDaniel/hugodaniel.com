@@ -54,13 +54,22 @@
 			</nav>
 		</header>
 		{{ page.content | safe }}
-      <!--
-    <p>Did you enjoy what you read? Was it inspiring or compelling in any way?
-    <br> I can send you one e-mail per month with a quick recap of the posts I have written.
-    <br><a href="#subscribe" class="subscribe">You can subscribe here.</a></p>
--->
 	</article>
 	<hr>
+	<section class="subscribe" aria-labelledby="subscribe-heading">
+		<h2 id="subscribe-heading">Subscribe</h2>
+		<p>Enjoyed this? I send at most one e-mail a month with a short recap of new posts. No spam, unsubscribe anytime.</p>
+		<form method="post" action="https://listas.hugodaniel.com/subscription/form">
+			<input type="hidden" name="l" value="3ba4cbbf-cb6d-4f83-a4d1-b88e169fa120">
+			<div class="subscribe-hp" aria-hidden="true">
+				<label>Leave this field empty <input type="text" name="nonce" tabindex="-1" autocomplete="off"></label>
+			</div>
+			<label class="visually-hidden" for="subscribe-email">Your e-mail address</label>
+			<input id="subscribe-email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+			<button type="submit">Subscribe</button>
+		</form>
+		<small>You’ll get a confirmation e-mail to opt in. Hosted on my own server.</small>
+	</section>
 	<footer>
 		<nav aria-label="Social links">
 			<a href="https://bsky.app/profile/hugodan.bsky.social" rel="external">bsky</a>
@@ -72,4 +81,5 @@
 		</nav>
 	</footer>
 </main>
+<script src="/scripts/video-tap.js" defer></script>
 {% endblock content %}

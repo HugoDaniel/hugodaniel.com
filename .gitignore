@@ -33,6 +33,7 @@ decls/
 tmp/
 TODO
 PLAN.md
+PLAN-*.md
 .env
 .env_sandbox
 .env_production

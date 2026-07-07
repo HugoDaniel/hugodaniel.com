@@ -1,0 +1,104 @@
+/* Subscribe form — shown at the end of every post (see templates/page.html).
+   Posts to the self-hosted listmonk instance (listas.hugodaniel.com). */
+
+.subscribe {
+	max-width: 34rem;
+	margin: 2.5rem auto 1rem;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.subscribe h2 {
+	margin: 0 0 0.4rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.subscribe p {
+	margin: 0 auto 1rem;
+	max-width: 28rem;
+	font-size: 0.95rem;
+	line-height: 1.5;
+	opacity: 0.85;
+}
+
+.subscribe form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.subscribe input[type="email"] {
+	flex: 1 1 16rem;
+	min-width: 0;
+	font-size: 1rem; /* 16px avoids iOS zoom */
+	padding: 0.7rem 0.9rem;
+	color: inherit;
+	background: #fff;
+	border: 1px solid #ccc;
+	-webkit-appearance: none;
+}
+
+.subscribe input[type="email"]:focus {
+	outline: none;
+	border-color: rgb(139, 139, 255);
+	box-shadow: 0 0 0 2px rgba(139, 139, 255, 0.35);
+}
+
+.subscribe button[type="submit"] {
+	flex: 0 0 auto;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 600;
+	padding: 0.7rem 1.4rem;
+	color: #fff;
+	background: rgb(139, 139, 255);
+	border: none;
+}
+
+.subscribe button[type="submit"]:hover {
+	background: rgb(120, 120, 245);
+}
+
+.subscribe button[type="submit"]:focus-visible {
+	outline: 2px solid rgb(139, 139, 255);
+	outline-offset: 2px;
+}
+
+.subscribe small {
+	display: block;
+	margin-top: 0.75rem;
+	font-size: 0.78rem;
+	opacity: 0.7;
+}
+
+/* Honeypot: off-screen field bots tend to fill and humans never see.
+   listmonk rejects the submission if its "nonce" field is non-empty. */
+.subscribe-hp {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.subscribe .visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	.subscribe input[type="email"] {
+		color: var(--dark-text-color);
+		background: rgb(45, 45, 49);
+		border-color: rgba(255, 255, 255, 0.18);
+	}
+}
