@@ -20,13 +20,18 @@ colorpicker:
 llms:
 	bin/gen-llms.py
 
+# Start a new draft post with today's date: make draft title="My Post Title"
+draft:
+	@bin/new-draft.py "$(title)"
+
 build: miniray boredom sjon colorpicker llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms
+.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms draft
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
+	2026-07-15-the-end-of-creativity \
 	2026-06-14-color-picking-oklch \
 	2026-06-02-sjon \
 	2026-05-25-s-rausch \

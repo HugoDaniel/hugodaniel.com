@@ -6,6 +6,7 @@ This capsule is my quiet room in a loud world, I hand-curate a slice of my site 
 
 ## Latest posts
 
+=> /posts/2026-07-15-the-end-of-creativity.gmi The end of creativity (2026-07-15)
 => /posts/2026-06-14-color-picking-oklch.gmi Color picking Oklch for mortals (2026-06-14)
 => /posts/2026-06-02-sjon.gmi S-expressions the wrong way (2026-06-02)
 => /posts/2026-05-25-s-rausch.gmi S-Rausch (2026-05-25)

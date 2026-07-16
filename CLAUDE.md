@@ -14,9 +14,8 @@ Personal blog and portfolio of Hugo Daniel, served at https://hugodaniel.com
 ├── config.toml          # Zola configuration
 ├── Makefile             # Build & deploy automation
 ├── content/             # Markdown source files
-│   ├── posts/           # Blog articles (46 posts)
-│   ├── projects/        # Project showcases
-│   └── drafts/          # Work in progress
+│   ├── posts/           # Blog articles (drafts live here too, marked draft = true)
+│   └── projects/        # Project showcases
 ├── templates/           # Zola templates
 ├── static/              # Assets served as-is
 │   ├── css/             # Stylesheets
@@ -78,7 +77,10 @@ Post content in markdown...
 
 ### Drafts
 
-Place unfinished posts in `content/drafts/` - they won't be published.
+Mark unfinished posts with `draft = true` in their frontmatter; they live in
+`content/posts/` like any other post but Zola skips them in a normal build (never
+built, never deployed, never in the feed). Preview them with `zola serve --drafts`.
+To publish, delete the `draft = true` line. `make draft title="…"` scaffolds one.
 
 ## Templates
 
