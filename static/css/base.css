@@ -133,11 +133,9 @@ footer {
 footer nav li {
 	line-height: 1.5;
 	width: 100%;
-	white-space: pre-wrap;
 	margin-top: 0.5rem;
 }
 footer nav h4 {
-	white-space: break-spaces;
 	font-weight: 500;
 }
 
