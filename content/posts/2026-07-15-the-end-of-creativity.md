@@ -2,7 +2,7 @@
 title = "The end of creativity"
 description = "A story on AI median regression"
 date = 2026-07-15
-extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/hugo_dog.jpg", class = "narrow-media", modules = [] }
+extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/hugo_dog.jpg", class = "narrow-media", modules = [], related = ["posts/2026-05-24-lost-in-the-middle.md", "posts/2026-02-16-rip-rest-in-prompt.md", "posts/2026-01-22-claude-code-banned-me.md"] }
 +++
 
 This past weekend I went to a wedding and something (extra)ordinary happened that I cannot stop thinking about, up to the point of having to write it down in this post.

@@ -5,7 +5,6 @@
 	max-width: 34rem;
 	margin: 2.5rem auto 1rem;
 	padding: 1.5rem;
-	text-align: center;
 }
 
 .subscribe h2 {
@@ -15,7 +14,7 @@
 }
 
 .subscribe p {
-	margin: 0 auto 1rem;
+	margin: 0 0 1rem;
 	max-width: 28rem;
 	font-size: 0.95rem;
 	line-height: 1.5;
@@ -26,7 +25,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .subscribe input[type="email"] {
@@ -93,6 +92,18 @@
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+/* Widen to line up with the keep-reading block above it (same 40em
+   breakpoint as desktop.css; 41rem matches the end-of-post hr). */
+@media screen and (min-width: 40em) {
+	.subscribe {
+		/* main is a grid here; with auto side margins the section shrinks to
+		   its content, so force it to fill out to the cap or its left edge
+		   won't line up with the keep-reading block. */
+		width: 100%;
+		max-width: 41rem;
+	}
 }
 
 @media (prefers-color-scheme: dark) {

@@ -48,6 +48,7 @@
 				<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
 				<span>
 					<a id="back" href="/">About me</a>
+					<a href="/start-here/">Start here</a>
 					<a href="/posts">All posts</a>
 					<a href="/atom.xml">Feed</a>
 				</span>
@@ -56,9 +57,41 @@
 		{{ page.content | safe }}
 	</article>
 	<hr>
+	{% if page.ancestors is containing("posts/_index.md") %}
+	<section class="keep-reading" aria-labelledby="keep-reading-heading">
+		<h2 id="keep-reading-heading">Other posts I wrote that might be similar to this...</h2>
+		<ul>
+			{% if page.extra.related %}
+			{% for path in page.extra.related %}
+			{% set related = get_page(path=path) %}
+			<li>
+				<a href="{{ related.permalink | replace(from=config.base_url, to='') | safe }}">{{ related.title }}</a>
+				{% if related.description %}<span>{{ related.description }}</span>{% endif %}
+			</li>
+			{% endfor %}
+			{% else %}
+			{% set posts = get_section(path="posts/_index.md") %}
+			{% set_global shown = 0 %}
+			{% for related in posts.pages %}
+			{% if shown >= 3 %}{% break %}{% endif %}
+			{% if related.permalink == page.permalink %}{% continue %}{% endif %}
+			{% set_global shown = shown + 1 %}
+			<li>
+				<a href="{{ related.permalink | replace(from=config.base_url, to='') | safe }}">{{ related.title }}</a>
+				{% if related.description %}<span>{{ related.description }}</span>{% endif %}
+			</li>
+			{% endfor %}
+			{% endif %}
+		</ul>
+	</section>
+	{% endif %}
 	<section class="subscribe" aria-labelledby="subscribe-heading">
-		<h2 id="subscribe-heading">Subscribe</h2>
-		<p>Enjoyed this? I send at most one e-mail a month with a short recap of new posts. No spam, unsubscribe anytime.</p>
+		{% if page.ancestors is containing("posts/_index.md") %}
+		<h2 id="subscribe-heading">...I can send you an e-mail if you want to keep track</h2>
+		{% else %}
+		<h2 id="subscribe-heading">I can send you an e-mail when I write something new</h2>
+		{% endif %}
+		<p>At most one a month, with a short recap of new posts. No spam, unsubscribe anytime.</p>
 		<form method="post" action="https://listas.hugodaniel.com/subscription/form">
 			<input type="hidden" name="l" value="3ba4cbbf-cb6d-4f83-a4d1-b88e169fa120">
 			<div class="subscribe-hp" aria-hidden="true">

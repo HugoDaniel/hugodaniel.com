@@ -2,7 +2,7 @@
 {% block content %}
 <main class="all-posts" role="main" id="main-content">
 	<h2>{{ section.title }}</h2>
-	<p>Here is a full list of articles that I have written</p>
+	<p>Here is a full list of articles that I have written. If you prefer a curated map, <a href="/start-here/">start here</a>.</p>
 	<ol class="posts new">
 		{% for page in section.pages %}
 			{% if page.draft %}{% continue %}{% endif %}

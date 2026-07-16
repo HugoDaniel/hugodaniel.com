@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/css/desktop.css" />
     <link rel="stylesheet" href="/css/submit-form.css" />
     <link rel="stylesheet" href="/css/subscribe.css" />
+    <link rel="stylesheet" href="/css/keep-reading.css" />
     {% block rss %}
     <link
       rel="alternate"
@@ -36,9 +37,9 @@
     <meta name="twitter:site" content="@mr_hugo" />
     <meta name="twitter:creator" content="@mr_hugo" />
     {% if page.title %}
-    <title>{{ page.title }} – Hugo Daniel</title>
-    <meta name="twitter:title" content="{{ page.title }} – Hugo Daniel" />
-    <meta property="og:title" content="{{ page.title }} – Hugo Daniel" />
+    <title>{{ page.title }}</title>
+    <meta name="twitter:title" content="{{ page.title }}" />
+    <meta property="og:title" content="{{ page.title }}" />
     <meta property="og:type" content="article" />
     {% else %}
     <title>Hugo Daniel</title>

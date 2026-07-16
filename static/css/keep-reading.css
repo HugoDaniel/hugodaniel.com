@@ -1,0 +1,54 @@
+/* "Keep reading" block — shown after every post, before the subscribe form
+   (see templates/page.html). Links are hand-picked via extra.related in the
+   post's frontmatter, falling back to the three most recent posts. */
+
+.keep-reading {
+	max-width: 34rem;
+	margin: 2.5rem auto 0;
+	padding: 0 1.5rem;
+}
+
+.keep-reading h2 {
+	margin: 0 0 0.75rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.keep-reading ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.keep-reading li {
+	margin: 0 0 0.9rem;
+}
+
+.keep-reading li a {
+	font-weight: 600;
+}
+
+.keep-reading li span {
+	display: block;
+	font-size: 0.9rem;
+	line-height: 1.45;
+	opacity: 0.75;
+}
+
+/* Three columns on non-mobile, one link per column (matches the 40em
+   breakpoint used by desktop.css). 41rem lines up with the end-of-post hr. */
+@media screen and (min-width: 40em) {
+	.keep-reading {
+		max-width: 41rem;
+	}
+
+	.keep-reading ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.keep-reading li {
+		margin: 0;
+	}
+}

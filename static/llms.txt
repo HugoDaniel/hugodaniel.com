@@ -7,6 +7,7 @@ This is the personal website of Hugo Daniel, a Portuguese software developer mak
 ## Site Structure
 
 - `/` - Homepage with author bio and recent posts
+- `/start-here/` - Curated entry points into the archive, grouped by topic (best first stop)
 - `/posts/` - Blog articles about web development, WebGPU, shaders, and creative coding
 - `/projects/` - Project showcases (e.g., Shader Canvas)
 - `/pages/` - Interactive web applications and tools
