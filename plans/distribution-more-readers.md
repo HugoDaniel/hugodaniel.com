@@ -32,12 +32,12 @@ The only channels you own are the site, the feed, and an email list. Harden them
 
 | Content | Venues |
 |---|---|
-| Essays (Lost in the middle, LX, sovereignty) | HN, lobste.rs, Merveilles, Future of Coding newsletter |
+| Essays (Lost in the middle, LX, sovereignty) | HN, Merveilles, Future of Coding newsletter — *not* lobste.rs (essays score ~1 there) |
 | SJON / language posts | r/programminglanguages, r/lisp, Future of Coding Slack, ziggit.dev |
-| WGSL / GPU posts | HN, r/webgpu, r/GraphicsProgramming, JavaScript Weekly / Frontend Focus (email curators) |
+| WGSL / GPU posts | HN, lobste.rs (new graphics posts only, not backlog), r/webgpu, r/GraphicsProgramming, JavaScript Weekly / Frontend Focus (email curators) |
 | Tools (miniray, SJON playground, webgpu-diagnostics) | Show HN, Console.dev (takes tool submissions), pouët.net (demoscene tools) |
 
-Mechanics: HN Tue–Thu around 14:00–16:00 UTC; one resubmit allowed if no traction. lobste.rs needs an invite — source one via Merveilles/Bluesky/#lobsters IRC; your niche is well represented there. On Reddit, participate genuinely in r/programminglanguages before/alongside link posts — it's a community that rewards exactly your kind of content.
+Mechanics: HN Tue–Thu around 14:00–16:00 UTC; one resubmit allowed if no traction. lobste.rs: account already established (~HugoDaniel, 8-year member, 783 karma, good via/authored-by mix). Own-submission history shows graphics/design craft thrives there (Oklch: 33) while essays and tool announcements die (R.I.P. Rest In Prompt: 1, miniray: 2) — reserve it for *new* graphics-focused posts, no backlog resubmissions. On Reddit, participate genuinely in r/programminglanguages before/alongside link posts — it's a community that rewards exactly your kind of content.
 
 **Backlog campaign (one per week, the archive is the asset):** never-submitted evergreen pieces, in order: WGSL limits I & II → PNGine → "Lost in the middle" → miniray → "R.I.P. Rest In Prompt" → the 2016–18 bootstrapping/eviction saga reframed as a 10-years-later retrospective (HN front-page material — honest failure retrospectives outperform almost everything).
 
@@ -71,7 +71,7 @@ Mechanics: HN Tue–Thu around 14:00–16:00 UTC; one resubmit allowed if no tra
 
 ## 90-day calendar
 
-- **Weeks 1–2:** site hub (start-here, newsletter, analytics, series pages, footer). Merveilles application; lobste.rs invite hunt.
+- **Weeks 1–2:** site hub (start-here, newsletter, analytics, series pages, footer). Merveilles application.
 - **Weeks 2–4:** Forgejo mirrors + registries + awesome-list PRs.
 - **Week 3:** submit "Lost in the middle" (HN) + SJON post (r/programminglanguages, FoC Slack).
 - **Week 4:** Show HN: SJON playground.

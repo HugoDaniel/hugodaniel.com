@@ -24,10 +24,14 @@ llms:
 draft:
 	@bin/new-draft.py "$(title)"
 
+# Week-to-date visitor stats from the server's httpd access log
+stats:
+	@ssh example.com 'sh -s' < bin/server-stats.sh
+
 build: miniray boredom sjon colorpicker llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms draft
+.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms draft stats
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \
@@ -61,7 +65,7 @@ sign-feed: build
 
 publish: sign-feed
 	chmod -R a+rX ./public/
-	rsync -rltzO --delete --no-perms --progress ./public/ \
+	rsync -rltzO --delete --perms --progress ./public/ \
 	example.com:/var/www/htdocs/hugodaniel.com/
 
 # Push local static/ to the server, overwriting matching files but keeping

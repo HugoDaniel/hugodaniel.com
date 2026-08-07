@@ -1,7 +1,6 @@
 +++
 title = "Start here"
 description = "Ten years of posts, sorted by the reason you might be visiting."
-date = 2026-07-16
 extra = { place = "Amadora", author = "Hugo Daniel", class = "with-lists" }
 +++
 
