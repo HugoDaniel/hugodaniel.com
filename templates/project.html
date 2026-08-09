@@ -4,23 +4,23 @@
 <main role="main" class="project" id="main-content">
 
 	<article class="
-{% if page.extra.class %}
+{% if page is defined and page.extra.class %}
 {{page.extra.class}}
-{% elif section.extra.class %}
+{% elif section is defined and section.extra.class %}
 {{section.extra.class}}
 {%endif%}
     ">
 
 		<header>
       <h1>
-        {% if page.title %}
+        {% if page is defined and page.title %}
           {{ page.title }}
         {% else %}
           {{ section.title }}
         {% endif %}
       </h1>
 			<p>
-        {% if page.description %}
+        {% if page is defined and page.description %}
           {{page.description}}
         {% else %}
           {{section.description}}
@@ -28,21 +28,21 @@
       </p>
 			<nav>
         <a class="introduction" href="
-        {% if section %}
+        {% if section is defined %}
           {{section.extra.intro}}
         {% else %}
           {{page.extra.intro}}
         {% endif %}
         ">Introduction</a>
         <a class="documentation" href="
-        {% if section %}
+        {% if section is defined %}
         {{section.extra.docs}}
         {% else %}
         {{page.extra.docs}}
         {% endif %}
         ">Documentation</a>
           <a href="
-        {% if page.extra.github %}
+        {% if page is defined and page.extra.github %}
           {{page.extra.github}}
         {% else %}
           {{section.extra.github}}
@@ -52,26 +52,26 @@
 
 <nav class="project-menu">
         <a class="introduction" href="
-        {% if section %}
+        {% if section is defined %}
           {{section.extra.intro}}
         {% else %}
           {{page.extra.intro}}
         {% endif %}
         ">Intro</a>
         <a class="documentation" href="
-        {% if section %}
+        {% if section is defined %}
         {{section.extra.docs}}
         {% else %}
         {{page.extra.docs}}
         {% endif %}
         ">Docs</a>
           <a href="
-        {% if page.extra.github %}
+        {% if page is defined and page.extra.github %}
           {{page.extra.github}}
         {% else %}
           {{section.extra.github}}
         {% endif %}">GitHub</a>
-        {% if page.extra.showTOC %}
+        {% if page is defined and page.extra.showTOC %}
         <button class="hamburger" aria-label="Open table of contents" aria-expanded="false" aria-controls="toc-nav">
           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -81,7 +81,7 @@
         {% endif %}
 </nav>
 
-    {% if page %}
+    {% if page is defined %}
       <nav class="toc" id="toc-nav" aria-label="Table of contents">
         <h2>{{ page.title}}</h2>
         <ul>
@@ -103,7 +103,7 @@
       </nav>
     {% endif %}
 
-    {% if page.content %}
+    {% if page is defined and page.content %}
       {{page.content | safe }}
     {% else %}
       {{section.content | safe }}

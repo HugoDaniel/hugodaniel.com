@@ -6,7 +6,7 @@
 {% set image_url = get_url(path=social, trailing_slash=false) %}
 {% set description = page.description | default(value="Hugo Daniel's site about ideas and software experimentations") %}
 {% set published = page.date | date(format="%Y-%m-%d") %}
-{% set modified = page.updated | default(value=page.date) | date(format="%Y-%m-%d") %}
+{% set modified = page.updated | default(value=page.date, boolean=true) | date(format="%Y-%m-%d") %}
 {% set author_name = page.extra.author | default(value="Hugo Daniel") %}
 {
   "@context": "https://schema.org",
@@ -47,7 +47,7 @@
 			<h1> {{ page.title }} </h1>
 			<p> {{ page.description }} </p>
 			<nav>
-				{% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>{% endif %}
+				{% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%d-%b-%Y") }}</time>{% endif %}
 				<span>
 					<a id="back" href="/">About me</a>
 					<a href="/start-here/">Start here</a>
@@ -59,7 +59,7 @@
 		{{ page.content | safe }}
 	</article>
 	<hr>
-	{% if page.ancestors is containing("posts/_index.md") %}
+	{% if page.ancestors is containing(pat="posts/_index.md") %}
 	<section class="keep-reading" aria-labelledby="keep-reading-heading">
 		<h2 id="keep-reading-heading">Other posts I wrote that might be similar to this...</h2>
 		<ul>
@@ -88,7 +88,7 @@
 	</section>
 	{% endif %}
 	<section class="subscribe" aria-labelledby="subscribe-heading">
-		{% if page.ancestors is containing("posts/_index.md") %}
+		{% if page.ancestors is containing(pat="posts/_index.md") %}
 		<h2 id="subscribe-heading">...I can send you an e-mail if you want to keep track</h2>
 		{% else %}
 		<h2 id="subscribe-heading">I can send you an e-mail when I write something new</h2>

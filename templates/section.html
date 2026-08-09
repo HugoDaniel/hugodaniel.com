@@ -11,7 +11,7 @@
 					<a href="{{ page.permalink | replace(from=config.base_url, to='') | safe }}">{{ page.title }}</a>
 					<span>
 						<p> {{ page.description }} </p>
-						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+						<time datetime="{{ page.date }}">{{ page.date | date(format="%d-%b-%Y") }}</time>
 					</span>
 				</li>
 			{% endif %}
@@ -29,7 +29,7 @@
 					<a href="{{ page.permalink | replace(from=config.base_url, to='') | safe }}">{{ page.title }}</a>
 					<span>
 						<p> {{ page.description }} </p>
-						<time datetime="{{ page.date }}">{{ page.date | date(format="%v") }}</time>
+						<time datetime="{{ page.date }}">{{ page.date | date(format="%d-%b-%Y") }}</time>
 					</span>
 				</li>
 			{% endif %}
