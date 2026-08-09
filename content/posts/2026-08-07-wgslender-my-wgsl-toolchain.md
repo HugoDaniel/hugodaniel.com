@@ -7,7 +7,7 @@ extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/wgsle
 
 In this post I am introducing wgslender, the WGSL toolchain that I have been using locally and that has been growing along side some demoscene work.
 
-I have been on this for about 8 months now. It has grown out of the pains of doing the ["tangatos" 8K demo for Revision](https://youtu.be/yRE5YmymLHk?si=oVXCQXyaa3_XMJOK), as well as the more recent ["impulsos" full demo](https://youtu.be/BN2nOPabcho?si=jfFUksbO48o5ywIX).
+I have been on this for about 8 months now. It has grown out of the pains of doing the ["tangatos" 8K demo for Revision](https://youtu.be/yRE5YmymLHk?si=HFF4rkntiYxYBzS6&t=207), as well as the more recent ["impulsos" full demo](https://youtu.be/BN2nOPabcho?si=jfFUksbO48o5ywIX).
 
 I will try to angle this on the idea and motivation side, wgslender comes from having spent countless hours writing shaders and then running the minifier in the terminal to check what causes size increases while rethinking compression approaches and what to reuse in the demos and also in the tooling. In a world where every function is weighted in byte costs, reusability is king.
 
@@ -15,7 +15,7 @@ I will try to angle this on the idea and motivation side, wgslender comes from h
 
 ### The method of production is itself part of what makes each thing what it is
 
-wgslender was built with heavy LLM assistance, while the demos are handmade, because after all the medium is still the massage.
+wgslender was built with heavy LLM assistance, while the demos are handmade, because after all the massage is still the medium.
 
 ## Multics
 
@@ -110,7 +110,7 @@ Leaving runtime performance aside, and focusing on the WGSL aspect only for the 
 
 This means the shader text is [encoded](https://en.wikipedia.org/wiki/Byte-pair_encoding) inside a binary wasm, and then decoded when executed. For small shaders (~5KB) it does not compensate, you are better off with traditional minification+gzip, but for big shaders there  are gainz to be had. Unless you don't care about this at all ahah.
 
-See the Benchmark if you are interested in more data around this idea of having a binary representation of the source text, which is something much simpler than a precompiled shader binary.
+[See the Benchmark](https://github.com/HugoDaniel/wgslender/blob/main/BENCHMARK.md) if you are interested in more data around this idea of having a binary representation of the source text, which is something much simpler than a precompiled shader binary.
 
 ## The long tail
 
@@ -134,11 +134,12 @@ Maybe we could do even more things that could reuse the parser+analysis trees in
 
 Anyway, this is opinionated and has very rough edges, fruits of pushing this from specific real use cases, if you try it tell me where it breaks and how we can make this better, it needs love in a lot of its surface.
 
-See the [code here](https://github.com/HugoDaniel/wgslender), and [try it out](playground link)!
+You can [try it out](https://hugodaniel.com/pages/wgslender)!
 
-[rust](https://crates.io/crates/wgslender)
-[go](https://pkg.go.dev/github.com/HugoDaniel/wgslender/packages/go/wgslender)
-[js](https://www.npmjs.com/package/wgslender)
+- [rust](https://crates.io/crates/wgslender)
+- [go](https://pkg.go.dev/github.com/HugoDaniel/wgslender/packages/go/wgslender)
+- [js](https://www.npmjs.com/package/wgslender)
+- [code](https://github.com/HugoDaniel/wgslender)
 
 and the highly configurable [vscode extension](https://marketplace.visualstudio.com/items?itemName=hugodaniel.wgslender-vscode).
 

@@ -17,6 +17,16 @@ colorpicker:
 	mkdir -p static/pages/color-picker-pro/app
 	cp -R ../color-picker-pro/dist/. static/pages/color-picker-pro/app/
 
+# The wgslender playground. `--base` is passed from here rather than pinned in
+# the app: the app builds for `/` by default and the `/pages/wgslender/` prefix
+# is a fact about this site, not about it. `cp -R dist/.` (not `dist/*`) so the
+# two .wasm binaries and the dotfile-free asset tree all come across.
+wgslender:
+	pnpm --dir ../wgslender/web build --base=/pages/wgslender/
+	rm -rf static/pages/wgslender
+	mkdir -p static/pages/wgslender
+	cp -R ../wgslender/web/dist/. static/pages/wgslender/
+
 llms:
 	bin/gen-llms.py
 
@@ -28,10 +38,10 @@ draft:
 stats:
 	@ssh example.com 'sh -s' < bin/server-stats.sh
 
-build: miniray boredom sjon colorpicker llms
+build: miniray boredom sjon colorpicker wgslender llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker llms draft stats
+.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker wgslender llms draft stats
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \

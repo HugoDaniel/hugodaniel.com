@@ -74,6 +74,8 @@ numeric bound.
      code = what rule broke   (stable across hosts — match on THIS)
      path = where             (form head → key → vector index)
    The `message` is human-facing prose and is NOT stable — don't parse it.
+   When the diagnostic carries `hints`, prefer a hint's `replacement`
+   string over guessing — it is the exact text to write at the span.
 5. Optionally: sjon explain <code> --format=json   for the rule's meaning.
 6. Go to 2. Validate after every change, so an error is caught at the step
    that introduced it instead of compounding across a big rewrite.
