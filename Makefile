@@ -27,6 +27,18 @@ wgslender:
 	mkdir -p static/pages/wgslender
 	cp -R ../wgslender/web/dist/. static/pages/wgslender/
 
+# The PNGine docs site (Astro Starlight). Unlike wgslender, `--base` is not
+# passed here: site-pngine pins `base: '/pages/pngine'` in astro.config.mjs
+# because its docs content writes that prefix into every internal link.
+# Run its gates first (pnpm samples:check, llms:check, logo:check,
+# fences:check) after any engine bump; they compare the snapshots in the repo
+# against the sibling pngine checkout.
+pngine:
+	pnpm --dir ../site-pngine build
+	rm -rf static/pages/pngine
+	mkdir -p static/pages/pngine
+	cp -R ../site-pngine/dist/. static/pages/pngine/
+
 llms:
 	bin/gen-llms.py
 
@@ -38,10 +50,10 @@ draft:
 stats:
 	@ssh example.com 'sh -s' < bin/server-stats.sh
 
-build: miniray boredom sjon colorpicker wgslender llms
+build: miniray boredom sjon colorpicker wgslender pngine llms
 	zola build
 
-.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker wgslender llms draft stats
+.PHONY: capsule publish-capsule build sign-feed publish refresh-static documentation miniray boredom sjon colorpicker wgslender pngine llms draft stats
 
 CAPSULE_OUT := public-capsule
 CAPSULE_POSTS := \

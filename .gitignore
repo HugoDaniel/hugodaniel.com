@@ -26,6 +26,11 @@ dist/
 config/
 dist.tar.gz
 dist.*
+# ...but not inside the generated page trees: Astro names hashed chunks
+# after their entry module, so static/pages/pngine/_astro/dist.<hash>.js
+# (the signals runtime the mobile menu imports) matched `dist.*` above and
+# went untracked while the other 210 files of that build were committed.
+!static/pages/**/dist.*
 package-lock.json
 deploy.sh
 prod.sh

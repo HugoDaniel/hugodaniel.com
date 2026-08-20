@@ -1,0 +1,771 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-umliitn6"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Bytecode Format | PNGine</title><link rel="canonical" href="https://hugodaniel.com/pages/pngine/docs/bytecode/"/><link rel="sitemap" href="/pages/pngine/sitemap-index.xml"/><link rel="shortcut icon" href="/pages/pngine/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.2.2"/><meta name="generator" content="Starlight v0.41.7"/><meta property="og:title" content="Bytecode Format"/><meta property="og:type" content="article"/><meta property="og:url" content="https://hugodaniel.com/pages/pngine/docs/bytecode/"/><meta property="og:locale" content="en"/><meta property="og:description" content="PNGB binary specification"/><meta property="og:site_name" content="PNGine"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="PNGB binary specification"/><script>
+"use strict";(()=>{(()=>{let t="theme-toggle",n;function r(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function l(){let e=localStorage.getItem(t);return e==="dark"||e==="light"?e:null}function m(){return n||l()||r()}function s(e){e===r()?localStorage.removeItem(t):localStorage.setItem(t,e)}function h(e){let o=document.documentElement;o.classList.toggle("dark",e==="dark"),o.dataset.theme=e,o.style.colorScheme=e}function a(e){n=e,s(e),h(e)}function c(){a(m())}c(),document.addEventListener("astro:after-swap",c),window.astroThemeToggle={setTheme:a,getTheme:m}})();})();
+</script><link rel="stylesheet" href="/pages/pngine/_astro/print.ehPL0gv-.css" media="print"><link rel="stylesheet" href="/pages/pngine/_astro/common.CjFtuL2C.css"><style>@layer starlight.components{.card:where(.astro-orlrqzck){--sl-card-border:var(--sl-color-purple);--sl-card-bg:var(--sl-color-purple-low);border:1px solid var(--sl-color-gray-5);background-color:var(--sl-color-black);flex-direction:column;gap:clamp(.5rem,.125rem + 1vw,1rem);padding:clamp(1rem,.125rem + 3vw,2.5rem)}.card:where(.astro-orlrqzck):nth-child(4n+1){--sl-card-border:var(--sl-color-orange);--sl-card-bg:var(--sl-color-orange-low)}.card:where(.astro-orlrqzck):nth-child(4n+3){--sl-card-border:var(--sl-color-green);--sl-card-bg:var(--sl-color-green-low)}.card:where(.astro-orlrqzck):nth-child(4n+4){--sl-card-border:var(--sl-color-red);--sl-card-bg:var(--sl-color-red-low)}.card:where(.astro-orlrqzck):nth-child(4n+5){--sl-card-border:var(--sl-color-blue);--sl-card-bg:var(--sl-color-blue-low)}.title:where(.astro-orlrqzck){font-weight:600;font-size:var(--sl-text-h4);color:var(--sl-color-white);line-height:var(--sl-line-height-headings);align-items:center;gap:1rem}.card:where(.astro-orlrqzck) .icon:where(.astro-orlrqzck){border:1px solid var(--sl-card-border);background-color:var(--sl-card-bg);border-radius:.25rem;flex-shrink:0;padding:.2em}.card:where(.astro-orlrqzck) .body:where(.astro-orlrqzck){font-size:clamp(var(--sl-text-sm), calc(.5rem + 1vw), var(--sl-text-body));margin:0}.card-grid:where(.astro-qdzl63pd){grid-template-columns:100%;gap:1rem;display:grid}.card-grid:where(.astro-qdzl63pd)>*{margin-top:0!important}@media (width>=50rem){.card-grid:where(.astro-qdzl63pd){grid-template-columns:1fr 1fr;gap:1.5rem}.stagger:where(.astro-qdzl63pd){--stagger-height:5rem;padding-bottom:var(--stagger-height)}.stagger:where(.astro-qdzl63pd)>:nth-child(2n){transform:translateY(var(--stagger-height))}}}
+@layer starlight.components{svg:where(.astro-v5rnpc67){color:var(--sl-icon-color);font-size:var(--sl-icon-size,1em);width:1em;height:1em}}
+@layer starlight.components{starlight-tabs:where(.astro-njkoa6vz){display:block}.tablist-wrapper:where(.astro-njkoa6vz){overflow-x:auto}:where(.astro-njkoa6vz)[role=tablist]{border-bottom:2px solid var(--sl-color-gray-5);padding:0;list-style:none;display:flex}.tab:where(.astro-njkoa6vz){display:flex}.tab:where(.astro-njkoa6vz)>:where(.astro-njkoa6vz)[role=tab]{--sl-tab-color-border:var(--sl-color-gray-5);line-height:var(--sl-line-height-headings);box-shadow:0 2px 0 var(--sl-tab-color-border);color:var(--sl-color-gray-3);outline-offset:var(--sl-outline-offset-inside);overflow-wrap:initial;align-items:center;gap:.5rem;padding:.275rem 1.25rem;text-decoration:none;display:flex}.tab:where(.astro-njkoa6vz) :where(.astro-njkoa6vz)[role=tab][aria-selected=true]{--sl-tab-color-border:var(--sl-color-text-accent);color:var(--sl-color-white);font-weight:600}.tablist-wrapper:where(.astro-njkoa6vz)~[role=tabpanel]{margin-top:1rem}.sl-steps{--bullet-size:calc(var(--sl-line-height) * 1rem);--bullet-margin:.375rem;counter-reset:steps-counter var(--sl-steps-start,0);padding-inline-start:0;list-style:none}.sl-steps>li{counter-increment:steps-counter;padding-inline-start:calc(var(--bullet-size) + 1rem);min-height:calc(var(--bullet-size) + var(--bullet-margin));padding-bottom:1px;position:relative}.sl-steps>li+li{margin-top:0}.sl-steps>li:before{content:counter(steps-counter);top:0;width:var(--bullet-size);height:var(--bullet-size);line-height:var(--bullet-size);font-size:var(--sl-text-xs);text-align:center;color:var(--sl-color-white);background-color:var(--sl-color-gray-6);box-shadow:inset 0 0 0 1px var(--sl-color-gray-5);border-radius:99rem;font-weight:600;position:absolute;inset-inline-start:0}.sl-steps>li:after{--guide-width:1px;content:"";top:calc(var(--bullet-size) + var(--bullet-margin));bottom:var(--bullet-margin);width:var(--guide-width);background-color:var(--sl-color-hairline-light);position:absolute;inset-inline-start:calc((var(--bullet-size) - var(--guide-width)) / 2)}}@layer starlight.content{.sl-steps>li>:first-child{--lh:calc(1em * var(--sl-line-height));--shift-y:calc(.5 * (var(--bullet-size) - var(--lh)));transform:translateY(var(--shift-y));margin-bottom:var(--shift-y)}.sl-steps>li>:first-child:where(h1,h2,h3,h4,h5,h6){--lh:calc(1em * var(--sl-line-height-headings))}@supports (--prop:1lh){.sl-steps>li>:first-child{--lh:1lh}}}
+</style><script type="module" src="/pages/pngine/_astro/page.LAbJoB63.js"></script></head><body class="astro-umliitn6"><a class="sl-skip-link astro-nr3l7cux" href="#_top">Skip to content</a><div class="flex min-h-screen flex-col astro-w56r3mcn"><header class="fixed inset-0 z-(--sl-z-index-navbar) box-border h-(--sl-nav-height) w-full border-0 border-b border-solid border-(--sl-color-hairline) bg-(--sl-color-bg-nav) px-(--sl-nav-pad-x) py-(--sl-nav-pad-y) backdrop-blur astro-w56r3mcn"><div class="box-border flex h-full items-center gap-2"><div class="-m-3 overflow-clip p-3 flex min-w-0"><span class="-m-1.5 rounded-md p-1.5 **:text-lg **:font-semibold **:text-(--sl-color-text) focus-visible:outline-offset-0"><a href="/pages/pngine/" class="site-title sl-flex astro-yvezjktq"><span class="astro-yvezjktq" translate="no">PNGine</span></a></span></div><nav class="flex flex-1 flex-row gap-4 overflow-x-auto py-3 pr-4 pl-4 text-sm font-medium max-md:**:hidden xl:gap-6 xl:pl-6"><a class="-m-1.5 rounded-md p-1.5 text-(--sl-color-gray-3) no-underline hover:text-(--sl-color-white) focus-visible:outline-offset-0" href="/pages/pngine/docs/getting-started">Docs</a><a class="-m-1.5 rounded-md p-1.5 text-(--sl-color-gray-3) no-underline hover:text-(--sl-color-white) focus-visible:outline-offset-0" href="/pages/pngine/docs/samples/">Samples</a><a class="-m-1.5 rounded-md p-1.5 text-(--sl-color-gray-3) no-underline hover:text-(--sl-color-white) focus-visible:outline-offset-0" href="https://hugodaniel.com/pages/sjon/">SJON</a><a class="-m-1.5 rounded-md p-1.5 text-(--sl-color-gray-3) no-underline hover:text-(--sl-color-white) focus-visible:outline-offset-0" href="https://github.com/HugoDaniel/pngine">Source</a></nav><div class="flex md:max-w-60 md:flex-1 print:hidden"><site-search class=" astro-q4jouhig" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"><button class="flex size-8 rounded-md p-2 text-(--sl-color-text) transition hover:bg-gray-400/30 focus-visible:outline-offset-1 active:scale-90 md:h-9 md:w-full md:max-w-88 md:rounded-md md:border md:border-solid md:border-(--sl-color-gray-5) md:p-2 md:text-(--sl-color-text) md:transition-colors md:hover:bg-gray-400/10 astro-q4jouhig" data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K"><svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4 astro-q4jouhig"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m21 21l-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g></svg><span class="sl-hidden md:sl-block astro-q4jouhig" aria-hidden="true">Search</span><kbd class="sl-hidden md:sl-flex astro-q4jouhig" style="display: none;"><kbd class="astro-q4jouhig">Ctrl</kbd><kbd class="astro-q4jouhig">K</kbd></kbd></button><dialog style="padding:0" aria-label="Search" class="astro-q4jouhig"><div class="dialog-frame sl-flex astro-q4jouhig"><button data-close-modal class="sl-flex md:sl-hidden astro-q4jouhig">Cancel</button><div class="search-container astro-q4jouhig"><div id="starlight__search" class="astro-q4jouhig"></div></div></div></dialog></site-search><script>
+  ;(() => {
+    const openBtn = document.querySelector('button[data-open-modal]')
+    const shortcut = openBtn?.querySelector('kbd')
+    if (!openBtn || !(shortcut instanceof HTMLElement)) return
+    const platformKey = shortcut.querySelector('kbd')
+    if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+      platformKey.textContent = '⌘'
+      openBtn.setAttribute('aria-keyshortcuts', 'Meta+K')
+    }
+    shortcut.style.display = ''
+  })()
+</script><script type="module" src="/pages/pngine/_astro/Search.astro_astro_type_script_index_0_lang.B60AS3ac.js"></script></div><div class="hidden items-center gap-2 md:flex print:hidden"><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script><div class="size-8 overflow-visible"><astro-theme-toggle class="flex size-8 rounded-md p-2 text-(--sl-color-text) transition hover:bg-gray-400/30 focus-visible:outline-offset-1 active:scale-90"><div class="astro-theme-toggle-icon-light"><svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="currentColor" d="M12 19a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1m-4.95-2.05a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0m11.314 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 1.414-1.414m-5.049-9.836a5 5 0 1 1-2.532 9.674a5 5 0 0 1 2.532-9.674M4 11a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm18 0a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2zM5.636 4.222L7.05 5.636A1 1 0 0 1 5.636 7.05L4.222 5.636a1 1 0 0 1 1.414-1.414m14.142 0a1 1 0 0 1 0 1.414L18.364 7.05a1 1 0 0 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0M12 1a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V2a1 1 0 0 1 1-1" /></svg></div><div class="astro-theme-toggle-icon-dark"><svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="currentColor" d="M12 1.992a10 10 0 1 0 9.236 13.838c.341-.82-.476-1.644-1.298-1.31a6.5 6.5 0 0 1-6.864-10.787l.077-.08c.551-.63.113-1.653-.758-1.653h-.266l-.068-.006z" /></svg></div></astro-theme-toggle><script type="module">function e(){return typeof window>`u`?`light`:window.astroThemeToggle?.getTheme?.()||`light`}function t(e){typeof window>`u`||window.astroThemeToggle?.setTheme?.(e)}function n(){t(e()===`light`?`dark`:`light`)}var r=`astro-theme-toggle-temporary-styles`;function i(){document.getElementById(r)?.remove()}function a(){i();let e=document.createElement(`style`);e.id=r,e.textContent=`::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }`,document.head.appendChild(e)}async function o(e,t,n){let r=document;if(typeof r.startViewTransition!=`function`){e();return}a();let o=r.startViewTransition(()=>{e()});await o?.ready,o?.finished?.then(i);let s=.7,c=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><defs><radialGradient id="toggle-theme-gradient"><stop offset="${s}"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><circle cx="4" cy="4" r="4" fill="url(#toggle-theme-gradient)"/></svg>`,l=`data:image/svg+xml;base64,${window.btoa(c)}`,u=window.innerWidth,d=window.innerHeight,f=Math.ceil(Math.hypot(Math.max(t,u-t),Math.max(n,d-n))/s);document.documentElement.animate({maskImage:[`url('${l}')`,`url('${l}')`],maskRepeat:[`no-repeat`,`no-repeat`],maskPosition:[`${t}px ${n}px`,`${t-f}px ${n-f}px`],maskSize:[`0`,`${2*f}px`]},{duration:500,easing:`ease-in`,pseudoElement:`::view-transition-new(root)`})}function s(e){o(n,e.clientX,e.clientY)}var c=class extends HTMLElement{connectedCallback(){this.hasAttribute(`tabindex`)||this.setAttribute(`tabindex`,`0`),this.hasAttribute(`role`)||this.setAttribute(`role`,`button`),this.addEventListener(`click`,s),this.addEventListener(`keydown`,e=>{if(e.key===`Enter`||e.key===` `){e.preventDefault();let t=this.getBoundingClientRect();s({clientX:t.left+t.width/2,clientY:t.top+t.height/2})}})}};customElements.define(`astro-theme-toggle`,c);</script></div></div><div class="flex items-center gap-2 md:hidden print:hidden"><nova-mobile-menu-toggle class="flex size-8 rounded-md p-2 text-(--sl-color-text) transition hover:bg-gray-400/30 focus-visible:outline-offset-1 active:scale-90 print:hidden" aria-label="Menu" aria-controls="starlight__sidebar"><div class="transition-transform [body[data-mobile-menu-expanded]_&amp;]:rotate-90"><svg width="1em" height="1em" viewBox="0 0 24 24" class="block [body[data-mobile-menu-expanded]_&amp;]:hidden"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16" /></svg><svg width="1em" height="1em" viewBox="0 0 24 24" class="hidden [body[data-mobile-menu-expanded]_&amp;]:block"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12" /></svg></div></nova-mobile-menu-toggle><script type="module" src="/pages/pngine/_astro/MobileMenuToggle.astro_astro_type_script_index_0_lang.bcSkpWf7.js"></script></div></div></header><nav class="sidebar print:hidden astro-w56r3mcn" aria-label="Main" id="nova-sidebar-nav"><div id="starlight__sidebar" class="nova-scroll-container invisible md:visible [body[data-mobile-menu-expanded]_&amp;]:max-md:visible fixed top-(--sl-nav-height) bottom-0 left-0 z-(--sl-z-index-menu) overflow-y-auto border-0 border-solid border-(--sl-color-hairline) bg-(--sl-color-black) max-md:w-full md:w-(--sl-sidebar-width) md:border-r astro-w56r3mcn"><div class="sidebar-content flex h-full min-h-max flex-col px-(--sl-sidebar-pad-x) py-4 astro-w56r3mcn"><sl-sidebar-state-persist data-hash="0k5pbmd" class="astro-y6fyxxfz"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level astro-zu3mcxaw"><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Getting Started</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/getting-started/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Installation &amp; First Program</span></a></li></ul></details></li><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Guides</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/sjon-syntax/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">SJON Syntax</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/cli/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">CLI Reference</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/js-api/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">JavaScript API</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/players/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Shipping a Player</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/wasm-api/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">WASM API</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/bytecode/" aria-current="page" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Bytecode Format</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/status/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Limits &amp; Roadmap</span></a></li></ul></details></li><li class="astro-zu3mcxaw"><details class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Samples</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Overview</span></a></li><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Fullscreen shaders</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/gradient-background/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Gradient background</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/shader-art/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Shader art (plasma)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/spinning-shapes/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Spinning shapes</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/normal-mapping/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Procedural normal mapping</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/skybox/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Procedural skybox</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/procedural-noise/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Procedural noise</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/color-cycling/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Color cycling</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/resolution-adaptive/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Resolution-adaptive rendering</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/scene-transitions/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Scene transitions</span></a></li></ul></details></li><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Vertex data and instancing</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="4"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/vertex-colors/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Vertex colors</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/wireframe-cube/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Wireframe cube</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/multiple-triangles/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Multiple triangles</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/sprite-rendering/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Sprite rendering</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/ui-elements/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">UI elements</span></a></li></ul></details></li><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">3D, depth and lighting</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="5"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/multiple-objects/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Multiple objects</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/simple-lighting/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Simple lighting</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/instanced-trees/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Instanced trees</span></a></li></ul></details></li><li class="astro-zu3mcxaw"><details open class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">Compute simulations</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="6"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/game-of-life/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Game of Life</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/diffusion/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Diffusion</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/fluid-simulation/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Fluid simulation</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/particle-fountain/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Particle fountain</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/samples/wave-simulation/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Wave simulation</span></a></li></ul></details></li></ul></details></li><li class="astro-zu3mcxaw"><details class="astro-zu3mcxaw"><summary class="astro-zu3mcxaw"><span class="group-label astro-zu3mcxaw"><span class="large astro-zu3mcxaw">SJON Reference</span></span><svg aria-hidden="true" class="caret astro-zu3mcxaw astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="7"></sl-sidebar-restore><ul class="astro-zu3mcxaw"><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">SJON Reference</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/bind-group/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(bind-group …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/bind-group-layout/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(bind-group-layout …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/buffer/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(buffer …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/canvas/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(canvas …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/compute-pass/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(compute-pass …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/compute-pipeline/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(compute-pipeline …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/data/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(data …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/define/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(define …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/expressions/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">Expressions</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/frame/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(frame …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/image-bitmap/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(image-bitmap …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/limits/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(limits …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/pass/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(pass-graph …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/pipeline-layout/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(pipeline-layout …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/query-set/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(query-set …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/queue/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(queue …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/references/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">References</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/render-bundle/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(render-bundle …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/render-pass/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(render-pass …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/render-pipeline/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(render-pipeline …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/sampler/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(sampler …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/shader-module/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(shader-module …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/texture/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(texture …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/texture-view/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(texture-view …)</span></a></li><li class="astro-zu3mcxaw"><a href="/pages/pngine/docs/dsl/wasm-call/" class="astro-zu3mcxaw"><span class="astro-zu3mcxaw">(wasm-call …)</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="flex items-center justify-end gap-2 py-4 print:hidden"><div class="size-8 overflow-visible"><astro-theme-toggle class="flex size-8 rounded-md p-2 text-(--sl-color-text) transition hover:bg-gray-400/30 focus-visible:outline-offset-1 active:scale-90"><div class="astro-theme-toggle-icon-light"><svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="currentColor" d="M12 19a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1m-4.95-2.05a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0m11.314 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 1.414-1.414m-5.049-9.836a5 5 0 1 1-2.532 9.674a5 5 0 0 1 2.532-9.674M4 11a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm18 0a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2zM5.636 4.222L7.05 5.636A1 1 0 0 1 5.636 7.05L4.222 5.636a1 1 0 0 1 1.414-1.414m14.142 0a1 1 0 0 1 0 1.414L18.364 7.05a1 1 0 0 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0M12 1a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V2a1 1 0 0 1 1-1" /></svg></div><div class="astro-theme-toggle-icon-dark"><svg width="1em" height="1em" viewBox="0 0 24 24" class="size-4"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="currentColor" d="M12 1.992a10 10 0 1 0 9.236 13.838c.341-.82-.476-1.644-1.298-1.31a6.5 6.5 0 0 1-6.864-10.787l.077-.08c.551-.63.113-1.653-.758-1.653h-.266l-.068-.006z" /></svg></div></astro-theme-toggle></div></div></div></div></div></nav><div class="main-frame astro-w56r3mcn"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex astro-oqhayer4"><aside class="right-sidebar-container print:hidden astro-oqhayer4"><div class="right-sidebar astro-oqhayer4"><div class="lg:sl-hidden astro-bzppghrk"><div class="[&amp;_nav]:backdrop-blur [&amp;_summary]:border-b-(--sl-color-hairline)"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-z5vswnpl"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-z5vswnpl"><details id="starlight__mobile-toc" class="astro-z5vswnpl"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-z5vswnpl"><span class="toggle sl-flex astro-z5vswnpl">On this page<svg aria-hidden="true" class="caret astro-z5vswnpl astro-v5rnpc67" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-z5vswnpl"></span></summary><div class="dropdown astro-z5vswnpl"><ul class="isMobile astro-svpa3t3l" style="--depth: 0;"><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#_top" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Overview</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#file-structure" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">File Structure</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#header-v0" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Header (v0)</span></a><ul class="isMobile astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#flags" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Flags</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#plugin-set" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Plugin Set</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#bytecode-section" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Bytecode Section</span></a><ul class="isMobile astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#varint-encoding" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Varint Encoding</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#string-table" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">String Table</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#data-section" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Data Section</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#remaining-tables" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Remaining Tables</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#png-embedding" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">PNG Embedding</span></a><ul class="isMobile astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#pngb-chunk-layout" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">pNGb Chunk Layout</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#pngf-chunk-layout" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">pNGf Chunk Layout</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#chunk-naming" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Chunk Naming</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#measured-sizes" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Measured Sizes</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#related" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Related</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/pages/pngine/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.BcSo_yiZ.js"></script></div></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-bzppghrk"><div class="sl-container astro-bzppghrk"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-svpa3t3l" style="--depth: 0;"><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#_top" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Overview</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#file-structure" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">File Structure</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#header-v0" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Header (v0)</span></a><ul class="astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#flags" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Flags</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#plugin-set" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Plugin Set</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#bytecode-section" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Bytecode Section</span></a><ul class="astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#varint-encoding" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Varint Encoding</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#string-table" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">String Table</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#data-section" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Data Section</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#remaining-tables" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Remaining Tables</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#png-embedding" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">PNG Embedding</span></a><ul class="astro-svpa3t3l" style="--depth: 1;"><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#pngb-chunk-layout" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">pNGb Chunk Layout</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#pngf-chunk-layout" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">pNGf Chunk Layout</span></a></li><li style="--depth: 1;" class="astro-svpa3t3l"><a href="#chunk-naming" style="--depth: 1;" class="astro-svpa3t3l"><span style="--depth: 1;" class="astro-svpa3t3l">Chunk Naming</span></a></li></ul></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#measured-sizes" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Measured Sizes</span></a></li><li style="--depth: 0;" class="astro-svpa3t3l"><a href="#related" style="--depth: 0;" class="astro-svpa3t3l"><span style="--depth: 0;" class="astro-svpa3t3l">Related</span></a></li></ul></nav></starlight-toc><script type="module" src="/pages/pngine/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Csloo1VZ.js"></script></div></div></div></aside><div class="main-pane astro-oqhayer4"><main data-pagefind-body class="astro-umliitn6" lang="en" dir="ltr"><div class="content-panel astro-tcdu253m"><div class="sl-container astro-tcdu253m"><h1 id="_top" class="astro-dob76c5l">Bytecode Format</h1></div></div><div class="content-panel astro-tcdu253m"><div class="sl-container astro-tcdu253m"><div class="sl-markdown-content"><p>PNGB is PNGine’s bytecode, the compiled form of a <code dir="auto">.sjon</code> document (SJON, the
+S-expression source language): a 40-byte header, an optional embedded executor
+(the small WASM interpreter that plays the bytecode), an opcode stream, and a
+set of trailing tables. All integers are little-endian.</p>
+<p>The format is locked at <strong>version 0 by design</strong>. A self-contained payload
+carries its own interpreter (the embedded executor), so payload evolution rides
+on the executor rather than on the header: the WASM↔JS interface is what is versioned, and it
+is frozen as ABI v1 (see <a href="/pages/pngine/docs/wasm-api/">WASM API</a>).</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="file-structure">File Structure</h2><a class="sl-anchor-link" href="#file-structure"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “File Structure”</span></a></div>
+<div class="expressive-code"><link rel="stylesheet" href="/pages/pngine/_astro/ec.w36nc.css"><script type="module" src="/pages/pngine/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Header (40 bytes)                    |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Executor WASM (if embedded)          |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Bytecode (opcode stream)             |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| String Table                         |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Data Section                         |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| WGSL Table                           |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Uniform Table                        |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Animation Table                      |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">| Device-Limits Table (if flag set)    |</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">+--------------------------------------+</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="+--------------------------------------+| Header (40 bytes)                    |+--------------------------------------+| Executor WASM (if embedded)          |+--------------------------------------+| Bytecode (opcode stream)             |+--------------------------------------+| String Table                         |+--------------------------------------+| Data Section                         |+--------------------------------------+| WGSL Table                           |+--------------------------------------+| Uniform Table                        |+--------------------------------------+| Animation Table                      |+--------------------------------------+| Device-Limits Table (if flag set)    |+--------------------------------------+"><div></div></button></div></figure></div>
+<div class="sl-heading-wrapper level-h2"><h2 id="header-v0">Header (v0)</h2><a class="sl-anchor-link" href="#header-v0"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Header (v0)”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Size</th>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>4</td>
+<td>magic</td>
+<td><code dir="auto">PNGB</code> (0x50 0x4E 0x47 0x42)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>version</td>
+<td>Format version (0)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>flags</td>
+<td>Bitfield (below)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>plugins</td>
+<td>Plugin set bitfield (below)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>3</td>
+<td>reserved</td>
+<td>u24 LE offset of the device-limits table when flags bit 2 is set; <code dir="auto">{0,0,0}</code> otherwise</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4</td>
+<td>executor_offset</td>
+<td>Byte offset of the embedded executor (0 if none)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>4</td>
+<td>executor_length</td>
+<td>Executor WASM size in bytes</td>
+</tr>
+<tr>
+<td>20</td>
+<td>4</td>
+<td>string_table_offset</td>
+<td>Byte offset of the string table</td>
+</tr>
+<tr>
+<td>24</td>
+<td>4</td>
+<td>data_section_offset</td>
+<td>Byte offset of the data section</td>
+</tr>
+<tr>
+<td>28</td>
+<td>4</td>
+<td>wgsl_table_offset</td>
+<td>Byte offset of the WGSL table</td>
+</tr>
+<tr>
+<td>32</td>
+<td>4</td>
+<td>uniform_table_offset</td>
+<td>Byte offset of the uniform table</td>
+</tr>
+<tr>
+<td>36</td>
+<td>4</td>
+<td>animation_table_offset</td>
+<td>Byte offset of the animation table</td>
+</tr>
+</tbody>
+</table>
+<p>The header is frozen at 40 bytes. New optional tables use spare capacity (a
+free flags bit plus the reserved u24) and serialize to zero bytes when unused,
+so payloads that don’t use a feature stay byte-identical to older ones. The
+device-limits table (emitted by <a href="/pages/pngine/docs/dsl/limits/"><code dir="auto">(limits …)</code></a>)
+is the worked example.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="flags">Flags</h3><a class="sl-anchor-link" href="#flags"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Flags”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>has_embedded_executor</td>
+<td>Executor WASM is embedded in the payload</td>
+</tr>
+<tr>
+<td>1</td>
+<td>has_animation_table</td>
+<td>Animation table is present</td>
+</tr>
+<tr>
+<td>2</td>
+<td>has_device_limits</td>
+<td>Device-limits table is present; its offset is in <code dir="auto">reserved</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>canvas_alpha_premultiplied</td>
+<td>The document asked for <code dir="auto">(canvas :alpha-mode premultiplied)</code>; clear means WebGPU’s default, <code dir="auto">opaque</code></td>
+</tr>
+<tr>
+<td>4–15</td>
+<td>reserved</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="plugin-set">Plugin Set</h3><a class="sl-anchor-link" href="#plugin-set"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Plugin Set”</span></a></div>
+<p>One byte naming the runtime features the payload needs. The compiler detects
+them from the document and picks the smallest executor variant that covers them.</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Plugin</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>core</td>
+<td>Bytecode parsing, buffers, command emission (always set)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>render</td>
+<td>Render pipelines, render passes, draw commands</td>
+</tr>
+<tr>
+<td>2</td>
+<td>compute</td>
+<td>Compute pipelines, dispatch</td>
+</tr>
+<tr>
+<td>3</td>
+<td>wasm</td>
+<td>Nested WASM execution (<code dir="auto">(wasm-call …)</code>, <code dir="auto">(wasm-data …)</code>)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>animation</td>
+<td>Scene timeline tables</td>
+</tr>
+<tr>
+<td>5</td>
+<td>texture</td>
+<td>Image/texture loading</td>
+</tr>
+<tr>
+<td>6–7</td>
+<td>reserved</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Executor variants as built today (uncompressed, measured 2026-08-18; the whole
+payload is DEFLATE-compressed inside the PNG, so the 11.8 KB render executor
+plus the triangle’s 631 bytes of bytecode land at 4.6 KB on disk):</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">pngine-core.wasm</code></td>
+<td>9.1 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-compute.wasm</code></td>
+<td>9.4 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-render.wasm</code></td>
+<td>11.8 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-render-anim.wasm</code></td>
+<td>11.8 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-render-compute.wasm</code></td>
+<td>12.1 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-render-compute-anim.wasm</code></td>
+<td>12.1 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-render-wasm.wasm</code></td>
+<td>12.7 KB</td>
+</tr>
+<tr>
+<td><code dir="auto">pngine-full.wasm</code></td>
+<td>13.6 KB</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="bytecode-section">Bytecode Section</h2><a class="sl-anchor-link" href="#bytecode-section"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Bytecode Section”</span></a></div>
+<p>The opcode stream starts after the header (or after the executor, if embedded)
+and runs to <code dir="auto">string_table_offset</code>. Each instruction is a 1-byte opcode followed
+by its operands.</p>
+<p>Operand layouts are <strong>not</strong> listed here: they are defined in one place in the
+engine, <a href="https://github.com/HugoDaniel/pngine/blob/main/src/bytecode/wire_schema.zig"><code dir="auto">src/bytecode/wire_schema.zig</code></a>,
+which the emitter, the scanner and the dispatcher all read, so the three
+cannot drift. The opcode values themselves are append-only: never renumbered,
+never reused.</p>
+<p><strong>Resource creation (0x00–0x0E)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>nop</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>create_buffer</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>create_texture</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>create_sampler</td>
+</tr>
+<tr>
+<td>0x04</td>
+<td>create_shader_module</td>
+</tr>
+<tr>
+<td>0x05</td>
+<td>create_shader_concat (reserved: never emitted, dispatcher rejects it)</td>
+</tr>
+<tr>
+<td>0x06</td>
+<td>create_bind_group_layout</td>
+</tr>
+<tr>
+<td>0x07</td>
+<td>create_pipeline_layout</td>
+</tr>
+<tr>
+<td>0x08</td>
+<td>create_render_pipeline</td>
+</tr>
+<tr>
+<td>0x09</td>
+<td>create_compute_pipeline</td>
+</tr>
+<tr>
+<td>0x0A</td>
+<td>create_bind_group</td>
+</tr>
+<tr>
+<td>0x0B</td>
+<td>create_image_bitmap</td>
+</tr>
+<tr>
+<td>0x0C</td>
+<td>create_texture_view</td>
+</tr>
+<tr>
+<td>0x0D</td>
+<td>create_query_set</td>
+</tr>
+<tr>
+<td>0x0E</td>
+<td>create_render_bundle</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pass operations (0x10–0x1F)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x10</td>
+<td>begin_render_pass</td>
+</tr>
+<tr>
+<td>0x11</td>
+<td>begin_compute_pass</td>
+</tr>
+<tr>
+<td>0x12</td>
+<td>set_pipeline</td>
+</tr>
+<tr>
+<td>0x13</td>
+<td>set_bind_group</td>
+</tr>
+<tr>
+<td>0x14</td>
+<td>set_vertex_buffer</td>
+</tr>
+<tr>
+<td>0x15</td>
+<td>set_index_buffer</td>
+</tr>
+<tr>
+<td>0x16</td>
+<td>draw</td>
+</tr>
+<tr>
+<td>0x17</td>
+<td>draw_indexed</td>
+</tr>
+<tr>
+<td>0x18</td>
+<td>dispatch</td>
+</tr>
+<tr>
+<td>0x19</td>
+<td>end_pass</td>
+</tr>
+<tr>
+<td>0x1A</td>
+<td>execute_bundles</td>
+</tr>
+<tr>
+<td>0x1B</td>
+<td>begin_render_pass_mrt</td>
+</tr>
+<tr>
+<td>0x1C</td>
+<td>draw_indirect</td>
+</tr>
+<tr>
+<td>0x1D</td>
+<td>draw_indexed_indirect</td>
+</tr>
+<tr>
+<td>0x1E</td>
+<td>dispatch_indirect</td>
+</tr>
+<tr>
+<td>0x1F</td>
+<td>set_viewport</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Queue operations (0x20–0x2C)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x20</td>
+<td>write_buffer</td>
+</tr>
+<tr>
+<td>0x21</td>
+<td>write_uniform</td>
+</tr>
+<tr>
+<td>0x22</td>
+<td>copy_buffer_to_buffer</td>
+</tr>
+<tr>
+<td>0x23</td>
+<td>copy_texture_to_texture</td>
+</tr>
+<tr>
+<td>0x24</td>
+<td>submit</td>
+</tr>
+<tr>
+<td>0x25</td>
+<td>copy_external_image_to_texture</td>
+</tr>
+<tr>
+<td>0x26</td>
+<td>init_wasm_module</td>
+</tr>
+<tr>
+<td>0x27</td>
+<td>call_wasm_func</td>
+</tr>
+<tr>
+<td>0x28</td>
+<td>write_buffer_from_wasm</td>
+</tr>
+<tr>
+<td>0x29</td>
+<td>resolve_query_set</td>
+</tr>
+<tr>
+<td>0x2A</td>
+<td>write_time_uniform</td>
+</tr>
+<tr>
+<td>0x2B</td>
+<td>write_pointer_uniform</td>
+</tr>
+<tr>
+<td>0x2C</td>
+<td>write_audio_data</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Frame control (0x30–0x35)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x30</td>
+<td>define_frame</td>
+</tr>
+<tr>
+<td>0x31</td>
+<td>end_frame</td>
+</tr>
+<tr>
+<td>0x32</td>
+<td>exec_pass</td>
+</tr>
+<tr>
+<td>0x33</td>
+<td>define_pass</td>
+</tr>
+<tr>
+<td>0x34</td>
+<td>end_pass_def</td>
+</tr>
+<tr>
+<td>0x35</td>
+<td>exec_pass_once</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pool operations (0x40–0x43)</strong>: ping-pong resource selection for
+<code dir="auto">:pool 2</code> buffers</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x40</td>
+<td>select_from_pool</td>
+</tr>
+<tr>
+<td>0x41</td>
+<td>set_vertex_buffer_pool</td>
+</tr>
+<tr>
+<td>0x42</td>
+<td>set_bind_group_pool</td>
+</tr>
+<tr>
+<td>0x43</td>
+<td>begin_render_pass_pool</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Extended pass state (0x4A–0x52)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x4A</td>
+<td>set_pass_timestamp_writes</td>
+</tr>
+<tr>
+<td>0x4B</td>
+<td>set_pass_occlusion_query_set</td>
+</tr>
+<tr>
+<td>0x4C</td>
+<td>end_occlusion_query</td>
+</tr>
+<tr>
+<td>0x4D</td>
+<td>begin_occlusion_query</td>
+</tr>
+<tr>
+<td>0x4E</td>
+<td>set_stencil_reference</td>
+</tr>
+<tr>
+<td>0x4F</td>
+<td>set_scissor_rect</td>
+</tr>
+<tr>
+<td>0x50</td>
+<td>set_pass_depth_stencil_ops</td>
+</tr>
+<tr>
+<td>0x51</td>
+<td>set_blend_constant</td>
+</tr>
+<tr>
+<td>0x52</td>
+<td>set_pass_clear_values</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="varint-encoding">Varint Encoding</h3><a class="sl-anchor-link" href="#varint-encoding"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Varint Encoding”</span></a></div>
+<p>Numeric operands use a 1/2/4-byte prefix code (payload bits big-endian within
+the value):</p>
+<table>
+<thead>
+<tr>
+<th>Value range</th>
+<th>Encoding</th>
+<th>Bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–127</td>
+<td><code dir="auto">0xxxxxxx</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>128–16383</td>
+<td><code dir="auto">10xxxxxx xxxxxxxx</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>16384+</td>
+<td><code dir="auto">11xxxxxx</code> + 3 bytes</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="string-table">String Table</h2><a class="sl-anchor-link" href="#string-table"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “String Table”</span></a></div>
+<p>Interned strings: entry-point names, uniform field names, frame names.</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">count:   u16</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">offsets: u16 × count     (from the start of the string data)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">lengths: u16 × count</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">data:    UTF-8 bytes, not null-terminated</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="count:   u16offsets: u16 × count     (from the start of the string data)lengths: u16 × countdata:    UTF-8 bytes, not null-terminated"><div></div></button></div></figure></div>
+<div class="sl-heading-wrapper level-h2"><h2 id="data-section">Data Section</h2><a class="sl-anchor-link" href="#data-section"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Data Section”</span></a></div>
+<p>Binary blobs referenced by opcodes: shader code, vertex data, descriptors,
+embedded WASM modules.</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">count:   u16</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">entries: (offset: u32, length: u32) × count</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">data:    raw bytes</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="count:   u16entries: (offset: u32, length: u32) × countdata:    raw bytes"><div></div></button></div></figure></div>
+<div class="sl-heading-wrapper level-h2"><h2 id="remaining-tables">Remaining Tables</h2><a class="sl-anchor-link" href="#remaining-tables"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Remaining Tables”</span></a></div>
+<p>Three tables follow the data section, and a fourth is appended when its flag is
+set. Their byte layouts live with their reader/writer pairs in the engine
+source; the payload offsets above locate them.</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Purpose</th>
+<th>Source of truth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WGSL</td>
+<td>Maps shader modules to data-section entries</td>
+<td><a href="https://github.com/HugoDaniel/pngine/blob/main/src/bytecode/format.zig"><code dir="auto">src/bytecode/format.zig</code></a></td>
+</tr>
+<tr>
+<td>Uniform</td>
+<td>Per-binding uniform field metadata (name, offset, type); what <code dir="auto">setUniform</code> resolves names against</td>
+<td><a href="https://github.com/HugoDaniel/pngine/blob/main/src/bytecode/uniform_table.zig"><code dir="auto">src/bytecode/uniform_table.zig</code></a></td>
+</tr>
+<tr>
+<td>Animation</td>
+<td>Scene timeline (flags, duration, scene list). The runtime reads it, but no SJON form emits one today; see <a href="/pages/pngine/docs/js-api/#animation-timeline">JavaScript API</a></td>
+<td><a href="https://github.com/HugoDaniel/pngine/blob/main/src/bytecode/animation_table.zig"><code dir="auto">src/bytecode/animation_table.zig</code></a></td>
+</tr>
+<tr>
+<td>Device limits</td>
+<td><code dir="auto">requiredLimits</code> for device acquisition, from <a href="/pages/pngine/docs/dsl/limits/"><code dir="auto">(limits …)</code></a></td>
+<td><a href="https://github.com/HugoDaniel/pngine/blob/main/src/bytecode/format.zig"><code dir="auto">src/bytecode/format.zig</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>The uniform and device-limits tables are frontend-only: the JS runtime and the
+native renderer parse them, the embedded executor never does.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="png-embedding">PNG Embedding</h2><a class="sl-anchor-link" href="#png-embedding"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “PNG Embedding”</span></a></div>
+<p>PNGine uses five ancillary chunks, all public and safe-to-copy, so image tools
+that don’t know them preserve them:</p>
+<table>
+<thead>
+<tr>
+<th>Chunk</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">pNGb</code></td>
+<td>PNGB bytecode (executor embedded by default)</td>
+</tr>
+<tr>
+<td><code dir="auto">pNGm</code></td>
+<td>Animation metadata as JSON, for the JS runtime</td>
+</tr>
+<tr>
+<td><code dir="auto">pNGa</code></td>
+<td>Audio WASM module (e.g. a song compiled with the Sointu tracker synthesizer)</td>
+</tr>
+<tr>
+<td><code dir="auto">pNGf</code></td>
+<td>Flat pre-decoded command buffers for the small main-thread <a href="/pages/pngine/docs/players/">mini player</a> (<code dir="auto">--flat</code>)</td>
+</tr>
+<tr>
+<td><code dir="auto">pNGw</code></td>
+<td>DEFLATE-compressed WGSL source, used by <code dir="auto">--html</code> output</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="pngb-chunk-layout">pNGb Chunk Layout</h3><a class="sl-anchor-link" href="#pngb-chunk-layout"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “pNGb Chunk Layout”</span></a></div>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">version: u8      (0x01)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">flags:   u8      (bit 0: payload is DEFLATE-compressed)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">payload: bytes   (PNGB, optionally compressed)</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="version: u8      (0x01)flags:   u8      (bit 0: payload is DEFLATE-compressed)payload: bytes   (PNGB, optionally compressed)"><div></div></button></div></figure></div>
+<p>Compression is raw DEFLATE with no zlib header, so browsers decompress it with
+<code dir="auto">DecompressionStream("deflate-raw")</code>. The chunk sits immediately before <code dir="auto">IEND</code>;
+the image pixels are untouched. <code dir="auto">pNGa</code> and <code dir="auto">pNGf</code> use the same two-byte
+wrapper; <code dir="auto">pNGm</code> uses the version byte alone and stores its JSON uncompressed.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="pngf-chunk-layout">pNGf Chunk Layout</h3><a class="sl-anchor-link" href="#pngf-chunk-layout"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “pNGf Chunk Layout”</span></a></div>
+<p>Inside that wrapper, a flat payload carries a header of its own:</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">version:   u8       (2)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">flags:     u8       (bit 0: premultiplied canvas)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">init_len:  u32 LE   Length of the init command buffer</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">frame_len: u32 LE   Length of the per-frame command buffer</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">data_len:  u32 LE   Length of the inline data section</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">init_cmds, frame_cmds, data</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="version:   u8       (2)flags:     u8       (bit 0: premultiplied canvas)init_len:  u32 LE   Length of the init command bufferframe_len: u32 LE   Length of the per-frame command bufferdata_len:  u32 LE   Length of the inline data sectioninit_cmds, frame_cmds, data"><div></div></button></div></figure></div>
+<p>The two buffers hold the executor’s command-buffer opcodes, decoded at compile
+time by replaying the bytecode against the mock GPU, which is why a <code dir="auto">pNGf</code>
+payload carries no executor. The version is 2 because clear values became one
+<code dir="auto">f32</code> per channel and the pass commands changed shape with them; a player that
+reads any other value must refuse the payload rather than walk it.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="chunk-naming">Chunk Naming</h3><a class="sl-anchor-link" href="#chunk-naming"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Chunk Naming”</span></a></div>
+<p><code dir="auto">pNGb</code> follows PNG chunk-naming rules:</p>
+<ul>
+<li><strong>p</strong> lowercase: ancillary, so decoders that don’t know it still display the image</li>
+<li><strong>N</strong> uppercase: public namespace</li>
+<li><strong>G</strong> uppercase: reserved bit, must be uppercase</li>
+<li><strong>b</strong> lowercase: safe to copy through image editors</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="measured-sizes">Measured Sizes</h2><a class="sl-anchor-link" href="#measured-sizes"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Measured Sizes”</span></a></div>
+<p>Compiled from the engine’s <code dir="auto">examples/</code> corpus (2026-08-18). <code dir="auto">.pngb</code> is bare
+bytecode; <code dir="auto">.png</code> is the self-contained artifact: 1×1 image, bytecode and
+DEFLATE-compressed executor:</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th><code dir="auto">.pngb</code></th>
+<th>Self-contained <code dir="auto">.png</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">simple_triangle</code></td>
+<td>631 B</td>
+<td>4,716 B</td>
+</tr>
+<tr>
+<td><code dir="auto">rotating_cube</code></td>
+<td>3,901 B</td>
+<td>6,082 B</td>
+</tr>
+<tr>
+<td><code dir="auto">boids</code> (compute)</td>
+<td>4,902 B</td>
+<td>6,343 B</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="related">Related</h2><a class="sl-anchor-link" href="#related"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Related”</span></a></div>
+<ul>
+<li><a href="/pages/pngine/docs/wasm-api/">WASM API</a> - The executor that interprets this format</li>
+<li><a href="/pages/pngine/docs/cli/">CLI Reference</a> - <code dir="auto">compile</code>, <code dir="auto">inspect</code>, <code dir="auto">embed</code>, <code dir="auto">extract</code></li>
+<li><a href="/pages/pngine/docs/players/">Shipping a Player</a> - What reads each chunk</li>
+</ul>
+</div><script type="module">var e=class extends HTMLElement{constructor(){super()}connectedCallback(){let e=()=>{let e=t===`ready`?`<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></g></svg>`:`<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></svg>`;this.innerHTML=`<span class="w-full h-full block [&_svg]:w-full [&_svg]:h-full">`+e+`</span>`},t=`ready`;e(),this.addEventListener(`click`,()=>{if(t===`ready`){t=`success`,e();let n=this.dataset.code||``;navigator.clipboard.writeText(n),setTimeout(()=>{t=`ready`,e()},1500)}})}};customElements.define(`nova-code-copy-button`,e);</script><script type="module" src="/pages/pngine/_astro/MarkdownContent.astro_astro_type_script_index_0_lang.DyPB9oed.js"></script><footer class="sl-flex astro-5cwcdssg"><div class="meta sl-flex astro-5cwcdssg"></div><div class="flex min-w-full flex-row items-stretch justify-between gap-2 px-1 pt-0 pb-6 print:hidden" dir="ltr"><a href="/pages/pngine/docs/wasm-api/" rel="prev" data-side="left" class="group m-0 flex items-center justify-end gap-2 rounded-xl p-2 font-medium text-(--sl-color-gray-2) no-underline transition hover:text-(--sl-color-white) md:text-lg [[rel='next']]:flex-row [[rel='prev']]:flex-row-reverse"><span>WASM API</span><svg width="1em" height="1em" viewBox="0 0 24 24" class="block min-h-5 min-w-5 transition group-hover:-translate-x-1"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 18l-6-6l6-6" /></svg></a><div class="flex-1"></div><a href="/pages/pngine/docs/status/" rel="next" data-side="right" class="group m-0 flex items-center justify-end gap-2 rounded-xl p-2 font-medium text-(--sl-color-gray-2) no-underline transition hover:text-(--sl-color-white) md:text-lg [[rel='next']]:flex-row [[rel='prev']]:flex-row-reverse"><span>Limits &amp; Roadmap</span><svg width="1em" height="1em" viewBox="0 0 24 24" class="block min-h-5 min-w-5 transition group-hover:translate-x-1"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18l6-6l-6-6" /></svg></a></div></footer></div></div></main></div></div></div></div></body></html>
