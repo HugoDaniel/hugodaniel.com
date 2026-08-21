@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Value kinds: strings, members, heads, unions, slot-local forms · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.0.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 12</span></p><h1 data-astro-cid-n67f4zmd>Value kinds: strings, members, heads, unions, slot-local forms</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
+<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Value kinds: strings, members, heads, unions, slot-local forms · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.2.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 12</span></p><h1 data-astro-cid-n67f4zmd>Value kinds: strings, members, heads, unions, slot-local forms</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
 <p>Part 1 introduced the named-kind pattern and worked through underlying
 shapes, vector shapes, unit shapes, numeric bounds, and representation
 tags. The five refinements in this chapter are the remaining axes a
@@ -67,6 +67,43 @@ strings instead:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>blend-mode: string, members "normal" | "multiply"</span></span></code></pre>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">layer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :blend</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "multiply"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
 <p>The contract decides whether the closed values are symbols or strings.</p>
+<p>A member set is closed <em>and</em> written in the plugin. Chapter 13 covers
+the other way a symbol slot gets a fixed list of legal values: read out
+of the document being validated, or extracted from a string inside it.</p>
+<h3 id="enums-whose-names-start-with-a-digit">Enums whose names start with a digit</h3>
+<p>Some enums name their members with a digit first. WebGPU’s texture
+dimensions are <code>"1d"</code>, <code>"2d"</code>, <code>"3d"</code>; its view dimensions add <code>2d-array</code>,
+<code>cube</code>, and <code>cube-array</code>. A plugin may declare those directly:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>texture-dimension: symbol, members 1d | 2d | 3d</span></span>
+<span class="line"><span>view-dimension:    symbol, members 1d | 2d | 2d-array | cube | cube-array | 3d</span></span></code></pre>
+<p>Accepted:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> albedo </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2d</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :view</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2d-array</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p><code>2d-array</code> works for the reason chapter 4 gives: inside a unit, a hyphen
+joins two letter runs when a letter follows it, so the unit here is
+<code>d-array</code> and the whole thing is one value. Without that rule this was
+<code>2d</code> plus a stray symbol <code>-array</code> — one intended value, two diagnostics.</p>
+<p>You write the spelling the spec uses. There is no quoting and no numeric
+lookup table to memorise — this is what schemas used to force, with
+<code>:view-dimension 3 ; cube</code> and a comment carrying the meaning.</p>
+<p>Why this needs its own section: <code>2d</code> is not a symbol. Chapter 4 showed
+that a digit-leading token lexes as a <strong>number with a unit</strong> — value <code>2</code>,
+unit <code>d</code>. So the schema matches on that pair rather than on the text, and
+three consequences follow:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.0d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ✓ same magnitude, same unit</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 02d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)    </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ✓ the leading zero is not part of the name</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.5d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ✗ fractional — matches no member</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)     </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ✗ the unit is part of the name</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)      </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; ✗ no unit, so not a spelling at all</span></span></code></pre>
+<p>The last two fail differently, and the difference is informative.
+<code>2b</code> is <code>not_member</code> — a unit-bearing number <em>is</em> the right shape here, it
+is simply not one of the three. <code>2</code> is <code>wrong_underlying</code> — a bare number
+is not a name in the first place.</p>
+<p>Repair drill:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> albedo </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p><code>not_member</code>, and the diagnostic names the set:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>got `4d` (allowed: `1d`, `2d`, `3d`)</span></span></code></pre>
+<p>so pick one of the three:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> albedo </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
 <h2 id="head-sets">Head Sets</h2>
 <p>A head set applies to a form-underlying kind. It says “the slot value
 must be a nested form, and the nested form’s head must be one of these.”</p>
@@ -90,6 +127,108 @@ heads:</p>
 <code>evenodd | nonzero</code>.</li>
 <li><code>:shape (circle ...)</code> stores a form value and checks the form head
 against <code>circle | rect</code>.</li>
+</ul>
+<h2 id="how-many">How Many?</h2>
+<p>On a form’s <code>:positional</code> slot — where the head set governs a <em>list</em> of
+children rather than one value — it can bound the count as well as the
+vocabulary. Spell the heads out as <code>(head …)</code> children and each one may
+carry <code>:min</code> / <code>:max</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value-kind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> pipeline-section </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:underlying</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> form</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :heads</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head-set</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vertex   </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:min</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :max</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; exactly one</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fragment </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:max</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)          </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; at most one — none is fine</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> constant)))               </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; any number</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">form</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> render-pipeline </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:positional</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> pipeline-section</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">key</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> name </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> symbol))</span></span></code></pre>
+<p>Read the three spellings carefully, because the floor defaults to 0:</p>
+<ul>
+<li><code>:min 1 :max 1</code> — exactly one.</li>
+<li><code>:max 1</code> alone — at most one. Zero is fine.</li>
+<li>no bound — any number, including zero.</li>
+</ul>
+<p>Accepted:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">constant</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> gamma </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:value</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">constant</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> exposure </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:value</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1.0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span></code></pre>
+<p>Too many:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_alt))</span></span></code></pre>
+<p><code>positional_too_many</code>, reported <strong>on the second <code>(fragment …)</code></strong> — the
+line to delete. Not on the parent, and not once per extra child: a form
+four <code>(fragment …)</code> children over its ceiling still gets one diagnostic,
+naming the real count.</p>
+<p>Too few:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main))</span></span></code></pre>
+<p><code>positional_missing</code>, reported <strong>on <code>(render-pipeline …)</code> itself</strong>. You
+cannot know a head is absent until the children run out, so there is no
+child to point at — the same reason a missing required key lands on the
+form’s head rather than anywhere in particular.</p>
+<p>Three things that will save you a debugging session:</p>
+<ul>
+<li><code>:names [a b c]</code> cannot carry a count. The two spellings are exclusive,
+so adding a bound to one head means writing them all as <code>(head …)</code>.</li>
+<li><strong><code>:open true</code> does not turn the counts off.</strong> Openness widens which
+<em>keywords</em> a form accepts. A positional count is a different surface,
+and declaring <code>:positional &#x3C;bounded-kind></code> opts into it.</li>
+<li><strong>The counts only bite on <code>:positional</code>.</strong> Reuse the same kind on a
+<code>(key :type pipeline-section)</code> slot and the bounds ride along inertly —
+a keyed slot holds one value, so <code>:max 1</code> is trivially true and <code>:min 1</code>
+has no set to be missing from. Deliberate: it keeps a bounded kind
+shareable between a slot that has a population and one that doesn’t.</li>
+</ul>
+<h2 id="how-many-altogether">How Many Altogether?</h2>
+<p>Every bound above counts <em>one</em> head. Some rules count the set.</p>
+<p>A WebGPU bind-group-layout entry binds exactly one resource: a buffer, a
+sampler, or a texture. Try to say that with per-head bounds and watch it
+fail. Give each head <code>:max 1</code> and an entry with a buffer <em>and</em> a sampler
+is accepted — each head is within its ceiling. Give one head <code>:min 1</code> and
+you have demanded a buffer specifically, which is a different rule.</p>
+<p>The claim is about the set, so it is spelled on the set:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value-kind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> bgl-resource </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:underlying</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> form</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :heads</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head-set</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :min-children</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :max-children</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">   ; exactly one, whichever</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> buffer  </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:max</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)                      </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; …and not two of the same</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> sampler </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:max</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">    (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> texture </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:max</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">form</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> entry </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:positional</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> bgl-resource</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">key</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> binding </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> number))</span></span></code></pre>
+<p><code>:min-children</code> and <code>:max-children</code> count children of <em>any</em> head in the
+set. Read the four cases:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniform))</span></span></code></pre>
+<p>Accepted — one resource.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniform)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sampler</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> filtering))</span></span></code></pre>
+<p><code>positional_too_many</code>, on the <code>(sampler …)</code>. Both per-head ceilings are
+satisfied; only <code>:max-children 1</code> refuses this.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p><code>positional_missing</code>, on <code>(entry …)</code>. Every per-head bound here is a
+ceiling, so an empty child list satisfies all of them.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniform)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> storage))</span></span></code></pre>
+<p><code>positional_too_many</code> again — but read the message. It says <strong><code>at most 1 buffer positional child</code></strong>, not <code>at most 1 positional child from [buffer | sampler | texture]</code>. This document breaks both rules at once, and you
+get one diagnostic: the per-head one, because it points at the line to
+delete. The set’s complaint follows from it.</p>
+<p>That is the habit to build: <strong>the message tells you which level fired.</strong>
+A bracketed set means the children are individually fine and there are
+simply too many of them together — the repair is to pick one, not to
+de-duplicate.</p>
+<p>Two more things:</p>
+<ul>
+<li><strong>The compact spelling works here.</strong> <code>(head-set :names [cube sphere] :max-children 1)</code> — “at most one generator” — is legal, because the
+aggregate needs no per-head metadata. Only <em>per-head</em> counts force the
+<code>(head …)</code> spelling.</li>
+<li><strong>The loader refuses an impossible set.</strong> Two heads at <code>:min 1</code> under
+<code>:max-children 1</code> is <code>invalid_manifest</code>: satisfying both needs two
+children and the set allows one. Note that neither head <em>alone</em> looks
+wrong — the check has to add them up.</li>
 </ul>
 <h2 id="unions">Unions</h2>
 <p>A union says “this value may satisfy any one of these alternatives.”
@@ -123,6 +262,25 @@ Repair with a value that fits one branch:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [E4 G4 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">n</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> G4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)])</span></span></code></pre>
 <p>The diagnostic lists the alternatives the plugin declared. Use that
 list as a menu of legal shapes.</p>
+<h3 id="order-is-part-of-the-contract">Order Is Part Of The Contract</h3>
+<p>Alternatives are tried in declaration order and the first one that
+accepts wins. No alternative is “more specific” than another, and none
+is preferred by shape — order is the whole rule.</p>
+<p>Most of the time this is invisible, because alternatives do not overlap:
+a symbol cannot satisfy <code>vec4</code>, a vector cannot satisfy <code>pitch</code>. But
+when two alternatives <em>can</em> both accept the same value, order decides
+which one, and that is usually deliberate:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>byte-count: number</span></span>
+<span class="line"><span>size: union byte-count | symbol</span></span></code></pre>
+<p><code>1024</code> matches <code>byte-count</code>. A bare name matches the <code>symbol</code> half. Had
+the plugin listed <code>symbol</code> first, it would still only claim symbols, so
+nothing changes here — but a union of two <em>symbol</em> kinds is a different
+story, and lesson 13 shows the case where order quietly decides which
+entity a name refers to.</p>
+<p>The practical rule for reading a schema: when two alternatives overlap,
+the earlier one is what you get. When you cannot tell which one accepted
+your value, ask the tooling — go-to-definition on the value will land in
+whichever declaration actually claimed it.</p>
 <h3 id="form-alternative-pitfall">Form Alternative Pitfall</h3>
 <p>A union alternative named <code>form</code> is not a wildcard for unknown
 parenthesized syntax.</p>
@@ -155,15 +313,43 @@ subject of the next chapter).</p>
 <p>A quoted string is neither a number nor a symbol:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :x</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "64"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :y</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> WORKGROUP_SIZE)</span></span></code></pre>
 <p>Likely diagnostic: <code>union_no_branch_matched</code>. The shorthand is a union
-underneath, so a value that fits no branch fails exactly as a
-hand-written union would. Repair by dropping the quotes for a reference,
-or writing a number for a literal:</p>
+underneath, and a string is a shape <em>neither</em> half could take — so it
+fails exactly as a hand-written union would, naming both alternatives.
+Repair by dropping the quotes for a reference, or writing a number for
+a literal:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :x</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 64</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :y</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> WORKGROUP_SIZE)</span></span></code></pre>
+<h4 id="is-the-reference-half-checked">Is the reference half checked?</h4>
+<p>Read the plugin line carefully, because two <code>scalar-or-ref</code> kinds that
+look alike behave very differently on a typo. The reference half is
+whatever the plugin named as its <code>ref</code>, and if it named nothing, the
+answer is the plain <code>symbol</code> type — which accepts <em>any</em> spelling.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>dim:     scalar-or-ref, base dim-value                   ; ref defaults to symbol</span></span>
+<span class="line"><span>bones:   scalar-or-ref, base bone-count, ref define-ref  ; ref is a cross-ref kind</span></span></code></pre>
+<p>Now misspell a constant in each:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :y</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> WORKGROUP_SIZ)     </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; A — validates clean</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mesh</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bones</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> MAX_BONE)          </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; B — not_cross_ref</span></span></code></pre>
+<p>Line A passes. <code>WORKGROUP_SIZ</code> is a perfectly good symbol, and the
+reference half only asked for a symbol — nothing checked that a constant
+by that name exists. The mistake surfaces later, at whatever point the
+host tries to resolve it.</p>
+<p>Line B fails at validate time, because <code>define-ref</code> is a cross-reference
+kind and the document contains no matching <code>(define …)</code>.</p>
+<p>Note the diagnostic on line B: <code>not_cross_ref</code>, not
+<code>union_no_branch_matched</code>. The kind is a union underneath, but its two
+halves are disjoint by shape — a symbol can only have meant the
+reference half, a number only the literal half — so when the value fits
+neither, the validator reports the half the value’s <em>shape</em> selected,
+with that half’s own reason. A symbol gets <code>not_cross_ref</code> naming the
+form it had to be declared by; a number outside the base’s bounds gets
+<code>number_above_max</code> (or <code>number_below_min</code>, <code>unit_forbidden</code>,
+<code>repr_out_of_range</code> …) naming the bound. Only a shape neither half takes
+— the quoted string above, or a vector — gets the union’s own
+<code>union_no_branch_matched</code> with its list of alternatives.</p>
 <h2 id="slot-local-forms">Slot-Local Forms</h2>
-<p>A head set restricts a form slot to a closed list of <em>global</em> form
-heads. A slot-local form set goes one step further: the slot defines its
-own forms inline, right where it is declared. Those local forms are part
-of the slot’s contract, not the global vocabulary.</p>
+<p>A head set restricts a form slot to a closed list of allowed form
+<em>heads</em>. A slot-local form set goes one step further: the slot defines
+its own forms inline, right where it is declared. Those local forms are
+part of the slot’s contract, not the global vocabulary.</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(canvas ...)</span></span>
 <span class="line"><span>  :shape form, local circle | rect | group</span></span>
 <span class="line"><span>    circle: (r number required)</span></span>
@@ -199,6 +385,34 @@ its slot: writing <code>(rect :w 1)</code> at the top level is an ordinary
 <code>unknown_form</code>, because <code>rect</code> exists only inside <code>canvas</code>’s <code>:shape</code>. And
 a namespace-qualified head skips local resolution entirely; it goes
 straight to the global vocabulary.</p>
+<h2 id="head-sets-and-slot-local-forms">Head Sets and Slot-Local Forms</h2>
+<p>These two features look like they compete. They do not — they run in
+sequence, and reading a diagnostic correctly depends on knowing which
+step produced it.</p>
+<p><strong>Step one: is this head allowed here?</strong> The head set answers that from
+the head’s <em>text</em> alone. It compares spelling against its list and looks
+nothing up.</p>
+<p><strong>Step two: what is the body checked against?</strong> Only now does the
+validator go looking for a form of that name, and it looks locally
+first, then globally.</p>
+<p>The consequence is worth stating plainly, because it saves you writing
+forms you do not need: a head set names <em>spellings</em>, not declarations. If
+the only <code>storage-texture</code> form is a local of the slot you are in, the
+head set is satisfied and the body is checked against that local. You do
+not need to declare a global <code>storage-texture</code> to “make the name
+resolve.”</p>
+<p>Now predict the diagnostics. The head set is <code>[buffer storage-texture ghost]</code>, and there is a local form for <code>buffer</code> and <code>storage-texture</code> but
+none anywhere for <code>ghost</code>:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sampler</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :type</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> filtering))     </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; A — head not in the set</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ghost</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :x</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))                  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; B — head in the set, no form</span></span></code></pre>
+<p>Line A produces <strong>two</strong> diagnostics: <code>not_head_member</code> from step one,
+and <code>unknown_local_form</code> from step two. Both steps failed, so both
+report.</p>
+<p>Line B produces <strong>one</strong>: just <code>unknown_local_form</code>. This is the case
+worth remembering — the head set <em>admitted</em> <code>ghost</code>, because <code>ghost</code> is
+on its list, and the complaint came entirely from step two having
+nothing to descend into. A head set will never tell you a name is
+undeclared; that is not its job.</p>
 <h2 id="diagnostic-cheat-sheet">Diagnostic Cheat Sheet</h2>
 <p>When a value kind fails, the diagnostic usually tells you which layer
 of the contract you violated:</p>
@@ -267,7 +481,15 @@ of the contract you violated:</p>
 
 
 
-<table><thead><tr><th>Diagnostic</th><th>What to reread</th></tr></thead><tbody><tr><td><code>wrong_underlying</code></td><td>The kind’s underlying shape: number, string, symbol, vector, form.</td></tr><tr><td><code>vector_length_mismatch</code></td><td>The fixed vector length (<code>:len</code>).</td></tr><tr><td><code>vector_too_short</code> / <code>vector_too_long</code></td><td>The <code>:min-len</code> / <code>:max-len</code> element-count window.</td></tr><tr><td><code>repr_out_of_range</code></td><td>The <code>:repr</code> machine type’s range, and integrality for integer types.</td></tr><tr><td><code>unit_required</code></td><td>The unit requirement on a number-underlying kind.</td></tr><tr><td><code>unit_not_allowed</code></td><td>The allowed unit suffix list.</td></tr><tr><td><code>unit_forbidden</code></td><td>The kind rejects every unit; drop the suffix.</td></tr><tr><td><code>not_member</code></td><td>The closed symbol or string member list.</td></tr><tr><td><code>not_head_member</code></td><td>The closed form head list.</td></tr><tr><td><code>unknown_local_form</code></td><td>The slot’s own local form set, plus the global vocabulary.</td></tr><tr><td><code>union_no_branch_matched</code></td><td>The union alternatives.</td></tr><tr><td><code>string_too_short</code> / <code>string_too_long</code></td><td>The <code>:min-len</code> / <code>:max-len</code> codepoint bound.</td></tr><tr><td><code>string_format_mismatch</code></td><td>The named format checker (email / uri / path / uuid / semver).</td></tr><tr><td><code>string_pattern_unsupported</code></td><td>The <code>:pattern</code> constraint is informational in this build (no regex engine).</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Diagnostic</th><th>What to reread</th></tr></thead><tbody><tr><td><code>wrong_underlying</code></td><td>The kind’s underlying shape: number, string, symbol, vector, form.</td></tr><tr><td><code>vector_length_mismatch</code></td><td>The fixed vector length (<code>:len</code>).</td></tr><tr><td><code>vector_too_short</code> / <code>vector_too_long</code></td><td>The <code>:min-len</code> / <code>:max-len</code> element-count window.</td></tr><tr><td><code>repr_out_of_range</code></td><td>The <code>:repr</code> machine type’s range, and integrality for integer types.</td></tr><tr><td><code>unit_required</code></td><td>The unit requirement on a number-underlying kind.</td></tr><tr><td><code>unit_not_allowed</code></td><td>The allowed unit suffix list.</td></tr><tr><td><code>unit_forbidden</code></td><td>The kind rejects every unit; drop the suffix.</td></tr><tr><td><code>not_member</code></td><td>The closed symbol or string member list. On a digit-leading set, also check the magnitude <em>and</em> the unit.</td></tr><tr><td><code>not_head_member</code></td><td>The closed form head list.</td></tr><tr><td><code>positional_too_many</code></td><td>A ceiling — the head’s <code>:max</code>, or the set’s <code>:max-children</code> if the message names a bracketed set. Reported on the child that crossed it.</td></tr><tr><td><code>positional_missing</code></td><td>A floor — the head’s <code>:min</code>, or the set’s <code>:min-children</code> if the message names a bracketed set. Reported on the parent form’s head.</td></tr><tr><td><code>unknown_local_form</code></td><td>The slot’s own local form set, plus the global vocabulary.</td></tr><tr><td><code>union_no_branch_matched</code></td><td>The union alternatives.</td></tr><tr><td><code>string_too_short</code> / <code>string_too_long</code></td><td>The <code>:min-len</code> / <code>:max-len</code> codepoint bound.</td></tr><tr><td><code>string_format_mismatch</code></td><td>The named format checker (email / uri / path / uuid / semver).</td></tr><tr><td><code>string_pattern_unsupported</code></td><td>The <code>:pattern</code> constraint is informational in this build (no regex engine).</td></tr></tbody></table>
 <p>This is the repair loop:</p>
 <ol>
 <li>Find the form and key in the diagnostic path.</li>
@@ -289,6 +511,25 @@ refinement.</li>
 <p>Do not repair it with a keyword:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">circle</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :center</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:radius</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :fill</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :evenodd</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
 <p>That triggers the keyword-pairing problem from chapter 5.</p>
+<h3 id="digit-leading-member-set">Digit-Leading Member Set</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>texture-dimension: symbol, members 1d | 2d | 3d</span></span>
+<span class="line"><span>(texture ...)</span></span>
+<span class="line"><span>  :dimension texture-dimension optional</span></span></code></pre>
+<p>Predict the diagnostic for each, then repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> a </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> b </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> c </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> d </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.5d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p>The first, second, and fourth are <code>not_member</code> — each is a unit-bearing
+number, which this slot accepts as a shape; they are just not in the set.
+The third is <code>wrong_underlying</code>: a bare number is not a spelling at all,
+so it fails one layer earlier.</p>
+<p>Repair:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> a </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 3d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> b </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> c </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">texture</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> d </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:dimension</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2d</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
 <h3 id="head-set">Head Set</h3>
 <p>Contract:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>shape-form: form, heads circle | rect</span></span>
@@ -297,6 +538,36 @@ refinement.</li>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "bad"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">group</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "not-a-shape"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span></code></pre>
 <p>Repair with an allowed head:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">badge</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :label</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "ok"</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :shape</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rect</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :origin</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">] </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">10</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 10</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">]))</span></span></code></pre>
+<h3 id="positional-counts">Positional Counts</h3>
+<p>Contract:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>pipeline-section: form, heads vertex (exactly 1) | fragment (at most 1) | constant (any)</span></span>
+<span class="line"><span>(render-pipeline ...)</span></span>
+<span class="line"><span>  :name symbol required</span></span>
+<span class="line"><span>  positional pipeline-section</span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_alt))</span></span></code></pre>
+<p>Two <code>(fragment …)</code> children against <code>:max 1</code>. Likely diagnostic:
+<code>positional_too_many</code>, on the <em>second</em> fragment — the extra one, not the
+form. Repair by removing it:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main))</span></span></code></pre>
+<p>Now predict this one before reading on:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">constant</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> gamma </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:value</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span></code></pre>
+<p><code>positional_missing</code> — <code>vertex</code> is <code>:min 1</code> and there is none. It is
+reported on <code>(render-pipeline …)</code> itself, because the fact “no vertex
+anywhere in this list” belongs to the list, not to any child in it. Note
+that <code>constant</code> being present helps not at all: a child counts towards a
+head only if its own head matches, so nothing else can stand in for a
+missing <code>vertex</code>. Repair by adding one:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> main</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vertex</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> vs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">fragment</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :entry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> fs_main)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">  (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">constant</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> gamma </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:value</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 2.2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">))</span></span></code></pre>
 <h3 id="union">Union</h3>
 <p>Contract:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>pitch: symbol, members E4 | G4 | A4 | B4 | _</span></span>
@@ -362,16 +633,67 @@ plugin has a separate slot documented as <code>any</code>.</p>
       <p class="mc-feedback" hidden></p>
     </li>
     <li class="mc-item" data-correct="1">
+      <p class="mc-q"><code>2d</code> is a legal member of a <em>symbol</em> member set, yet <code>2d</code> is not a symbol. How does that work?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-1" value="0"> <span>The lexer makes an exception for <code>d</code> and reads <code>2d</code> as a symbol.</span></label>
+        <p class="mc-explanation" hidden>There is no such exception, and there could not be a useful one: the unit alphabet is not a list of enum names.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-1" value="1"> <span>The schema stores the member as a <code>(magnitude, unit)</code> pair and matches the number against it — the value stays a unit-bearing number.</span></label>
+        <p class="mc-explanation" hidden>Correct. A digit-leading spelling is <em>accepted</em> in a symbol slot, never rewritten — the tree, the binary IR, and the JSON bridge all keep <code>{"$num": [2, "d"]}</code>. That is why matching is on the pair, which also makes <code>2.0d</code> and <code>02d</code> the same member.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-1" value="2"> <span>The validator rewrites the value into the symbol <code>2d</code> before matching.</span></label>
+        <p class="mc-explanation" hidden>Rewriting would make a node's identity depend on the schema, which the JSON bridge and the binary encoder both forbid: <code>parse → validate</code> and <code>parse → binary → validate</code> would disagree about the tag.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Why do <code>:dimension 2b</code> and <code>:dimension 2</code> fail differently against <code>members 1d | 2d | 3d</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-2" value="0"> <span>They do not — both are <code>not_member</code>.</span></label>
+        <p class="mc-explanation" hidden>The two fail one layer apart, and the codes say so — which is the point of reporting <code>not_member</code> here rather than a blanket tag mismatch.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-2" value="1"> <span><code>2b</code> is <code>not_member</code> (a unit-bearing number is the right shape, wrong member); <code>2</code> is <code>wrong_underlying</code> (a bare number is not a spelling at all).</span></label>
+        <p class="mc-explanation" hidden>Correct. Declaring a digit-leading member is what makes the slot accept unit-bearing numbers at all; the unit is part of the identity, so <code>2b</code> gets the "which ones are allowed" report. A unitless number never enters that path.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-2" value="2"> <span><code>2b</code> is <code>unit_not_allowed</code> and <code>2</code> is <code>not_member</code>.</span></label>
+        <p class="mc-explanation" hidden><code>unit_not_allowed</code> belongs to <code>(unit-shape :allowed …)</code> on a number-underlying kind — a different refinement entirely.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
       <p class="mc-q">What does <code>union_no_branch_matched</code> tell you to reread?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-1" value="0"> <span>The plugin manifest version.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-3" value="0"> <span>The plugin manifest version.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-1" value="1"> <span>The list of alternatives the message names — the slot accepts each shape; rewrite the value to fit one of them.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-3" value="1"> <span>The list of alternatives the message names — the slot accepts each shape; rewrite the value to fit one of them.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-1" value="2"> <span>The whole document from scratch.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-3" value="2"> <span>The whole document from scratch.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">When two union alternatives can both accept the same value, which one wins?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-4" value="0"> <span>The most specific alternative, decided by shape.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-4" value="1"> <span>Whichever the plugin declared first — order is the whole rule.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-4" value="2"> <span>Neither; an overlapping union is rejected at load.</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -380,13 +702,13 @@ plugin has a separate slot documented as <code>any</code>.</p>
       <p class="mc-q">When a union slot lists <code>form</code> as one alternative, does that mean any parenthesized construct is accepted?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-2" value="0"> <span>Yes — any form satisfies the slot.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-5" value="0"> <span>Yes — any form satisfies the slot.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-2" value="1"> <span>Only if the form is empty.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-5" value="1"> <span>Only if the form is empty.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-2" value="2"> <span>No — a typed form alternative usually narrows further (e.g., a head set or a discriminated form).</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-5" value="2"> <span>No — a typed form alternative usually narrows further (e.g., a head set or a discriminated form).</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -395,13 +717,121 @@ plugin has a separate slot documented as <code>any</code>.</p>
       <p class="mc-q">What does a head set constrain?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-3" value="0"> <span>The spelling of a nested form head, such as <code>circle</code> or <code>rect</code>.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-6" value="0"> <span>The spelling of a nested form head, such as <code>circle</code> or <code>rect</code>.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-3" value="1"> <span>The keywords allowed on the parent form.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-6" value="1"> <span>The keywords allowed on the parent form.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-3" value="2"> <span>The number of vector elements.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-6" value="2"> <span>The number of vector elements.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A head declares <code>(head :name fragment :max 1)</code> and a form carries four <code>(fragment …)</code> children. Where does the diagnostic land, and how many do you get?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-7" value="0"> <span>One <code>positional_too_many</code>, on the second <code>(fragment …)</code> — the one that crossed the ceiling.</span></label>
+        <p class="mc-explanation" hidden>Correct. The count crosses <code>:max</code> exactly once, so the report fires on that transition — and it names the real total (4), not the ceiling.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-7" value="1"> <span>Three <code>positional_too_many</code>, one per child past the ceiling.</span></label>
+        <p class="mc-explanation" hidden>That would bury every other diagnostic on the form under duplicates of one fact.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-7" value="2"> <span>One <code>positional_too_many</code>, on the parent form.</span></label>
+        <p class="mc-explanation" hidden>The parent is where a <em>floor</em> breach lands, since that one has no child to point at. A ceiling breach does.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A form declares <code>:open true</code> and a bounded <code>:positional</code> head-set. Which rules still apply?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-8" value="0"> <span>Both counts still apply — <code>:open</code> widens the <em>keyword</em> surface only.</span></label>
+        <p class="mc-explanation" hidden>Correct. Openness is about accepting unknown keywords; a form that declares <code>:positional &#x3C;bounded-kind></code> opted into its children's count.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-8" value="1"> <span>Neither — <code>:open</code> turns off every end-of-form check.</span></label>
+        <p class="mc-explanation" hidden>It turns off the keyword ones — required keys, the discriminant gate, exclusive groups. Positional rules like <code>not_head_member</code> already fire on open forms.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-8" value="2"> <span>Only <code>positional_too_many</code>; the floor sweep is suppressed like other end-of-form sweeps.</span></label>
+        <p class="mc-explanation" hidden>That would half-enforce one declaration: max checked, min not.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">The same bounded head-set kind is used on a <code>:positional</code> slot and on a <code>(key :type …)</code> slot. Where do its <code>:min</code> / <code>:max</code> counts apply?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-9" value="0"> <span>Only at the <code>:positional</code> slot; on the keyed slot they ride along inertly.</span></label>
+        <p class="mc-explanation" hidden>Correct. A keyed slot holds one value, so <code>:max 1</code> is trivially true and <code>:min 1</code> has no set to be missing from. Inert rather than an error, so a bounded kind stays shareable.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-9" value="1"> <span>At both — a bound is part of the kind, so it travels with it.</span></label>
+        <p class="mc-explanation" hidden>A keyed slot has no repeated population to count, so there would be nothing for the bound to mean.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-9" value="2"> <span>Nowhere; declaring a bound on a shared kind is rejected at load.</span></label>
+        <p class="mc-explanation" hidden>Rejecting reuse would make a bounded head-set kind un-shareable for no gain.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Every head in a set carries <code>:max 1</code>. Which document does that fail to reject?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-10" value="0"> <span>A form with two <code>(buffer …)</code> children.</span></label>
+        <p class="mc-explanation" hidden>That one is rejected — <code>buffer</code>'s own ceiling catches it.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-10" value="1"> <span>A form with one <code>(buffer …)</code> and one <code>(sampler …)</code> — "exactly one resource" is a claim about the set, not about any head.</span></label>
+        <p class="mc-explanation" hidden>Correct, and raising a head's <code>:min</code> does not help either: <code>(head :name buffer :min 1)</code> demands a <em>buffer</em>, which is a different rule. <code>:min-children</code> / <code>:max-children</code> on the <code>(head-set …)</code> is the only spelling of "one of these, whichever".</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-10" value="2"> <span>A form with three <code>(texture …)</code> children.</span></label>
+        <p class="mc-explanation" hidden>Also rejected, by <code>texture</code>'s ceiling.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Under <code>:min-children 1 :max-children 1</code> over heads each <code>:max 1</code>, a form carries two <code>(buffer …)</code> children. How many diagnostics, and which?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-11" value="0"> <span>Two <code>positional_too_many</code> — one for the head, one for the set.</span></label>
+        <p class="mc-explanation" hidden>They would land on the same child, with the same code and the same path, differing only in prose — which is why the set yields to the head instead.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-11" value="1"> <span>One <code>positional_too_many</code>, the per-head one: it names the line to delete, and the set's claim follows from it.</span></label>
+        <p class="mc-explanation" hidden>Correct. The two levels overlap by construction on this shape, so the validator states a suppression rule: the set never reports for a child that already reported for its own head, and a head with an unmet <code>:min</code> suppresses the set's floor report.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-11" value="2"> <span>One <code>positional_too_many</code>, the set-level one, because the set is the outer constraint.</span></label>
+        <p class="mc-explanation" hidden>Backwards. The per-head report is the more actionable of the two, and it is the one kept.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A <code>positional_too_many</code> message reads <code>at most 1 positional child from [buffer | sampler | texture], found 2</code>. What does the bracketed set tell you?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-12" value="0"> <span>That the set-level <code>:max-children</code> fired — the children are individually fine, and the repair is to pick one rather than de-duplicate.</span></label>
+        <p class="mc-explanation" hidden>Correct. A per-head breach names one head; only a set-level breach names the bracket. Reading which level fired is what tells you whether the fix is "delete the duplicate" or "choose between two different children".</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-12" value="1"> <span>That the schema lists three alternatives and you used the wrong one.</span></label>
+        <p class="mc-explanation" hidden>A head outside the set is <code>not_head_member</code>, a different code entirely.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-12" value="2"> <span>Nothing; the message always lists the whole head-set.</span></label>
+        <p class="mc-explanation" hidden>A per-head message names the single head it is about — that contrast is exactly what makes the bracket informative.</p>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -410,16 +840,52 @@ plugin has a separate slot documented as <code>any</code>.</p>
       <p class="mc-q">A slot typed <code>dim: scalar-or-ref, base dim-value</code> (a number base). Which value takes the reference branch?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-4" value="0"> <span>The string <code>"WORKGROUP_SIZE"</code>.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-13" value="0"> <span>The string <code>"WORKGROUP_SIZE"</code>.</span></label>
         <p class="mc-explanation" hidden>A quoted string is neither a number nor a symbol, so it fires <code>union_no_branch_matched</code>.</p>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-4" value="1"> <span>The bare symbol <code>WORKGROUP_SIZE</code>.</span></label>
-        <p class="mc-explanation" hidden>Correct. <code>scalar-or-ref</code> expands to <code>union dim-value | symbol</code>; a bare symbol takes the reference branch.</p>
+        <label><input type="radio" name="q-value-kinds-refinements-13" value="1"> <span>The bare symbol <code>WORKGROUP_SIZE</code>.</span></label>
+        <p class="mc-explanation" hidden>Correct. With no <code>ref</code> named, <code>scalar-or-ref</code> expands to <code>union dim-value | symbol</code>; a bare symbol takes the reference branch.</p>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-4" value="2"> <span>The keyword <code>:WORKGROUP_SIZE</code>.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-13" value="2"> <span>The keyword <code>:WORKGROUP_SIZE</code>.</span></label>
         <p class="mc-explanation" hidden>A keyword is not one of the branches; the reference branch is a bare symbol.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A <code>scalar-or-ref</code> slot names no <code>ref</code> kind, so the reference half is the plain <code>symbol</code> type. The document misspells a constant as <code>WORKGROUP_SIZ</code>. What happens at validate time?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-14" value="0"> <span>It validates clean - any symbol satisfies the reference half.</span></label>
+        <p class="mc-explanation" hidden>Correct. The reference half only asked for a symbol, and a misspelling is still a symbol. Nothing checked that a constant by that name exists; the mistake surfaces when the host tries to resolve it.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-14" value="1"> <span>It fires <code>not_cross_ref</code> - the constant does not exist.</span></label>
+        <p class="mc-explanation" hidden>Nothing declared the reference half as a cross-reference, so there is no target list to check against.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-14" value="2"> <span>It fires <code>union_no_branch_matched</code> - neither branch accepts it.</span></label>
+        <p class="mc-explanation" hidden>The symbol branch accepts it, so the union matched. A string would fail this way.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">The plugin instead declares the slot as <code>scalar-or-ref, base bone-count, ref define-ref</code>, where <code>define-ref</code> is a cross-reference kind. The document writes <code>MAX_BONE</code> and no <code>(define :name MAX_BONE ...)</code> exists. Which diagnostic?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-15" value="0"> <span><code>not_cross_ref</code> - the reference half is what failed.</span></label>
+        <p class="mc-explanation" hidden>Reasonable, but a union does not forward one branch’s private reason. That is the general rule for unions, and the shorthand is a union underneath.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-15" value="1"> <span><code>union_no_branch_matched</code>, naming both alternatives.</span></label>
+        <p class="mc-explanation" hidden>Correct. The shorthand desugars to an ordinary union, and a union reports that no alternative matched, listing what it tried. The second alternative is where a real name was expected.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-15" value="2"> <span><code>wrong_underlying</code> - a symbol was supplied where a number belongs.</span></label>
+        <p class="mc-explanation" hidden>A symbol is a legal shape here - it is the reference branch. What failed is that it names nothing.</p>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -428,16 +894,52 @@ plugin has a separate slot documented as <code>any</code>.</p>
       <p class="mc-q">A <code>:shape</code> slot defines local forms <code>circle | rect</code>. The document writes <code>(canvas :shape (triangle))</code>. What happens?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-5" value="0"> <span>It is accepted - any form works in a form slot.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-16" value="0"> <span>It is accepted - any form works in a form slot.</span></label>
         <p class="mc-explanation" hidden>A slot-local set narrows the choices, so an arbitrary head is not accepted.</p>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-5" value="1"> <span>It fires <code>unknown_local_form</code> - the head is neither a local form nor a global one.</span></label>
+        <label><input type="radio" name="q-value-kinds-refinements-16" value="1"> <span>It fires <code>unknown_local_form</code> - the head is neither a local form nor a global one.</span></label>
         <p class="mc-explanation" hidden>Correct. The head matches no local form and no global form, so the slot-scoped <code>unknown_local_form</code> fires - more specific than <code>unknown_form</code>.</p>
       </li>
       <li>
-        <label><input type="radio" name="q-value-kinds-refinements-5" value="2"> <span>It fires <code>not_head_member</code> - the head is outside the list.</span></label>
-        <p class="mc-explanation" hidden><code>not_head_member</code> is for a head set (a closed list of global heads); a slot that defines forms inline reports <code>unknown_local_form</code>.</p>
+        <label><input type="radio" name="q-value-kinds-refinements-16" value="2"> <span>It fires <code>not_head_member</code> - the head is outside the list.</span></label>
+        <p class="mc-explanation" hidden><code>not_head_member</code> is for a head set (a closed list of allowed head spellings); a slot that defines forms inline reports <code>unknown_local_form</code>.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A head set lists <code>ghost</code>, but no form named <code>ghost</code> is declared anywhere - not locally, not globally. The document writes <code>(ghost :x 1)</code> in that slot. How many diagnostics?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-17" value="0"> <span>Two - <code>not_head_member</code> and <code>unknown_local_form</code>.</span></label>
+        <p class="mc-explanation" hidden>Two diagnostics is what an out-of-set head produces, because both steps fail. Here the head IS in the set, so the head set is satisfied.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-17" value="1"> <span>One - <code>unknown_local_form</code>.</span></label>
+        <p class="mc-explanation" hidden>Correct. The head set admitted <code>ghost</code> (it compares spelling against its list), and the complaint came from the next step, which found no form to check the body against.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-17" value="2"> <span>One - <code>not_head_member</code>.</span></label>
+        <p class="mc-explanation" hidden>A head set never reports an undeclared name - it resolves nothing. It compared <code>ghost</code> against its list, found it, and passed.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A head set names <code>storage-texture</code>, whose only <code>(form ...)</code> declaration is a slot-local of the form you are inside. Does that work?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-18" value="0"> <span>Yes - the head set checks spelling, and the body then resolves local-first.</span></label>
+        <p class="mc-explanation" hidden>Correct. The head set names spellings, not declarations; a local form in scope at the slot is what the body is checked against.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-18" value="1"> <span>No - head set names must be declared globally.</span></label>
+        <p class="mc-explanation" hidden>A common misreading. It leads to declaring placeholder global forms that do nothing - the head set never consults a global catalog.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-value-kinds-refinements-18" value="2"> <span>Only if the local form is also listed in the head set twice.</span></label>
+        <p class="mc-explanation" hidden>Head set entries are a set of spellings; repeating one changes nothing.</p>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -448,7 +950,7 @@ plugin has a separate slot documented as <code>any</code>.</p>
     <button type="button" class="mc-reset" hidden>Reset</button>
     <p class="mc-score" hidden></p>
   </div>
-</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: shapes, vectors, units, bounds, representation</span></a><a class="next" href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Cross-references</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.0: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
+</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: shapes, vectors, units, bounds, representation</span></a><a class="next" href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Cross-references</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.2: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.2.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
         (function () {
             const sideBtn = document.querySelector('.sidebar-toggle');
             const aside = document.getElementById('lesson-sidebar');

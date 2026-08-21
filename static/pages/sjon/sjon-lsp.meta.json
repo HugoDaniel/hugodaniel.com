@@ -1,8 +1,8 @@
 {
-  "sha256": "6d0d008323786788c0ef474be2d8d695429bafb1eb8f708f7224dd53579ab0e5",
-  "shortHash": "6d0d00832378",
+  "sha256": "7266c644ff6efa13b82d25bf2e2ef3e323cb877560f36a0824b2ed90f7b33e97",
+  "shortHash": "7266c644ff6e",
   "serverInfo": {
     "name": "sjon-lsp",
-    "version": "1.0.0"
+    "version": "1.2.0"
   }
 }

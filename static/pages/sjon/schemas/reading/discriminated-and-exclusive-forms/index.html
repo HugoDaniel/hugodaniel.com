@@ -1,12 +1,41 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Discriminated and exclusive forms · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.0.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 10</span></p><h1 data-astro-cid-n67f4zmd>Discriminated and exclusive forms</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
+<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Discriminated and exclusive forms · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.2.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 10</span></p><h1 data-astro-cid-n67f4zmd>Discriminated and exclusive forms</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
 <p>Chapter 9 covered the basics of a form schema: keys, required vs
 optional, defaults, positional policy, and open forms. This chapter adds
-two structural patterns that plugins use to keep one head’s vocabulary
+the three structural patterns plugins use to keep one head’s vocabulary
 manageable: a single form name with several variant shapes selected by a
-discriminant key, and forms that declare a bundle of keys as mutually
-exclusive. Both patterns produce their own family of diagnostic codes,
-and both interact with the keyword-pairing rule from chapter 5 in ways
-worth knowing before you read the error messages.</p>
+discriminant key, forms that declare a bundle of keys as mutually
+exclusive, and keys that demand other keys. Each produces its own family
+of diagnostic codes, and the first two interact with the keyword-pairing
+rule from chapter 5 in ways worth knowing before you read the error
+messages.</p>
+<p>The three are easy to confuse, so hold on to the distinction from the
+start — it is what tells you which part of the plugin to reread:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pattern</th><th>Constrains</th><th>Reads as</th></tr></thead><tbody><tr><td>Discriminated form</td><td>which keys <em>exist</em>, given another key’s <strong>value</strong></td><td>“<code>:step</code> only when <code>:kind</code> is <code>kick</code>”</td></tr><tr><td>Exclusive group</td><td><strong>how many</strong> of a set may appear</td><td>“at most one of <code>:color</code>, <code>:gradient</code>”</td></tr><tr><td>Key dependency</td><td>one key’s presence demanding another’s</td><td>“if <code>:offset</code>, then also <code>:buffer</code>”</td></tr></tbody></table>
 <h2 id="discriminated-forms">Discriminated Forms</h2>
 <p>Some forms reuse one head for several closely related shapes, gated by
 the value of one key. The schema doc will tell you two things about
@@ -72,6 +101,32 @@ the discriminant or by removing the wrong-variant key:</p>
 variant required-key sweep in this case - it does not pile on
 <code>missing_required_key :step</code> etc. Repair by adding <code>:kind</code>:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> kick </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> k1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:step</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :from</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<h3 id="one-variant-several-values">One variant, several values</h3>
+<p>A variant’s <code>when</code> can list <strong>several</strong> discriminant values, and the
+variant is selected when the value is any of them. The schema summary
+shows the set in brackets:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(primitive ...)</span></span>
+<span class="line"><span>  discriminant: topology</span></span>
+<span class="line"><span>  :topology topology optional (default triangle-list)</span></span>
+<span class="line"><span>      ; member set [point-list line-list line-strip triangle-list triangle-strip]</span></span>
+<span class="line"><span>  variant when [triangle-strip line-strip]</span></span>
+<span class="line"><span>    :strip-index-format index-format optional</span></span></code></pre>
+<p>Read it as: <code>:strip-index-format</code> exists under <em>either</em> strip topology
+and under <em>no</em> list topology — WebGPU’s own rule, declared once. So
+these are both fine:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">primitive</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :topology</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> triangle-strip </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:strip-index-format</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uint16)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">primitive</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :topology</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> line-strip </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:strip-index-format</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uint16)</span></span></code></pre>
+<p>and this is <code>unknown_key</code> on <code>:strip-index-format</code>, because
+<code>triangle-list</code> selects no variant:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">primitive</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :topology</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> triangle-list </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:strip-index-format</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uint16)</span></span></code></pre>
+<p>Two things follow. First, a value selects <strong>at most one</strong> variant, so a
+plugin never lists the same value under two variants — if you ever see
+<code>variant when [a b]</code> and <code>variant when [b c]</code> in a summary, the plugin
+would not have loaded. Second, when a diagnostic names the active
+variant it uses the plugin’s own spelling, so you will read both
+<code>(variant </code>:when line-list<code>)</code> and <code>(variant </code>:when [triangle-strip
+line-strip]<code>)</code> — the bracketed one is a multi-value variant, not a
+different construct.</p>
 <h2 id="exclusive-groups-exactly-one-of">Exclusive Groups (Exactly-One-Of)</h2>
 <p>Some forms accept several keys but only allow one of them at a time.
 A plugin can declare this directly with an <strong>exclusive group</strong> —
@@ -160,6 +215,47 @@ bundles fail validation as <code>oneOf</code> mismatch — they don’t produce 
 “partial bundle” message at the JSON Schema layer. Use the SJON
 validator (or the IR’s warning list) for the more specific
 diagnostic.</p>
+<h2 id="key-dependencies">Key Dependencies</h2>
+<p>The third pattern is the smallest. A key may declare that its presence
+demands other keys:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(entry ...)</span></span>
+<span class="line"><span>  :binding number required</span></span>
+<span class="line"><span>  :buffer  buffer-ref optional</span></span>
+<span class="line"><span>  :offset  byte-count optional, requires :buffer</span></span>
+<span class="line"><span>  :size    byte-count optional, requires :buffer</span></span></code></pre>
+<p>The reason is usually that the dependent key is <em>measured from</em> the one
+it needs. A byte offset into no buffer describes nothing.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :buffer</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniforms </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:offset</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 256</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; satisfied</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)                                </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; neither written</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :buffer</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniforms)               </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; the requirement alone</span></span></code></pre>
+<p>All three are clean. That last one is worth pausing on, because the rule
+runs <strong>one way only</strong>: <code>:offset</code> drags <code>:buffer</code> in, never the reverse.
+Writing only the key that others depend on is always fine.</p>
+<p>The failure:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :offset</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 256</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p>Likely diagnostic: <code>dependent_key_missing</code>, naming <code>:buffer</code>.</p>
+<p>Two counting rules, and they pull in opposite directions. Write two
+dependent keys with the same requirement missing and you get <strong>two</strong>
+diagnostics, one per key that went unsatisfied:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :offset</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 256</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :size</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 64</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; two diagnostics</span></span></code></pre>
+<p>But a single key missing <em>several</em> of its requirements produces <strong>one</strong>
+diagnostic naming them all. A key with three unmet dependencies has one
+problem, not three.</p>
+<h3 id="choosing-between-the-three">Choosing Between The Three</h3>
+<p>Now the whole point of putting these in one chapter. Given a constraint
+in prose, which pattern is it?</p>
+<ul>
+<li>If the rule names a specific <strong>value</strong> — “only when the mode is
+<code>stream</code>” — it is a <strong>variant</strong>.</li>
+<li>If the rule <strong>counts</strong> — “exactly one of”, “at most one of” — it is an
+<strong>exclusive group</strong>.</li>
+<li>If the rule says “then also” — it is a <strong>key dependency</strong>.</li>
+</ul>
+<p>They compose, too: a key can sit inside an exclusive group <em>and</em> carry a
+dependency. The one combination a plugin cannot declare is a key
+requiring another key in its own exclusive group — the group forbids
+exactly what the dependency demands, so the plugin is rejected at load
+rather than producing a form nobody can write correctly.</p>
 <h2 id="exercises">Exercises</h2>
 <p>Discriminated-form drill. Use the <code>(track ...)</code> summary above:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :kind</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> groove </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> g1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:step</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 4</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
@@ -179,6 +275,25 @@ groove-variant shape:</p>
 <p>Neither alternative is present and the group is <code>exactly-one</code>.
 Repair by supplying one:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p5 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:events</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">n</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> A4 </span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8">0.5b</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)])</span></span></code></pre>
+<p>Key-dependency drill. Use the <code>(entry ...)</code> summary above:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :offset</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 256</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p><code>:offset</code> requires <code>:buffer</code>, which is absent. Two repairs, and which one
+is right depends on what you meant. Supply the requirement:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :buffer</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> uniforms </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:offset</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 256</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p>Or drop the dependent key, if the offset was written by mistake:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">entry</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :binding</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span></code></pre>
+<p>Pick-the-mechanism drill. Each of these is a constraint stated in prose.
+Which of the three patterns would a plugin use for it?</p>
+<ol>
+<li>“A texture binding may declare a sampler or a comparison sampler, but
+not both.”</li>
+<li>“<code>:mip-level-count</code> is only meaningful on a <code>2d</code> texture.”</li>
+<li>“If you give <code>:array-layer</code>, you must also give <code>:array-layer-count</code>.”</li>
+</ol>
+<p>Answers: (1) counts, so an <strong>exclusive group</strong> — <code>at-most-one</code>. (2)
+names a <em>value</em> of another key, so a <strong>variant</strong> on a discriminated form.
+(3) says “then also”, so a <strong>key dependency</strong> — <code>:array-layer</code> declares
+<code>:requires [array-layer-count]</code>.</p>
 <section class="mastery-quiz" data-lesson="discriminated-and-exclusive-forms">
   <h2>Mastery Check</h2>
   <ol class="mc-list">
@@ -242,13 +357,85 @@ Repair by supplying one:</p>
       </ul>
       <p class="mc-feedback" hidden></p>
     </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q"><code>:offset</code> declares <code>requires :buffer</code>. The document writes <code>(entry :binding 0 :buffer uniforms)</code> - the requirement, but not the dependent key. Is that an error?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-4" value="0"> <span>No - the rule runs one way. Only writing <code>:offset</code> demands <code>:buffer</code>.</span></label>
+        <p class="mc-explanation" hidden>Correct. An absent dependent key constrains nothing, so writing only the key that others depend on is always fine.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-4" value="1"> <span>Yes - the two keys must always appear together.</span></label>
+        <p class="mc-explanation" hidden>That would be a mutual dependency, which is really an exclusive-group bundle - and a plugin declaring it in both directions is rejected at load.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-4" value="2"> <span>Yes - <code>:buffer</code> is meaningless without something measured from it.</span></label>
+        <p class="mc-explanation" hidden>Reasonable as design taste, but not what the rule says. The dependency points from <code>:offset</code> to <code>:buffer</code>, not back.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A form writes two keys that both require the same absent key: <code>(entry :binding 0 :offset 256 :size 64)</code>, where both require <code>:buffer</code>. How many diagnostics?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-5" value="0"> <span>One - there is a single missing key.</span></label>
+        <p class="mc-explanation" hidden>The count follows the dependent keys, not the missing ones. Contrast one key missing three requirements, which IS a single diagnostic.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-5" value="1"> <span>Two - one per key whose requirement went unsatisfied.</span></label>
+        <p class="mc-explanation" hidden>Correct. One per unsatisfied dependent key. The mirror rule: one key missing several requirements gets one diagnostic naming them all, because that is one problem.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-5" value="2"> <span>Three - two dependents plus the missing key itself.</span></label>
+        <p class="mc-explanation" hidden>The absent key is not reported on its own - it is optional, so nothing requires it except the two keys that were written.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A plugin needs to express "<code>:strip-index-format</code> applies only when <code>:topology</code> is <code>triangle-strip</code>". Which of the three mechanisms?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-6" value="0"> <span>A key dependency - <code>:strip-index-format</code> requires <code>:topology</code>.</span></label>
+        <p class="mc-explanation" hidden>Close, and a plugin may add this too - but a dependency only demands that <code>:topology</code> be <em>present</em>, not that it hold a particular value. The wording names a value.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-6" value="1"> <span>A discriminated form with a <code>triangle-strip</code> variant.</span></label>
+        <p class="mc-explanation" hidden>Correct. The rule names a specific value (<code>triangle-strip</code>), and that is the tell: values mean variants. A group counts; a dependency says "then also".</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-6" value="2"> <span>An exclusive group over <code>:topology</code> and <code>:strip-index-format</code>.</span></label>
+        <p class="mc-explanation" hidden>A group bounds how many of a set may appear. Nothing here is about counting.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A schema summary shows <code>variant when [triangle-strip line-strip]</code> with <code>:strip-index-format</code> under it. What does <code>(primitive :topology triangle-list :strip-index-format uint16)</code> report?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-7" value="0"> <span>Nothing - a multi-value variant applies to every member of the discriminant.</span></label>
+        <p class="mc-explanation" hidden>The bracket lists the values that select the variant, not the whole member set. Under any other member the variant is inactive.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-7" value="1"> <span><code>unknown_key</code> on <code>:strip-index-format</code> - <code>triangle-list</code> is not one of the listed values, so it selects no variant and the key has no home.</span></label>
+        <p class="mc-explanation" hidden>Correct. Selection is membership of the bracketed list: both strips select the variant, every list topology selects nothing, and a variant-only key under a non-selecting value is <code>unknown_key</code>.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-discriminated-and-exclusive-forms-7" value="2"> <span><code>not_member</code> on <code>:topology</code> - only the listed values are legal discriminant values.</span></label>
+        <p class="mc-explanation" hidden><code>triangle-list</code> is a perfectly good member of the topology set - the discriminant slot itself is fine. It is the variant key that has no home.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
   </ol>
   <div class="mc-controls">
     <button type="button" class="mc-submit">Submit answers</button>
     <button type="button" class="mc-reset" hidden>Reset</button>
     <p class="mc-score" hidden></p>
   </div>
-</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Reading plugin schemas</span></a><a class="next" href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: shapes, vectors, units, bounds, representation</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.0: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
+</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Reading plugin schemas</span></a><a class="next" href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: shapes, vectors, units, bounds, representation</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.2: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.2.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
         (function () {
             const sideBtn = document.querySelector('.sidebar-toggle');
             const aside = document.getElementById('lesson-sidebar');

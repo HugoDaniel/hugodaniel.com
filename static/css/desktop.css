@@ -87,6 +87,8 @@ main article header nav time {
 main article header nav span {
   display: block;
 	text-align: right;
+  /* stay in the wide column even on pages with no date (e.g. /start-here/) */
+  grid-column: 2;
 }
 
 main article header nav a {

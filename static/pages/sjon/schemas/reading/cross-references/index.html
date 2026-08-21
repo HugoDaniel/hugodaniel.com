@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cross-references · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.0.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 13</span></p><h1 data-astro-cid-n67f4zmd>Cross-references</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
+<!DOCTYPE html><html lang="en" data-astro-cid-ivjjushy><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cross-references · SJON Tutorial</title><meta name="description" content="SJON tutorial: syntax, schemas, safe expressions, and diagnostics."><meta name="generator" content="Astro v7.1.6"><link rel="icon" type="image/svg+xml" href="/pages/sjon/favicon.svg"><link rel="stylesheet" href="/pages/sjon/_astro/url.BSVYEsTP.css"><link rel="stylesheet" href="/pages/sjon/_astro/_..CphJGbFM.css"></head><body data-astro-cid-ivjjushy><a class="skip-link" href="#main-content" data-astro-cid-ivjjushy>Skip to content</a><nav class="topbar" aria-label="Site" data-astro-cid-ivjjushy><a class="brand" href="/pages/sjon" data-astro-cid-ivjjushy><span class="brand-mark" aria-hidden="true" data-astro-cid-ivjjushy></span><span class="brand-name" data-astro-cid-ivjjushy>sjon</span></a><ul class="nav" data-astro-cid-ivjjushy><li data-astro-cid-ivjjushy><a href="/pages/sjon/compare" data-astro-cid-ivjjushy>Compare</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/playground" data-astro-cid-ivjjushy>Playground</a></li><li data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" aria-current="page" data-astro-cid-ivjjushy>Tutorial</a></li><li data-astro-cid-ivjjushy><a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>Source</a></li></ul><span class="version" aria-hidden="true" data-astro-cid-ivjjushy>v1.2.0</span></nav><div class="lesson-shell" data-astro-cid-ivjjushy><div class="lesson-tools" data-astro-cid-ivjjushy><button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="lesson-sidebar" data-astro-cid-ivjjushy><span aria-hidden="true" data-astro-cid-ivjjushy>≡ </span>Lessons</button></div><aside class="lesson-sidebar" id="lesson-sidebar" data-astro-cid-ivjjushy><nav aria-label="Tutorial lessons" data-astro-cid-ivjjushy><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Foundations</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Syntax and Atoms</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/orientation" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>01</span><span class="title" data-astro-cid-ivjjushy>Orientation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/first-document" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>02</span><span class="title" data-astro-cid-ivjjushy>Your first document</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/atoms-and-intent" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>03</span><span class="title" data-astro-cid-ivjjushy>Atoms and intent</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/numbers-units-vectors" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>04</span><span class="title" data-astro-cid-ivjjushy>Numbers, units, vectors</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>05</span><span class="title" data-astro-cid-ivjjushy>Forms and keyword pairing</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/syntax/comments-and-strings" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>06</span><span class="title" data-astro-cid-ivjjushy>Comments and strings</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Expressions and Bindings</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/safe-expressions" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>07</span><span class="title" data-astro-cid-ivjjushy>Safe expressions</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/foundations/expressions/bindings-and-control-flow" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>08</span><span class="title" data-astro-cid-ivjjushy>Bindings and control flow</span></a></li></ol></div></section><section class="part" data-astro-cid-ivjjushy><h2 data-astro-cid-ivjjushy>Schemas and Diagnostics</h2><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Reading Schemas</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/reading-plugin-schemas" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>09</span><span class="title" data-astro-cid-ivjjushy>Reading plugin schemas</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/discriminated-and-exclusive-forms" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>10</span><span class="title" data-astro-cid-ivjjushy>Discriminated and exclusive forms</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-shapes" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>11</span><span class="title" data-astro-cid-ivjjushy>Value kinds: shapes, vectors, units, bounds, representation</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>12</span><span class="title" data-astro-cid-ivjjushy>Value kinds: strings, members, heads, unions, slot-local forms</span></a></li><li class="lesson-link is-current" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/reading/cross-references" aria-current="page" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>13</span><span class="title" data-astro-cid-ivjjushy>Cross-references</span></a></li></ol></div><div class="chapter" data-astro-cid-ivjjushy><h3 data-astro-cid-ivjjushy>Repair and Style</h3><ol data-astro-cid-ivjjushy><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>14</span><span class="title" data-astro-cid-ivjjushy>Diagnostics-driven repair</span></a></li><li class="lesson-link" data-astro-cid-ivjjushy><a href="/pages/sjon/schemas/repair/style-portability-capstone" data-astro-cid-ivjjushy><span class="num" data-astro-cid-ivjjushy>15</span><span class="title" data-astro-cid-ivjjushy>Style, portability, capstone</span></a></li></ol></div></section></nav></aside><main id="main-content" class="lesson-main card card--main" tabindex="-1" data-astro-cid-ivjjushy><div class="card__deck" data-astro-cid-ivjjushy><div class="card__panel lesson-panel" data-astro-cid-ivjjushy><article class="lesson-article" data-astro-cid-n67f4zmd><header class="lesson-header" data-astro-cid-n67f4zmd><p class="crumbs" data-astro-cid-n67f4zmd><span data-astro-cid-n67f4zmd>Schemas and Diagnostics</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span data-astro-cid-n67f4zmd>Reading Schemas</span><span class="sep" aria-hidden="true" data-astro-cid-n67f4zmd>·</span><span class="num" data-astro-cid-n67f4zmd>Lesson 13</span></p><h1 data-astro-cid-n67f4zmd>Cross-references</h1></header><div class="lesson-body" data-astro-cid-n67f4zmd><h2 id="mental-model">Mental Model</h2>
 <p>A cross-reference is a symbol whose allowed values are discovered from
 the document being validated.</p>
 <p>Compare it with chapter 12:</p>
@@ -84,6 +84,22 @@ after <code>:name</code>; chapter 5’s pairing rule still applies.</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])    </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; symbol reference</span></span>
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"p0"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])  </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; string, wrong shape</span></span>
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:p0</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">])   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; keyword element, wrong shape</span></span></code></pre>
+<h3 id="a-cross-reference-as-half-of-a-scalar-or-ref">A Cross-Reference As Half Of A scalar-or-ref</h3>
+<p>This is how most authors first meet a cross-reference in practice. A
+slot that takes “a number, or a constant naming one” is the
+<code>scalar-or-ref</code> shorthand from chapter 12, and its reference half can be
+a cross-reference kind:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">define</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> MAX_BONES </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:value</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 128</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mesh</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bones</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 128</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)         </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; the literal half</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mesh</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :bones</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> MAX_BONES)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; the reference half — a cross-reference</span></span></code></pre>
+<p>The value of doing it this way is what happens on a typo. Left as the
+default, the reference half is a plain <code>symbol</code> and <code>MAX_BONE</code>
+validates clean, naming nothing. Backed by a cross-reference kind, it
+fails — reported as <code>not_cross_ref</code>, naming the form the symbol had to
+be declared by. The shorthand is a union underneath, but a symbol can
+only have meant its reference half, so the diagnostic is that half’s
+own rather than the union’s list of alternatives.</p>
 <h2 id="duplicate-declarations">Duplicate Declarations</h2>
 <p>A name should identify one target in its scope. If two declarations use
 the same name, the validator cannot choose which one the reference
@@ -106,6 +122,99 @@ declaration:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0 p1])</span></span></code></pre>
 <p>Duplicate checking happens inside the active scope. The next section
 explains what “scope” means for references.</p>
+<h2 id="two-targets-one-name">Two Targets, One Name</h2>
+<p>You just learned that two declarations sharing a name is an error. Here
+is the case where it is not, and why that turns out to matter.</p>
+<p>Duplicate checking is <strong>per target</strong>. Each target form gets its own
+namespace, so a <code>(render-pipeline :name same)</code> and a
+<code>(compute-pipeline :name same)</code> are each alone in theirs. Neither is a
+duplicate. Both are fine.</p>
+<p>Now suppose a slot accepts either one — a union of two reference kinds:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>render-pipeline-ref:  symbol, cross-ref to render-pipeline</span></span>
+<span class="line"><span>compute-pipeline-ref: symbol, cross-ref to compute-pipeline</span></span>
+<span class="line"><span>pipeline-ref:         union render-pipeline-ref | compute-pipeline-ref</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(dispatch ...)</span></span>
+<span class="line"><span>  :pipeline pipeline-ref</span></span></code></pre>
+<p>Before reading on, predict what happens here:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">compute-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :pipeline</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span></code></pre>
+<p>Ask yourself two questions. Does it validate? And which pipeline is
+<code>same</code>?</p>
+<p>The answers are “yes” and “the render one” — but only because
+<code>render-pipeline-ref</code> is listed first. That is lesson 12’s rule doing
+real work: alternatives are tried in declaration order, the first that
+accepts wins, and here <em>both</em> accept. Reorder the plugin’s alternatives
+and the same document means something different.</p>
+<p>So it validates, with a warning:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>union_ambiguous (warning)</span></span></code></pre>
+<p>Read it as: <em>this reference has two readings, and nothing but
+declaration order is choosing between them.</em> Your document is not
+broken. What is fragile is that a tool resolving <code>same</code> through its own
+lookup — an emitter, a code generator, an editor — may pick the compute
+pipeline, and neither it nor the validator would ever notice they
+disagreed.</p>
+<p>Two repairs, and the right one depends on what you meant:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; Repair A - the collision was an accident. Rename one.</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blit)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">compute-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> reduce)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :pipeline</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blit)</span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; Repair B - both names are deliberate; the SLOT was overloaded.</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; Ask the plugin author for two keys, one reference kind each.</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :render-pipeline</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; Repair C - the names were never meant to coexist. Ask the plugin author</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; for ONE reference kind over BOTH forms:</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">;</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">;   pipeline-ref: symbol, cross-ref to [render-pipeline compute-pipeline]</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">;</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; Then this document does not warn — it fails, at the declarations:</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">compute-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)   </span><span style="--shiki-light:#C2C3C5;--shiki-dark:#6B737C">; duplicate_cross_ref_target</span></span></code></pre>
+<p>Repair A is right most of the time. Reach for B when the two names are
+genuinely the same concept in two pipelines and renaming would be a lie.
+Repair C is the one to ask for when they are <em>never</em> meant to be the same
+name — see below.</p>
+<h3 id="one-namespace-or-two">One Namespace Or Two</h3>
+<p>Repairs B and C look similar and are opposites. Both change the schema;
+what they change is how many namespaces exist.</p>
+<p>A <strong>union of two reference kinds</strong> is two namespaces. <code>same</code> in each is
+two different names that happen to be spelled alike, so declaring both is
+fine and every <em>reference</em> is the ambiguous thing.</p>
+<p>A <strong>target group</strong> — one cross-reference over a list of forms — is one
+namespace. <code>same</code> declared twice is one name declared twice, so the
+<em>declaration</em> is the wrong thing and no reference is ever ambiguous.</p>
+<p>That is the whole distinction, and it is a question about your data, not
+about SJON: are a render pipeline and a compute pipeline allowed to share
+a name? If yes, the union is right and <code>union_ambiguous</code> is a fair warning
+about a genuinely overloaded slot. If no, the group is right and you want
+to hear about the collision once, where you made it.</p>
+<p>You cannot pick between them as a document author — <code>:target</code> is the
+plugin’s to write. What you can do is read the diagnostic and know which
+one you are inside: a warning on a reference means two namespaces, an
+error on a declaration means one.</p>
+<h3 id="when-it-stays-quiet">When It Stays Quiet</h3>
+<p>This warning is deliberately narrow, so do not expect it whenever a
+union overlaps:</p>
+<ul>
+<li><strong>A union over plain values.</strong> “A byte count or a named constant”
+overlaps by design, and first-match is the point. Nothing there names
+two entities, so nothing warns.</li>
+<li><strong>A member set that wins first.</strong> If the alternative that accepts is
+an enum rather than a reference, the slot denotes a member, not an
+entity — there is no “which one” to answer.</li>
+<li><strong>Two alternatives onto the same target.</strong> Both readings pick out the
+same declaration, so order decides nothing.</li>
+<li><strong>A target group.</strong> One namespace has nothing to be ambiguous between;
+the collision it would warn about is an error at the declarations
+instead.</li>
+</ul>
+<p>The one case it fires on is the one where order silently picks between
+two <em>different things</em>. Everything else is the union working as
+designed.</p>
 <h2 id="scope">Scope</h2>
 <p>When a plugin declares a cross-reference, it also defines where the
 validator should look for names. The authoring question is:</p>
@@ -193,6 +302,93 @@ those cases, the plugin may say the reference must be acyclic.</p>
 <p>Most cross-references are not acyclic. This rule only matters when the
 plugin docs explicitly say the kind or key participates in acyclic
 checking.</p>
+<h2 id="names-inside-a-string">Names Inside A String</h2>
+<p>Everything above assumes the name is written in your document as a
+symbol: <code>(phrase :name p0)</code> puts <code>p0</code> where the validator can read it.
+Plenty of names are not written that way. The uniforms of a shader are
+inside the shader source. The columns of a table are inside the DDL.
+The capture groups of a regex are inside the regex.</p>
+<p>A plugin can still make those names referenceable, by declaring a
+<strong>provider</strong>: a named extractor that reads one string and reports the
+names in it. The author-facing summary says so:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>(shader ...)</span></span>
+<span class="line"><span>  :name symbol required</span></span>
+<span class="line"><span>  :code string required     ; the provider reads this</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>(bind ...)</span></span>
+<span class="line"><span>  :uniform uniform-ref optional</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>uniforms:    provider, names out of a shader source</span></span>
+<span class="line"><span>uniform-ref: symbol, cross-reference to (shader ...),</span></span>
+<span class="line"><span>             provider uniforms, source key code</span></span></code></pre>
+<p>Read the last two lines together: the target form is still <code>(shader ...)</code>, but the member set no longer comes from a name key on that form.
+It comes from running <code>uniforms</code> over each shader’s <code>:code</code> string.</p>
+<p>This validates:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> """</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform float u_time;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform vec2 u_resolution;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"""</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_time)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_resolution)</span></span></code></pre>
+<p>Registry:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>shader names:    (unused - this route ignores :name)</span></span>
+<span class="line"><span>extracted names: u_time, u_resolution</span></span>
+<span class="line"><span>bind references: u_time, u_resolution</span></span></code></pre>
+<p>Note what is <em>not</em> in that registry. <code>blur</code> is a shader name, not a
+uniform name, and <code>:name</code> plays no part on this route. The legal values
+are exactly what the provider found.</p>
+<p>This does not validate:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> """</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform float u_time;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"""</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_tim)</span></span></code></pre>
+<p>Likely diagnostic: <code>not_cross_ref</code> - the same code as any other missed
+reference, because from the reference side nothing has changed. Repair
+the same way, by matching a name that exists:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_time)</span></span></code></pre>
+<p>Your side of the deal is unchanged: write a symbol, and it either is a
+member or it is not. What changed is where the member set came from.</p>
+<h3 id="the-provider-only-sees-your-string">The Provider Only Sees Your String</h3>
+<p>This is the rule worth memorising, because it is what keeps validation
+predictable:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>A provider is handed the string in your document,</span></span>
+<span class="line"><span>and nothing else.</span></span></code></pre>
+<p>Not the rest of your document. Not the schema. Not your filesystem, the
+network, or the clock. So a provider can tell you that <code>u_time</code> is
+declared inside the source you wrote; it can never tell you that a file
+exists on disk or that a column exists in a live database. Those are
+facts about the world, not about your document, and validating them
+would mean two hosts could disagree about the same file.</p>
+<p>The practical consequence: if a name is not in the string, no
+configuration will make the reference resolve. Add it to the source.</p>
+<h3 id="two-diagnostics-you-only-see-on-this-route">Two Diagnostics You Only See On This Route</h3>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "not a shader {{{"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_time)</span></span></code></pre>
+<p>Likely diagnostic: <code>cross_ref_extraction_failed</code>, reported <strong>on the
+<code>:code</code> string</strong>, not on the reference. The provider ran and rejected
+its input, so nobody knows what the legal uniform names were. Repair by
+fixing the source string the provider could not read.</p>
+<p>Notice where the diagnostic did <em>not</em> appear. <code>(bind :uniform u_time)</code>
+is silent, on purpose. Reporting <code>not_cross_ref</code> there would mean
+claiming <code>u_time</code> is absent from a member set that was never computed.
+On this route the references go unchecked when the extraction fails -
+neither accepted nor rejected.</p>
+<p>The other one is not about your document at all:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="text"><code><span class="line"><span>cross_ref_provider_unavailable</span></span></code></pre>
+<p>It means the host you are running could not execute the provider - the
+browser playground, for instance, cannot run plugin code at all. Same
+place (the source string), same silence at the references, but the
+repair is on the host side, not in your file. In an editor it usually
+arrives as a hint rather than an error, because nothing you wrote is
+wrong. If you see it in a build that is supposed to check these names,
+check that the plugin’s executable half is actually installed.</p>
+<h3 id="go-to-definition-lands-on-the-whole-string">Go-To-Definition Lands On The Whole String</h3>
+<p>An extracted name has no span of its own. SJON never parsed that shader
+source; it received a list of names. So “go to definition” on <code>u_time</code>
+takes you to the <code>:code</code> string that produced it, not to the line inside
+it. That is a limit of the route, not a bug in the editor.</p>
 <h2 id="diagnostic-cheat-sheet">Diagnostic Cheat Sheet</h2>
 
 
@@ -229,7 +425,22 @@ checking.</p>
 
 
 
-<table><thead><tr><th>Diagnostic</th><th>What it usually means</th><th>Repair</th></tr></thead><tbody><tr><td><code>not_cross_ref</code></td><td>The symbol is not in the visible registry.</td><td>Fix the spelling, add the declaration, or move the reference into the right scope.</td></tr><tr><td><code>duplicate_cross_ref_target</code></td><td>Two declarations use the same name in one scope.</td><td>Rename or remove one declaration.</td></tr><tr><td><code>cross_ref_outside_scope</code></td><td>A scoped reference appears outside its required enclosing form.</td><td>Put the declaration and reference inside that scope form.</td></tr><tr><td><code>cyclic_cross_ref</code></td><td>An acyclic reference chain loops back on itself.</td><td>Remove or change one edge in the cycle.</td></tr><tr><td><code>wrong_underlying</code></td><td>The declaration or reference is not the expected value shape, often string vs symbol.</td><td>Match the plugin’s declared type.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Diagnostic</th><th>What it usually means</th><th>Repair</th></tr></thead><tbody><tr><td><code>not_cross_ref</code></td><td>The symbol is not in the visible registry.</td><td>Fix the spelling, add the declaration, or move the reference into the right scope.</td></tr><tr><td><code>duplicate_cross_ref_target</code></td><td>Two declarations use the same name in one scope.</td><td>Rename or remove one declaration.</td></tr><tr><td><code>union_ambiguous</code> (warning)</td><td>A name exists in two of a union slot’s reference targets, so declaration order is picking which one.</td><td>Rename one declaration, or ask for the slot to be split into two single-kind keys.</td></tr><tr><td><code>cross_ref_outside_scope</code></td><td>A scoped reference appears outside its required enclosing form.</td><td>Put the declaration and reference inside that scope form.</td></tr><tr><td><code>cyclic_cross_ref</code></td><td>An acyclic reference chain loops back on itself.</td><td>Remove or change one edge in the cycle.</td></tr><tr><td><code>wrong_underlying</code></td><td>The declaration or reference is not the expected value shape, often string vs symbol.</td><td>Match the plugin’s declared type.</td></tr><tr><td><code>cross_ref_extraction_failed</code></td><td>A provider ran over a source string and rejected it, so that source contributed no names.</td><td>Fix the string the diagnostic points at; the references into it stay unchecked until it parses.</td></tr><tr><td><code>cross_ref_provider_unavailable</code></td><td>The host could not run the provider at all.</td><td>Nothing in the document is wrong - check the host, or accept that these names go unchecked here.</td></tr></tbody></table>
 <p>You may also see schema setup diagnostics such as
 <code>unknown_cross_ref_target</code>, <code>ambiguous_cross_ref_target</code>,
 <code>cross_ref_name_key_unknown</code>, <code>unknown_cross_ref_scope</code>, or
@@ -244,7 +455,12 @@ is misconfigured, not that an ordinary document reference is misspelled.</p>
 <li>List the declarations visible from the reference’s scope.</li>
 <li>Check exact symbol spelling and case.</li>
 <li>If the name exists twice, rename one declaration.</li>
+<li>If the slot is a union of reference kinds, check every target for the
+name - not just the one you had in mind.</li>
 <li>If the kind is acyclic, draw the arrows and remove the loop.</li>
+<li>If the kind names a provider, the list in step 4 is what the
+provider extracted from the source string, so read the source
+instead of looking for declarations.</li>
 </ol>
 <h2 id="exercises">Exercises</h2>
 <p>Predict the diagnostic, then repair.</p>
@@ -291,6 +507,35 @@ declaration:</p>
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:notes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [B4 A4 G4 E4])</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">track</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :sequence</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> [p0])</span></span></code></pre>
+<h3 id="same-name-two-targets">Same Name, Two Targets</h3>
+<p>Slot <code>:pipeline</code> is typed <code>pipeline-ref</code>, a union of
+<code>render-pipeline-ref | compute-pipeline-ref</code> in that order.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">compute-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :pipeline</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> same)</span></span></code></pre>
+<p>Two questions before you answer: does this validate, and which pipeline
+does <code>same</code> mean?</p>
+<p>It validates. <code>same</code> is the <em>render</em> pipeline, because that alternative
+is listed first. Neither declaration is a duplicate - duplicate checking
+is per target, and these are two targets. Likely diagnostic:
+<code>union_ambiguous</code>, at <code>warning</code> severity. Repair by renaming so the two
+targets do not collide:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">render-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">  :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blit)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">compute-pipeline</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> reduce)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dispatch</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :pipeline</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blit)</span></span></code></pre>
+<h3 id="overlapping-union-no-warning">Overlapping Union, No Warning</h3>
+<p>Slot <code>:size</code> is typed <code>byte-count | symbol</code>.</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :size</span><span style="--shiki-light:#1976D2;--shiki-dark:#F8F8F8"> 1024</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">buffer</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :size</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> default-size)</span></span></code></pre>
+<p>Both lines match a union whose alternatives overlap on shape, so is this
+the ambiguity case?</p>
+<p>No - clean, no diagnostic. <code>1024</code> matches <code>byte-count</code> and
+<code>default-size</code> matches the <code>symbol</code> half, and neither value names two
+different entities. <code>union_ambiguous</code> is about two <em>references</em> to two
+different things colliding on one name, not about a union having
+alternatives that could both accept.</p>
 <h3 id="outside-lexical-scope">Outside Lexical Scope</h3>
 <p>Assume <code>phrase-name</code> is scoped to <code>piece</code>:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0)</span></span>
@@ -320,20 +565,145 @@ piece:</p>
 <p>Likely diagnostic: <code>cyclic_cross_ref</code>. Repair by breaking the loop:</p>
 <pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p0 </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:parent</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span>
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">phrase</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> p1)</span></span></code></pre>
+<h3 id="provider-backed-reference">Provider-Backed Reference</h3>
+<p>Assume <code>uniform-ref</code> reads its names from a <code>(shader ...)</code>’s <code>:code</code>
+string through the <code>uniforms</code> provider:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> """</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform float u_time;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"""</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_resolution)</span></span></code></pre>
+<p>Likely diagnostic: <code>not_cross_ref</code>. The source declares one uniform and
+it is not that one. Repair by referencing a name the source contains:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_time)</span></span></code></pre>
+<p>Or by adding it to the source, which is where this route’s declarations
+live:</p>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> """</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform float u_time;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">uniform vec2 u_resolution;</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">"""</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_resolution)</span></span></code></pre>
+<h3 id="unreadable-provider-source">Unreadable Provider Source</h3>
+<pre class="astro-code astro-code-themes min-light min-dark" style="--shiki-light:#24292eff;--shiki-dark:#b392f0;--shiki-light-bg:#ffffff;--shiki-dark-bg:#1f1f1f;overflow-x: auto" tabindex="0" data-language="sjon"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">shader</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :name</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> blur </span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70">:code</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> "not a shader {{{"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bind</span><span style="--shiki-light:#22863A;--shiki-dark:#FFAB70"> :uniform</span><span style="--shiki-light:#24292EFF;--shiki-dark:#B392F0"> u_time)</span></span></code></pre>
+<p>Likely diagnostic: <code>cross_ref_extraction_failed</code>, on the <code>:code</code> string.
+Predict the second diagnostic too - there isn’t one. <code>(bind :uniform u_time)</code> is not reported, because the member set was never computed.
+Repair the source, and the reference becomes checkable again.</p>
 <section class="mastery-quiz" data-lesson="cross-references">
   <h2>Mastery Check</h2>
   <ol class="mc-list">
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">Two forms of different kinds both declare <code>:name same</code>. Is that a <code>duplicate_cross_ref_target</code>?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="0"> <span>It depends on the schema — per target, each name is alone in its own namespace; but one cross-reference over both forms makes them one namespace, and then it is a duplicate.</span></label>
+        <p class="mc-explanation" hidden>Duplicate checking is per <em>namespace</em>, and how many namespaces exist is the schema's choice. Two single-target reference kinds give two; one kind whose <code>:target</code> lists both forms gives one.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="1"> <span>Yes — a name may appear only once anywhere in the document.</span></label>
+        <p class="mc-explanation" hidden>Names are scoped to the namespace a cross-reference defines, not to the document. Two unrelated forms may each declare <code>intro</code> with no interaction at all.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-0" value="2"> <span>No — never; duplicate checking is always per target form.</span></label>
+        <p class="mc-explanation" hidden>This was the whole rule before target groups existed, and it is still the common case — but a <code>:target [a b]</code> group deliberately merges the two namespaces so the collision <em>is</em> reported.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A slot reports <code>duplicate_cross_ref_target</code> across two different forms. What does that tell you about the schema?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="0"> <span>The two forms are in one namespace — a target group — so the schema says those names are meant to be unique across both.</span></label>
+        <p class="mc-explanation" hidden>One namespace is exactly what a target group declares. The fix is to rename one declaration, because the schema is asserting the names should not collide.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="1"> <span>The plugin has a bug; duplicate checking should be per form.</span></label>
+        <p class="mc-explanation" hidden>It is a deliberate schema choice, not a bug. The alternative — a union of two reference kinds — keeps two namespaces and warns on each <em>reference</em> instead.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-1" value="2"> <span>The two forms come from the same plugin.</span></label>
+        <p class="mc-explanation" hidden>Plugin origin has nothing to do with it. What matters is whether one cross-reference names both forms.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">You get <code>union_ambiguous</code> on a reference. What would a target group have done with the same document?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="0"> <span>Reported an error at the two declarations instead, and left the reference alone.</span></label>
+        <p class="mc-explanation" hidden>The warning is about a <em>reference</em> with two readings; the group turns the same situation into an error about <em>declarations</em> that collided. Same document, different question asked.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="1"> <span>Reported the same warning — the two shapes are equivalent.</span></label>
+        <p class="mc-explanation" hidden>They differ precisely here. A union keeps one namespace per alternative, so the names never collide and only references are ambiguous.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-2" value="2"> <span>Accepted it silently, since a group has no ordering.</span></label>
+        <p class="mc-explanation" hidden>A group is not silent about it — it is the loudest of the two, and it complains earlier: at the declarations rather than at every use.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">A union slot accepts either of two reference kinds, and a name exists in both targets. What happens?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="0"> <span>The document is rejected with <code>union_no_branch_matched</code>.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="1"> <span>It validates silently; the last alternative wins.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-3" value="2"> <span>It validates with a <code>union_ambiguous</code> warning — first match wins, and declaration order is what picks the entity.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">Why is <code>union_ambiguous</code> a warning rather than an error?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="0"> <span>Because warnings are cheaper to compute than errors.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="1"> <span>The behaviour is defined and the document is valid — what is fragile is that another tool resolving the name its own way would silently disagree.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-4" value="2"> <span>Because the validator cannot tell whether the name is really ambiguous.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="1">
+      <p class="mc-q">A slot is typed "a byte count or a named constant" and you write <code>1024</code>. Does that warn as ambiguous?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-5" value="0"> <span>Yes — any union whose alternatives overlap is ambiguous.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-5" value="1"> <span>No — the alternatives overlap by design and neither names an entity; the warning is only about two references colliding on one name.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-5" value="2"> <span>Yes, unless the plugin marks the union as ordered.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
     <li class="mc-item" data-correct="1">
       <p class="mc-q">What are the two sides of a cross-reference?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-cross-references-0" value="0"> <span>Reader side and writer side.</span></label>
+        <label><input type="radio" name="q-cross-references-6" value="0"> <span>Reader side and writer side.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-0" value="1"> <span>A declaration that introduces a name, and a reference that uses it.</span></label>
+        <label><input type="radio" name="q-cross-references-6" value="1"> <span>A declaration that introduces a name, and a reference that uses it.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-0" value="2"> <span>A schema side and a host side.</span></label>
+        <label><input type="radio" name="q-cross-references-6" value="2"> <span>A schema side and a host side.</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -342,13 +712,13 @@ piece:</p>
       <p class="mc-q">Why can a reference appear before the form it names?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-cross-references-1" value="0"> <span>The validator runs in two passes — it builds the registry first, then checks references.</span></label>
+        <label><input type="radio" name="q-cross-references-7" value="0"> <span>The validator runs in two passes — it builds the registry first, then checks references.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-1" value="1"> <span>Order is enforced; the reference must follow the declaration.</span></label>
+        <label><input type="radio" name="q-cross-references-7" value="1"> <span>Order is enforced; the reference must follow the declaration.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-1" value="2"> <span>Only when the reference is a string.</span></label>
+        <label><input type="radio" name="q-cross-references-7" value="2"> <span>Only when the reference is a string.</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -357,13 +727,13 @@ piece:</p>
       <p class="mc-q">Why does a typo on a phrase reference produce <code>not_cross_ref</code> instead of <code>not_member</code>?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-cross-references-2" value="0"> <span>They mean the same thing.</span></label>
+        <label><input type="radio" name="q-cross-references-8" value="0"> <span>They mean the same thing.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-2" value="1"> <span>Because the plugin author chose a different code.</span></label>
+        <label><input type="radio" name="q-cross-references-8" value="1"> <span>Because the plugin author chose a different code.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-2" value="2"> <span>The legal values come from the document's declarations, not from a closed plugin set — the diagnostic distinguishes "no such reference" from "not in the member list".</span></label>
+        <label><input type="radio" name="q-cross-references-8" value="2"> <span>The legal values come from the document's declarations, not from a closed plugin set — the diagnostic distinguishes "no such reference" from "not in the member list".</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -372,13 +742,13 @@ piece:</p>
       <p class="mc-q">Why is <code>"p0"</code> not the same declaration as <code>p0</code>?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-cross-references-3" value="0"> <span>Strings and symbols are different value kinds; cross-reference targets are symbols.</span></label>
+        <label><input type="radio" name="q-cross-references-9" value="0"> <span>Strings and symbols are different value kinds; cross-reference targets are symbols.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-3" value="1"> <span>They are the same — strings and symbols interchange.</span></label>
+        <label><input type="radio" name="q-cross-references-9" value="1"> <span>They are the same — strings and symbols interchange.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-3" value="2"> <span>Only when wrapped in a form.</span></label>
+        <label><input type="radio" name="q-cross-references-9" value="2"> <span>Only when wrapped in a form.</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -387,13 +757,46 @@ piece:</p>
       <p class="mc-q">What is the first repair to try for <code>cross_ref_outside_scope</code>?</p>
       <ul class="mc-options">
       <li>
-        <label><input type="radio" name="q-cross-references-4" value="0"> <span>Rename the declaration.</span></label>
+        <label><input type="radio" name="q-cross-references-10" value="0"> <span>Rename the declaration.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-4" value="1"> <span>Move the reference inside the enclosing scope form, or declare the name in the right scope.</span></label>
+        <label><input type="radio" name="q-cross-references-10" value="1"> <span>Move the reference inside the enclosing scope form, or declare the name in the right scope.</span></label>
       </li>
       <li>
-        <label><input type="radio" name="q-cross-references-4" value="2"> <span>Quote the symbol.</span></label>
+        <label><input type="radio" name="q-cross-references-10" value="2"> <span>Quote the symbol.</span></label>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="2">
+      <p class="mc-q">Where does a provider-backed kind get its legal names from?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-11" value="0"> <span>Whatever the provider finds in the environment - files on disk, a live database, a running service.</span></label>
+        <p class="mc-explanation" hidden>That would be an environmental check, not validation. A provider never sees the filesystem, the network, or the clock - two hosts validating the same file have to reach the same answer.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-11" value="1"> <span>A closed list the plugin writes down, like a member set.</span></label>
+        <p class="mc-explanation" hidden>That is a member set (chapter 12). A provider route computes the list per document, from a string in it.</p>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-11" value="2"> <span>The string inside the document that the provider is handed, and nothing else.</span></label>
+        <p class="mc-explanation" hidden>Correct. The provider receives one string - the value under <code>:source-key</code> - and reports the names in it.</p>
+      </li>
+      </ul>
+      <p class="mc-feedback" hidden></p>
+    </li>
+    <li class="mc-item" data-correct="0">
+      <p class="mc-q">A provider rejects a shader source, and <code>cross_ref_extraction_failed</code> fires on that string. Why is the reference to a uniform not also reported?</p>
+      <ul class="mc-options">
+      <li>
+        <label><input type="radio" name="q-cross-references-12" value="0"> <span>Because the member set was never computed, so the reference is unchecked - not accepted, and not rejected.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-12" value="1"> <span>Because references are only checked once per document.</span></label>
+      </li>
+      <li>
+        <label><input type="radio" name="q-cross-references-12" value="2"> <span>It is reported, as a second <code>not_cross_ref</code> on the same line.</span></label>
       </li>
       </ul>
       <p class="mc-feedback" hidden></p>
@@ -404,7 +807,7 @@ piece:</p>
     <button type="button" class="mc-reset" hidden>Reset</button>
     <p class="mc-score" hidden></p>
   </div>
-</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: strings, members, heads, unions, slot-local forms</span></a><a class="next" href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Diagnostics-driven repair</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.0: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.0.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
+</section></div><nav class="lesson-prev-next" aria-label="Lesson navigation" data-astro-cid-n67f4zmd><a class="prev" href="/pages/sjon/schemas/reading/value-kinds-refinements" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>← Previous</span><span class="title" data-astro-cid-n67f4zmd>Value kinds: strings, members, heads, unions, slot-local forms</span></a><a class="next" href="/pages/sjon/schemas/repair/diagnostics-driven-repair" data-astro-cid-n67f4zmd><span class="dir" data-astro-cid-n67f4zmd>Next →</span><span class="title" data-astro-cid-n67f4zmd>Diagnostics-driven repair</span></a></nav></article></div></div></main></div><footer class="site-footer" data-astro-cid-ivjjushy><p data-astro-cid-ivjjushy>SJON 1.2: stable language, documented plainly.</p><p class="muted" data-astro-cid-ivjjushy>v1.2.0 · <abbr title="Creative Commons Zero 1.0 Universal" data-astro-cid-ivjjushy>CC0-1.0</abbr> · <a href="https://git.hugodaniel.com/releases/sjon" rel="external" data-astro-cid-ivjjushy>git.hugodaniel.com/releases/sjon</a></p></footer><script>
         (function () {
             const sideBtn = document.querySelector('.sidebar-toggle');
             const aside = document.getElementById('lesson-sidebar');
