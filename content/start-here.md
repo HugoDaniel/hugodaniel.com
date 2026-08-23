@@ -44,14 +44,19 @@ Where I spend most of my time: WebGPU, WGSL, and color.
 I like building tools for creative code, and lately everything is
 s-expressions.
 
-- [S-expressions the wrong way](/posts/sjon/): the detours that led me to
-  SJON, my s-expression data format.
 - [S-Rausch](/posts/s-rausch/): the demoscene DSL behind Farbrausch's
   Masagin, and the start of that obsession.
-- [PNGine](/posts/introducing-pngine/): WebGPU shaders and pipelines bundled
-  into a PNG file.
-- [Introducing miniray](/posts/miniray/): a WGSL minifier born from a
-  demoparty disaster.
+- [S-expressions the wrong way](/posts/sjon/): the detours that led me to
+  SJON, my s-expression data format, where the schema replaces the macro.
+- [Declarative WebGPU with S-expressions](/posts/declarative-webgpu-with-s-expressions/):
+  where that thread lands today. A whole WebGPU pipeline written as data,
+  with players you can run on the page. This is the current word on pngine;
+  [the first introduction](/posts/introducing-pngine/) tells how it started,
+  bundled inside a PNG file.
+- [wgslender](/posts/wgslender-my-wgsl-toolchain/): my WGSL toolchain, grown
+  out of counting bytes for demos. It replaced
+  [miniray](/posts/miniray/), the minifier a demoparty disaster made me
+  write.
 - [The Zen of index.html](/posts/using-just-an-index-to-develop-a-web-app/):
   the case for developing a web app with nothing but one file.
 - [The life of a Web Component](/posts/the-life-of-a-web-component-series/):

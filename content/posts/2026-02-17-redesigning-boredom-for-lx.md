@@ -7,7 +7,7 @@ extra = { place = "Amadora", author = "Hugo Daniel", social_img = "/images/ergon
 
 **TL;DR**
 
-> I talk about the changes made to bring [LLM Experience design](/posts/why-llms-keep-editing-the-wrong-file/) to `boreDOM`, my testbed zero-build JS runtime that collapses HTML, CSS, JS and state into a single HTML file so models can locate the source of an effect in place.
+> I talk about the changes made to bring [LLM Experience design](/posts/rip-rest-in-prompt/) to `boreDOM`, my testbed zero-build JS runtime that collapses HTML, CSS, JS and state into a single HTML file so models can locate the source of an effect in place.
 
 ![I'm a machine and so are you](/images/machines_of_code.png)
 
@@ -35,7 +35,7 @@ The rest of this post is about that shift from human-readable structure to machi
 
 ### boreDOM
 
-For boredom the [previous LX (LLM-Experience) guides](/posts/why-llms-keep-editing-the-wrong-file/) translated into the following design principles:
+For boredom the [previous LX (LLM-Experience) guides](/posts/rip-rest-in-prompt/) translated into the following design principles:
 
 1. Single place of truth: UI structure + style + behavior live together.
 1. Instrumented runtime, everything is machine parseable.
