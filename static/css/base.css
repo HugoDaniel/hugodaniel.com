@@ -361,7 +361,9 @@ main article header {
   overflow: visible;
 	position: sticky;
 	z-index: 10;
-	top: -8rem;
+	/* Static fallback: fits a one line title. /scripts/sticky-header.js measures
+	   the real header and overrides this so the nav row pins exactly. */
+	top: var(--sticky-header-top, -8rem);
   background-color: white;
 }
 
