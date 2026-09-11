@@ -92,17 +92,19 @@ accepts, and diagnostics precise enough to underline the typo.</p>
 <p>What you do not get is a programming language. There are no imports, no
 I/O, no mutation, no recursion, and no way for a document to reach out
 and touch the world. Reading a SJON file costs what reading data costs.
-That claim gets tested in section 7, where we put arithmetic inside a
-document, and I have to show you why the arithmetic doesn’t break it.</p>
+That claim gets tested in <a href="/pages/sjon/foundations/expressions/safe-expressions">Safe expressions</a>, where we
+put arithmetic inside a document, and I have to show you why the
+arithmetic doesn’t break it.</p>
 <h2 id="the-example-well-keep-coming-back-to">The Example We’ll Keep Coming Back To</h2>
 <p>Here is the smallest thing worth reading:</p>
 <div class="expressive-code"><link rel="stylesheet" href="/pages/sjon/_astro/ec.w36nc.css"><script type="module" src="/pages/sjon/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="sjon"><code><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#82AAFF;--1:#3B61B0">camera</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#CAECE6;--1:#8844AE">:ortho</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#CAECE6;--1:#8844AE">:zoom</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">2</span><span style="--0:#D6DEEB;--1:#403F53">)</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="(camera :ortho :zoom 2)"><div></div></button></div></figure></div>
 <p><a href="/pages/sjon/playground#s=KGNhbWVyYSA6b3J0aG8gOnpvb20gMik">Open in playground →</a></p>
 <p>I’m going to use this camera for the entire course. Every time a new
 piece of machinery shows up, we’ll point it at the same camera and see
-what it says. By section 8 that one form will be carrying units,
-comments, an expression, and a schema, and you’ll have watched every
-piece arrive.</p>
+what it says. By the time we reach
+<a href="/pages/sjon/schemas/reading/reading-plugin-schemas">Reading plugin schemas</a>, that one form
+will be carrying units, comments, an expression, and a schema, and
+you’ll have watched every piece arrive.</p>
 <p>Read it as a tree:</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">(camera :ortho :zoom 2)</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53"> </span></span><span style="--0:#d6deeb;--1:#403f53">|       |      |</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53"> </span></span><span style="--0:#d6deeb;--1:#403f53">|       |      +-- kvpair: key `:zoom`, value `2`</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53"> </span></span><span style="--0:#d6deeb;--1:#403f53">|       +--------- positional flag: the keyword `:ortho`, standing alone</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53"> </span></span><span style="--0:#d6deeb;--1:#403f53">+----------------- head: the symbol `camera`</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="(camera :ortho :zoom 2) |       |      | |       |      +-- kvpair: key &#x60;:zoom&#x60;, value &#x60;2&#x60; |       +--------- positional flag: the keyword &#x60;:ortho&#x60;, standing alone +----------------- head: the symbol &#x60;camera&#x60;"><div></div></button></div></figure></div>
 <p>The whole form is one <strong>root</strong>. A SJON document is a flat list of roots,
@@ -141,8 +143,8 @@ expression that evaluates to 8 only when the active schema declares <code>*</cod
 to be an expression function and the host asks for that value to be
 evaluated. Nothing in the file makes it happen.</p>
 <p>I’ve glossed over how the schema declares that, and I’m going to keep
-glossing over it until section 7. Right now the only thing to hold onto
-is that parens are not a call.</p>
+glossing over it until <a href="/pages/sjon/foundations/expressions/safe-expressions">Safe expressions</a>. Right now
+the only thing to hold onto is that parens are not a call.</p>
 <h2 id="worked-example">Worked Example</h2>
 <p>Now the same reading on something bigger. This is
 <a href="https://git.hugodaniel.com/releases/sjon/src/branch/main/examples/basic.sjon"><code>../../examples/basic.sjon</code></a>, which is our
@@ -171,14 +173,15 @@ something without explaining it. Look at the camera:</p>
 <p>Both children start with a colon, both are keywords, and yet I have
 drawn one of them as a flag and the other as a key with a value. The
 rule that decides which is which is one line long, it is the only rule
-in SJON that people get wrong, and section 5 is where I explain it
+in SJON that people get wrong, and
+<a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing">Forms and keyword pairing</a> is where I explain it
 properly. Until then, notice every place two keywords sit next to each
 other, and remember that I owe you an explanation.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Open <a href="https://git.hugodaniel.com/releases/sjon/src/branch/main/examples/basic.sjon"><code>../../examples/basic.sjon</code></a>.</li>
 <li>Count the root values, then count the forms. The two numbers are very
-different, and knowing why is most of this section.</li>
+different, and knowing why is most of this lesson.</li>
 <li>Mark each vector and write down its likely role: a size, a colour, a
 point, or a list of points.</li>
 <li>Find every string and decide whether it is a label, a note, or a

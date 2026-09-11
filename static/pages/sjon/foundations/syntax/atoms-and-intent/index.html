@@ -116,9 +116,10 @@ first character, which is a deliberate concession to music: <code>C#4</code> and
 <code>F#m</code> are perfectly good symbols, so a plugin that models note names
 doesn’t have to make its authors write <code>"C#4"</code> in quotes.</p>
 <p>The reason for the restriction on the first character is that <code>#</code> there
-already means something. <code>#|</code> opens a block comment, which section 6
-covers, so a token starting with <code>#</code> can never be a symbol. <code>#note</code> is
-not a name; it is the start of something the lexer reads differently.</p>
+already means something. <code>#|</code> opens a block comment, which
+<a href="/pages/sjon/foundations/syntax/comments-and-strings">Comments and strings</a> covers, so a token starting with
+<code>#</code> can never be a symbol. <code>#note</code> is not a name; it is the start of
+something the lexer reads differently.</p>
 <h2 id="worked-example">Worked Example</h2>
 <p>Look again at the camera above, and then at the version that goes wrong:</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="sjon"><code><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#82AAFF;--1:#3B61B0">camera</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#CAECE6;--1:#8844AE">:projection</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#CAECE6;--1:#8844AE">:ortho</span><span style="--0:#D6DEEB;--1:#403F53">)</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="(camera :projection :ortho)"><div></div></button></div></figure></div>
@@ -127,10 +128,11 @@ not a name; it is the start of something the lexer reads differently.</p>
 keywords in a row and produces two positional flags, <code>:projection</code> and
 <code>:ortho</code>, neither of which is a kvpair, and the form now has no
 projection set at all.</p>
-<p>I keep flagging this and keep not explaining it, and section 5 is where
-that debt gets paid in full. For now, treat it as a hard authoring rule:
-<strong>a keyword is never the value of a kvpair.</strong> When a slot wants a named
-choice, the value goes in as a symbol.</p>
+<p>I keep flagging this and keep not explaining it, and
+<a href="/pages/sjon/foundations/syntax/forms-and-keyword-pairing">Forms and keyword pairing</a> is where that debt gets
+paid in full. For now, treat it as a hard authoring rule: <strong>a keyword is
+never the value of a kvpair.</strong> When a slot wants a named choice, the
+value goes in as a symbol.</p>
 <h2 id="exercises">Exercises</h2>
 <p>Choose the value kind for each slot, and say what the choice tells a
 future reader:</p>
